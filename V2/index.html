@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="FL Class E">
+<meta name="theme-color" content="#0a1628">
+<title>Florida Class E &ndash; Patente USA</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+<script src="fl_all.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+:root{
+  --navy:#0a1628;--blue:#1a3a6b;--blue2:#14305a;
+  --gold:#f0b429;--gold2:#d99e1e;--goldfaint:rgba(240,180,41,.13);
+  --red:#c0392b;--green:#1a7a4a;
+  --white:#f8f4eb;--gray:#7a8499;--light:#e8e0d0;--card:#ffffff;
+  --shadow:0 4px 24px rgba(10,22,40,.22);
+  --st:env(safe-area-inset-top,0px);--sb:env(safe-area-inset-bottom,0px);
+  --sl:env(safe-area-inset-left,0px);--sr:env(safe-area-inset-right,0px)
+}
+html{-webkit-text-size-adjust:100%}
+body{font-family:"Source Sans 3",sans-serif;background:var(--navy);color:var(--white);
+  min-height:100vh;min-height:-webkit-fill-available;overflow-x:hidden;
+  background-image:repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(255,255,255,.02) 39px,rgba(255,255,255,.02) 40px),
+    repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(255,255,255,.02) 39px,rgba(255,255,255,.02) 40px)}
+header{background:var(--blue);border-bottom:3px solid var(--gold);padding:12px 18px;
+  padding-top:calc(12px + var(--st));padding-left:calc(18px + var(--sl));padding-right:calc(18px + var(--sr));
+  display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:200;
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.hdr-flag{font-size:1.7rem;flex-shrink:0}
+.hdr-txt{flex:1;min-width:0}
+.hdr-txt h1{font-family:"Oswald",sans-serif;font-size:clamp(.9rem,4vw,1.2rem);font-weight:700;
+  color:var(--white);line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hdr-txt p{font-size:clamp(.6rem,2.6vw,.75rem);color:var(--gold);letter-spacing:.06em;text-transform:uppercase;margin-top:2px}
+.badge{background:var(--gold);color:var(--navy);font-family:"Oswald",sans-serif;font-size:.68rem;
+  font-weight:700;letter-spacing:.07em;padding:4px 9px;border-radius:4px;text-transform:uppercase;flex-shrink:0}
+.mode-tabs{display:flex;background:var(--blue2);border-bottom:2px solid rgba(240,180,41,.2);
+  padding:0 calc(12px + var(--sl));gap:0;position:sticky;top:calc(52px + var(--st));z-index:190}
+.mode-tab{flex:1;padding:13px 6px;text-align:center;font-family:"Oswald",sans-serif;
+  font-size:.82rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--gray);border-bottom:3px solid transparent;cursor:pointer;transition:all .2s;
+  -webkit-user-select:none;user-select:none;margin-bottom:-2px}
+.mode-tab.active{color:var(--gold);border-bottom-color:var(--gold)}
+.mode-tab span.tab-icon{display:block;font-size:1.2rem;margin-bottom:2px}
+.screen{padding:20px 16px calc(24px + var(--sb));
+  padding-left:calc(16px + var(--sl));padding-right:calc(16px + var(--sr));
+  max-width:680px;margin:0 auto;display:none}
+.screen.active{display:block}
+.card{background:var(--blue);border:1px solid rgba(240,180,41,.22);border-radius:16px;
+  padding:24px 20px;box-shadow:var(--shadow);margin-bottom:18px}
+.card h2{font-family:"Oswald",sans-serif;font-size:clamp(1.1rem,5vw,1.4rem);color:var(--gold);margin-bottom:8px}
+.card > p{font-size:.88rem;color:var(--light);line-height:1.5;margin-bottom:20px}
+.opt-row{margin-bottom:22px}
+.opt-row label{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;
+  color:var(--gold);margin-bottom:8px;font-weight:600}
+#q-count-display{font-family:"Oswald",sans-serif;font-size:2.4rem;color:var(--gold);
+  text-align:center;font-weight:700;line-height:1;margin-bottom:8px}
+input[type=range]{-webkit-appearance:none;width:100%;height:6px;border-radius:99px;
+  background:rgba(255,255,255,.15);outline:none;cursor:pointer}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:28px;height:28px;
+  border-radius:50%;background:var(--gold);cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.range-labels{display:flex;justify-content:space-between;font-size:.65rem;color:var(--gray);margin-top:6px}
+.cat-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.cat-btn{background:rgba(255,255,255,.05);border:1.5px solid rgba(240,180,41,.25);border-radius:10px;
+  padding:11px 10px;color:var(--light);font-size:.82rem;font-family:"Source Sans 3",sans-serif;
+  cursor:pointer;transition:all .15s;text-align:left;-webkit-user-select:none;user-select:none;line-height:1.2}
+.cat-btn.selected{background:var(--gold);color:var(--navy);border-color:var(--gold);font-weight:600}
+.db-info{background:var(--goldfaint);border:1px solid rgba(240,180,41,.25);border-radius:10px;
+  padding:12px 14px;margin-bottom:4px;font-size:.78rem;color:var(--light);line-height:1.7}
+.db-info b{color:var(--gold)}
+.cat-counts{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:6px}
+.cat-count{font-size:.72rem;color:var(--gray)}
+.stats-row{display:flex;gap:10px;justify-content:center;margin-top:18px}
+.stat-box{flex:1;background:rgba(255,255,255,.06);border-radius:10px;padding:10px 6px;text-align:center}
+.stat-box .sv{font-family:"Oswald",sans-serif;font-size:1.4rem;color:var(--gold);font-weight:700}
+.stat-box .sl{font-size:.62rem;text-transform:uppercase;color:var(--gray);letter-spacing:.05em;margin-top:2px}
+.btn-primary{width:100%;margin-top:20px;padding:17px;background:var(--gold);color:var(--navy);
+  font-family:"Oswald",sans-serif;font-size:1.1rem;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;border:none;border-radius:12px;cursor:pointer;
+  -webkit-user-select:none;user-select:none;transition:opacity .15s;min-height:54px}
+.btn-primary:active{opacity:.85}
+.install-hint{margin-top:16px;background:var(--goldfaint);border:1px solid rgba(240,180,41,.25);
+  border-radius:10px;padding:12px 14px;font-size:.78rem;color:var(--light);line-height:1.5;
+  text-align:center;display:none}
+.install-hint b{color:var(--gold)}
+.progress-wrap{background:rgba(255,255,255,.08);border-radius:99px;height:6px;margin-bottom:8px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--gold),#ffe066);border-radius:99px;transition:width .4s ease}
+.progress-meta{display:flex;justify-content:space-between;font-size:.76rem;color:var(--gray);margin-bottom:16px}
+.progress-meta b{color:var(--gold)}
+.q-card{background:var(--card);color:var(--navy);border-radius:16px;padding:20px 18px;
+  box-shadow:var(--shadow);position:relative;overflow:hidden}
+.q-card::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;
+  background:linear-gradient(90deg,var(--gold),#ffd966)}
+.q-meta{display:flex;align-items:center;gap:8px;margin-bottom:12px}
+.q-num{font-family:"Oswald",sans-serif;font-size:.72rem;font-weight:600;color:var(--gray);
+  text-transform:uppercase;letter-spacing:.1em}
+.q-cat-tag{font-size:.68rem;background:var(--light);color:var(--blue);border-radius:5px;
+  padding:2px 8px;font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+.q-text-en{font-size:clamp(.95rem,3.8vw,1.08rem);font-weight:600;color:var(--navy);line-height:1.45;margin-bottom:6px}
+.q-text-it{font-size:clamp(.8rem,3.2vw,.88rem);color:#4a5568;font-style:italic;line-height:1.45;
+  margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--light)}
+.opts-list{list-style:none;display:flex;flex-direction:column;gap:9px}
+.opt-btn{display:flex;align-items:flex-start;gap:10px;width:100%;text-align:left;padding:13px 14px;
+  border-radius:10px;border:2px solid #d8d0c4;background:#fdfaf5;cursor:pointer;
+  transition:border-color .15s,background .15s;font-family:"Source Sans 3",sans-serif;
+  min-height:52px;-webkit-user-select:none;user-select:none}
+.opt-btn:active:not(:disabled){border-color:var(--blue);background:#eef2fb}
+.opt-letter{display:flex;align-items:center;justify-content:center;width:24px;height:24px;min-width:24px;
+  border-radius:50%;background:var(--light);color:var(--blue);font-family:"Oswald",sans-serif;
+  font-size:.75rem;font-weight:700;transition:all .15s;margin-top:1px}
+.opt-content{flex:1}
+.opt-en{font-size:clamp(.85rem,3.4vw,.93rem);color:#1a202c;font-weight:600;line-height:1.35}
+.opt-it{font-size:clamp(.72rem,2.8vw,.78rem);color:#5a6478;font-style:italic;display:block;margin-top:2px;line-height:1.3}
+.opt-btn.correct{border-color:var(--green)!important;background:#e6f7ef!important}
+.opt-btn.correct .opt-letter{background:var(--green);color:#fff}
+.opt-btn.wrong{border-color:var(--red)!important;background:#fdecea!important}
+.opt-btn.wrong .opt-letter{background:var(--red);color:#fff}
+.opt-btn:disabled{cursor:default}
+.feedback-box{margin-top:14px;border-radius:10px;padding:13px 14px;
+  font-size:clamp(.78rem,3.1vw,.86rem);line-height:1.55;display:none}
+.feedback-box.show{display:block}
+.feedback-box.ok{background:#e6f7ef;border-left:4px solid var(--green);color:#155832}
+.feedback-box.ko{background:#fdecea;border-left:4px solid var(--red);color:#7b1313}
+.btn-next{width:100%;margin-top:14px;padding:16px;background:var(--blue);color:#fff;
+  font-family:"Oswald",sans-serif;font-size:1rem;font-weight:600;letter-spacing:.06em;
+  text-transform:uppercase;border:none;border-radius:10px;cursor:pointer;display:none;
+  min-height:52px;-webkit-user-select:none;user-select:none;transition:opacity .15s}
+.btn-next:active{opacity:.85}
+.btn-next.show{display:block}
+.results-card{background:var(--blue);border:1px solid rgba(240,180,41,.28);border-radius:16px;
+  padding:30px 20px;box-shadow:var(--shadow);text-align:center}
+.result-icon{font-size:3rem;margin-bottom:8px}
+.result-verdict{font-family:"Oswald",sans-serif;font-size:clamp(1.5rem,6vw,2rem);
+  font-weight:700;color:var(--gold);margin-bottom:6px}
+.result-sub{font-size:.88rem;color:var(--light);margin-bottom:24px;line-height:1.4}
+.score-circle{width:120px;height:120px;border-radius:50%;margin:0 auto 22px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  border:4px solid var(--gold);background:rgba(240,180,41,.1)}
+.score-pct{font-family:"Oswald",sans-serif;font-size:2.2rem;font-weight:700;color:var(--gold);line-height:1}
+.score-label{font-size:.68rem;text-transform:uppercase;color:var(--gray);letter-spacing:.08em}
+.results-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:24px}
+.rg-item{background:rgba(255,255,255,.06);border-radius:10px;padding:11px 6px}
+.rg-val{font-family:"Oswald",sans-serif;font-size:1.5rem;font-weight:700}
+.rg-val.green{color:#52d48a}.rg-val.red{color:#f87171}
+.rg-lbl{font-size:.62rem;text-transform:uppercase;color:var(--gray);letter-spacing:.04em;margin-top:2px}
+.btn-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.btn-ghost{flex:1;min-width:130px;background:transparent;border:1.5px solid var(--gold);color:var(--gold);
+  padding:13px 16px;border-radius:10px;font-family:"Oswald",sans-serif;font-size:.9rem;
+  font-weight:600;letter-spacing:.05em;text-transform:uppercase;cursor:pointer;
+  min-height:50px;-webkit-user-select:none;user-select:none;transition:all .15s}
+.btn-ghost:active{background:var(--gold);color:var(--navy)}
+.btn-solid{flex:1;min-width:130px;background:var(--gold);color:var(--navy);padding:13px 16px;
+  border:none;border-radius:10px;font-family:"Oswald",sans-serif;font-size:.9rem;font-weight:700;
+  letter-spacing:.05em;text-transform:uppercase;cursor:pointer;min-height:50px;
+  -webkit-user-select:none;user-select:none;transition:opacity .15s}
+.btn-solid:active{opacity:.85}
+.review-section{margin-top:26px;display:none;text-align:left}
+.review-section.show{display:block}
+.review-section h3{font-family:"Oswald",sans-serif;font-size:1rem;color:var(--gold);margin-bottom:12px}
+.review-item{background:var(--card);color:var(--navy);border-radius:10px;padding:14px 15px;
+  margin-bottom:10px;border-left:4px solid transparent}
+.review-item.ok{border-color:var(--green)}.review-item.ko{border-color:var(--red)}
+.review-q{font-weight:600;font-size:clamp(.82rem,3.3vw,.9rem);margin-bottom:3px;line-height:1.35}
+.review-q-it{font-size:clamp(.72rem,2.8vw,.78rem);color:#5a6478;font-style:italic;margin-bottom:8px;line-height:1.3}
+.review-ans{font-size:clamp(.76rem,3vw,.82rem)}
+.review-ans .ca{color:var(--green);font-weight:600}
+.review-ans .wa{color:var(--red);font-weight:600}
+/* STUDIO */
+.studio-header{margin-bottom:20px}
+.studio-header h2{font-family:"Oswald",sans-serif;font-size:1.5rem;color:var(--gold);margin-bottom:4px}
+.studio-header p{font-size:.85rem;color:var(--light);line-height:1.5}
+.chapter-list{display:flex;flex-direction:column;gap:10px;margin-bottom:24px}
+.chapter-btn{background:var(--blue);border:1.5px solid rgba(240,180,41,.25);border-radius:14px;
+  padding:16px 18px;display:flex;align-items:center;gap:14px;cursor:pointer;
+  transition:border-color .15s,background .15s;-webkit-user-select:none;user-select:none;
+  text-align:left;width:100%}
+.chapter-btn:active{background:rgba(240,180,41,.08)}
+.chapter-btn.done{border-color:var(--green)}
+.ch-icon{font-size:1.6rem;flex-shrink:0;width:42px;text-align:center}
+.ch-body{flex:1;min-width:0}
+.ch-title{font-family:"Oswald",sans-serif;font-size:1rem;color:var(--white);line-height:1.2;margin-bottom:2px}
+.ch-sub{font-size:.75rem;color:var(--gray);line-height:1.3}
+.ch-badge{font-family:"Oswald",sans-serif;font-size:.65rem;font-weight:700;
+  padding:3px 8px;border-radius:5px;background:var(--goldfaint);color:var(--gold);
+  border:1px solid rgba(240,180,41,.3);white-space:nowrap;flex-shrink:0}
+.ch-badge.done{background:rgba(26,122,74,.2);color:#52d48a;border-color:rgba(26,122,74,.4)}
+#chapter-view{display:none}
+#chapter-view.active{display:block}
+.ch-nav{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.btn-back{background:transparent;border:1.5px solid rgba(240,180,41,.35);color:var(--gold);
+  padding:8px 14px;border-radius:8px;font-family:"Oswald",sans-serif;font-size:.8rem;
+  font-weight:600;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;
+  -webkit-user-select:none;user-select:none}
+.ch-nav-title{font-family:"Oswald",sans-serif;font-size:.95rem;color:var(--white);flex:1;min-width:0;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.content-block{background:var(--card);color:var(--navy);border-radius:14px;
+  padding:20px 18px;margin-bottom:14px;box-shadow:var(--shadow)}
+.content-block h3{font-family:"Oswald",sans-serif;font-size:1.1rem;color:var(--blue);
+  margin-bottom:10px;padding-bottom:8px;border-bottom:2px solid var(--light)}
+.content-block h4{font-family:"Oswald",sans-serif;font-size:.95rem;color:var(--blue);margin:14px 0 6px}
+.content-block p{font-size:.88rem;line-height:1.65;color:#2d3748;margin-bottom:10px}
+.content-block p:last-child{margin-bottom:0}
+.content-block ul,.content-block ol{padding-left:18px;margin-bottom:10px}
+.content-block li{font-size:.86rem;line-height:1.6;color:#2d3748;margin-bottom:4px}
+.content-block strong{color:var(--navy);font-weight:700}
+.content-block em{color:#5a6478}
+.tip-box{border-radius:10px;padding:12px 14px;margin-bottom:12px;font-size:.84rem;line-height:1.55}
+.tip-box.key{background:#fff8e1;border-left:4px solid var(--gold);color:#5a4000}
+.tip-box.warn{background:#fdecea;border-left:4px solid var(--red);color:#7b1313}
+.tip-box.info{background:#e8f4fd;border-left:4px solid #2b7cb8;color:#1a3d6b}
+.tip-box.ok{background:#e6f7ef;border-left:4px solid var(--green);color:#155832}
+.tip-box b{font-weight:700}
+.speed-table{width:100%;border-collapse:collapse;font-size:.82rem;margin-bottom:10px}
+.speed-table th{background:var(--light);color:var(--blue);font-family:"Oswald",sans-serif;
+  font-size:.75rem;text-transform:uppercase;letter-spacing:.05em;padding:8px 10px;text-align:left}
+.speed-table td{padding:8px 10px;border-bottom:1px solid var(--light);color:#2d3748}
+.speed-table tr:last-child td{border-bottom:none}
+.speed-table .hi{color:var(--red);font-weight:700}
+.speed-table .lo{color:var(--green);font-weight:700}
+.flashcard-wrap{perspective:800px;margin-bottom:12px;cursor:pointer;-webkit-user-select:none;user-select:none}
+.flashcard{width:100%;min-height:100px;position:relative;transform-style:preserve-3d;
+  transition:transform .4s;border-radius:12px}
+.flashcard.flipped{transform:rotateY(180deg)}
+.fc-front,.fc-back{position:absolute;width:100%;min-height:100px;backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;border-radius:12px;padding:16px;display:flex;
+  flex-direction:column;justify-content:center;align-items:center;text-align:center}
+.fc-front{background:var(--blue);color:var(--white);border:1.5px solid rgba(240,180,41,.3)}
+.fc-back{background:var(--gold);color:var(--navy);transform:rotateY(180deg)}
+.fc-label{font-size:.6rem;text-transform:uppercase;letter-spacing:.1em;opacity:.7;margin-bottom:6px;font-weight:600}
+.fc-text{font-size:clamp(.88rem,3.5vw,1rem);font-weight:600;line-height:1.4}
+.fc-hint{font-size:.7rem;opacity:.6;margin-top:8px}
+.fc-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.fc-nav-btn{background:transparent;border:1.5px solid rgba(240,180,41,.3);color:var(--gold);
+  padding:8px 16px;border-radius:8px;font-family:"Oswald",sans-serif;font-size:.8rem;
+  font-weight:600;letter-spacing:.05em;cursor:pointer;-webkit-user-select:none;user-select:none}
+.fc-nav-btn:disabled{opacity:.3;cursor:default}
+.fc-counter{font-family:"Oswald",sans-serif;font-size:.85rem;color:var(--gray)}
+.btn-mark-done{width:100%;margin-top:20px;padding:14px;background:transparent;
+  border:1.5px solid var(--green);color:#52d48a;font-family:"Oswald",sans-serif;
+  font-size:.9rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  border-radius:10px;cursor:pointer;-webkit-user-select:none;user-select:none;transition:all .2s}
+.btn-mark-done.done{background:var(--green);color:#fff;border-color:var(--green)}
+.btn-mark-done:active{opacity:.85}
+.progress-overview{background:var(--goldfaint);border:1px solid rgba(240,180,41,.25);
+  border-radius:12px;padding:14px 16px;margin-bottom:20px}
+.po-label{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--gold);margin-bottom:8px;font-weight:600}
+.po-bar-wrap{background:rgba(255,255,255,.1);border-radius:99px;height:8px;overflow:hidden;margin-bottom:6px}
+.po-bar{height:100%;background:linear-gradient(90deg,var(--gold),#ffe066);border-radius:99px;transition:width .5s ease}
+.po-stats{display:flex;justify-content:space-between;font-size:.72rem;color:var(--light)}
+.quick-practice-btn{background:rgba(240,180,41,.12);border:1.5px solid rgba(240,180,41,.4);
+  border-radius:12px;padding:14px 16px;display:flex;align-items:center;gap:12px;
+  cursor:pointer;width:100%;text-align:left;margin-bottom:10px;
+  -webkit-user-select:none;user-select:none;transition:background .15s}
+.quick-practice-btn:active{background:rgba(240,180,41,.2)}
+.qp-icon{font-size:1.4rem}
+.qp-body{flex:1}
+.qp-title{font-family:"Oswald",sans-serif;font-size:.95rem;color:var(--gold)}
+.qp-sub{font-size:.75rem;color:var(--gray);margin-top:2px}
+.qp-arrow{color:var(--gold);font-size:1.1rem;opacity:.7}
+@media(min-width:600px){
+  .cat-grid{grid-template-columns:1fr 1fr 1fr}
+  .q-card,.content-block{padding:26px}
+  .opt-btn{padding:14px 16px}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="hdr-flag">&#127796;</div>
+  <div class="hdr-txt">
+    <h1>Florida Class E &ndash; Patente USA</h1>
+    <p>Studio &amp; pratica per il test FLHSMV</p>
+  </div>
+  <div class="badge">2026</div>
+</header>
+<div class="mode-tabs">
+  <div class="mode-tab active" data-tab="studio-screen"><span class="tab-icon">&#128218;</span>Studio</div>
+  <div class="mode-tab" data-tab="setup-screen"><span class="tab-icon">&#127381;</span>Test</div>
+</div>
+
+<!-- STUDIO -->
+<div id="studio-screen" class="screen active">
+  <div class="studio-header">
+    <h2>&#127891; Guida allo studio</h2>
+    <p>Studia ogni capitolo, poi mettiti alla prova. Superare l'esame Class E richiede <strong>80% (40/50)</strong>.</p>
+  </div>
+  <div class="progress-overview">
+    <div class="po-label">Progressione capitoli</div>
+    <div class="po-bar-wrap"><div class="po-bar" id="po-bar" style="width:0%"></div></div>
+    <div class="po-stats"><span id="po-done">0 completati</span><span id="po-tot">0 capitoli</span></div>
+  </div>
+  <div class="chapter-list" id="chapter-list"></div>
+  <div>
+    <div class="quick-practice-btn" id="qp-weak">
+      <span class="qp-icon">&#128248;</span>
+      <div class="qp-body"><div class="qp-title">Ripassa i punti deboli</div><div class="qp-sub">20 domande miste per rafforzare</div></div>
+      <span class="qp-arrow">&#8250;</span>
+    </div>
+    <div class="quick-practice-btn" id="qp-full">
+      <span class="qp-icon">&#127937;</span>
+      <div class="qp-body"><div class="qp-title">Simulazione esame completo</div><div class="qp-sub">50 domande &mdash; replica esame FLHSMV</div></div>
+      <span class="qp-arrow">&#8250;</span>
+    </div>
+  </div>
+</div>
+
+<!-- CHAPTER VIEW -->
+<div id="chapter-view" class="screen">
+  <div class="ch-nav">
+    <button class="btn-back" id="btn-back-chapter">&#8592; Indietro</button>
+    <div class="ch-nav-title" id="ch-view-title"></div>
+  </div>
+  <div id="ch-content"></div>
+  <button class="btn-mark-done" id="btn-mark-done">&#10003; Segna come completato</button>
+  <div style="height:8px"></div>
+  <button class="btn-primary" id="btn-practice-chapter" style="margin-top:0;display:none">&#127381; Pratica su questo capitolo</button>
+</div>
+
+<!-- SETUP -->
+<div id="setup-screen" class="screen">
+  <div class="card">
+    <h2>Configura il test</h2>
+    <p>Scegli quante domande e le categorie da ripassare.</p>
+    <div class="opt-row">
+      <label>Numero di domande</label>
+      <div id="q-count-display">20</div>
+      <input type="range" id="q-slider" min="10" max="650" step="10" value="20">
+      <div class="range-labels"><span>10</span><span>100</span><span>200</span><span>300</span><span>400</span><span>500</span><span>max</span></div>
+    </div>
+    <div class="opt-row">
+      <label>Categoria</label>
+      <div class="cat-grid" id="cat-grid">
+        <button class="cat-btn selected" data-cat="all">&#128256; Tutte</button>
+        <button class="cat-btn" data-cat="signs">&#128678; Segnaletica</button>
+        <button class="cat-btn" data-cat="laws">&#128203; Norme</button>
+        <button class="cat-btn" data-cat="safety">&#128737; Sicurezza</button>
+        <button class="cat-btn" data-cat="alcohol">&#127866; DUI/Alcol</button>
+        <button class="cat-btn" data-cat="license">&#129346; Patente</button>
+      </div>
+    </div>
+    <div class="db-info"><b id="db-avail">&ndash;</b> domande disponibili<div class="cat-counts" id="db-cat-counts"></div></div>
+    <button class="btn-primary" id="btn-start">&#9654; Inizia il test</button>
+    <div class="stats-row">
+      <div class="stat-box"><div class="sv" id="stat-db">&ndash;</div><div class="sl">Nel database</div></div>
+      <div class="stat-box"><div class="sv">80%</div><div class="sl">Per passare</div></div>
+      <div class="stat-box"><div class="sv">40/50</div><div class="sl">Esame reale</div></div>
+    </div>
+    <div class="install-hint" id="install-hint"><b>Aggiungi alla schermata Home!</b><br>Safari &rarr; Condividi &rarr; "Aggiungi a schermata Home"</div>
+  </div>
+</div>
+
+<!-- QUIZ -->
+<div id="quiz-screen" class="screen">
+  <div class="progress-wrap"><div class="progress-fill" id="prog-fill"></div></div>
+  <div class="progress-meta"><span>Domanda <b id="q-cur">1</b> / <b id="q-tot">20</b></span><span>&#10003; <b id="score-run">0</b> corrette</span></div>
+  <div class="q-card">
+    <div class="q-meta"><span class="q-num" id="q-num-lbl">Q1</span><span class="q-cat-tag" id="q-cat-lbl">&ndash;</span></div>
+    <div class="q-text-en" id="q-en"></div>
+    <div class="q-text-it" id="q-it"></div>
+    <ul class="opts-list" id="opts-list"></ul>
+    <div class="feedback-box" id="feedback-box"></div>
+    <button class="btn-next" id="btn-next">Prossima &rarr;</button>
+  </div>
+</div>
+
+<!-- RESULTS -->
+<div id="results-screen" class="screen">
+  <div class="results-card">
+    <div class="result-icon" id="res-icon">&#127881;</div>
+    <div class="result-verdict" id="res-verdict">SUPERATO!</div>
+    <div class="result-sub" id="res-sub"></div>
+    <div class="score-circle"><div class="score-pct" id="res-pct">&ndash;</div><div class="score-label">Score</div></div>
+    <div class="results-grid">
+      <div class="rg-item"><div class="rg-val" id="res-tot">&ndash;</div><div class="rg-lbl">Totale</div></div>
+      <div class="rg-item"><div class="rg-val green" id="res-ok">&ndash;</div><div class="rg-lbl">Corrette</div></div>
+      <div class="rg-item"><div class="rg-val red" id="res-ko">&ndash;</div><div class="rg-lbl">Errate</div></div>
+    </div>
+    <div class="btn-row">
+      <button class="btn-ghost" id="btn-review">Rivedi risposte</button>
+      <button class="btn-solid" id="btn-restart">Nuovo test</button>
+    </div>
+    <div class="review-section" id="review-section"><h3>Revisione risposta per risposta</h3></div>
+  </div>
+</div>
+
+<script>
+// Guard: fl_all.js must be loaded first
+if(typeof QUESTIONS === "undefined"){
+  document.body.innerHTML = '<div style="padding:40px;text-align:center;font-family:sans-serif;color:#f0b429;background:#0a1628;min-height:100vh"><h2 style="margin-bottom:16px">&#9888; Errore di caricamento</h2><p style="color:#e8e0d0">Il file <strong>fl_all.js</strong> non è stato trovato.<br>Assicurati che entrambi i file siano nella stessa cartella del repository GitHub.</p></div>';
+  throw new Error("fl_all.js not loaded");
+}
+const CAT_LABELS={signs:"Signs",laws:"Laws",safety:"Safety",alcohol:"DUI",license:"License"};
+const CAT_IT={signs:"Segnaletica",laws:"Norme",safety:"Sicurezza",alcohol:"DUI/Alcol",license:"Patente"};
+
+// ── CHAPTER DATA (HTML uses backticks, apostrophes safe) ──────────────────────
+const CHAPTERS = [
+{id:"intro", cat:null, icon:"&#127482;&#127480;", title:"Come funziona l'esame Class E", sub:"Struttura, punteggio, cosa aspettarsi",
+content:`<div class="content-block">
+<h3>L'esame Florida Class E</h3>
+<p>L'esame per la patente Florida (Class E) viene somministrato dal <strong>FLHSMV</strong>. L'esame comprende <strong>50 domande</strong> a scelta multipla e devi rispondere correttamente ad almeno <strong>40 su 50 (80%)</strong>.</p>
+<div class="tip-box key"><b>&#128273; Soglia di superamento:</b> 80% &mdash; 40 risposte corrette su 50.</div>
+<h4>Le 5 categorie dell'esame</h4>
+<ul>
+<li><strong>&#128678; Segnaletica (Signs):</strong> significato di colori, forme e segnali stradali</li>
+<li><strong>&#128203; Norme di circolazione (Laws):</strong> precedenze, velocità, parcheggio, segnalazioni</li>
+<li><strong>&#128737; Sicurezza (Safety):</strong> distanze, manovre, condizioni meteo, veicoli speciali</li>
+<li><strong>&#127866; DUI/Alcol:</strong> limiti BAC, conseguenze, effetti dell'alcol sulla guida</li>
+<li><strong>&#129346; Patente (License):</strong> GDL, sospensioni, rinnovo, punti sul casellario</li>
+</ul>
+<h4>Come si svolge</h4>
+<p>Il test si tiene in un ufficio FLHSMV. Puoi prenotare online su <strong>flhsmv.gov</strong>. Porta documento d'identità, SSN e due prove di residenza in Florida. Nuovo residente: converti la patente estera entro <strong>30 giorni</strong>.</p>
+<div class="tip-box info"><b>&#128161; Consiglio:</b> Studia i capitoli in ordine, poi fai almeno 3-4 simulazioni da 50 domande prima del giorno dell'esame.</div>
+<h4>Dopo l'esame scritto</h4>
+<p>Se superi il test scritto, devi sostenere anche il <strong>road test</strong> (guida pratica). Con patente di un altro stato USA il road test può essere esonerato.</p>
+</div>`,
+flashcards:[
+  {q:"Quante domande ha l'esame Class E?", a:"50 domande — devi rispondere correttamente ad almeno 40 (80%)"},
+  {q:"Qual è la soglia minima per superare l'esame?", a:"80% — 40 risposte corrette su 50"},
+  {q:"Entro quanti giorni un nuovo residente deve convertire la patente?", a:"30 giorni dall'iscrizione come residente Florida"},
+]},
+
+{id:"signs_colors", cat:"signs", icon:"&#127314;", title:"Colori e forme dei segnali", sub:"Il codice cromatico della segnaletica USA",
+content:`<div class="content-block">
+<h3>Il significato dei colori</h3>
+<table class="speed-table">
+<tr><th>Colore</th><th>Significato</th><th>Esempi</th></tr>
+<tr><td>&#128308; Rosso</td><td class="hi">Divieto / Fermati</td><td>STOP, Wrong Way, Do Not Enter</td></tr>
+<tr><td>&#128993; Giallo</td><td>Attenzione / Avvertimento</td><td>Curva, incrocio, pedoni</td></tr>
+<tr><td>&#9899; Bianco</td><td>Normativa (limite legale)</td><td>Speed Limit, One Way</td></tr>
+<tr><td>&#128994; Verde</td><td>Informazioni di percorso</td><td>Uscite, distanze, destinazioni</td></tr>
+<tr><td>&#128309; Blu</td><td>Servizi per automobilisti</td><td>Benzina, cibo, ospedali</td></tr>
+<tr><td>&#129024; Marrone</td><td>Parchi / Cultura / Turismo</td><td>National Parks, siti storici</td></tr>
+<tr><td>&#128992; Arancione</td><td>Zona di lavori in corso</td><td>Road Work, Detour, Flagger</td></tr>
+<tr><td>Giallo-verde fluo</td><td>Pedoni / Scuola / Bici</td><td>School Zone, Ped Xing</td></tr>
+</table>
+<div class="tip-box warn"><b>&#9888; Importante:</b> Segnali arancioni nelle zone di lavoro: <strong>multe raddoppiate</strong> in Florida, anche senza lavoratori presenti.</div>
+<h4>Il significato delle forme</h4>
+<ul>
+<li><strong>Ottagono rosso:</strong> sempre STOP</li>
+<li><strong>Triangolo rovesciato rosso/bianco:</strong> sempre YIELD</li>
+<li><strong>Rombo giallo/arancione:</strong> avvertimento</li>
+<li><strong>Pennant (triangolare lato sinistro):</strong> sempre No Passing Zone</li>
+<li><strong>Rettangolo bianco:</strong> normativo | Verde/Blu/Marrone: informativo</li>
+<li><strong>Rotondo giallo con X e RR:</strong> avvertimento passaggio a livello</li>
+</ul>
+<div class="tip-box key"><b>&#128161; Trucco:</b> La forma da sola dice cosa fare — l'ottagono = fermati sempre, anche senza leggere il testo.</div>
+</div>`,
+flashcards:[
+  {q:"Segnale ARANCIONE: cosa indica?", a:"Zona di lavori in corso — multe raddoppiate in Florida"},
+  {q:"Segnale BLU: cosa indica?", a:"Servizi per automobilisti: benzina, cibo, ospedali, alloggio"},
+  {q:"Segnale MARRONE: cosa indica?", a:"Aree ricreative, parchi, siti storici, percorsi panoramici"},
+  {q:"Forma a PENNANT: cosa significa sempre?", a:"No Passing Zone — montato sul lato sinistro della strada"},
+  {q:"Segnale ROTONDO giallo con X e RR: cosa indica?", a:"Avvertimento anticipato di passaggio a livello ferroviario"},
+]},
+
+{id:"signs_key", cat:"signs", icon:"&#128204;", title:"Segnali chiave da memorizzare", sub:"I segnali più frequenti all'esame",
+content:`<div class="content-block">
+<h3>Segnali obbligatori da conoscere</h3>
+<h4>STOP e precedenza</h4>
+<ul>
+<li><strong>STOP (ottagono rosso):</strong> fermata completa alla linea bianca, poi vai solo se libero</li>
+<li><strong>YIELD (triangolo rosso/bianco rovesciato):</strong> rallenta e cedi il passo</li>
+<li><strong>DO NOT ENTER (cerchio rosso, barra bianca):</strong> ingresso vietato</li>
+<li><strong>WRONG WAY (rettangolo rosso):</strong> stai andando contromano — fermati</li>
+</ul>
+<h4>Velocità e sorpasso</h4>
+<ul>
+<li><strong>SPEED LIMIT (bianco rettangolare):</strong> limite legale massimo</li>
+<li><strong>NO PASSING ZONE (pennant giallo):</strong> divieto di sorpasso — lato sinistro</li>
+<li><strong>Doppia linea gialla continua:</strong> divieto di sorpasso in entrambe le direzioni</li>
+<li><strong>Linea gialla continua + tratteggiata:</strong> sorpasso consentito solo dal lato tratteggiato</li>
+</ul>
+<h4>Scuolabus — regola fondamentale</h4>
+<p>Luci rosse lampeggianti + braccio di stop esteso = TUTTO il traffico si ferma (anche lato opposto, tranne autostrade con mediano fisico).</p>
+<div class="tip-box warn"><b>&#128678; Zona scolastica:</b> 15 mph con luci lampeggianti attive. 6 punti sul casellario se superato.</div>
+<h4>Semafori speciali</h4>
+<ul>
+<li><strong>Giallo lampeggiante:</strong> procedi con cautela</li>
+<li><strong>Rosso lampeggiante:</strong> trattalo come uno STOP</li>
+<li><strong>Freccia verde:</strong> svolta protetta — nessun traffico in conflitto</li>
+<li><strong>X rossa su corsia:</strong> corsia chiusa — non usarla</li>
+</ul>
+<div class="tip-box key"><b>&#128161; Regola:</b> Giallo = preparati a fermarti (non accelerare per passare col giallo).</div>
+</div>`,
+flashcards:[
+  {q:"Semaforo ROSSO LAMPEGGIANTE: cosa devi fare?", a:"Trattarlo come uno STOP: fermarsi completamente, poi procedere se libero"},
+  {q:"Freccia VERDE sul semaforo: cosa significa?", a:"Svolta protetta — puoi procedere senza cedere al traffico in arrivo"},
+  {q:"Quando si deve fermare per lo scuolabus?", a:"Luci rosse lampeggianti + braccio esteso: fermati su entrambi i lati (tranne autostrade con mediano)"},
+  {q:"X ROSSA sopra una corsia: cosa fare?", a:"La corsia è chiusa — spostati immediatamente"},
+  {q:"WRONG WAY: cosa significa?", a:"Stai percorrendo una strada contromano — fermati subito"},
+]},
+
+{id:"laws_speed", cat:"laws", icon:"&#128241;", title:"Limiti di velocità in Florida", sub:"Valori predefiniti e zone speciali",
+content:`<div class="content-block">
+<h3>Limiti di velocità predefiniti</h3>
+<table class="speed-table">
+<tr><th>Zona</th><th>Limite</th></tr>
+<tr><td>Vicolo (alley)</td><td class="lo">10 mph</td></tr>
+<tr><td>Zona scolastica (luci lampeggianti)</td><td class="lo">15 mph</td></tr>
+<tr><td>Residenziale / business senza segnale</td><td>30 mph</td></tr>
+<tr><td>Strada rurale a 2 corsie</td><td>55 mph</td></tr>
+<tr><td>Autostrada interstatale urbana</td><td>65 mph</td></tr>
+<tr><td>Autostrada interstatale rurale</td><td class="hi">70 mph</td></tr>
+</table>
+<div class="tip-box warn"><b>&#9888; Zone di lavoro:</b> limite ridotto + <strong>multe raddoppiate</strong>, valide anche senza lavoratori presenti.</div>
+<h4>Move Over Law</h4>
+<p>Quando superi un veicolo fermo con luci lampeggianti (polizia, ambulanza, carro attrezzi):</p>
+<ul>
+<li>Spostati di una corsia, <strong>oppure</strong></li>
+<li>Riduci la velocità di <strong>20 mph sotto il limite</strong></li>
+</ul>
+<div class="tip-box key"><b>&#128204; Distanza minima:</b> 500 piedi da un'autopompa dei pompieri — sia in servizio che no.</div>
+</div>`,
+flashcards:[
+  {q:"Limite predefinito in zona residenziale senza segnale?", a:"30 mph"},
+  {q:"Limite in zona scolastica con luci lampeggianti?", a:"15 mph"},
+  {q:"Limite massimo su autostrada interstatale rurale in Florida?", a:"70 mph"},
+  {q:"Move Over Law: cosa devi fare?", a:"Spostarti di una corsia OPPURE rallentare di 20 mph sotto il limite"},
+  {q:"Limite in un vicolo (alley)?", a:"10 mph"},
+]},
+
+{id:"laws_priority", cat:"laws", icon:"&#128260;", title:"Precedenze e diritto di passaggio", sub:"Chi va prima in ogni situazione",
+content:`<div class="content-block">
+<h3>Regole di precedenza (Right of Way)</h3>
+<h4>Incrocio non controllato — arrivo simultaneo</h4>
+<p>Cedi a chi viene da <strong>destra</strong>. Se arrivi per primo, hai la precedenza.</p>
+<h4>Svolta sinistra con verde fisso</h4>
+<p>Puoi svoltare a sinistra, ma devi cedere al traffico in arrivo e ai pedoni. Solo la <strong>freccia verde protetta</strong> dà precedenza assoluta.</p>
+<h4>Pedoni</h4>
+<ul>
+<li>Cedi ai pedoni in <strong>qualsiasi attraversamento</strong> — segnalato o meno</li>
+<li><strong>Precedenza assoluta</strong> a persone con bastone bianco o cane guida</li>
+</ul>
+<h4>Autostrada e rampe</h4>
+<p>Chi si immette dalla rampa cede al traffico già in autostrada.</p>
+<h4>Veicoli di emergenza</h4>
+<p>Sirene o luci lampeggianti: accosta a destra e fermati finché il veicolo non è passato — anche al verde.</p>
+<h4>Autobus di linea</h4>
+<p>Devi cedere agli autobus che segnalano di rientrare nel traffico da una fermata designata.</p>
+<div class="tip-box ok"><b>&#10003; Mnemonica:</b> Destra = precedenza all'arrivo simultaneo. Sirena = accosta a destra sempre.</div>
+</div>`,
+flashcards:[
+  {q:"Arrivo contemporaneo a uno stop a 4 vie: chi passa primo?", a:"Il veicolo che viene da destra"},
+  {q:"Svolta sinistra con verde fisso: cosa fare?", a:"Cedere al traffico in arrivo e ai pedoni — solo la freccia verde dà precedenza assoluta"},
+  {q:"Pedone con bastone bianco: che diritto ha?", a:"Precedenza assoluta — in qualsiasi luogo, non solo agli attraversamenti"},
+  {q:"Chi si immette dalla rampa autostradale: chi cede?", a:"Il veicolo in ingresso cede al traffico già in autostrada"},
+  {q:"Veicolo di emergenza con sirena: cosa fai?", a:"Accosti a destra e ti fermi fino a quando non è passato"},
+]},
+
+{id:"laws_parking", cat:"laws", icon:"&#128352;", title:"Parcheggio e divieti", sub:"Dove non si può parcheggiare in Florida",
+content:`<div class="content-block">
+<h3>Distanze minime di parcheggio</h3>
+<table class="speed-table">
+<tr><th>Ostacolo</th><th>Distanza minima</th></tr>
+<tr><td>Idrante antincendio</td><td class="hi">15 piedi</td></tr>
+<tr><td>Segnale STOP</td><td class="hi">30 piedi</td></tr>
+<tr><td>Attraversamento pedonale (all'incrocio)</td><td class="hi">20 piedi</td></tr>
+<tr><td>Ingresso caserma dei pompieri (stesso lato)</td><td class="hi">15 piedi</td></tr>
+<tr><td>Binario ferroviario</td><td class="hi">50 piedi</td></tr>
+</table>
+<h4>Colori del marciapiede</h4>
+<ul>
+<li><strong>Rosso:</strong> divieto assoluto sosta (fire zone)</li>
+<li><strong>Giallo:</strong> solo carico/scarico merci</li>
+<li><strong>Bianco:</strong> carico/scarico passeggeri breve</li>
+<li><strong>Verde:</strong> parcheggio a tempo limitato (10-30 min)</li>
+<li><strong>Blu:</strong> solo disabili con permesso valido — multa min. $250</li>
+</ul>
+<h4>Ruote sulle colline</h4>
+<ul>
+<li><strong>In discesa con marciapiede:</strong> ruote VERSO il marciapiede (destra)</li>
+<li><strong>In salita con marciapiede:</strong> ruote LONTANO dal marciapiede (sinistra)</li>
+<li><strong>Senza marciapiede:</strong> ruote verso il bordo della strada</li>
+</ul>
+<div class="tip-box key"><b>&#128161; Trucco colline:</b> In discesa sempre verso il marciapiede. Se l'auto si muove, il marciapiede la ferma.</div>
+</div>`,
+flashcards:[
+  {q:"Distanza minima da un idrante antincendio?", a:"15 piedi"},
+  {q:"Marciapiede GIALLO: cosa significa?", a:"Solo carico/scarico merci — nessun parcheggio"},
+  {q:"Marciapiede BLU: chi può parcheggiare?", a:"Solo persone con disabilità con permesso valido"},
+  {q:"In discesa con marciapiede: come giri le ruote?", a:"Verso il marciapiede (destra) — se l'auto si muove si blocca contro di esso"},
+  {q:"Bambino under 6 da solo in auto: quanto è legale?", a:"Massimo 15 minuti, zero se il motore è acceso"},
+]},
+
+{id:"laws_other", cat:"laws", icon:"&#128220;", title:"Norme essenziali Florida", sub:"Cellulare, cinture, assicurazione e luci",
+content:`<div class="content-block">
+<h3>Cellulare alla guida</h3>
+<ul>
+<li>Invio SMS durante la guida: <strong>reato principale</strong> (dal 2019)</li>
+<li>Zone scolastiche e di lavoro: <strong>vietato qualsiasi dispositivo portatile</strong></li>
+<li>Chiamate hands-free: sempre legali</li>
+<li>Prima infrazione: $60 + spese giudiziarie</li>
+</ul>
+<h4>Cinture di sicurezza</h4>
+<ul>
+<li>Sedile anteriore 18+: applicazione <strong>primaria</strong></li>
+<li>Passeggeri under 18: sempre obbligatorie</li>
+<li>Bambini under 4: seggiolino omologato obbligatorio</li>
+</ul>
+<h4>Assicurazione — stato no-fault</h4>
+<table class="speed-table">
+<tr><th>Copertura</th><th>Minimo obbligatorio</th></tr>
+<tr><td>PIP (Personal Injury Protection)</td><td>$10.000</td></tr>
+<tr><td>PDL (Property Damage Liability)</td><td>$10.000</td></tr>
+</table>
+<div class="tip-box warn"><b>&#9888; Dopo un DUI</b> serve FR-44 (non SR-22): $100.000/$300.000 BI + $50.000 PDL. Molto più costoso.</div>
+<h4>Luci e segnalazioni</h4>
+<ul>
+<li>Luci obbligatorie: dal tramonto all'alba E quando i tergicristalli sono in uso</li>
+<li>Abbaglianti: abbassarli entro 500 piedi da veicolo in arrivo, 300 piedi da quello davanti</li>
+<li>Segnalazione svolta: almeno 100 piedi in città, 200 piedi in autostrada</li>
+<li>Contenitore aperto di alcol in auto: illegale anche per i passeggeri</li>
+</ul>
+<div class="tip-box key"><b>&#128161; Regola luci:</b> Se i tergicristalli sono accesi, i fari devono essere accesi.</div>
+</div>`,
+flashcards:[
+  {q:"SMS durante la guida in Florida: che tipo di reato è?", a:"Reato principale (primary offense) — possono fermarti solo per questo"},
+  {q:"Assicurazione minima obbligatoria in Florida?", a:"$10.000 PIP + $10.000 PDL (stato no-fault)"},
+  {q:"Quando devo accendere i fari oltre che di notte?", a:"Ogni volta che uso i tergicristalli per pioggia o nebbia"},
+  {q:"Distanza minima di segnalazione prima di svoltare in città?", a:"100 piedi (200 piedi in autostrada)"},
+  {q:"Contenitore aperto di alcol in auto: è legale per i passeggeri?", a:"No — la legge sul contenitore aperto vale per tutta l'abitacolo"},
+]},
+
+{id:"safety_main", cat:"safety", icon:"&#128737;", title:"Sicurezza alla guida", sub:"Distanze, emergenze e condizioni difficili",
+content:`<div class="content-block">
+<h3>Distanza di sicurezza</h3>
+<p>Regola dei <strong>3 secondi</strong> in condizioni ideali. Aggiungi 1 secondo per ogni fattore di rischio:</p>
+<table class="speed-table">
+<tr><th>Condizione</th><th>Secondi consigliati</th></tr>
+<tr><td>Asciutto, giorno, visibilità ottima</td><td>3 sec</td></tr>
+<tr><td>Pioggia / notte / stanchezza</td><td>4-6 sec</td></tr>
+<tr><td>Dietro un camion</td><td>4+ sec</td></tr>
+<tr><td>Dietro una moto</td><td>3-4 sec</td></tr>
+</table>
+<p>Raddoppiare la velocità <strong>quadruplica</strong> la distanza di frenata.</p>
+<h4>Emergenze in movimento</h4>
+<ul>
+<li><strong>Aquaplaning:</strong> togli il gas, non frenare bruscamente, tieni dritto finché gli pneumatici tornano a contatto</li>
+<li><strong>Foratura ad alta velocità:</strong> stringi il volante, togli il gas, decelera naturalmente, poi accosta</li>
+<li><strong>Acceleratore bloccato:</strong> metti in folle (N), frena con forza, accosta, poi spegni</li>
+<li><strong>Freni che cedono:</strong> pompa i freni, scala le marce, usa il freno a mano delicatamente</li>
+</ul>
+<div class="tip-box warn"><b>&#9888; Strada allagata:</b> Turn Around Don't Drown. 15 cm di acqua in movimento possono buttarti a terra, 60 cm spazzano via un'auto.</div>
+<h4>Guida notturna e stanchezza</h4>
+<p>Guidare oltre i fari = andare più veloci di quanto riesci a fermarti nella distanza illuminata. La guida sonnolenta è pericolosa quanto quella ubriaca — l'unica cura è il sonno.</p>
+</div>`,
+flashcards:[
+  {q:"Cosa fare in caso di aquaplaning?", a:"Togli il gas, non frenare bruscamente, tieni dritto e aspetta che gli pneumatici tornino a contatto"},
+  {q:"Acceleratore bloccato: cosa fai prima?", a:"Metti in folle (N) — poi frena, accosta, spegni il motore"},
+  {q:"Raddoppiare la velocità: di quanto aumenta la distanza di frenata?", a:"La quadruplica (effetto quadratico)"},
+  {q:"Guidare oltre i fari di notte: cosa significa?", a:"Andare più veloci di quanto riesci a fermarti nella distanza illuminata dai fari"},
+  {q:"Distanza minima in condizioni ideali?", a:"3 secondi (regola dei 3 secondi)"},
+]},
+
+{id:"safety_special", cat:"safety", icon:"&#128652;", title:"Veicoli speciali e manovre", sub:"Camion, moto, ciclisti, treni",
+content:`<div class="content-block">
+<h3>Camion pesanti — 4 punti ciechi</h3>
+<p>20 piedi davanti, 30 piedi dietro, 2 corsie a destra, 1 corsia a sinistra. Se non vedi lo specchio del camionista, lui non vede te.</p>
+<ul>
+<li>Non passare mai sul lato destro un camion che svolta a destra</li>
+<li>Pericolo di incastro sotto al rimorchio (underride) se segui troppo vicino</li>
+</ul>
+<h4>Motociclisti</h4>
+<ul>
+<li>Meritano l'intera larghezza della corsia</li>
+<li>Mantieni 3-4 secondi di distanza — frenano più velocemente delle auto</li>
+<li><strong>Lane splitting: illegale in Florida</strong></li>
+<li>Casco obbligatorio under 21. Over 21: non obbligatorio con assicurazione medica da $10.000+</li>
+</ul>
+<h4>Ciclisti</h4>
+<ul>
+<li>Stessi diritti e doveri dei veicoli a motore</li>
+<li><strong>Legge dei 3 piedi:</strong> lascia almeno 3 piedi quando sorpassi una bici</li>
+<li>Casco obbligatorio under 16</li>
+</ul>
+<h4>Passaggi a livello</h4>
+<ul>
+<li>Fermati ad almeno <strong>15 piedi</strong> dal binario</li>
+<li>Scuolabus e veicoli hazmat: fermata obbligatoria sempre</li>
+<li>Se bloccato sui binari: esci subito, allontanati dalla direzione del treno</li>
+</ul>
+<div class="tip-box key"><b>&#128161; 3 piedi = regola d'oro per i ciclisti.</b> Se la corsia è troppo stretta, cambia corsia per sorpassare.</div>
+</div>`,
+flashcards:[
+  {q:"Lane splitting in Florida: è legale?", a:"No — illegale in Florida"},
+  {q:"Distanza minima sorpassando una bicicletta?", a:"3 piedi (legge dei 3 piedi Florida)"},
+  {q:"Distanza minima dal binario al passaggio a livello?", a:"Almeno 15 piedi dal binario più vicino"},
+  {q:"Casco moto in Florida: quando è obbligatorio?", a:"Sempre under 21. Over 21 esente con almeno $10.000 di assicurazione medica"},
+  {q:"Scuolabus al passaggio a livello: cosa deve fare?", a:"Fermarsi sempre, anche se il semaforo è verde"},
+]},
+
+{id:"alcohol_main", cat:"alcohol", icon:"&#127866;", title:"Alcol, DUI e BAC", sub:"Limiti, effetti e metabolismo",
+content:`<div class="content-block">
+<h3>Limiti BAC in Florida</h3>
+<table class="speed-table">
+<tr><th>Conducente</th><th>Limite BAC</th></tr>
+<tr><td>Adulto (21+)</td><td class="hi">0,08%</td></tr>
+<tr><td>Under 21 (Zero Tolerance)</td><td class="hi">0,02%</td></tr>
+<tr><td>Conducente CDL in servizio</td><td class="hi">0,04%</td></tr>
+</table>
+<div class="tip-box warn"><b>&#9888; Attenzione:</b> DUI possibile anche SOTTO 0,08% se il conducente mostra compromissione delle normali facoltà.</div>
+<h4>Come si metabolizza l'alcol</h4>
+<ul>
+<li>Il fegato elabora circa <strong>1 drink standard all'ora</strong> — non si può accelerare</li>
+<li>Caffè, acqua, esercizio non accelerano la metabolizzazione</li>
+<li>Il BAC può salire per 20-40 minuti dopo l'ultimo drink</li>
+<li>1 drink standard = 12 oz birra = 5 oz vino = 1,5 oz superalcolici</li>
+</ul>
+<h4>Fattori che influenzano il BAC</h4>
+<ul>
+<li>Peso corporeo (più peso = BAC più basso)</li>
+<li>Genere (le donne raggiungono BAC più alto a parità di peso)</li>
+<li>Età (metabolismo più lento con l'età)</li>
+<li>Cibo (rallenta l'assorbimento, non riduce il BAC finale)</li>
+<li>Carbonatazione (accelera l'assorbimento)</li>
+</ul>
+<div class="tip-box ok"><b>&#10003; L'unica soluzione sicura:</b> guidatore designato sobrio, Uber/Lyft, taxi, o dormire sul posto.</div>
+</div>`,
+flashcards:[
+  {q:"Limite BAC per adulto in Florida?", a:"0,08%"},
+  {q:"Limite BAC per under 21 (Zero Tolerance)?", a:"0,02% — 6 mesi di sospensione automatica"},
+  {q:"Limite BAC per conducente CDL in servizio?", a:"0,04%"},
+  {q:"Quanti drink elabora il fegato all'ora?", a:"Circa 1 drink standard all'ora — non si può accelerare"},
+  {q:"Il cibo prima di bere: come influisce sul BAC?", a:"Rallenta l'assorbimento ma non riduce il BAC finale"},
+]},
+
+{id:"alcohol_penalties", cat:"alcohol", icon:"&#9878;", title:"Sanzioni DUI in Florida", sub:"Conseguenze, revoche e IID",
+content:`<div class="content-block">
+<h3>Sanzioni DUI — prima infrazione</h3>
+<table class="speed-table">
+<tr><th>Elemento</th><th>Prima infrazione</th></tr>
+<tr><td>Multa</td><td>$500 – $1.000</td></tr>
+<tr><td>Carcere</td><td>Fino a 6 mesi (nessun minimo)</td></tr>
+<tr><td>Sospensione patente</td><td>180 giorni – 1 anno</td></tr>
+<tr><td>IID se BAC ≥0,15% o minore a bordo</td><td>Obbligatorio</td></tr>
+</table>
+<h4>Aggravanti</h4>
+<ul>
+<li>BAC ≥ 0,15%: multa $1.000-$2.000, IID obbligatorio</li>
+<li>Minore a bordo: multa minima $1.000, IID, possibili accuse di abuso</li>
+<li>DUI con lesioni gravi: crimine di 3° grado (fino a 5 anni)</li>
+<li>DUI omicidio colposo: crimine di 2° grado (fino a 15 anni)</li>
+</ul>
+<h4>Implied Consent (Consenso implicito)</h4>
+<ul>
+<li>Guidando in Florida hai già acconsentito al test chimico</li>
+<li>1° rifiuto: sospensione automatica 1 anno</li>
+<li>2° rifiuto: contravvenzione + sospensione 18 mesi</li>
+</ul>
+<h4>Dopo l'arresto DUI</h4>
+<p>Patente ritirata. Hai <strong>10 giorni</strong> per richiedere l'udienza ALS — altrimenti la sospensione parte automaticamente.</p>
+<div class="tip-box warn"><b>&#9888; FR-44 dopo DUI:</b> assicurazione molto più costosa, obbligatoria per 3 anni.</div>
+<div class="tip-box key"><b>&#128161; IID:</b> soffii nell'alcolimetro prima di avviare — se rileva alcol, l'auto non si avvia.</div>
+</div>`,
+flashcards:[
+  {q:"Prima infrazione DUI: sospensione minima della patente?", a:"180 giorni (6 mesi)"},
+  {q:"Rifiuto del test del respiro in Florida: conseguenza?", a:"Sospensione automatica 1 anno (1° rifiuto)"},
+  {q:"Entro quanti giorni dall'arresto DUI puoi richiedere l'udienza ALS?", a:"10 giorni"},
+  {q:"Cos'è l'IID?", a:"Ignition Interlock Device — soffii per avviare; se rileva alcol l'auto non parte"},
+  {q:"DUI omicidio colposo in Florida: che reato è?", a:"Crimine di 2° grado — fino a 15 anni di prigione"},
+]},
+
+{id:"license_gdl", cat:"license", icon:"&#129346;", title:"Sistema GDL — Patente graduata", sub:"Percorso per i guidatori 15-18 anni",
+content:`<div class="content-block">
+<h3>GDL (Graduated Driver Licensing) Florida</h3>
+<h4>Fase 1: Learner's License — da 15 anni</h4>
+<ul>
+<li>Sempre con supervisore <strong>autorizzato 21+</strong> nel sedile anteriore destro</li>
+<li>Vietato guidare tra <strong>mezzanotte e le 6:00</strong></li>
+<li><strong>50 ore</strong> di guida supervisionata (10 di notte)</li>
+<li>Durata minima: 12 mesi senza violazioni</li>
+<li>Uso di dispositivi wireless: completamente vietato</li>
+</ul>
+<h4>Fase 2: Restricted License — da 16 anni</h4>
+<ul>
+<li>No guida tra <strong>23:00 e 6:00</strong> (eccetto lavoro/scuola documentato)</li>
+<li>Primi 12 mesi: max <strong>1 passeggero non convivente under 18</strong></li>
+<li>Nessun dispositivo wireless</li>
+</ul>
+<h4>Fase 3: Patente completa — 18 anni</h4>
+<p>Le restrizioni GDL si tolgono automaticamente a 18 anni — nessun test aggiuntivo richiesto.</p>
+<div class="tip-box key"><b>&#128204; Prima patente a 18+:</b> corso TLSAE/DATA (4 ore obbligatorio), test conoscenza, visione e road test.</div>
+</div>`,
+flashcards:[
+  {q:"Età minima per il learner's license in Florida?", a:"15 anni"},
+  {q:"Ore di guida supervisionata per la Restricted License?", a:"50 ore totali, di cui 10 di notte"},
+  {q:"Restricted License: fino a che ora si può guidare?", a:"Fino alle 23:00 (no guida 23:00-6:00)"},
+  {q:"Primi 12 mesi Restricted: quanti passeggeri non familiari under 18?", a:"Massimo 1"},
+  {q:"Quando si tolgono le restrizioni GDL?", a:"Automaticamente al compimento dei 18 anni"},
+]},
+
+{id:"license_points", cat:"license", icon:"&#128202;", title:"Punti, sospensioni e rinnovo", sub:"Soglie, punti per infrazione e recupero",
+content:`<div class="content-block">
+<h3>Sistema punti Florida</h3>
+<table class="speed-table">
+<tr><th>Punti</th><th>Periodo</th><th>Sospensione</th></tr>
+<tr><td>12 punti</td><td>12 mesi</td><td class="hi">30 giorni</td></tr>
+<tr><td>18 punti</td><td>18 mesi</td><td class="hi">3 mesi</td></tr>
+<tr><td>24 punti</td><td>36 mesi</td><td class="hi">1 anno</td></tr>
+</table>
+<h4>Punti per infrazione</h4>
+<table class="speed-table">
+<tr><th>Infrazione</th><th>Punti</th></tr>
+<tr><td>Eccesso di velocità (normale)</td><td>3</td></tr>
+<tr><td>Eccesso in zona scolastica</td><td class="hi">6</td></tr>
+<tr><td>Sorpasso scuolabus fermo</td><td>4</td></tr>
+<tr><td>Guida spericolata (reckless)</td><td>4</td></tr>
+<tr><td>Passare un rosso</td><td>3</td></tr>
+</table>
+<h4>Come ridurre i punti</h4>
+<p>Corso <strong>BDI</strong> (Basic Driver Improvement) = rimuove 3 punti, disponibile 1 volta ogni 12 mesi.</p>
+<h4>Habitual Traffic Offender (HTO)</h4>
+<p>3 violazioni gravi O 15 condanne totali in 5 anni = revoca obbligatoria di <strong>5 anni</strong>.</p>
+<h4>Rinnovo patente</h4>
+<ul>
+<li>Validità standard: <strong>8 anni</strong> (scade il giorno del compleanno)</li>
+<li>Over 79: rinnovo ogni 6 anni, di persona</li>
+<li>Cambio indirizzo: notifica al FLHSMV entro <strong>30 giorni</strong></li>
+</ul>
+<div class="tip-box warn"><b>&#9888; Sospensione vs Revoca:</b> Sospensione = temporanea. Revoca = patente cancellata, bisogna rifarne domanda.</div>
+</div>`,
+flashcards:[
+  {q:"Quanti punti in 12 mesi per la sospensione di 30 giorni?", a:"12 punti"},
+  {q:"Eccesso di velocità in zona scolastica: quanti punti?", a:"6 punti (il doppio del normale)"},
+  {q:"Cos'è il corso BDI?", a:"Basic Driver Improvement — rimuove 3 punti (1 volta ogni 12 mesi)"},
+  {q:"Habitual Traffic Offender: soglia per la revoca di 5 anni?", a:"3 violazioni gravi O 15 condanne totali in 5 anni"},
+  {q:"Validità della patente Class E Florida?", a:"8 anni (scade il giorno del compleanno)"},
+]},
+];
+
+// ── STATE ─────────────────────────────────────────────────────────────────────
+let quiz=[],current=0,score=0,userAnswers=[];
+const doneChapters=new Set(JSON.parse(localStorage.getItem("doneChapters")||"[]"));
+
+// ── HELPERS ───────────────────────────────────────────────────────────────────
+function shuffle(arr){const a=[...arr];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function countByCat(pool){const c={signs:0,laws:0,safety:0,alcohol:0,license:0};pool.forEach(q=>{if(c[q.cat]!==undefined)c[q.cat]++;});return c;}
+
+// ── SCREEN NAV ────────────────────────────────────────────────────────────────
+function showScreen(id){
+  document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+}
+document.querySelectorAll(".mode-tab").forEach(tab=>{
+  tab.addEventListener("click",()=>{
+    document.querySelectorAll(".mode-tab").forEach(t=>t.classList.remove("active"));
+    tab.classList.add("active");
+    document.getElementById("chapter-view").classList.remove("active");
+    showScreen(tab.dataset.tab);
+  });
+});
+
+// ── STUDIO: CHAPTER LIST ──────────────────────────────────────────────────────
+function renderChapterList(){
+  const list=document.getElementById("chapter-list");
+  list.innerHTML="";
+  const done=doneChapters.size,tot=CHAPTERS.length;
+  document.getElementById("po-bar").style.width=(tot?Math.round(done/tot*100):0)+"%";
+  document.getElementById("po-done").textContent=done+" completati";
+  document.getElementById("po-tot").textContent=tot+" capitoli";
+  CHAPTERS.forEach(ch=>{
+    const isDone=doneChapters.has(ch.id);
+    const btn=document.createElement("button");
+    btn.className="chapter-btn"+(isDone?" done":"");
+    btn.innerHTML=
+      "<span class=\"ch-icon\">"+ch.icon+"</span>"+
+      "<span class=\"ch-body\"><span class=\"ch-title\">"+ch.title+"</span><span class=\"ch-sub\">"+ch.sub+"</span></span>"+
+      "<span class=\"ch-badge"+(isDone?" done":"")+"\">"+(isDone?"&#10003; Fatto":"&#9654; Studia")+"</span>";
+    btn.addEventListener("click",()=>openChapter(ch));
+    list.appendChild(btn);
+  });
+}
+
+// ── STUDIO: CHAPTER VIEW ──────────────────────────────────────────────────────
+let currentChapter=null,fcIndex=0,fcFlipped=false;
+function openChapter(ch){
+  currentChapter=ch;fcIndex=0;fcFlipped=false;
+  document.getElementById("ch-view-title").textContent=ch.title;
+  const content=document.getElementById("ch-content");
+  content.innerHTML=ch.content;
+  if(ch.flashcards&&ch.flashcards.length)content.appendChild(buildFlashcardBlock(ch.flashcards));
+  const isDone=doneChapters.has(ch.id);
+  const mdBtn=document.getElementById("btn-mark-done");
+  mdBtn.className="btn-mark-done"+(isDone?" done":"");
+  mdBtn.innerHTML=isDone?"&#10003; Completato":"&#10003; Segna come completato";
+  const pBtn=document.getElementById("btn-practice-chapter");
+  pBtn.style.display=ch.cat?"block":"none";
+  document.querySelectorAll(".mode-tab").forEach(t=>t.classList.remove("active"));
+  showScreen("chapter-view");
+  document.getElementById("chapter-view").classList.add("active");
+  window.scrollTo(0,0);
+}
+function buildFlashcardBlock(cards){
+  const wrap=document.createElement("div");wrap.className="content-block";
+  wrap.innerHTML="<h3>&#128140; Flashcard di ripasso</h3>";
+  const fcWrap=document.createElement("div");fcWrap.className="flashcard-wrap";
+  const fc=document.createElement("div");fc.className="flashcard";
+  fc.innerHTML=
+    "<div class=\"fc-front\"><div class=\"fc-label\">Domanda</div><div class=\"fc-text\" id=\"fc-q\"></div><div class=\"fc-hint\">Tocca per vedere la risposta</div></div>"+
+    "<div class=\"fc-back\"><div class=\"fc-label\">Risposta</div><div class=\"fc-text\" id=\"fc-a\"></div></div>";
+  fcWrap.appendChild(fc);
+  const nav=document.createElement("div");nav.className="fc-nav";
+  nav.innerHTML=
+    "<button class=\"fc-nav-btn\" id=\"fc-prev\">&#8592; Prec.</button>"+
+    "<span class=\"fc-counter\" id=\"fc-counter\">1 / "+cards.length+"</span>"+
+    "<button class=\"fc-nav-btn\" id=\"fc-next\">Succ. &#8594;</button>";
+  wrap.appendChild(fcWrap);wrap.appendChild(nav);
+  function updateFC(){
+    document.getElementById("fc-q").textContent=cards[fcIndex].q;
+    document.getElementById("fc-a").textContent=cards[fcIndex].a;
+    document.getElementById("fc-counter").textContent=(fcIndex+1)+" / "+cards.length;
+    fc.classList.remove("flipped");fcFlipped=false;
+    document.getElementById("fc-prev").disabled=fcIndex===0;
+    document.getElementById("fc-next").disabled=fcIndex===cards.length-1;
+  }
+  fcWrap.addEventListener("click",()=>{fcFlipped=!fcFlipped;fc.classList.toggle("flipped",fcFlipped);});
+  setTimeout(()=>{
+    document.getElementById("fc-prev").addEventListener("click",()=>{if(fcIndex>0){fcIndex--;updateFC();}});
+    document.getElementById("fc-next").addEventListener("click",()=>{if(fcIndex<cards.length-1){fcIndex++;updateFC();}});
+    updateFC();
+  },0);
+  return wrap;
+}
+document.getElementById("btn-back-chapter").addEventListener("click",()=>{
+  document.getElementById("chapter-view").classList.remove("active");
+  showScreen("studio-screen");
+  document.querySelectorAll(".mode-tab").forEach((t,i)=>t.classList.toggle("active",i===0));
+  renderChapterList();window.scrollTo(0,0);
+});
+document.getElementById("btn-mark-done").addEventListener("click",()=>{
+  if(!currentChapter)return;
+  if(doneChapters.has(currentChapter.id))doneChapters.delete(currentChapter.id);
+  else doneChapters.add(currentChapter.id);
+  localStorage.setItem("doneChapters",JSON.stringify([...doneChapters]));
+  const isDone=doneChapters.has(currentChapter.id);
+  const mdBtn=document.getElementById("btn-mark-done");
+  mdBtn.className="btn-mark-done"+(isDone?" done":"");
+  mdBtn.innerHTML=isDone?"&#10003; Completato":"&#10003; Segna come completato";
+});
+document.getElementById("btn-practice-chapter").addEventListener("click",()=>{
+  if(!currentChapter||!currentChapter.cat)return;
+  startQuiz(currentChapter.cat,20);
+});
+document.getElementById("qp-weak").addEventListener("click",()=>startQuiz(null,20));
+document.getElementById("qp-full").addEventListener("click",()=>startQuiz(null,50));
+
+// ── QUIZ ENGINE ───────────────────────────────────────────────────────────────
+function startQuiz(cat,n){
+  const pool=shuffle(cat?QUESTIONS.filter(q=>q.cat===cat):QUESTIONS);
+  quiz=pool.slice(0,Math.min(n,pool.length));
+  current=0;score=0;userAnswers=[];
+  quiz.forEach(q=>{q._shuffled=false;});
+  document.getElementById("q-tot").textContent=quiz.length;
+  document.querySelectorAll(".mode-tab").forEach((t,i)=>t.classList.toggle("active",i===1));
+  showScreen("quiz-screen");window.scrollTo(0,0);renderQ();
+}
+function getSetupPool(){
+  const sel=[...document.querySelectorAll(".cat-btn.selected")].map(b=>b.dataset.cat);
+  return sel.includes("all")?QUESTIONS:QUESTIONS.filter(q=>sel.includes(q.cat));
+}
+function updateSetupUI(){
+  const pool=getSetupPool();
+  const cats=countByCat(pool);
+  document.getElementById("db-avail").textContent=pool.length;
+  document.getElementById("stat-db").textContent=QUESTIONS.length;
+  document.getElementById("db-cat-counts").innerHTML=
+    Object.entries(cats).filter(([,v])=>v>0)
+    .map(([k,v])=>"<span class=\"cat-count\">"+CAT_IT[k]+": <b style=\"color:var(--gold)\">"+v+"</b></span>").join("");
+}
+if(/iphone|ipad|ipod/i.test(navigator.userAgent)&&!window.navigator.standalone)
+  document.getElementById("install-hint").style.display="block";
+const slider=document.getElementById("q-slider");
+slider.addEventListener("input",()=>{document.getElementById("q-count-display").textContent=slider.value;});
+const catGrid=document.getElementById("cat-grid");
+catGrid.addEventListener("click",e=>{
+  const btn=e.target.closest(".cat-btn");if(!btn)return;
+  const cat=btn.dataset.cat;
+  if(cat==="all"){document.querySelectorAll(".cat-btn").forEach(b=>b.classList.remove("selected"));btn.classList.add("selected");}
+  else{catGrid.querySelector("[data-cat=\"all\"]").classList.remove("selected");btn.classList.toggle("selected");
+    if(!catGrid.querySelector(".cat-btn.selected"))catGrid.querySelector("[data-cat=\"all\"]").classList.add("selected");}
+  updateSetupUI();
+});
+document.getElementById("btn-start").addEventListener("click",()=>{
+  const n=parseInt(slider.value);
+  const pool=shuffle(getSetupPool());
+  quiz=pool.slice(0,Math.min(n,pool.length));
+  current=0;score=0;userAnswers=[];
+  quiz.forEach(q=>{q._shuffled=false;});
+  document.getElementById("q-tot").textContent=quiz.length;
+  showScreen("quiz-screen");window.scrollTo(0,0);renderQ();
+});
+function renderQ(){
+  const q=quiz[current];
+  document.getElementById("prog-fill").style.width=((current/quiz.length)*100)+"%";
+  document.getElementById("q-cur").textContent=current+1;
+  document.getElementById("score-run").textContent=score;
+  document.getElementById("q-num-lbl").textContent="Q"+(current+1);
+  document.getElementById("q-cat-lbl").textContent=CAT_LABELS[q.cat]||q.cat;
+  document.getElementById("q-en").textContent=q.en;
+  document.getElementById("q-it").textContent=q.it;
+  if(!q._shuffled){
+    const indices=[0,1,2,3].slice(0,q.options.length);
+    for(let i=indices.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[indices[i],indices[j]]=[indices[j],indices[i]];}
+    q._shuffledOptions=indices.map(i=>q.options[i]);
+    q._shuffledCorrect=indices.indexOf(q.correct);
+    q._shuffled=true;
+  }
+  const opts=q._shuffledOptions;
+  const list=document.getElementById("opts-list");list.innerHTML="";
+  ["A","B","C","D"].forEach((ltr,i)=>{
+    if(i>=opts.length)return;
+    const li=document.createElement("li");
+    li.innerHTML="<button class=\"opt-btn\" data-idx=\""+i+"\"><span class=\"opt-letter\">"+ltr+"</span><span class=\"opt-content\"><span class=\"opt-en\">"+opts[i].en+"</span><span class=\"opt-it\">"+opts[i].it+"</span></span></button>";
+    list.appendChild(li);
+  });
+  list.querySelectorAll(".opt-btn").forEach(b=>b.addEventListener("click",()=>selectAnswer(parseInt(b.dataset.idx))));
+  const fb=document.getElementById("feedback-box");fb.className="feedback-box";fb.textContent="";
+  const nb=document.getElementById("btn-next");nb.className="btn-next";
+  nb.textContent=(current===quiz.length-1)?"Risultati \u2192":"Prossima \u2192";
+}
+function selectAnswer(idx){
+  const q=quiz[current];
+  document.querySelectorAll(".opt-btn").forEach(b=>b.disabled=true);
+  const btns=document.querySelectorAll(".opt-btn");
+  const correctIdx=q._shuffledCorrect;
+  const isRight=idx===correctIdx;
+  btns[correctIdx].classList.add("correct");
+  if(!isRight)btns[idx].classList.add("wrong");
+  if(isRight)score++;
+  userAnswers.push({qIdx:current,chosen:idx,correct:isRight});
+  document.getElementById("score-run").textContent=score;
+  const fb=document.getElementById("feedback-box");
+  fb.className="feedback-box show "+(isRight?"ok":"ko");
+  fb.innerHTML="<b>"+(isRight?"\u2705 Corretto!":"\u274C Sbagliato.")+"</b><br>"+q.explain_en+"<br><em>"+q.explain_it+"</em>";
+  document.getElementById("btn-next").classList.add("show");
+  setTimeout(()=>fb.scrollIntoView({behavior:"smooth",block:"nearest"}),100);
+}
+document.getElementById("btn-next").addEventListener("click",()=>{
+  current++;if(current>=quiz.length){showResults();return;}
+  renderQ();window.scrollTo({top:0,behavior:"smooth"});
+});
+function showResults(){
+  showScreen("results-screen");window.scrollTo(0,0);
+  const total=quiz.length,pct=Math.round((score/total)*100),pass=pct>=80;
+  document.getElementById("res-icon").textContent=pass?"\uD83C\uDF89":"\uD83D\uDCDA";
+  document.getElementById("res-verdict").textContent=pass?"SUPERATO! / PASSED!":"NON SUPERATO / NOT PASSED";
+  document.getElementById("res-sub").textContent=pass?"Punteggio "+pct+"% \u2014 Ottimo!":"Punteggio "+pct+"% \u2014 Servono almeno 80%.";
+  document.getElementById("res-pct").textContent=pct+"%";
+  document.getElementById("res-tot").textContent=total;
+  document.getElementById("res-ok").textContent=score;
+  document.getElementById("res-ko").textContent=total-score;
+  buildReview();
+}
+function buildReview(){
+  const sec=document.getElementById("review-section");
+  while(sec.children.length>1)sec.removeChild(sec.lastChild);
+  userAnswers.forEach(a=>{
+    const q=quiz[a.qIdx];
+    const chosen=q._shuffledOptions[a.chosen],correct=q._shuffledOptions[q._shuffledCorrect];
+    const div=document.createElement("div");div.className="review-item "+(a.correct?"ok":"ko");
+    div.innerHTML="<div class=\"review-q\">"+q.en+"</div><div class=\"review-q-it\">"+q.it+"</div><div class=\"review-ans\">"+(a.correct?"<span class=\"ca\">\u2705 "+chosen.en+"</span>":"<span class=\"wa\">\u274C "+chosen.en+"</span><br><span class=\"ca\">\u2705 "+correct.en+"</span>")+"</div>";
+    sec.appendChild(div);
+  });
+}
+document.getElementById("btn-review").addEventListener("click",()=>{
+  const sec=document.getElementById("review-section");sec.classList.toggle("show");
+  if(sec.classList.contains("show"))setTimeout(()=>sec.scrollIntoView({behavior:"smooth"}),100);
+});
+document.getElementById("btn-restart").addEventListener("click",()=>{
+  document.getElementById("review-section").classList.remove("show");
+  document.querySelectorAll(".mode-tab").forEach((t,i)=>t.classList.toggle("active",i===1));
+  showScreen("setup-screen");window.scrollTo(0,0);
+});
+renderChapterList();
+updateSetupUI();
+</script>
+</body>
+</html>
