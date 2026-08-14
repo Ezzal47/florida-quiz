@@ -397,437 +397,510 @@ const CAT_IT={signs:"Segnaletica",laws:"Norme",safety:"Sicurezza",alcohol:"DUI/A
 
 // ── CHAPTER DATA (HTML uses backticks, apostrophes safe) ──────────────────────
 const CHAPTERS = [
-{id:"intro", cat:null, icon:"&#127482;&#127480;", title:"Come funziona l'esame Class E", sub:"Struttura, punteggio, cosa aspettarsi",
-content:`<div class="content-block">
-<h3>L'esame Florida Class E</h3>
-<p>L'esame per la patente Florida (Class E) viene somministrato dal <strong>FLHSMV</strong>. L'esame comprende <strong>50 domande</strong> a scelta multipla e devi rispondere correttamente ad almeno <strong>40 su 50 (80%)</strong>.</p>
-<div class="tip-box key"><b>&#128273; Soglia di superamento:</b> 80% &mdash; 40 risposte corrette su 50.</div>
-<h4>Le 5 categorie dell'esame</h4>
-<ul>
-<li><strong>&#128678; Segnaletica (Signs):</strong> significato di colori, forme e segnali stradali</li>
-<li><strong>&#128203; Norme di circolazione (Laws):</strong> precedenze, velocità, parcheggio, segnalazioni</li>
-<li><strong>&#128737; Sicurezza (Safety):</strong> distanze, manovre, condizioni meteo, veicoli speciali</li>
-<li><strong>&#127866; DUI/Alcol:</strong> limiti BAC, conseguenze, effetti dell'alcol sulla guida</li>
-<li><strong>&#129346; Patente (License):</strong> GDL, sospensioni, rinnovo, punti sul casellario</li>
-</ul>
-<h4>Come si svolge</h4>
-<p>Il test si tiene in un ufficio FLHSMV. Puoi prenotare online su <strong>flhsmv.gov</strong>. Porta documento d'identità, SSN e due prove di residenza in Florida. Nuovo residente: converti la patente estera entro <strong>30 giorni</strong>.</p>
-<div class="tip-box info"><b>&#128161; Consiglio:</b> Studia i capitoli in ordine, poi fai almeno 3-4 simulazioni da 50 domande prima del giorno dell'esame.</div>
-<h4>Dopo l'esame scritto</h4>
-<p>Se superi il test scritto, devi sostenere anche il <strong>road test</strong> (guida pratica). Con patente di un altro stato USA il road test può essere esonerato.</p>
-</div>`,
-flashcards:[
-  {q:"Quante domande ha l'esame Class E?", a:"50 domande — devi rispondere correttamente ad almeno 40 (80%)"},
-  {q:"Qual è la soglia minima per superare l'esame?", a:"80% — 40 risposte corrette su 50"},
-  {q:"Entro quanti giorni un nuovo residente deve convertire la patente?", a:"30 giorni dall'iscrizione come residente Florida"},
-]},
 
-{id:"signs_colors", cat:"signs", icon:"&#127314;", title:"Colori e forme dei segnali", sub:"Il codice cromatico della segnaletica USA",
+{id:"intro", cat:null, icon:"&#127482;&#127480;", title:"The Class E Exam / L'esame Class E", sub:"Structure, score, what to expect / Struttura, punteggio, cosa aspettarsi",
 content:`<div class="content-block">
-<h3>Il significato dei colori</h3>
+<h3>The Florida Class E Exam</h3>
+<p>The exam is administered by <strong>FLHSMV</strong> (Florida Highway Safety and Motor Vehicles).<br>
+<em>L'esame viene somministrato dal <strong>FLHSMV</strong>.</em></p>
+<div class="tip-box key"><b>&#128273; Passing score / Punteggio minimo:</b><br>
+<strong>80% — 40 correct answers out of 50</strong><br><em>40 risposte corrette su 50</em></div>
+<h4>The 5 exam categories / Le 5 categorie</h4>
 <table class="speed-table">
-<tr><th>Colore</th><th>Significato</th><th>Esempi</th></tr>
-<tr><td>&#128308; Rosso</td><td class="hi">Divieto / Fermati</td><td>STOP, Wrong Way, Do Not Enter</td></tr>
-<tr><td>&#128993; Giallo</td><td>Attenzione / Avvertimento</td><td>Curva, incrocio, pedoni</td></tr>
-<tr><td>&#9899; Bianco</td><td>Normativa (limite legale)</td><td>Speed Limit, One Way</td></tr>
-<tr><td>&#128994; Verde</td><td>Informazioni di percorso</td><td>Uscite, distanze, destinazioni</td></tr>
-<tr><td>&#128309; Blu</td><td>Servizi per automobilisti</td><td>Benzina, cibo, ospedali</td></tr>
-<tr><td>&#129024; Marrone</td><td>Parchi / Cultura / Turismo</td><td>National Parks, siti storici</td></tr>
-<tr><td>&#128992; Arancione</td><td>Zona di lavori in corso</td><td>Road Work, Detour, Flagger</td></tr>
-<tr><td>Giallo-verde fluo</td><td>Pedoni / Scuola / Bici</td><td>School Zone, Ped Xing</td></tr>
+<tr><th>Category (EN)</th><th>Categoria (IT)</th></tr>
+<tr><td>&#128678; <strong>Signs</strong> — colors, shapes, meanings</td><td>Segnaletica — colori, forme, significati</td></tr>
+<tr><td>&#128203; <strong>Laws</strong> — right of way, speed, parking</td><td>Norme — precedenze, velocità, parcheggio</td></tr>
+<tr><td>&#128737; <strong>Safety</strong> — distances, maneuvers, weather</td><td>Sicurezza — distanze, manovre, meteo</td></tr>
+<tr><td>&#127866; <strong>DUI/Alcohol</strong> — BAC limits, penalties</td><td>DUI/Alcol — limiti BAC, sanzioni</td></tr>
+<tr><td>&#129346; <strong>License</strong> — GDL, points, suspension</td><td>Patente — GDL, punti, sospensione</td></tr>
 </table>
-<div class="tip-box warn"><b>&#9888; Importante:</b> Segnali arancioni nelle zone di lavoro: <strong>multe raddoppiate</strong> in Florida, anche senza lavoratori presenti.</div>
-<h4>Il significato delle forme</h4>
-<ul>
-<li><strong>Ottagono rosso:</strong> sempre STOP</li>
-<li><strong>Triangolo rovesciato rosso/bianco:</strong> sempre YIELD</li>
-<li><strong>Rombo giallo/arancione:</strong> avvertimento</li>
-<li><strong>Pennant (triangolare lato sinistro):</strong> sempre No Passing Zone</li>
-<li><strong>Rettangolo bianco:</strong> normativo | Verde/Blu/Marrone: informativo</li>
-<li><strong>Rotondo giallo con X e RR:</strong> avvertimento passaggio a livello</li>
-</ul>
-<div class="tip-box key"><b>&#128161; Trucco:</b> La forma da sola dice cosa fare — l'ottagono = fermati sempre, anche senza leggere il testo.</div>
+<h4>How it works / Come si svolge</h4>
+<p>The test is held at an FLHSMV office. Book online at <strong>flhsmv.gov</strong>. Bring a valid ID, SSN, and two proofs of Florida residency. New residents must convert their foreign license within <strong>30 days</strong>.<br>
+<em>Il test si tiene in un ufficio FLHSMV. Porta documento d'identità, SSN e due prove di residenza. Nuovo residente: converti la patente entro <strong>30 giorni</strong>.</em></p>
+<div class="tip-box info"><b>&#128161; Tip / Consiglio:</b> Study all chapters, then do at least 3-4 full 50-question simulations before exam day.<br><em>Studia tutti i capitoli, poi fai almeno 3-4 simulazioni da 50 domande prima dell'esame.</em></div>
 </div>`,
 flashcards:[
-  {q:"Segnale ARANCIONE: cosa indica?", a:"Zona di lavori in corso — multe raddoppiate in Florida"},
-  {q:"Segnale BLU: cosa indica?", a:"Servizi per automobilisti: benzina, cibo, ospedali, alloggio"},
-  {q:"Segnale MARRONE: cosa indica?", a:"Aree ricreative, parchi, siti storici, percorsi panoramici"},
-  {q:"Forma a PENNANT: cosa significa sempre?", a:"No Passing Zone — montato sul lato sinistro della strada"},
-  {q:"Segnale ROTONDO giallo con X e RR: cosa indica?", a:"Avvertimento anticipato di passaggio a livello ferroviario"},
+  {q:"How many questions on the Class E exam?\n(Quante domande ha l'esame Class E?)", a:"50 questions — need at least 40 correct (80%)\n(50 domande — servono almeno 40 corrette)"},
+  {q:"What is the minimum passing score?\n(Qual è il punteggio minimo per passare?)", a:"80% — 40 out of 50\n(80% — 40 su 50)"},
+  {q:"How many days to convert a foreign license after establishing FL residency?\n(Entro quanti giorni convertire la patente?)", a:"30 days / 30 giorni"},
 ]},
 
-{id:"signs_key", cat:"signs", icon:"&#128204;", title:"Segnali chiave da memorizzare", sub:"I segnali più frequenti all'esame",
+{id:"signs_colors", cat:"signs", icon:"&#127314;", title:"Sign Colors & Shapes / Colori e forme", sub:"The color code of US road signs / Il codice cromatico della segnaletica USA",
 content:`<div class="content-block">
-<h3>Segnali obbligatori da conoscere</h3>
-<h4>STOP e precedenza</h4>
-<ul>
-<li><strong>STOP (ottagono rosso):</strong> fermata completa alla linea bianca, poi vai solo se libero</li>
-<li><strong>YIELD (triangolo rosso/bianco rovesciato):</strong> rallenta e cedi il passo</li>
-<li><strong>DO NOT ENTER (cerchio rosso, barra bianca):</strong> ingresso vietato</li>
-<li><strong>WRONG WAY (rettangolo rosso):</strong> stai andando contromano — fermati</li>
-</ul>
-<h4>Velocità e sorpasso</h4>
-<ul>
-<li><strong>SPEED LIMIT (bianco rettangolare):</strong> limite legale massimo</li>
-<li><strong>NO PASSING ZONE (pennant giallo):</strong> divieto di sorpasso — lato sinistro</li>
-<li><strong>Doppia linea gialla continua:</strong> divieto di sorpasso in entrambe le direzioni</li>
-<li><strong>Linea gialla continua + tratteggiata:</strong> sorpasso consentito solo dal lato tratteggiato</li>
-</ul>
-<h4>Scuolabus — regola fondamentale</h4>
-<p>Luci rosse lampeggianti + braccio di stop esteso = TUTTO il traffico si ferma (anche lato opposto, tranne autostrade con mediano fisico).</p>
-<div class="tip-box warn"><b>&#128678; Zona scolastica:</b> 15 mph con luci lampeggianti attive. 6 punti sul casellario se superato.</div>
-<h4>Semafori speciali</h4>
-<ul>
-<li><strong>Giallo lampeggiante:</strong> procedi con cautela</li>
-<li><strong>Rosso lampeggiante:</strong> trattalo come uno STOP</li>
-<li><strong>Freccia verde:</strong> svolta protetta — nessun traffico in conflitto</li>
-<li><strong>X rossa su corsia:</strong> corsia chiusa — non usarla</li>
-</ul>
-<div class="tip-box key"><b>&#128161; Regola:</b> Giallo = preparati a fermarti (non accelerare per passare col giallo).</div>
-</div>`,
-flashcards:[
-  {q:"Semaforo ROSSO LAMPEGGIANTE: cosa devi fare?", a:"Trattarlo come uno STOP: fermarsi completamente, poi procedere se libero"},
-  {q:"Freccia VERDE sul semaforo: cosa significa?", a:"Svolta protetta — puoi procedere senza cedere al traffico in arrivo"},
-  {q:"Quando si deve fermare per lo scuolabus?", a:"Luci rosse lampeggianti + braccio esteso: fermati su entrambi i lati (tranne autostrade con mediano)"},
-  {q:"X ROSSA sopra una corsia: cosa fare?", a:"La corsia è chiusa — spostati immediatamente"},
-  {q:"WRONG WAY: cosa significa?", a:"Stai percorrendo una strada contromano — fermati subito"},
-]},
-
-{id:"laws_speed", cat:"laws", icon:"&#128241;", title:"Limiti di velocità in Florida", sub:"Valori predefiniti e zone speciali",
-content:`<div class="content-block">
-<h3>Limiti di velocità predefiniti</h3>
+<h3>Sign Colors / Colori dei segnali</h3>
 <table class="speed-table">
-<tr><th>Zona</th><th>Limite</th></tr>
-<tr><td>Vicolo (alley)</td><td class="lo">10 mph</td></tr>
-<tr><td>Zona scolastica (luci lampeggianti)</td><td class="lo">15 mph</td></tr>
-<tr><td>Residenziale / business senza segnale</td><td>30 mph</td></tr>
-<tr><td>Strada rurale a 2 corsie</td><td>55 mph</td></tr>
-<tr><td>Autostrada interstatale urbana</td><td>65 mph</td></tr>
-<tr><td>Autostrada interstatale rurale</td><td class="hi">70 mph</td></tr>
+<tr><th>Color / Colore</th><th>Meaning (EN)</th><th>Significato (IT)</th></tr>
+<tr><td>&#128308; <strong>Red</strong> / Rosso</td><td class="hi">Prohibition / Stop</td><td>Divieto / Fermati</td></tr>
+<tr><td>&#128993; <strong>Yellow</strong> / Giallo</td><td>Warning</td><td>Attenzione / Avvertimento</td></tr>
+<tr><td>&#9899; <strong>White</strong> / Bianco</td><td>Regulatory</td><td>Normativo (limite legale)</td></tr>
+<tr><td>&#128994; <strong>Green</strong> / Verde</td><td>Guide / Directions</td><td>Informazioni di percorso</td></tr>
+<tr><td>&#128309; <strong>Blue</strong> / Blu</td><td>Motorist services</td><td>Servizi per automobilisti</td></tr>
+<tr><td>&#129024; <strong>Brown</strong> / Marrone</td><td>Recreation / Parks</td><td>Parchi / Cultura / Turismo</td></tr>
+<tr><td>&#128992; <strong>Orange</strong> / Arancione</td><td>Work zone / Construction</td><td>Zona di lavori in corso</td></tr>
+<tr><td>&#128993; <strong>Fluorescent yellow-green</strong></td><td>Pedestrian / School / Bike</td><td>Pedoni / Scuola / Bici</td></tr>
 </table>
-<div class="tip-box warn"><b>&#9888; Zone di lavoro:</b> limite ridotto + <strong>multe raddoppiate</strong>, valide anche senza lavoratori presenti.</div>
-<h4>Move Over Law</h4>
-<p>Quando superi un veicolo fermo con luci lampeggianti (polizia, ambulanza, carro attrezzi):</p>
-<ul>
-<li>Spostati di una corsia, <strong>oppure</strong></li>
-<li>Riduci la velocità di <strong>20 mph sotto il limite</strong></li>
-</ul>
-<div class="tip-box key"><b>&#128204; Distanza minima:</b> 500 piedi da un'autopompa dei pompieri — sia in servizio che no.</div>
-</div>`,
-flashcards:[
-  {q:"Limite predefinito in zona residenziale senza segnale?", a:"30 mph"},
-  {q:"Limite in zona scolastica con luci lampeggianti?", a:"15 mph"},
-  {q:"Limite massimo su autostrada interstatale rurale in Florida?", a:"70 mph"},
-  {q:"Move Over Law: cosa devi fare?", a:"Spostarti di una corsia OPPURE rallentare di 20 mph sotto il limite"},
-  {q:"Limite in un vicolo (alley)?", a:"10 mph"},
-]},
-
-{id:"laws_priority", cat:"laws", icon:"&#128260;", title:"Precedenze e diritto di passaggio", sub:"Chi va prima in ogni situazione",
-content:`<div class="content-block">
-<h3>Regole di precedenza (Right of Way)</h3>
-<h4>Incrocio non controllato — arrivo simultaneo</h4>
-<p>Cedi a chi viene da <strong>destra</strong>. Se arrivi per primo, hai la precedenza.</p>
-<h4>Svolta sinistra con verde fisso</h4>
-<p>Puoi svoltare a sinistra, ma devi cedere al traffico in arrivo e ai pedoni. Solo la <strong>freccia verde protetta</strong> dà precedenza assoluta.</p>
-<h4>Pedoni</h4>
-<ul>
-<li>Cedi ai pedoni in <strong>qualsiasi attraversamento</strong> — segnalato o meno</li>
-<li><strong>Precedenza assoluta</strong> a persone con bastone bianco o cane guida</li>
-</ul>
-<h4>Autostrada e rampe</h4>
-<p>Chi si immette dalla rampa cede al traffico già in autostrada.</p>
-<h4>Veicoli di emergenza</h4>
-<p>Sirene o luci lampeggianti: accosta a destra e fermati finché il veicolo non è passato — anche al verde.</p>
-<h4>Autobus di linea</h4>
-<p>Devi cedere agli autobus che segnalano di rientrare nel traffico da una fermata designata.</p>
-<div class="tip-box ok"><b>&#10003; Mnemonica:</b> Destra = precedenza all'arrivo simultaneo. Sirena = accosta a destra sempre.</div>
-</div>`,
-flashcards:[
-  {q:"Arrivo contemporaneo a uno stop a 4 vie: chi passa primo?", a:"Il veicolo che viene da destra"},
-  {q:"Svolta sinistra con verde fisso: cosa fare?", a:"Cedere al traffico in arrivo e ai pedoni — solo la freccia verde dà precedenza assoluta"},
-  {q:"Pedone con bastone bianco: che diritto ha?", a:"Precedenza assoluta — in qualsiasi luogo, non solo agli attraversamenti"},
-  {q:"Chi si immette dalla rampa autostradale: chi cede?", a:"Il veicolo in ingresso cede al traffico già in autostrada"},
-  {q:"Veicolo di emergenza con sirena: cosa fai?", a:"Accosti a destra e ti fermi fino a quando non è passato"},
-]},
-
-{id:"laws_parking", cat:"laws", icon:"&#128352;", title:"Parcheggio e divieti", sub:"Dove non si può parcheggiare in Florida",
-content:`<div class="content-block">
-<h3>Distanze minime di parcheggio</h3>
+<div class="tip-box warn"><b>&#9888; Orange signs / Segnali arancioni:</b><br>
+<strong>Fines doubled in work zones</strong> — even without workers present.<br>
+<em>Multe raddoppiate nelle zone di lavoro — anche senza lavoratori presenti.</em></div>
+<h4>Sign Shapes / Forme dei segnali</h4>
 <table class="speed-table">
-<tr><th>Ostacolo</th><th>Distanza minima</th></tr>
-<tr><td>Idrante antincendio</td><td class="hi">15 piedi</td></tr>
-<tr><td>Segnale STOP</td><td class="hi">30 piedi</td></tr>
-<tr><td>Attraversamento pedonale (all'incrocio)</td><td class="hi">20 piedi</td></tr>
-<tr><td>Ingresso caserma dei pompieri (stesso lato)</td><td class="hi">15 piedi</td></tr>
-<tr><td>Binario ferroviario</td><td class="hi">50 piedi</td></tr>
+<tr><th>Shape / Forma</th><th>Always means / Significa sempre</th></tr>
+<tr><td><strong>Octagon</strong> (red) / Ottagono</td><td>STOP</td></tr>
+<tr><td><strong>Inverted triangle</strong> / Triangolo rovesciato</td><td>YIELD / Precedenza</td></tr>
+<tr><td><strong>Diamond</strong> / Rombo</td><td>Warning / Avvertimento</td></tr>
+<tr><td><strong>Pennant</strong> (left side) / Pennant</td><td>No Passing Zone / Divieto sorpasso</td></tr>
+<tr><td><strong>Round yellow</strong> + X + RR</td><td>Railroad crossing ahead / Passaggio a livello</td></tr>
+<tr><td><strong>Pentagon</strong> / Pentagono</td><td>School zone / Zona scolastica</td></tr>
 </table>
-<h4>Colori del marciapiede</h4>
-<ul>
-<li><strong>Rosso:</strong> divieto assoluto sosta (fire zone)</li>
-<li><strong>Giallo:</strong> solo carico/scarico merci</li>
-<li><strong>Bianco:</strong> carico/scarico passeggeri breve</li>
-<li><strong>Verde:</strong> parcheggio a tempo limitato (10-30 min)</li>
-<li><strong>Blu:</strong> solo disabili con permesso valido — multa min. $250</li>
-</ul>
-<h4>Ruote sulle colline</h4>
-<ul>
-<li><strong>In discesa con marciapiede:</strong> ruote VERSO il marciapiede (destra)</li>
-<li><strong>In salita con marciapiede:</strong> ruote LONTANO dal marciapiede (sinistra)</li>
-<li><strong>Senza marciapiede:</strong> ruote verso il bordo della strada</li>
-</ul>
-<div class="tip-box key"><b>&#128161; Trucco colline:</b> In discesa sempre verso il marciapiede. Se l'auto si muove, il marciapiede la ferma.</div>
+<div class="tip-box key"><b>&#128161; Key trick / Trucco:</b><br>
+The <strong>shape alone</strong> tells you what to do — even if you can't read the text.<br>
+<em>La forma da sola dice cosa fare — anche senza leggere il testo.</em></div>
 </div>`,
 flashcards:[
-  {q:"Distanza minima da un idrante antincendio?", a:"15 piedi"},
-  {q:"Marciapiede GIALLO: cosa significa?", a:"Solo carico/scarico merci — nessun parcheggio"},
-  {q:"Marciapiede BLU: chi può parcheggiare?", a:"Solo persone con disabilità con permesso valido"},
-  {q:"In discesa con marciapiede: come giri le ruote?", a:"Verso il marciapiede (destra) — se l'auto si muove si blocca contro di esso"},
-  {q:"Bambino under 6 da solo in auto: quanto è legale?", a:"Massimo 15 minuti, zero se il motore è acceso"},
+  {q:"What does an ORANGE sign indicate?\n(Cosa indica un segnale ARANCIONE?)", a:"Work zone / Construction — fines doubled in FL\n(Zona di lavori — multe raddoppiate in Florida)"},
+  {q:"What does a BLUE sign indicate?\n(Cosa indica un segnale BLU?)", a:"Motorist services: gas, food, hospital, lodging\n(Servizi: benzina, cibo, ospedali, alloggio)"},
+  {q:"What does a BROWN sign indicate?\n(Cosa indica un segnale MARRONE?)", a:"Recreation / Parks / Historic sites / Scenic routes\n(Parchi, siti storici, percorsi panoramici)"},
+  {q:"What shape is always a No Passing Zone?\n(Quale forma indica sempre il divieto di sorpasso?)", a:"Pennant — mounted on the LEFT side of the road\n(Pennant — sul lato SINISTRO della strada)"},
+  {q:"Round yellow sign with X and RR: what does it mean?\n(Segnale rotondo giallo con X e RR?)", a:"Railroad crossing ahead / Passaggio a livello in avanti"},
 ]},
 
-{id:"laws_other", cat:"laws", icon:"&#128220;", title:"Norme essenziali Florida", sub:"Cellulare, cinture, assicurazione e luci",
+{id:"signs_key", cat:"signs", icon:"&#128204;", title:"Key Signs / Segnali chiave", sub:"Most frequent signs on the exam / I segnali più frequenti all'esame",
 content:`<div class="content-block">
-<h3>Cellulare alla guida</h3>
-<ul>
-<li>Invio SMS durante la guida: <strong>reato principale</strong> (dal 2019)</li>
-<li>Zone scolastiche e di lavoro: <strong>vietato qualsiasi dispositivo portatile</strong></li>
-<li>Chiamate hands-free: sempre legali</li>
-<li>Prima infrazione: $60 + spese giudiziarie</li>
-</ul>
-<h4>Cinture di sicurezza</h4>
-<ul>
-<li>Sedile anteriore 18+: applicazione <strong>primaria</strong></li>
-<li>Passeggeri under 18: sempre obbligatorie</li>
-<li>Bambini under 4: seggiolino omologato obbligatorio</li>
-</ul>
-<h4>Assicurazione — stato no-fault</h4>
+<h3>Critical Signs / Segnali critici</h3>
 <table class="speed-table">
-<tr><th>Copertura</th><th>Minimo obbligatorio</th></tr>
-<tr><td>PIP (Personal Injury Protection)</td><td>$10.000</td></tr>
-<tr><td>PDL (Property Damage Liability)</td><td>$10.000</td></tr>
+<tr><th>Sign (EN)</th><th>Look</th><th>Significato (IT)</th></tr>
+<tr><td><strong>STOP</strong></td><td>Red octagon</td><td>Fermata completa alla linea</td></tr>
+<tr><td><strong>YIELD</strong></td><td>Red/white inverted triangle</td><td>Cedi il passo</td></tr>
+<tr><td><strong>DO NOT ENTER</strong></td><td>Red circle, white bar</td><td>Ingresso vietato</td></tr>
+<tr><td><strong>WRONG WAY</strong></td><td>Red rectangle</td><td>Stai andando contromano</td></tr>
+<tr><td><strong>SPEED LIMIT</strong></td><td>White rectangle</td><td>Limite massimo legale</td></tr>
+<tr><td><strong>NO PASSING ZONE</strong></td><td>Yellow pennant, left side</td><td>Divieto di sorpasso</td></tr>
 </table>
-<div class="tip-box warn"><b>&#9888; Dopo un DUI</b> serve FR-44 (non SR-22): $100.000/$300.000 BI + $50.000 PDL. Molto più costoso.</div>
-<h4>Luci e segnalazioni</h4>
-<ul>
-<li>Luci obbligatorie: dal tramonto all'alba E quando i tergicristalli sono in uso</li>
-<li>Abbaglianti: abbassarli entro 500 piedi da veicolo in arrivo, 300 piedi da quello davanti</li>
-<li>Segnalazione svolta: almeno 100 piedi in città, 200 piedi in autostrada</li>
-<li>Contenitore aperto di alcol in auto: illegale anche per i passeggeri</li>
-</ul>
-<div class="tip-box key"><b>&#128161; Regola luci:</b> Se i tergicristalli sono accesi, i fari devono essere accesi.</div>
-</div>`,
-flashcards:[
-  {q:"SMS durante la guida in Florida: che tipo di reato è?", a:"Reato principale (primary offense) — possono fermarti solo per questo"},
-  {q:"Assicurazione minima obbligatoria in Florida?", a:"$10.000 PIP + $10.000 PDL (stato no-fault)"},
-  {q:"Quando devo accendere i fari oltre che di notte?", a:"Ogni volta che uso i tergicristalli per pioggia o nebbia"},
-  {q:"Distanza minima di segnalazione prima di svoltare in città?", a:"100 piedi (200 piedi in autostrada)"},
-  {q:"Contenitore aperto di alcol in auto: è legale per i passeggeri?", a:"No — la legge sul contenitore aperto vale per tutta l'abitacolo"},
-]},
-
-{id:"safety_main", cat:"safety", icon:"&#128737;", title:"Sicurezza alla guida", sub:"Distanze, emergenze e condizioni difficili",
-content:`<div class="content-block">
-<h3>Distanza di sicurezza</h3>
-<p>Regola dei <strong>3 secondi</strong> in condizioni ideali. Aggiungi 1 secondo per ogni fattore di rischio:</p>
+<h4>Lane markings / Segnaletica orizzontale</h4>
 <table class="speed-table">
-<tr><th>Condizione</th><th>Secondi consigliati</th></tr>
-<tr><td>Asciutto, giorno, visibilità ottima</td><td>3 sec</td></tr>
-<tr><td>Pioggia / notte / stanchezza</td><td>4-6 sec</td></tr>
-<tr><td>Dietro un camion</td><td>4+ sec</td></tr>
-<tr><td>Dietro una moto</td><td>3-4 sec</td></tr>
+<tr><th>Marking (EN)</th><th>Rule</th><th>Regola (IT)</th></tr>
+<tr><td><strong>Double solid yellow</strong></td><td>No passing either direction</td><td>Nessun sorpasso in nessuna direzione</td></tr>
+<tr><td><strong>Solid + dashed yellow</strong></td><td>Pass only from dashed side</td><td>Sorpasso solo dal lato tratteggiato</td></tr>
+<tr><td><strong>White diamond in lane</strong></td><td>HOV / Carpool lane</td><td>Corsia HOV (alta occupazione)</td></tr>
 </table>
-<p>Raddoppiare la velocità <strong>quadruplica</strong> la distanza di frenata.</p>
-<h4>Emergenze in movimento</h4>
-<ul>
-<li><strong>Aquaplaning:</strong> togli il gas, non frenare bruscamente, tieni dritto finché gli pneumatici tornano a contatto</li>
-<li><strong>Foratura ad alta velocità:</strong> stringi il volante, togli il gas, decelera naturalmente, poi accosta</li>
-<li><strong>Acceleratore bloccato:</strong> metti in folle (N), frena con forza, accosta, poi spegni</li>
-<li><strong>Freni che cedono:</strong> pompa i freni, scala le marce, usa il freno a mano delicatamente</li>
-</ul>
-<div class="tip-box warn"><b>&#9888; Strada allagata:</b> Turn Around Don't Drown. 15 cm di acqua in movimento possono buttarti a terra, 60 cm spazzano via un'auto.</div>
-<h4>Guida notturna e stanchezza</h4>
-<p>Guidare oltre i fari = andare più veloci di quanto riesci a fermarti nella distanza illuminata. La guida sonnolenta è pericolosa quanto quella ubriaca — l'unica cura è il sonno.</p>
-</div>`,
-flashcards:[
-  {q:"Cosa fare in caso di aquaplaning?", a:"Togli il gas, non frenare bruscamente, tieni dritto e aspetta che gli pneumatici tornino a contatto"},
-  {q:"Acceleratore bloccato: cosa fai prima?", a:"Metti in folle (N) — poi frena, accosta, spegni il motore"},
-  {q:"Raddoppiare la velocità: di quanto aumenta la distanza di frenata?", a:"La quadruplica (effetto quadratico)"},
-  {q:"Guidare oltre i fari di notte: cosa significa?", a:"Andare più veloci di quanto riesci a fermarti nella distanza illuminata dai fari"},
-  {q:"Distanza minima in condizioni ideali?", a:"3 secondi (regola dei 3 secondi)"},
-]},
-
-{id:"safety_special", cat:"safety", icon:"&#128652;", title:"Veicoli speciali e manovre", sub:"Camion, moto, ciclisti, treni",
-content:`<div class="content-block">
-<h3>Camion pesanti — 4 punti ciechi</h3>
-<p>20 piedi davanti, 30 piedi dietro, 2 corsie a destra, 1 corsia a sinistra. Se non vedi lo specchio del camionista, lui non vede te.</p>
-<ul>
-<li>Non passare mai sul lato destro un camion che svolta a destra</li>
-<li>Pericolo di incastro sotto al rimorchio (underride) se segui troppo vicino</li>
-</ul>
-<h4>Motociclisti</h4>
-<ul>
-<li>Meritano l'intera larghezza della corsia</li>
-<li>Mantieni 3-4 secondi di distanza — frenano più velocemente delle auto</li>
-<li><strong>Lane splitting: illegale in Florida</strong></li>
-<li>Casco obbligatorio under 21. Over 21: non obbligatorio con assicurazione medica da $10.000+</li>
-</ul>
-<h4>Ciclisti</h4>
-<ul>
-<li>Stessi diritti e doveri dei veicoli a motore</li>
-<li><strong>Legge dei 3 piedi:</strong> lascia almeno 3 piedi quando sorpassi una bici</li>
-<li>Casco obbligatorio under 16</li>
-</ul>
-<h4>Passaggi a livello</h4>
-<ul>
-<li>Fermati ad almeno <strong>15 piedi</strong> dal binario</li>
-<li>Scuolabus e veicoli hazmat: fermata obbligatoria sempre</li>
-<li>Se bloccato sui binari: esci subito, allontanati dalla direzione del treno</li>
-</ul>
-<div class="tip-box key"><b>&#128161; 3 piedi = regola d'oro per i ciclisti.</b> Se la corsia è troppo stretta, cambia corsia per sorpassare.</div>
-</div>`,
-flashcards:[
-  {q:"Lane splitting in Florida: è legale?", a:"No — illegale in Florida"},
-  {q:"Distanza minima sorpassando una bicicletta?", a:"3 piedi (legge dei 3 piedi Florida)"},
-  {q:"Distanza minima dal binario al passaggio a livello?", a:"Almeno 15 piedi dal binario più vicino"},
-  {q:"Casco moto in Florida: quando è obbligatorio?", a:"Sempre under 21. Over 21 esente con almeno $10.000 di assicurazione medica"},
-  {q:"Scuolabus al passaggio a livello: cosa deve fare?", a:"Fermarsi sempre, anche se il semaforo è verde"},
-]},
-
-{id:"alcohol_main", cat:"alcohol", icon:"&#127866;", title:"Alcol, DUI e BAC", sub:"Limiti, effetti e metabolismo",
-content:`<div class="content-block">
-<h3>Limiti BAC in Florida</h3>
+<h4>School bus / Scuolabus</h4>
+<p><strong>Flashing RED lights + stop arm extended</strong> = ALL traffic stops — both directions.<br>
+Exception: divided highway with physical median — only same-side traffic stops.<br>
+<em>Luci rosse lampeggianti + braccio esteso = TUTTO il traffico si ferma. Eccezione: autostrada con mediano fisico.</em></p>
+<div class="tip-box warn"><b>&#128678; School zone / Zona scolastica:</b><br>
+<strong>15 mph</strong> when lights flash or children present. <strong>6 points</strong> on record if violated.<br>
+<em>15 mph con luci lampeggianti. 6 punti sul casellario se violato.</em></div>
+<h4>Traffic signals / Semafori speciali</h4>
 <table class="speed-table">
-<tr><th>Conducente</th><th>Limite BAC</th></tr>
-<tr><td>Adulto (21+)</td><td class="hi">0,08%</td></tr>
-<tr><td>Under 21 (Zero Tolerance)</td><td class="hi">0,02%</td></tr>
-<tr><td>Conducente CDL in servizio</td><td class="hi">0,04%</td></tr>
+<tr><th>Signal (EN)</th><th>Action / Azione</th></tr>
+<tr><td><strong>Flashing YELLOW</strong></td><td>Proceed with caution / Procedi con cautela</td></tr>
+<tr><td><strong>Flashing RED</strong></td><td>Treat as STOP sign / Trattalo come uno STOP</td></tr>
+<tr><td><strong>GREEN arrow</strong></td><td>Protected turn — no conflicting traffic / Svolta protetta</td></tr>
+<tr><td><strong>Red X over lane</strong></td><td>Lane closed — move out / Corsia chiusa</td></tr>
 </table>
-<div class="tip-box warn"><b>&#9888; Attenzione:</b> DUI possibile anche SOTTO 0,08% se il conducente mostra compromissione delle normali facoltà.</div>
-<h4>Come si metabolizza l'alcol</h4>
-<ul>
-<li>Il fegato elabora circa <strong>1 drink standard all'ora</strong> — non si può accelerare</li>
-<li>Caffè, acqua, esercizio non accelerano la metabolizzazione</li>
-<li>Il BAC può salire per 20-40 minuti dopo l'ultimo drink</li>
-<li>1 drink standard = 12 oz birra = 5 oz vino = 1,5 oz superalcolici</li>
-</ul>
-<h4>Fattori che influenzano il BAC</h4>
-<ul>
-<li>Peso corporeo (più peso = BAC più basso)</li>
-<li>Genere (le donne raggiungono BAC più alto a parità di peso)</li>
-<li>Età (metabolismo più lento con l'età)</li>
-<li>Cibo (rallenta l'assorbimento, non riduce il BAC finale)</li>
-<li>Carbonatazione (accelera l'assorbimento)</li>
-</ul>
-<div class="tip-box ok"><b>&#10003; L'unica soluzione sicura:</b> guidatore designato sobrio, Uber/Lyft, taxi, o dormire sul posto.</div>
 </div>`,
 flashcards:[
-  {q:"Limite BAC per adulto in Florida?", a:"0,08%"},
-  {q:"Limite BAC per under 21 (Zero Tolerance)?", a:"0,02% — 6 mesi di sospensione automatica"},
-  {q:"Limite BAC per conducente CDL in servizio?", a:"0,04%"},
-  {q:"Quanti drink elabora il fegato all'ora?", a:"Circa 1 drink standard all'ora — non si può accelerare"},
-  {q:"Il cibo prima di bere: come influisce sul BAC?", a:"Rallenta l'assorbimento ma non riduce il BAC finale"},
+  {q:"Flashing RED traffic light: what do you do?\n(Semaforo rosso lampeggiante: cosa fai?)", a:"Treat as STOP: full stop, then proceed when clear\n(Trattarlo come uno STOP: fermata completa, poi vai se libero)"},
+  {q:"GREEN ARROW on traffic signal: what does it mean?\n(Freccia VERDE al semaforo: cosa significa?)", a:"Protected turn — no conflicting traffic allowed\n(Svolta protetta — nessun traffico in conflitto)"},
+  {q:"School bus with flashing red lights + stop arm: what must ALL traffic do?\n(Scuolabus con luci rosse + braccio: cosa fa TUTTO il traffico?)", a:"Stop — both directions (except divided highway with physical median)\n(Fermarsi — entrambe le direzioni, tranne autostrada con mediano fisico)"},
+  {q:"Red X above a lane: what does it mean?\n(X rossa sopra una corsia: cosa significa?)", a:"Lane is CLOSED — move to another lane immediately\n(Corsia CHIUSA — spostati immediatamente)"},
+  {q:"WRONG WAY sign: what must you do?\n(Segnale WRONG WAY: cosa devi fare?)", a:"Stop immediately — you are going the wrong direction\n(Fermati subito — stai andando contromano)"},
 ]},
 
-{id:"alcohol_penalties", cat:"alcohol", icon:"&#9878;", title:"Sanzioni DUI in Florida", sub:"Conseguenze, revoche e IID",
+{id:"laws_speed", cat:"laws", icon:"&#128241;", title:"Speed Limits / Limiti di velocità", sub:"Default values and special zones / Valori predefiniti e zone speciali",
 content:`<div class="content-block">
-<h3>Sanzioni DUI — prima infrazione</h3>
+<h3>Default Speed Limits / Limiti predefiniti</h3>
 <table class="speed-table">
-<tr><th>Elemento</th><th>Prima infrazione</th></tr>
-<tr><td>Multa</td><td>$500 – $1.000</td></tr>
-<tr><td>Carcere</td><td>Fino a 6 mesi (nessun minimo)</td></tr>
-<tr><td>Sospensione patente</td><td>180 giorni – 1 anno</td></tr>
-<tr><td>IID se BAC ≥0,15% o minore a bordo</td><td>Obbligatorio</td></tr>
+<tr><th>Zone (EN)</th><th>Zona (IT)</th><th>Limit</th></tr>
+<tr><td><strong>Alley</strong></td><td>Vicolo</td><td class="lo">10 mph</td></tr>
+<tr><td><strong>School zone</strong> (lights flashing)</td><td>Zona scolastica (luci attive)</td><td class="lo">15 mph</td></tr>
+<tr><td><strong>Residential / business</strong> (no sign)</td><td>Residenziale / commerciale</td><td>30 mph</td></tr>
+<tr><td><strong>Rural two-lane road</strong></td><td>Strada rurale a 2 corsie</td><td>55 mph</td></tr>
+<tr><td><strong>Urban interstate</strong></td><td>Autostrada interstatale urbana</td><td>65 mph</td></tr>
+<tr><td><strong>Rural interstate</strong></td><td>Autostrada interstatale rurale</td><td class="hi">70 mph</td></tr>
 </table>
-<h4>Aggravanti</h4>
+<div class="tip-box warn"><b>&#9888; Work zones / Zone di lavoro:</b><br>
+Reduced speed + <strong>fines doubled</strong> — valid even without workers present.<br>
+<em>Velocità ridotta + multe raddoppiate — anche senza lavoratori presenti.</em></div>
+<h4>Move Over Law / Legge Move Over</h4>
+<p>When passing a stopped vehicle with flashing lights (police, ambulance, tow truck):<br>
+<em>Quando superi un veicolo fermo con luci lampeggianti (polizia, ambulanza, carro attrezzi):</em></p>
 <ul>
-<li>BAC ≥ 0,15%: multa $1.000-$2.000, IID obbligatorio</li>
-<li>Minore a bordo: multa minima $1.000, IID, possibili accuse di abuso</li>
-<li>DUI con lesioni gravi: crimine di 3° grado (fino a 5 anni)</li>
-<li>DUI omicidio colposo: crimine di 2° grado (fino a 15 anni)</li>
+<li>Move over one lane, <strong>OR</strong> / Spostati di una corsia, <strong>OPPURE</strong></li>
+<li>Slow down <strong>20 mph below the posted limit</strong> / Riduci di <strong>20 mph sotto il limite</strong></li>
 </ul>
-<h4>Implied Consent (Consenso implicito)</h4>
-<ul>
-<li>Guidando in Florida hai già acconsentito al test chimico</li>
-<li>1° rifiuto: sospensione automatica 1 anno</li>
-<li>2° rifiuto: contravvenzione + sospensione 18 mesi</li>
-</ul>
-<h4>Dopo l'arresto DUI</h4>
-<p>Patente ritirata. Hai <strong>10 giorni</strong> per richiedere l'udienza ALS — altrimenti la sospensione parte automaticamente.</p>
-<div class="tip-box warn"><b>&#9888; FR-44 dopo DUI:</b> assicurazione molto più costosa, obbligatoria per 3 anni.</div>
-<div class="tip-box key"><b>&#128161; IID:</b> soffii nell'alcolimetro prima di avviare — se rileva alcol, l'auto non si avvia.</div>
+<div class="tip-box key"><b>&#128204; Fire trucks / Autopompe:</b><br>
+Minimum <strong>500 feet</strong> following distance — whether responding or not.<br>
+<em>Almeno 500 piedi di distanza — sia in servizio che no.</em></div>
 </div>`,
 flashcards:[
-  {q:"Prima infrazione DUI: sospensione minima della patente?", a:"180 giorni (6 mesi)"},
-  {q:"Rifiuto del test del respiro in Florida: conseguenza?", a:"Sospensione automatica 1 anno (1° rifiuto)"},
-  {q:"Entro quanti giorni dall'arresto DUI puoi richiedere l'udienza ALS?", a:"10 giorni"},
-  {q:"Cos'è l'IID?", a:"Ignition Interlock Device — soffii per avviare; se rileva alcol l'auto non parte"},
-  {q:"DUI omicidio colposo in Florida: che reato è?", a:"Crimine di 2° grado — fino a 15 anni di prigione"},
+  {q:"Default speed limit in a residential area with no sign?\n(Limite predefinito in zona residenziale senza segnale?)", a:"30 mph"},
+  {q:"Speed limit in a school zone with flashing lights?\n(Limite in zona scolastica con luci lampeggianti?)", a:"15 mph"},
+  {q:"Maximum speed on a rural interstate in Florida?\n(Velocità massima su autostrada interstatale rurale?)", a:"70 mph"},
+  {q:"Move Over Law: what must you do?\n(Move Over Law: cosa devi fare?)", a:"Move over one lane OR slow 20 mph below limit\n(Spostati di una corsia OPPURE riduci di 20 mph)"},
+  {q:"Speed limit in an alley?\n(Limite in un vicolo?)", a:"10 mph"},
 ]},
 
-{id:"license_gdl", cat:"license", icon:"&#129346;", title:"Sistema GDL — Patente graduata", sub:"Percorso per i guidatori 15-18 anni",
+{id:"laws_priority", cat:"laws", icon:"&#128260;", title:"Right of Way / Precedenze", sub:"Who goes first in every situation / Chi va prima in ogni situazione",
 content:`<div class="content-block">
-<h3>GDL (Graduated Driver Licensing) Florida</h3>
-<h4>Fase 1: Learner's License — da 15 anni</h4>
+<h3>Right of Way Rules / Regole di precedenza</h3>
+<h4>Uncontrolled intersection / Incrocio non controllato</h4>
+<p>If two vehicles arrive simultaneously — <strong>yield to the vehicle on your RIGHT</strong>.<br>
+<em>Se due veicoli arrivano contemporaneamente — cedi a chi viene da <strong>destra</strong>.</em></p>
+<h4>Left turn on solid green / Svolta sinistra con verde fisso</h4>
+<p>You may turn, but must <strong>yield to oncoming traffic and pedestrians</strong>. Only a <strong>green arrow</strong> gives you a protected (uncontested) turn.<br>
+<em>Puoi svoltare ma devi cedere al traffico in arrivo e ai pedoni. Solo la freccia verde dà precedenza assoluta.</em></p>
+<h4>Pedestrians / Pedoni</h4>
 <ul>
-<li>Sempre con supervisore <strong>autorizzato 21+</strong> nel sedile anteriore destro</li>
-<li>Vietato guidare tra <strong>mezzanotte e le 6:00</strong></li>
-<li><strong>50 ore</strong> di guida supervisionata (10 di notte)</li>
-<li>Durata minima: 12 mesi senza violazioni</li>
-<li>Uso di dispositivi wireless: completamente vietato</li>
+<li>Yield to pedestrians at <strong>any crosswalk</strong> — marked or unmarked / Cedi in qualsiasi attraversamento, segnalato o meno</li>
+<li><strong>Absolute right of way</strong> for people using a white cane or guide dog / Precedenza assoluta per bastone bianco o cane guida</li>
 </ul>
-<h4>Fase 2: Restricted License — da 16 anni</h4>
-<ul>
-<li>No guida tra <strong>23:00 e 6:00</strong> (eccetto lavoro/scuola documentato)</li>
-<li>Primi 12 mesi: max <strong>1 passeggero non convivente under 18</strong></li>
-<li>Nessun dispositivo wireless</li>
-</ul>
-<h4>Fase 3: Patente completa — 18 anni</h4>
-<p>Le restrizioni GDL si tolgono automaticamente a 18 anni — nessun test aggiuntivo richiesto.</p>
-<div class="tip-box key"><b>&#128204; Prima patente a 18+:</b> corso TLSAE/DATA (4 ore obbligatorio), test conoscenza, visione e road test.</div>
+<h4>Emergency vehicles / Veicoli di emergenza</h4>
+<p>Sirens or flashing lights: <strong>pull to the right and stop</strong> until the vehicle passes — even on a green light.<br>
+<em>Sirene o luci: accosta a destra e fermati finché il veicolo non è passato — anche col verde.</em></p>
+<h4>Entering from a driveway / private road</h4>
+<p>Yield to <strong>all pedestrians AND all vehicles</strong> already on the public road.<br>
+<em>Cedere a tutti i pedoni e tutti i veicoli già sulla strada pubblica.</em></p>
+<h4>Transit buses / Autobus di linea</h4>
+<p>Yield to transit buses signaling to re-enter traffic from a bus stop.<br>
+<em>Cedi agli autobus che segnalano di rientrare nel traffico dalla fermata.</em></p>
+<div class="tip-box ok"><b>&#10003; Memory rule / Mnemonica:</b><br>
+Right = priority at simultaneous arrival. Siren = pull right always.<br>
+<em>Destra = precedenza all'arrivo simultaneo. Sirena = accosta sempre a destra.</em></div>
 </div>`,
 flashcards:[
-  {q:"Età minima per il learner's license in Florida?", a:"15 anni"},
-  {q:"Ore di guida supervisionata per la Restricted License?", a:"50 ore totali, di cui 10 di notte"},
-  {q:"Restricted License: fino a che ora si può guidare?", a:"Fino alle 23:00 (no guida 23:00-6:00)"},
-  {q:"Primi 12 mesi Restricted: quanti passeggeri non familiari under 18?", a:"Massimo 1"},
-  {q:"Quando si tolgono le restrizioni GDL?", a:"Automaticamente al compimento dei 18 anni"},
+  {q:"Two vehicles arrive simultaneously at a 4-way stop: who goes first?\n(Arrivo contemporaneo a uno stop a 4 vie: chi passa primo?)", a:"Yield to the vehicle on your RIGHT\n(Cedi al veicolo che viene da destra)"},
+  {q:"Left turn on solid green: what must you do?\n(Svolta sinistra con verde fisso: cosa devi fare?)", a:"Yield to oncoming traffic AND pedestrians\n(Cedere al traffico in arrivo E ai pedoni)"},
+  {q:"Person with white cane crossing the road: what right do they have?\n(Persona con bastone bianco: che diritto ha?)", a:"Absolute right of way — anywhere, not just crosswalks\n(Precedenza assoluta — ovunque, non solo agli attraversamenti)"},
+  {q:"Emergency vehicle with siren approaching: what do you do?\n(Veicolo di emergenza con sirena: cosa fai?)", a:"Pull to the right and stop until it passes\n(Accosta a destra e fermati finché non è passato)"},
+  {q:"Entering a public road from a driveway: who has right of way?\n(Entrando da un vialetto: chi ha la precedenza?)", a:"Traffic already on the road — you must yield\n(Il traffico già sulla strada — devi cedere tu)"},
 ]},
 
-{id:"license_points", cat:"license", icon:"&#128202;", title:"Punti, sospensioni e rinnovo", sub:"Soglie, punti per infrazione e recupero",
+{id:"laws_parking", cat:"laws", icon:"&#128352;", title:"Parking Rules / Norme sul parcheggio", sub:"Minimum distances and curb colors / Distanze minime e colori del marciapiede",
 content:`<div class="content-block">
-<h3>Sistema punti Florida</h3>
+<h3>Minimum Parking Distances / Distanze minime</h3>
 <table class="speed-table">
-<tr><th>Punti</th><th>Periodo</th><th>Sospensione</th></tr>
-<tr><td>12 punti</td><td>12 mesi</td><td class="hi">30 giorni</td></tr>
-<tr><td>18 punti</td><td>18 mesi</td><td class="hi">3 mesi</td></tr>
-<tr><td>24 punti</td><td>36 mesi</td><td class="hi">1 anno</td></tr>
+<tr><th>Obstacle (EN)</th><th>Ostacolo (IT)</th><th>Min. distance</th></tr>
+<tr><td><strong>Fire hydrant</strong></td><td>Idrante antincendio</td><td class="hi">15 feet</td></tr>
+<tr><td><strong>Stop sign</strong></td><td>Segnale STOP</td><td class="hi">30 feet</td></tr>
+<tr><td><strong>Crosswalk</strong> (at intersection)</td><td>Attraversamento pedonale</td><td class="hi">20 feet</td></tr>
+<tr><td><strong>Fire station driveway</strong></td><td>Ingresso caserma pompieri</td><td class="hi">15 feet</td></tr>
+<tr><td><strong>Railroad crossing</strong></td><td>Passaggio a livello</td><td class="hi">50 feet</td></tr>
 </table>
-<h4>Punti per infrazione</h4>
+<h4>Curb Colors / Colori del marciapiede</h4>
 <table class="speed-table">
-<tr><th>Infrazione</th><th>Punti</th></tr>
-<tr><td>Eccesso di velocità (normale)</td><td>3</td></tr>
-<tr><td>Eccesso in zona scolastica</td><td class="hi">6</td></tr>
-<tr><td>Sorpasso scuolabus fermo</td><td>4</td></tr>
-<tr><td>Guida spericolata (reckless)</td><td>4</td></tr>
-<tr><td>Passare un rosso</td><td>3</td></tr>
+<tr><th>Color / Colore</th><th>Meaning (EN)</th><th>Significato (IT)</th></tr>
+<tr><td>&#128308; <strong>Red</strong></td><td>No stopping/parking — fire zone</td><td>Divieto assoluto — fire zone</td></tr>
+<tr><td>&#128993; <strong>Yellow</strong></td><td>Loading/unloading freight only</td><td>Solo carico/scarico merci</td></tr>
+<tr><td>&#9899; <strong>White</strong></td><td>Passenger loading/unloading only</td><td>Solo carico/scarico passeggeri</td></tr>
+<tr><td>&#128994; <strong>Green</strong></td><td>Time-limited parking (10-30 min)</td><td>Parcheggio a tempo limitato</td></tr>
+<tr><td>&#128309; <strong>Blue</strong></td><td>Disabled parking only — min. $250 fine</td><td>Solo disabili — multa min. $250</td></tr>
 </table>
-<h4>Come ridurre i punti</h4>
-<p>Corso <strong>BDI</strong> (Basic Driver Improvement) = rimuove 3 punti, disponibile 1 volta ogni 12 mesi.</p>
+<h4>Parking on hills / Parcheggio in pendenza</h4>
+<table class="speed-table">
+<tr><th>Situation (EN)</th><th>Situazione (IT)</th><th>Wheels / Ruote</th></tr>
+<tr><td>Downhill WITH curb</td><td>In discesa CON marciapiede</td><td>TOWARD curb (right) / Verso il marciapiede</td></tr>
+<tr><td>Uphill WITH curb</td><td>In salita CON marciapiede</td><td>AWAY from curb (left) / Lontano dal marciapiede</td></tr>
+<tr><td>No curb (either direction)</td><td>Senza marciapiede</td><td>Toward road edge / Verso il bordo strada</td></tr>
+</table>
+<div class="tip-box key"><b>&#128161; Hill trick / Trucco colline:</b><br>
+Downhill = wheels toward curb. If car rolls, curb stops it.<br>
+<em>In discesa = ruote verso il marciapiede. Se l'auto si muove, il marciapiede la ferma.</em></div>
+</div>`,
+flashcards:[
+  {q:"Minimum distance from a fire hydrant?\n(Distanza minima da un idrante?)", a:"15 feet / 15 piedi"},
+  {q:"YELLOW curb: what does it mean?\n(Marciapiede GIALLO: cosa significa?)", a:"Loading/unloading freight only — no parking\n(Solo carico/scarico merci — nessun parcheggio)"},
+  {q:"BLUE curb: who can park there?\n(Marciapiede BLU: chi può parcheggiare?)", a:"Disabled persons with valid placard only — min. $250 fine\n(Solo disabili con permesso valido — multa min. $250)"},
+  {q:"Parked DOWNHILL with a curb: which way do you turn the wheels?\n(Parcheggio in DISCESA con marciapiede: come giri le ruote?)", a:"Toward the curb (right) — if car rolls, curb stops it\n(Verso il marciapiede — se si muove, il marciapiede la ferma)"},
+  {q:"Child under 6 alone in a car: how long is legal in FL?\n(Bambino under 6 solo in auto: quanto è legale?)", a:"Max 15 minutes — zero if engine is running\n(Max 15 minuti — zero se il motore è acceso)"},
+]},
+
+{id:"laws_other", cat:"laws", icon:"&#128220;", title:"Essential FL Laws / Norme essenziali", sub:"Phone, seatbelts, insurance, lights / Cellulare, cinture, assicurazione, luci",
+content:`<div class="content-block">
+<h3>Cell Phone / Cellulare</h3>
+<table class="speed-table">
+<tr><th>Situation (EN)</th><th>Rule</th><th>Regola (IT)</th></tr>
+<tr><td>Texting while driving</td><td class="hi">Primary offense (2019)</td><td>Reato principale — possono fermarti</td></tr>
+<tr><td>Handheld use in school/work zones</td><td class="hi">Prohibited</td><td>Vietato qualsiasi dispositivo portatile</td></tr>
+<tr><td>Hands-free calls</td><td class="lo">Always legal</td><td>Sempre legali</td></tr>
+<tr><td>First offense fine</td><td>$60 + court costs</td><td>$60 + spese giudiziarie</td></tr>
+</table>
+<h4>Seatbelts / Cinture di sicurezza</h4>
+<table class="speed-table">
+<tr><th>Who / Chi</th><th>Rule (EN)</th><th>Regola (IT)</th></tr>
+<tr><td>Front seat 18+</td><td class="hi">Primary enforcement</td><td>Applicazione primaria</td></tr>
+<tr><td>All passengers under 18</td><td class="hi">Always required</td><td>Sempre obbligatorie</td></tr>
+<tr><td>Children under 4</td><td class="hi">Approved child seat required</td><td>Seggiolino omologato obbligatorio</td></tr>
+</table>
+<h4>Insurance / Assicurazione (No-fault state)</h4>
+<table class="speed-table">
+<tr><th>Coverage (EN)</th><th>Copertura (IT)</th><th>Minimum</th></tr>
+<tr><td><strong>PIP</strong> — Personal Injury Protection</td><td>Protezione lesioni personali</td><td>$10,000</td></tr>
+<tr><td><strong>PDL</strong> — Property Damage Liability</td><td>Responsabilità danni materiali</td><td>$10,000</td></tr>
+</table>
+<div class="tip-box warn"><b>&#9888; After DUI / Dopo un DUI:</b><br>
+<strong>FR-44</strong> required (not SR-22): $100K/$300K BI + $50K PDL — much more expensive.<br>
+<em>Serve FR-44, molto più costoso dell'SR-22 standard.</em></div>
+<h4>Headlights / Fari</h4>
+<ul>
+<li>Required from <strong>sunset to sunrise</strong> AND whenever <strong>wipers are in use</strong> / Dal tramonto all'alba E quando i tergicristalli sono accesi</li>
+<li>Dim high beams within <strong>500 ft of oncoming</strong> / 300 ft when following / Abbassa entro 500 piedi dal traffico in arrivo / 300 piedi da chi precedi</li>
+<li>Signal turns at least <strong>100 ft before</strong> on city streets, <strong>200 ft</strong> on highways / Segnala almeno 100 piedi prima in città, 200 in autostrada</li>
+</ul>
+<div class="tip-box key"><b>&#128161; Lights rule / Regola fari:</b><br>
+<strong>Wipers ON = Lights ON.</strong> No exceptions.<br>
+<em>Tergicristalli accesi = Fari accesi. Nessuna eccezione.</em></div>
+</div>`,
+flashcards:[
+  {q:"Texting while driving in FL: what kind of offense?\n(SMS alla guida in Florida: che tipo di reato?)", a:"PRIMARY offense — police can stop you just for texting\n(Reato principale — possono fermarti solo per questo)"},
+  {q:"Minimum required insurance in Florida?\n(Assicurazione minima obbligatoria in Florida?)", a:"$10,000 PIP + $10,000 PDL (no-fault state)"},
+  {q:"When must headlights be on besides at night?\n(Quando accendere i fari oltre che di notte?)", a:"Whenever windshield wipers are in use\n(Ogni volta che i tergicristalli sono accesi)"},
+  {q:"Minimum signal distance before turning on a city street?\n(Distanza minima di segnalazione in città?)", a:"100 feet / 100 piedi (200 ft on highways / in autostrada)"},
+  {q:"Open alcohol container in a car: legal for passengers?\n(Contenitore aperto di alcol: legale per i passeggeri?)", a:"No — prohibited in the passenger area for everyone\n(No — vietato nell'abitacolo per tutti)"},
+]},
+
+{id:"safety_main", cat:"safety", icon:"&#128737;", title:"Driving Safety / Sicurezza alla guida", sub:"Distances, emergencies, conditions / Distanze, emergenze, condizioni",
+content:`<div class="content-block">
+<h3>Following Distance / Distanza di sicurezza</h3>
+<p>Use the <strong>3-second rule</strong> as a baseline — add 1 second per risk factor.<br>
+<em>Usa la regola dei 3 secondi — aggiungi 1 secondo per ogni fattore di rischio.</em></p>
+<table class="speed-table">
+<tr><th>Condition (EN)</th><th>Condizione (IT)</th><th>Seconds</th></tr>
+<tr><td>Ideal (dry, daylight)</td><td>Condizioni ideali</td><td>3 sec</td></tr>
+<tr><td>Rain / Night / Fatigue</td><td>Pioggia / Notte / Stanchezza</td><td>4-6 sec</td></tr>
+<tr><td>Behind a truck</td><td>Dietro un camion</td><td>4+ sec</td></tr>
+<tr><td>Behind a motorcycle</td><td>Dietro una moto</td><td>3-4 sec</td></tr>
+</table>
+<p><strong>Doubling speed QUADRUPLES stopping distance.</strong><br>
+<em>Raddoppiare la velocità QUADRUPLICA la distanza di frenata.</em></p>
+<h4>Emergency maneuvers / Manovre di emergenza</h4>
+<table class="speed-table">
+<tr><th>Emergency (EN)</th><th>Action / Azione</th></tr>
+<tr><td><strong>Hydroplaning</strong> / Aquaplaning</td><td>Ease off gas, no sharp braking, steer straight / Togli il gas, non frenare bruscamente, tieni dritto</td></tr>
+<tr><td><strong>Tire blowout</strong> / Foratura</td><td>Grip wheel firmly, ease off gas, slow naturally, then pull over / Stringi il volante, togli il gas, decelera, poi accosta</td></tr>
+<tr><td><strong>Stuck accelerator</strong> / Acceleratore bloccato</td><td>Shift to Neutral (N), brake hard, pull over, then turn off / Metti in folle, frena, accosta, poi spegni</td></tr>
+<tr><td><strong>Brake failure</strong> / Freni che cedono</td><td>Pump brakes, downshift, use parking brake gently / Pompa, scala le marce, freno a mano delicatamente</td></tr>
+</table>
+<div class="tip-box warn"><b>&#9888; Flooded road / Strada allagata:</b><br>
+<strong>Turn Around Don't Drown.</strong> 6 inches of moving water can knock you down; 2 feet can sweep away a car.<br>
+<em>6 pollici (15 cm) di acqua in movimento possono buttarti a terra; 2 piedi (60 cm) spazzano via un'auto.</em></div>
+<h4>Night driving / Guida notturna</h4>
+<p><strong>Overdriving headlights</strong> = going faster than you can stop within the illuminated distance.<br>
+<em>Superare i fari = andare più veloci di quanto riesci a fermarti nella distanza illuminata.</em></p>
+<p><strong>Drowsy driving</strong> is as dangerous as drunk driving. Only real cure: sleep.<br>
+<em>La guida assonnata è pericolosa quanto quella ubriaca. L'unica cura: il sonno.</em></p>
+</div>`,
+flashcards:[
+  {q:"Car starts to hydroplane: what do you do?\n(L'auto inizia ad aquaplanare: cosa fai?)", a:"Ease off gas, NO sharp braking, steer straight until tires grip\n(Togli il gas, non frenare bruscamente, tieni dritto)"},
+  {q:"Stuck accelerator: what is the FIRST thing to do?\n(Acceleratore bloccato: cosa fai PRIMA?)", a:"Shift to Neutral (N) — then brake, pull over, turn off\n(Metti in folle — poi frena, accosta, spegni)"},
+  {q:"How does doubling speed affect stopping distance?\n(Come influisce il raddoppio della velocità sulla distanza di frenata?)", a:"It QUADRUPLES stopping distance\n(La QUADRUPLICA)"},
+  {q:"Overdriving headlights at night means:\n(Guidare oltre i fari di notte significa:)", a:"Going faster than you can stop within the beam's range\n(Andare più veloci di quanto riesci a fermarti nella distanza illuminata)"},
+  {q:"Minimum following distance in ideal conditions?\n(Distanza minima in condizioni ideali?)", a:"3 seconds / 3 secondi"},
+]},
+
+{id:"safety_special", cat:"safety", icon:"&#128652;", title:"Special Vehicles / Veicoli speciali", sub:"Trucks, motorcycles, cyclists, trains / Camion, moto, ciclisti, treni",
+content:`<div class="content-block">
+<h3>Large Trucks / Camion pesanti</h3>
+<p>Trucks have <strong>4 large blind spots</strong>:<br>
+<em>I camion hanno 4 grandi punti ciechi:</em></p>
+<ul>
+<li><strong>20 feet in front</strong> / 20 piedi davanti</li>
+<li><strong>30 feet behind</strong> / 30 piedi dietro</li>
+<li><strong>2 lanes to the right</strong> / 2 corsie a destra</li>
+<li><strong>1 lane to the left</strong> / 1 corsia a sinistra</li>
+</ul>
+<p>If you can't see the truck driver's mirror, <strong>he can't see you</strong>.<br>
+<em>Se non vedi lo specchio del camionista, lui non vede te.</em></p>
+<p>Never pass a turning truck on the <strong>right side</strong> — it swings wide.<br>
+<em>Non superare mai un camion che svolta sul lato destro — svolta in largo.</em></p>
+<h4>Motorcyclists / Motociclisti</h4>
+<table class="speed-table">
+<tr><th>Rule (EN)</th><th>Regola (IT)</th></tr>
+<tr><td>Give the full lane width</td><td>Concedi l'intera larghezza della corsia</td></tr>
+<tr><td>Follow at 3-4 seconds — they stop faster</td><td>3-4 secondi di distanza — frenano più velocemente</td></tr>
+<tr><td><strong>Lane splitting: ILLEGAL in Florida</strong></td><td><strong>Lane splitting: ILLEGALE in Florida</strong></td></tr>
+<tr><td>Helmet required under 21</td><td>Casco obbligatorio under 21</td></tr>
+<tr><td>Over 21: no helmet if $10K+ medical insurance</td><td>Over 21: senza casco con $10K+ assicurazione medica</td></tr>
+</table>
+<h4>Cyclists / Ciclisti</h4>
+<ul>
+<li>Same rights and duties as motor vehicles / Stessi diritti e doveri dei veicoli a motore</li>
+<li><strong>3-foot law:</strong> leave at least 3 feet clearance when passing / Almeno 3 piedi di spazio quando sorpassi</li>
+<li>Helmet required under 16 / Casco obbligatorio under 16</li>
+</ul>
+<h4>Railroad crossings / Passaggi a livello</h4>
+<ul>
+<li>Stop at least <strong>15 feet from the nearest rail</strong> / Fermati ad almeno 15 piedi dal binario</li>
+<li><strong>School buses + hazmat vehicles:</strong> must always stop / Devono sempre fermarsi</li>
+<li>If stuck on tracks: <strong>get out immediately</strong>, move away from train direction / Esci subito, allontanati dalla direzione del treno</li>
+</ul>
+<div class="tip-box key"><b>&#128161; 3-foot law / Legge dei 3 piedi:</b><br>
+If the lane is too narrow to give 3 feet, change lanes to pass.<br>
+<em>Se la corsia è troppo stretta per dare 3 piedi, cambia corsia per sorpassare.</em></div>
+</div>`,
+flashcards:[
+  {q:"Lane splitting in Florida: legal or illegal?\n(Lane splitting in Florida: legale o illegale?)", a:"ILLEGAL / ILLEGALE"},
+  {q:"Minimum clearance when passing a bicycle?\n(Spazio minimo sorpassando una bicicletta?)", a:"3 feet / 3 piedi (Florida 3-foot law)"},
+  {q:"Minimum distance from the rail at a railroad crossing?\n(Distanza minima dal binario al passaggio a livello?)", a:"15 feet / 15 piedi"},
+  {q:"Motorcycle helmet in Florida: when required?\n(Casco moto in Florida: quando è obbligatorio?)", a:"Always under 21. Over 21: not required with $10K+ medical insurance\n(Sempre under 21. Over 21: non obbligatorio con $10K+ assicurazione)"},
+  {q:"School bus at a railroad crossing: what must it do?\n(Scuolabus al passaggio a livello: cosa deve fare?)", a:"Always stop — even if signals are clear\n(Fermarsi sempre — anche se i segnali sono liberi)"},
+]},
+
+{id:"alcohol_main", cat:"alcohol", icon:"&#127866;", title:"DUI / Alcohol & BAC", sub:"Limits, effects, metabolism / Limiti, effetti, metabolismo",
+content:`<div class="content-block">
+<h3>BAC Limits / Limiti BAC (Blood Alcohol Concentration)</h3>
+<table class="speed-table">
+<tr><th>Driver (EN)</th><th>Conducente (IT)</th><th>BAC limit</th></tr>
+<tr><td><strong>Adult</strong> (21+)</td><td>Adulto</td><td class="hi">0.08%</td></tr>
+<tr><td><strong>Under 21</strong> (Zero Tolerance)</td><td>Under 21</td><td class="hi">0.02%</td></tr>
+<tr><td><strong>CDL driver</strong> (commercial vehicle)</td><td>Conducente CDL in servizio</td><td class="hi">0.04%</td></tr>
+</table>
+<div class="tip-box warn"><b>&#9888; Important / Importante:</b><br>
+DUI can be charged even <strong>below 0.08%</strong> if normal faculties are impaired.<br>
+<em>Il DUI può scattare anche SOTTO 0,08% se le normali facoltà sono compromesse.</em></div>
+<h4>How alcohol is metabolized / Come si metabolizza l'alcol</h4>
+<ul>
+<li>The liver processes about <strong>1 standard drink per hour</strong> — cannot be sped up / Il fegato elabora circa 1 drink standard all'ora — non si può accelerare</li>
+<li>Coffee, water, exercise do <strong>NOT</strong> speed up metabolism / Caffè, acqua, esercizio NON accelerano</li>
+<li>BAC may keep rising for <strong>20-40 minutes</strong> after last drink / Il BAC può salire per 20-40 minuti dopo l'ultimo drink</li>
+<li>1 standard drink = 12 oz beer = 5 oz wine = 1.5 oz spirits (all contain 0.6 oz pure alcohol)</li>
+</ul>
+<h4>Factors affecting BAC / Fattori che influenzano il BAC</h4>
+<table class="speed-table">
+<tr><th>Factor (EN)</th><th>Fattore (IT)</th><th>Effect</th></tr>
+<tr><td>Body weight</td><td>Peso corporeo</td><td>More weight = lower BAC / Più peso = BAC più basso</td></tr>
+<tr><td>Gender</td><td>Genere</td><td>Women reach higher BAC at same weight / Le donne raggiungono BAC più alto</td></tr>
+<tr><td>Food</td><td>Cibo</td><td>Slows absorption, does NOT reduce final BAC / Rallenta l'assorbimento, non riduce il BAC finale</td></tr>
+<tr><td>Carbonation</td><td>Carbonatazione</td><td>Speeds absorption / Accelera l'assorbimento</td></tr>
+</table>
+<div class="tip-box ok"><b>&#10003; Only safe option / L'unica soluzione sicura:</b><br>
+Designated sober driver, rideshare, taxi, or stay overnight.<br>
+<em>Guidatore designato sobrio, Uber/Lyft, taxi, o dormire sul posto.</em></div>
+</div>`,
+flashcards:[
+  {q:"BAC limit for an adult driver in Florida?\n(Limite BAC per un adulto in Florida?)", a:"0.08%"},
+  {q:"BAC limit for under 21 — Zero Tolerance?\n(Limite BAC per under 21 — Zero Tolerance?)", a:"0.02% — automatic 6-month license suspension\n(0,02% — sospensione automatica 6 mesi)"},
+  {q:"BAC limit for a CDL driver operating a commercial vehicle?\n(Limite BAC per conducente CDL in servizio?)", a:"0.04%"},
+  {q:"How many standard drinks does the liver process per hour?\n(Quanti drink elabora il fegato all'ora?)", a:"About 1 standard drink per hour — cannot be sped up\n(Circa 1 drink standard all'ora — non si può accelerare)"},
+  {q:"Does eating before drinking reduce your final BAC?\n(Mangiare prima di bere riduce il BAC finale?)", a:"No — it only slows absorption; the same alcohol is absorbed eventually\n(No — rallenta solo l'assorbimento; lo stesso alcol viene assorbito)"},
+]},
+
+{id:"alcohol_penalties", cat:"alcohol", icon:"&#9878;", title:"DUI Penalties / Sanzioni DUI", sub:"Consequences, revocation, IID / Conseguenze, revoca, IID",
+content:`<div class="content-block">
+<h3>DUI Penalties — First Offense / Sanzioni — Prima infrazione</h3>
+<table class="speed-table">
+<tr><th>Element (EN)</th><th>Elemento (IT)</th><th>Penalty</th></tr>
+<tr><td><strong>Fine</strong></td><td>Multa</td><td>$500 – $1,000</td></tr>
+<tr><td><strong>Jail</strong></td><td>Carcere</td><td>Up to 6 months (no minimum)</td></tr>
+<tr><td><strong>License suspension</strong></td><td>Sospensione patente</td><td>180 days – 1 year</td></tr>
+<tr><td><strong>IID</strong> (if BAC ≥0.15% or minor passenger)</td><td>IID obbligatorio</td><td>Mandatory / Obbligatorio</td></tr>
+</table>
+<h4>Enhanced penalties / Aggravanti</h4>
+<table class="speed-table">
+<tr><th>Situation (EN)</th><th>Situazione (IT)</th><th>Charge</th></tr>
+<tr><td>DUI with serious bodily injury</td><td>DUI con lesioni gravi</td><td>3rd degree felony / Crimine 3° grado (5 yrs)</td></tr>
+<tr><td>DUI manslaughter</td><td>DUI omicidio colposo</td><td>2nd degree felony / Crimine 2° grado (15 yrs)</td></tr>
+<tr><td>3rd DUI within 10 years</td><td>3° DUI entro 10 anni</td><td>3rd degree felony + 10-yr revocation</td></tr>
+</table>
+<h4>Implied Consent / Consenso implicito</h4>
+<p>By driving in Florida you have already consented to chemical testing if lawfully arrested for DUI.<br>
+<em>Guidando in Florida hai già acconsentito al test chimico in caso di arresto per DUI.</em></p>
+<table class="speed-table">
+<tr><th>Refusal (EN)</th><th>Rifiuto (IT)</th><th>Penalty</th></tr>
+<tr><td>1st refusal</td><td>1° rifiuto</td><td>1-year license suspension</td></tr>
+<tr><td>2nd refusal</td><td>2° rifiuto</td><td>1st degree misdemeanor + 18-month suspension</td></tr>
+</table>
+<h4>After DUI arrest / Dopo l'arresto</h4>
+<p>License is taken. You have <strong>10 days</strong> to request a formal ALS hearing — otherwise suspension is automatic.<br>
+<em>La patente viene ritirata. Hai 10 giorni per richiedere l'udienza ALS — altrimenti la sospensione parte automaticamente.</em></p>
+<div class="tip-box key"><b>&#128161; IID = Ignition Interlock Device:</b><br>
+Blow into a breathalyzer before starting — car won't start if alcohol detected.<br>
+<em>Soffia nell'alcolimetro prima di avviare — l'auto non parte se rileva alcol.</em></div>
+</div>`,
+flashcards:[
+  {q:"First DUI offense: minimum license suspension in FL?\n(Prima infrazione DUI: sospensione minima della patente?)", a:"180 days (6 months) / 180 giorni (6 mesi)"},
+  {q:"Refusing a breath test in FL: immediate consequence?\n(Rifiuto del test del respiro in Florida?)", a:"Automatic 1-year license suspension (1st refusal)\n(Sospensione automatica 1 anno — 1° rifiuto)"},
+  {q:"After a DUI arrest: how many days to request an ALS hearing?\n(Dopo l'arresto DUI: entro quanti giorni richiedere l'udienza ALS?)", a:"10 days / 10 giorni"},
+  {q:"What is an IID?\n(Cos'è un IID?)", a:"Ignition Interlock Device — blow before starting; car won't start if alcohol detected\n(Soffii per avviare — l'auto non parte se rileva alcol)"},
+  {q:"DUI manslaughter in Florida: what type of crime?\n(DUI omicidio colposo in Florida: che tipo di reato?)", a:"2nd degree felony — up to 15 years in prison\n(Crimine di 2° grado — fino a 15 anni di prigione)"},
+]},
+
+{id:"license_gdl", cat:"license", icon:"&#129346;", title:"GDL System / Sistema GDL", sub:"Graduated licensing for ages 15-18 / Patente graduata per 15-18 anni",
+content:`<div class="content-block">
+<h3>Graduated Driver Licensing (GDL) — Florida</h3>
+<h4>Phase 1: Learner's License / Permesso — from age 15</h4>
+<table class="speed-table">
+<tr><th>Rule (EN)</th><th>Regola (IT)</th></tr>
+<tr><td>Supervising driver must be <strong>21+ licensed</strong>, front passenger seat</td><td>Supervisore 21+ autorizzato, sedile anteriore destro</td></tr>
+<tr><td>No driving <strong>midnight to 6am</strong></td><td>Vietato guidare tra mezzanotte e le 6:00</td></tr>
+<tr><td><strong>50 hours</strong> supervised driving (10 at night)</td><td>50 ore supervisionata (10 di notte)</td></tr>
+<tr><td>Hold for <strong>12 months</strong> with no violations</td><td>Tenerlo 12 mesi senza violazioni</td></tr>
+<tr><td>Wireless devices: <strong>completely prohibited</strong></td><td>Dispositivi wireless: completamente vietati</td></tr>
+</table>
+<h4>Phase 2: Restricted License / Patente limitata — from age 16</h4>
+<table class="speed-table">
+<tr><th>Rule (EN)</th><th>Regola (IT)</th></tr>
+<tr><td>No driving <strong>11pm to 6am</strong> (except work/school with docs)</td><td>Vietato 23:00-6:00 (eccetto lavoro/scuola documentato)</td></tr>
+<tr><td>First 12 months: max <strong>1 non-household passenger under 18</strong></td><td>Primi 12 mesi: max 1 passeggero non convivente under 18</td></tr>
+<tr><td>No wireless devices</td><td>Nessun dispositivo wireless</td></tr>
+</table>
+<h4>Phase 3: Full license / Patente completa — age 18</h4>
+<p>GDL restrictions lift <strong>automatically at age 18</strong> — no new test required.<br>
+<em>Le restrizioni GDL si tolgono automaticamente a 18 anni — nessun test aggiuntivo.</em></p>
+<div class="tip-box key"><b>&#128204; First license at 18+ / Prima patente a 18+:</b><br>
+Must complete <strong>TLSAE/DATA course</strong> (4 hours), knowledge test, vision test, and road test.<br>
+<em>Corso TLSAE/DATA (4 ore obbligatorio), test conoscenza, visione e road test.</em></div>
+</div>`,
+flashcards:[
+  {q:"Minimum age for a learner's license in Florida?\n(Età minima per il learner's license in Florida?)", a:"15 years old / 15 anni"},
+  {q:"Supervised driving hours required before Restricted License?\n(Ore di guida supervisionata richieste?)", a:"50 hours total (10 at night) / 50 ore totali (10 di notte)"},
+  {q:"Restricted License curfew hours?\n(Orario di coprifuoco Restricted License?)", a:"No driving 11pm–6am / Vietato guidare 23:00–6:00"},
+  {q:"First 12 months with Restricted License: max non-family passengers under 18?\n(Primi 12 mesi: max passeggeri non familiari under 18?)", a:"Maximum 1 / Massimo 1"},
+  {q:"When do GDL restrictions automatically lift?\n(Quando si tolgono automaticamente le restrizioni GDL?)", a:"At age 18 / Al compimento dei 18 anni"},
+]},
+
+{id:"license_points", cat:"license", icon:"&#128202;", title:"Points & Suspension / Punti e sospensioni", sub:"Thresholds, violations, how to recover / Soglie, infrazioni, come recuperare",
+content:`<div class="content-block">
+<h3>Florida Point System / Sistema punti Florida</h3>
+<table class="speed-table">
+<tr><th>Points</th><th>Period / Periodo</th><th>Suspension / Sospensione</th></tr>
+<tr><td>12 points</td><td>12 months</td><td class="hi">30 days / 30 giorni</td></tr>
+<tr><td>18 points</td><td>18 months</td><td class="hi">3 months / 3 mesi</td></tr>
+<tr><td>24 points</td><td>36 months</td><td class="hi">1 year / 1 anno</td></tr>
+</table>
+<h4>Points per violation / Punti per infrazione</h4>
+<table class="speed-table">
+<tr><th>Violation (EN)</th><th>Infrazione (IT)</th><th>Points</th></tr>
+<tr><td>Speeding (regular)</td><td>Eccesso di velocità normale</td><td>3</td></tr>
+<tr><td>Speeding in school zone</td><td>Eccesso in zona scolastica</td><td class="hi">6</td></tr>
+<tr><td>Passing stopped school bus</td><td>Sorpasso scuolabus fermo</td><td>4</td></tr>
+<tr><td>Reckless driving</td><td>Guida spericolata</td><td>4</td></tr>
+<tr><td>Running a red light</td><td>Passare col rosso</td><td>3</td></tr>
+<tr><td>Careless driving</td><td>Guida imprudente</td><td>3</td></tr>
+</table>
+<h4>How to reduce points / Come ridurre i punti</h4>
+<p><strong>BDI course</strong> (Basic Driver Improvement) = removes 3 points — available once every 12 months, before court date.<br>
+<em>Corso BDI = rimuove 3 punti — disponibile 1 volta ogni 12 mesi, prima della data del tribunale.</em></p>
 <h4>Habitual Traffic Offender (HTO)</h4>
-<p>3 violazioni gravi O 15 condanne totali in 5 anni = revoca obbligatoria di <strong>5 anni</strong>.</p>
-<h4>Rinnovo patente</h4>
-<ul>
-<li>Validità standard: <strong>8 anni</strong> (scade il giorno del compleanno)</li>
-<li>Over 79: rinnovo ogni 6 anni, di persona</li>
-<li>Cambio indirizzo: notifica al FLHSMV entro <strong>30 giorni</strong></li>
-</ul>
-<div class="tip-box warn"><b>&#9888; Sospensione vs Revoca:</b> Sospensione = temporanea. Revoca = patente cancellata, bisogna rifarne domanda.</div>
+<p>3 major violations OR 15 total convictions in 5 years = mandatory <strong>5-year revocation</strong>.<br>
+<em>3 violazioni gravi O 15 condanne totali in 5 anni = revoca obbligatoria di 5 anni.</em></p>
+<h4>License renewal / Rinnovo patente</h4>
+<table class="speed-table">
+<tr><th>Rule (EN)</th><th>Regola (IT)</th></tr>
+<tr><td>Standard validity: <strong>8 years</strong></td><td>Validità standard: 8 anni</td></tr>
+<tr><td>Over 79: renew every <strong>6 years</strong> in person</td><td>Over 79: rinnovo ogni 6 anni di persona</td></tr>
+<tr><td>Address change: notify FLHSMV within <strong>30 days</strong></td><td>Cambio indirizzo: notifica entro 30 giorni</td></tr>
+</table>
+<div class="tip-box warn"><b>&#9888; Suspension vs Revocation / Sospensione vs Revoca:</b><br>
+<strong>Suspension</strong> = temporary withdrawal. <strong>Revocation</strong> = license cancelled — must reapply.<br>
+<em>Sospensione = ritiro temporaneo. Revoca = patente cancellata — bisogna rifarne domanda.</em></div>
 </div>`,
 flashcards:[
-  {q:"Quanti punti in 12 mesi per la sospensione di 30 giorni?", a:"12 punti"},
-  {q:"Eccesso di velocità in zona scolastica: quanti punti?", a:"6 punti (il doppio del normale)"},
-  {q:"Cos'è il corso BDI?", a:"Basic Driver Improvement — rimuove 3 punti (1 volta ogni 12 mesi)"},
-  {q:"Habitual Traffic Offender: soglia per la revoca di 5 anni?", a:"3 violazioni gravi O 15 condanne totali in 5 anni"},
-  {q:"Validità della patente Class E Florida?", a:"8 anni (scade il giorno del compleanno)"},
+  {q:"How many points in 12 months trigger a 30-day suspension?\n(Quanti punti in 12 mesi per sospensione di 30 giorni?)", a:"12 points / 12 punti"},
+  {q:"Speeding in a school zone: how many points?\n(Eccesso di velocità in zona scolastica: quanti punti?)", a:"6 points / 6 punti (double the normal / il doppio del normale)"},
+  {q:"What is the BDI course?\n(Cos'è il corso BDI?)", a:"Basic Driver Improvement — removes 3 points, once every 12 months\n(Rimuove 3 punti, disponibile 1 volta ogni 12 mesi)"},
+  {q:"Habitual Traffic Offender: threshold for 5-year revocation?\n(HTO: soglia per la revoca di 5 anni?)", a:"3 major violations OR 15 total convictions in 5 years\n(3 violazioni gravi O 15 condanne totali in 5 anni)"},
+  {q:"Standard validity of a Florida Class E license?\n(Validità standard della patente Florida Class E?)", a:"8 years / 8 anni"},
 ]},
 ];
 
