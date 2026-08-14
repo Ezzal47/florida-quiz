@@ -260,6 +260,18 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:28px;heigh
 .qp-title{font-family:"Oswald",sans-serif;font-size:.95rem;color:var(--gold)}
 .qp-sub{font-size:.75rem;color:var(--gray);margin-top:2px}
 .qp-arrow{color:var(--gold);font-size:1.1rem;opacity:.7}
+.handbook-banner{background:linear-gradient(135deg,rgba(26,58,107,.95),rgba(10,22,40,.98));
+  border:1.5px solid var(--gold);border-radius:14px;padding:16px 18px;
+  display:flex;align-items:center;gap:14px;margin-bottom:14px;text-decoration:none;
+  -webkit-user-select:none;user-select:none;transition:border-color .2s,background .2s}
+.handbook-banner:active{background:rgba(240,180,41,.1)}
+.hb-icon{font-size:2rem;flex-shrink:0}
+.hb-body{flex:1;min-width:0}
+.hb-title{font-family:"Oswald",sans-serif;font-size:.95rem;color:var(--gold);font-weight:700;letter-spacing:.03em}
+.hb-sub{font-size:.75rem;color:var(--light);margin-top:3px;line-height:1.35}
+.hb-badge{background:var(--gold);color:var(--navy);font-family:"Oswald",sans-serif;
+  font-size:.62rem;font-weight:700;padding:3px 8px;border-radius:4px;
+  text-transform:uppercase;letter-spacing:.06em;flex-shrink:0}
 @media(min-width:600px){
   .cat-grid{grid-template-columns:1fr 1fr 1fr}
   .q-card,.content-block{padding:26px}
@@ -293,6 +305,20 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:28px;heigh
     <div class="po-stats"><span id="po-done">0 completati</span><span id="po-tot">0 capitoli</span></div>
   </div>
   <div class="chapter-list" id="chapter-list"></div>
+
+  <!-- Official Handbook download -->
+  <a class="handbook-banner"
+     href="https://www.flhsmv.gov/pdf/handbooks/englishdriverhandbook.pdf"
+     target="_blank" rel="noopener noreferrer">
+    <span class="hb-icon">&#128218;</span>
+    <div class="hb-body">
+      <div class="hb-title">Florida Driver Handbook — Manuale ufficiale</div>
+      <div class="hb-sub">Scarica il PDF ufficiale FLHSMV &mdash; la fonte primaria dell'esame.<br>
+        <em>Download the official FLHSMV handbook (EN/ES/Kreyol)</em></div>
+    </div>
+    <span class="hb-badge">PDF &#8599;</span>
+  </a>
+
   <div>
     <div class="quick-practice-btn" id="qp-weak">
       <span class="qp-icon">&#128248;</span>
