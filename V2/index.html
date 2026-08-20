@@ -9,7 +9,20 @@
 <meta name="theme-color" content="#0a1628">
 <title>Florida Class E &ndash; Patente USA</title>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
-<script src="fl_all.js"></script>
+
+<!-- ═══════════════════════════════════════════════
+     GOOGLE ANALYTICS 4
+     Sostituisci G-XXXXXXXXXX con il tuo Measurement ID
+     da analytics.google.com
+═══════════════════════════════════════════════ -->
+<!-- Google Analytics 4 — sostituisci G-XXXXXXXXXX con il tuo Measurement ID -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8SRY9M9M8M"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-8SRY9M9M8M');
+</script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 :root{
@@ -309,7 +322,8 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:28px;heigh
   <!-- Official Handbook download -->
   <a class="handbook-banner"
      href="https://www.flhsmv.gov/pdf/handbooks/englishdriverhandbook.pdf"
-     target="_blank" rel="noopener noreferrer">
+     target="_blank" rel="noopener noreferrer"
+     onclick="track('handbook_download')">
     <span class="hb-icon">&#128218;</span>
     <div class="hb-body">
       <div class="hb-title">Florida Driver Handbook — Manuale ufficiale</div>
@@ -412,11 +426,14 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:28px;heigh
   </div>
 </div>
 
+<script src="fl_all.js"></script>
 <script>
+document.addEventListener("DOMContentLoaded", function() {
+
 // Guard: fl_all.js must be loaded first
 if(typeof QUESTIONS === "undefined"){
-  document.body.innerHTML = '<div style="padding:40px;text-align:center;font-family:sans-serif;color:#f0b429;background:#0a1628;min-height:100vh"><h2 style="margin-bottom:16px">&#9888; Errore di caricamento</h2><p style="color:#e8e0d0">Il file <strong>fl_all.js</strong> non è stato trovato.<br>Assicurati che entrambi i file siano nella stessa cartella del repository GitHub.</p></div>';
-  throw new Error("fl_all.js not loaded");
+  document.body.innerHTML = '<div style="padding:40px;text-align:center;font-family:sans-serif;color:#f0b429;background:#0a1628;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center"><h2 style="margin-bottom:16px;color:#f0b429">&#9888; File non trovato</h2><p style="color:#e8e0d0;max-width:400px;text-align:center;line-height:1.6">Il file <strong>fl_all.js</strong> non \xe8 presente nella stessa cartella di index.html.<br><br>Assicurati che entrambi i file siano nella cartella <strong>V2/</strong> del repository GitHub.</p></div>';
+  return;
 }
 const CAT_LABELS={signs:"Signs",laws:"Laws",safety:"Safety",alcohol:"DUI",license:"License"};
 const CAT_IT={signs:"Segnaletica",laws:"Norme",safety:"Sicurezza",alcohol:"DUI/Alcol",license:"Patente"};
@@ -938,6 +955,13 @@ const doneChapters=new Set(JSON.parse(localStorage.getItem("doneChapters")||"[]"
 function shuffle(arr){const a=[...arr];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
 function countByCat(pool){const c={signs:0,laws:0,safety:0,alcohol:0,license:0};pool.forEach(q=>{if(c[q.cat]!==undefined)c[q.cat]++;});return c;}
 
+// ── ANALYTICS HELPER ─────────────────────────────────────────────────────────
+function track(eventName, params){
+  if(typeof gtag !== "undefined"){
+    gtag("event", eventName, params || {});
+  }
+}
+
 // ── SCREEN NAV ────────────────────────────────────────────────────────────────
 function showScreen(id){
   document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
@@ -977,6 +1001,7 @@ function renderChapterList(){
 let currentChapter=null,fcIndex=0,fcFlipped=false;
 function openChapter(ch){
   currentChapter=ch;fcIndex=0;fcFlipped=false;
+  track("chapter_open", {chapter_id: ch.id, chapter_title: ch.title});
   document.getElementById("ch-view-title").textContent=ch.title;
   const content=document.getElementById("ch-content");
   content.innerHTML=ch.content;
@@ -1035,6 +1060,7 @@ document.getElementById("btn-mark-done").addEventListener("click",()=>{
   else doneChapters.add(currentChapter.id);
   localStorage.setItem("doneChapters",JSON.stringify([...doneChapters]));
   const isDone=doneChapters.has(currentChapter.id);
+  if(isDone) track("chapter_completed", {chapter_id: currentChapter.id});
   const mdBtn=document.getElementById("btn-mark-done");
   mdBtn.className="btn-mark-done"+(isDone?" done":"");
   mdBtn.innerHTML=isDone?"&#10003; Completato":"&#10003; Segna come completato";
@@ -1048,6 +1074,7 @@ document.getElementById("qp-full").addEventListener("click",()=>startQuiz(null,5
 
 // ── QUIZ ENGINE ───────────────────────────────────────────────────────────────
 function startQuiz(cat,n){
+  track("quiz_start", {category: cat||"all", questions: Math.min(n, QUESTIONS.length)});
   const pool=shuffle(cat?QUESTIONS.filter(q=>q.cat===cat):QUESTIONS);
   quiz=pool.slice(0,Math.min(n,pool.length));
   current=0;score=0;userAnswers=[];
@@ -1144,6 +1171,12 @@ document.getElementById("btn-next").addEventListener("click",()=>{
 function showResults(){
   showScreen("results-screen");window.scrollTo(0,0);
   const total=quiz.length,pct=Math.round((score/total)*100),pass=pct>=80;
+  track("quiz_complete", {
+    total_questions: total,
+    correct: score,
+    score_pct: pct,
+    passed: pass
+  });
   document.getElementById("res-icon").textContent=pass?"\uD83C\uDF89":"\uD83D\uDCDA";
   document.getElementById("res-verdict").textContent=pass?"SUPERATO! / PASSED!":"NON SUPERATO / NOT PASSED";
   document.getElementById("res-sub").textContent=pass?"Punteggio "+pct+"% \u2014 Ottimo!":"Punteggio "+pct+"% \u2014 Servono almeno 80%.";
@@ -1175,6 +1208,8 @@ document.getElementById("btn-restart").addEventListener("click",()=>{
 });
 renderChapterList();
 updateSetupUI();
+
+}); // end DOMContentLoaded
 </script>
 </body>
 </html>
