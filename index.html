@@ -1,1597 +1,1213 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Florida Class E – Practice Test / Esame di Pratica</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="FL Class E">
+<meta name="theme-color" content="#0a1628">
+<title>Florida Class E &ndash; Patente USA</title>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+<!-- ═══════════════════════════════════════════════
+     GOOGLE ANALYTICS 4 — ID: G-RSRYSMH5HH
+═══════════════════════════════════════════════ -->
+<!-- Google Analytics 4 — ID: G-RSRYSMH5HH -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RSRYSMH5HH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-RSRYSMH5HH');
+</script>
 <style>
-  :root {
-    --navy:   #0a1628;
-    --blue:   #1a3a6b;
-    --gold:   #f0b429;
-    --gold2:  #d99e1e;
-    --red:    #c0392b;
-    --green:  #1a7a4a;
-    --white:  #f8f4eb;
-    --gray:   #7a8499;
-    --light:  #e8e0d0;
-    --card:   #ffffff;
-    --shadow: 0 4px 24px rgba(10,22,40,.18);
-  }
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  body {
-    font-family: 'Source Sans 3', sans-serif;
-    background: var(--navy);
-    color: var(--white);
-    min-height: 100vh;
-    background-image:
-      repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,.03) 39px, rgba(255,255,255,.03) 40px),
-      repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255,255,255,.03) 39px, rgba(255,255,255,.03) 40px);
-  }
-
-  /* ── HEADER ── */
-  header {
-    background: var(--blue);
-    border-bottom: 4px solid var(--gold);
-    padding: 18px 28px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-  .header-flag { font-size: 2rem; }
-  .header-titles { flex: 1; }
-  .header-titles h1 {
-    font-family: 'Oswald', sans-serif;
-    font-size: 1.55rem;
-    font-weight: 700;
-    letter-spacing: .04em;
-    color: var(--white);
-    line-height: 1.1;
-  }
-  .header-titles p {
-    font-size: .82rem;
-    color: var(--gold);
-    letter-spacing: .07em;
-    text-transform: uppercase;
-    margin-top: 3px;
-  }
-  .badge {
-    background: var(--gold);
-    color: var(--navy);
-    font-family: 'Oswald', sans-serif;
-    font-size: .78rem;
-    font-weight: 700;
-    letter-spacing: .08em;
-    padding: 5px 12px;
-    border-radius: 4px;
-    text-transform: uppercase;
-  }
-
-  /* ── SETUP SCREEN ── */
-  #setup-screen {
-    max-width: 560px;
-    margin: 60px auto 0;
-    padding: 0 20px;
-    text-align: center;
-  }
-  .setup-card {
-    background: var(--blue);
-    border: 1px solid rgba(240,180,41,.25);
-    border-radius: 12px;
-    padding: 40px 36px;
-    box-shadow: var(--shadow);
-  }
-  .setup-card h2 {
-    font-family: 'Oswald', sans-serif;
-    font-size: 1.6rem;
-    font-weight: 600;
-    color: var(--gold);
-    margin-bottom: 8px;
-  }
-  .setup-card p {
-    font-size: .95rem;
-    color: var(--light);
-    margin-bottom: 32px;
-    line-height: 1.5;
-  }
-
-  .option-row { margin-bottom: 22px; text-align: left; }
-  .option-row label {
-    display: block;
-    font-size: .8rem;
-    text-transform: uppercase;
-    letter-spacing: .1em;
-    color: var(--gold);
-    margin-bottom: 8px;
-    font-weight: 600;
-  }
-
-  select, input[type=range] {
-    width: 100%;
-    padding: 11px 16px;
-    background: var(--navy);
-    border: 1.5px solid rgba(240,180,41,.35);
-    border-radius: 7px;
-    color: var(--white);
-    font-family: 'Source Sans 3', sans-serif;
-    font-size: .95rem;
-    appearance: none;
-    cursor: pointer;
-    transition: border-color .2s;
-  }
-  select:focus, input[type=range]:focus { outline: none; border-color: var(--gold); }
-
-  .range-labels {
-    display: flex;
-    justify-content: space-between;
-    font-size: .78rem;
-    color: var(--gray);
-    margin-top: 6px;
-  }
-  #q-count-display {
-    font-family: 'Oswald', sans-serif;
-    font-size: 2rem;
-    color: var(--gold);
-    text-align: center;
-    margin: 8px 0 2px;
-    font-weight: 700;
-  }
-
-  .cat-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-  }
-  .cat-btn {
-    background: var(--navy);
-    border: 1.5px solid rgba(240,180,41,.3);
-    border-radius: 7px;
-    padding: 9px 10px;
-    color: var(--light);
-    font-size: .82rem;
-    cursor: pointer;
-    transition: all .2s;
-    text-align: left;
-  }
-  .cat-btn.selected {
-    background: var(--gold);
-    color: var(--navy);
-    border-color: var(--gold);
-    font-weight: 600;
-  }
-  .cat-btn:hover:not(.selected) { border-color: var(--gold); color: var(--white); }
-
-  .btn-start {
-    width: 100%;
-    margin-top: 28px;
-    padding: 15px;
-    background: var(--gold);
-    color: var(--navy);
-    font-family: 'Oswald', sans-serif;
-    font-size: 1.15rem;
-    font-weight: 700;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background .2s, transform .1s;
-  }
-  .btn-start:hover { background: var(--gold2); transform: translateY(-1px); }
-  .btn-start:active { transform: translateY(0); }
-
-  .stats-row {
-    display: flex;
-    gap: 12px;
-    justify-content: center;
-    margin-top: 28px;
-  }
-  .stat-box {
-    background: rgba(255,255,255,.06);
-    border-radius: 8px;
-    padding: 10px 18px;
-    text-align: center;
-  }
-  .stat-box .sv { font-family: 'Oswald', sans-serif; font-size: 1.5rem; color: var(--gold); }
-  .stat-box .sl { font-size: .72rem; text-transform: uppercase; color: var(--gray); letter-spacing: .06em; }
-
-  /* ── QUIZ SCREEN ── */
-  #quiz-screen { display: none; max-width: 760px; margin: 0 auto; padding: 24px 20px 60px; }
-
-  .progress-bar-wrap {
-    background: rgba(255,255,255,.08);
-    border-radius: 99px;
-    height: 7px;
-    margin-bottom: 6px;
-    overflow: hidden;
-  }
-  .progress-bar-fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--gold), #ffda63);
-    border-radius: 99px;
-    transition: width .4s ease;
-  }
-  .progress-meta {
-    display: flex;
-    justify-content: space-between;
-    font-size: .78rem;
-    color: var(--gray);
-    margin-bottom: 22px;
-  }
-  .progress-meta span b { color: var(--gold); }
-
-  .q-card {
-    background: var(--card);
-    color: var(--navy);
-    border-radius: 12px;
-    padding: 28px 30px;
-    box-shadow: var(--shadow);
-    position: relative;
-    overflow: hidden;
-  }
-  .q-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--gold), #ffd966);
-  }
-
-  .q-meta {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 14px;
-  }
-  .q-num {
-    font-family: 'Oswald', sans-serif;
-    font-size: .75rem;
-    font-weight: 600;
-    color: var(--gray);
-    text-transform: uppercase;
-    letter-spacing: .1em;
-  }
-  .q-cat-tag {
-    font-size: .7rem;
-    background: var(--light);
-    color: var(--blue);
-    border-radius: 4px;
-    padding: 2px 8px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: .06em;
-  }
-
-  .q-text-en {
-    font-size: 1.12rem;
-    font-weight: 600;
-    color: var(--navy);
-    line-height: 1.45;
-    margin-bottom: 6px;
-  }
-  .q-text-it {
-    font-size: .9rem;
-    color: #4a5568;
-    font-style: italic;
-    line-height: 1.45;
-    margin-bottom: 22px;
-    padding-bottom: 16px;
-    border-bottom: 1px solid var(--light);
-  }
-
-  .options-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-
-  .opt-btn {
-    display: block;
-    width: 100%;
-    text-align: left;
-    padding: 13px 16px;
-    border-radius: 8px;
-    border: 2px solid #d8d0c4;
-    background: #fdfaf5;
-    cursor: pointer;
-    transition: all .18s;
-    font-family: 'Source Sans 3', sans-serif;
-  }
-  .opt-btn:hover:not(:disabled) {
-    border-color: var(--blue);
-    background: #eef2fb;
-  }
-  .opt-letter {
-    display: inline-block;
-    width: 22px;
-    height: 22px;
-    line-height: 22px;
-    border-radius: 50%;
-    background: var(--light);
-    color: var(--blue);
-    font-family: 'Oswald', sans-serif;
-    font-size: .78rem;
-    font-weight: 700;
-    text-align: center;
-    margin-right: 10px;
-    flex-shrink: 0;
-    transition: all .18s;
-  }
-  .opt-btn:hover:not(:disabled) .opt-letter {
-    background: var(--blue);
-    color: #fff;
-  }
-  .opt-en { font-size: .93rem; color: #1a202c; font-weight: 600; }
-  .opt-it { font-size: .78rem; color: #5a6478; font-style: italic; display: block; margin-top: 1px; margin-left: 32px; }
-
-  .opt-btn.correct {
-    border-color: var(--green) !important;
-    background: #e6f7ef !important;
-  }
-  .opt-btn.correct .opt-letter { background: var(--green); color: #fff; }
-  .opt-btn.wrong {
-    border-color: var(--red) !important;
-    background: #fdecea !important;
-  }
-  .opt-btn.wrong .opt-letter { background: var(--red); color: #fff; }
-  .opt-btn:disabled { cursor: default; }
-
-  .feedback-box {
-    margin-top: 18px;
-    border-radius: 8px;
-    padding: 14px 16px;
-    font-size: .88rem;
-    line-height: 1.55;
-    display: none;
-  }
-  .feedback-box.show { display: block; }
-  .feedback-box.ok { background: #e6f7ef; border-left: 4px solid var(--green); color: #155832; }
-  .feedback-box.ko { background: #fdecea; border-left: 4px solid var(--red); color: #7b1313; }
-  .feedback-box b { font-weight: 700; }
-
-  .q-nav {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 20px;
-    gap: 10px;
-  }
-  .btn-next {
-    padding: 12px 28px;
-    background: var(--blue);
-    color: #fff;
-    font-family: 'Oswald', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: .06em;
-    text-transform: uppercase;
-    border: none;
-    border-radius: 7px;
-    cursor: pointer;
-    display: none;
-    transition: background .2s;
-  }
-  .btn-next:hover { background: #24508f; }
-  .btn-next.show { display: inline-block; }
-
-  /* ── RESULTS SCREEN ── */
-  #results-screen { display: none; max-width: 620px; margin: 40px auto 60px; padding: 0 20px; }
-
-  .results-card {
-    background: var(--blue);
-    border: 1px solid rgba(240,180,41,.3);
-    border-radius: 14px;
-    padding: 40px 36px;
-    box-shadow: var(--shadow);
-    text-align: center;
-  }
-  .result-icon { font-size: 3.5rem; margin-bottom: 10px; }
-  .result-verdict {
-    font-family: 'Oswald', sans-serif;
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--gold);
-    margin-bottom: 6px;
-  }
-  .result-sub { font-size: .9rem; color: var(--light); margin-bottom: 30px; }
-
-  .score-circle {
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    margin: 0 auto 28px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border: 5px solid var(--gold);
-    background: rgba(240,180,41,.1);
-  }
-  .score-pct {
-    font-family: 'Oswald', sans-serif;
-    font-size: 2.6rem;
-    font-weight: 700;
-    color: var(--gold);
-    line-height: 1;
-  }
-  .score-label { font-size: .72rem; text-transform: uppercase; color: var(--gray); letter-spacing: .08em; }
-
-  .results-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 12px;
-    margin-bottom: 28px;
-  }
-  .rg-item {
-    background: rgba(255,255,255,.06);
-    border-radius: 8px;
-    padding: 12px 8px;
-  }
-  .rg-val { font-family: 'Oswald', sans-serif; font-size: 1.6rem; font-weight: 700; }
-  .rg-val.green { color: #52d48a; }
-  .rg-val.red   { color: #f87171; }
-  .rg-lbl { font-size: .72rem; text-transform: uppercase; color: var(--gray); letter-spacing: .05em; }
-
-  .review-toggle {
-    background: transparent;
-    border: 1.5px solid var(--gold);
-    color: var(--gold);
-    padding: 10px 22px;
-    border-radius: 7px;
-    font-family: 'Oswald', sans-serif;
-    font-size: .95rem;
-    font-weight: 600;
-    letter-spacing: .06em;
-    text-transform: uppercase;
-    cursor: pointer;
-    margin-right: 10px;
-    transition: all .2s;
-  }
-  .review-toggle:hover { background: var(--gold); color: var(--navy); }
-  .btn-restart {
-    background: var(--gold);
-    color: var(--navy);
-    padding: 10px 22px;
-    border: none;
-    border-radius: 7px;
-    font-family: 'Oswald', sans-serif;
-    font-size: .95rem;
-    font-weight: 700;
-    letter-spacing: .06em;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: background .2s;
-  }
-  .btn-restart:hover { background: var(--gold2); }
-
-  .review-section { margin-top: 32px; display: none; }
-  .review-section.show { display: block; }
-  .review-item {
-    background: var(--card);
-    color: var(--navy);
-    border-radius: 10px;
-    padding: 16px 18px;
-    margin-bottom: 12px;
-    text-align: left;
-    border-left: 5px solid transparent;
-  }
-  .review-item.ok { border-color: var(--green); }
-  .review-item.ko { border-color: var(--red); }
-  .review-q { font-weight: 600; font-size: .93rem; margin-bottom: 4px; }
-  .review-q-it { font-size: .8rem; color: #5a6478; font-style: italic; margin-bottom: 8px; }
-  .review-ans { font-size: .82rem; }
-  .review-ans span { font-weight: 600; }
-  .review-ans .ca { color: var(--green); }
-  .review-ans .wa { color: var(--red); }
-
-  @media (max-width: 540px) {
-    .cat-grid { grid-template-columns: 1fr; }
-    .q-card { padding: 18px 16px; }
-    .results-grid { grid-template-columns: 1fr 1fr; }
-  }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+:root{
+  --navy:#0a1628;--blue:#1a3a6b;--blue2:#14305a;
+  --gold:#f0b429;--gold2:#d99e1e;--goldfaint:rgba(240,180,41,.13);
+  --red:#c0392b;--green:#1a7a4a;
+  --white:#f8f4eb;--gray:#7a8499;--light:#e8e0d0;--card:#ffffff;
+  --shadow:0 4px 24px rgba(10,22,40,.22);
+  --st:env(safe-area-inset-top,0px);--sb:env(safe-area-inset-bottom,0px);
+  --sl:env(safe-area-inset-left,0px);--sr:env(safe-area-inset-right,0px)
+}
+html{-webkit-text-size-adjust:100%}
+body{font-family:"Source Sans 3",sans-serif;background:var(--navy);color:var(--white);
+  min-height:100vh;min-height:-webkit-fill-available;overflow-x:hidden;
+  background-image:repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(255,255,255,.02) 39px,rgba(255,255,255,.02) 40px),
+    repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(255,255,255,.02) 39px,rgba(255,255,255,.02) 40px)}
+header{background:var(--blue);border-bottom:3px solid var(--gold);padding:12px 18px;
+  padding-top:calc(12px + var(--st));padding-left:calc(18px + var(--sl));padding-right:calc(18px + var(--sr));
+  display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:200;
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.hdr-flag{font-size:1.7rem;flex-shrink:0}
+.hdr-txt{flex:1;min-width:0}
+.hdr-txt h1{font-family:"Oswald",sans-serif;font-size:clamp(.9rem,4vw,1.2rem);font-weight:700;
+  color:var(--white);line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hdr-txt p{font-size:clamp(.6rem,2.6vw,.75rem);color:var(--gold);letter-spacing:.06em;text-transform:uppercase;margin-top:2px}
+.badge{background:var(--gold);color:var(--navy);font-family:"Oswald",sans-serif;font-size:.68rem;
+  font-weight:700;letter-spacing:.07em;padding:4px 9px;border-radius:4px;text-transform:uppercase;flex-shrink:0}
+.mode-tabs{display:flex;background:var(--blue2);border-bottom:2px solid rgba(240,180,41,.2);
+  padding:0 calc(12px + var(--sl));gap:0;position:sticky;top:calc(52px + var(--st));z-index:190}
+.mode-tab{flex:1;padding:13px 6px;text-align:center;font-family:"Oswald",sans-serif;
+  font-size:.82rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--gray);border-bottom:3px solid transparent;cursor:pointer;transition:all .2s;
+  -webkit-user-select:none;user-select:none;margin-bottom:-2px}
+.mode-tab.active{color:var(--gold);border-bottom-color:var(--gold)}
+.mode-tab span.tab-icon{display:block;font-size:1.2rem;margin-bottom:2px}
+.screen{padding:20px 16px calc(24px + var(--sb));
+  padding-left:calc(16px + var(--sl));padding-right:calc(16px + var(--sr));
+  max-width:680px;margin:0 auto;display:none}
+.screen.active{display:block}
+.card{background:var(--blue);border:1px solid rgba(240,180,41,.22);border-radius:16px;
+  padding:24px 20px;box-shadow:var(--shadow);margin-bottom:18px}
+.card h2{font-family:"Oswald",sans-serif;font-size:clamp(1.1rem,5vw,1.4rem);color:var(--gold);margin-bottom:8px}
+.card > p{font-size:.88rem;color:var(--light);line-height:1.5;margin-bottom:20px}
+.opt-row{margin-bottom:22px}
+.opt-row label{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;
+  color:var(--gold);margin-bottom:8px;font-weight:600}
+#q-count-display{font-family:"Oswald",sans-serif;font-size:2.4rem;color:var(--gold);
+  text-align:center;font-weight:700;line-height:1;margin-bottom:8px}
+input[type=range]{-webkit-appearance:none;width:100%;height:6px;border-radius:99px;
+  background:rgba(255,255,255,.15);outline:none;cursor:pointer}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:28px;height:28px;
+  border-radius:50%;background:var(--gold);cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.range-labels{display:flex;justify-content:space-between;font-size:.65rem;color:var(--gray);margin-top:6px}
+.cat-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.cat-btn{background:rgba(255,255,255,.05);border:1.5px solid rgba(240,180,41,.25);border-radius:10px;
+  padding:11px 10px;color:var(--light);font-size:.82rem;font-family:"Source Sans 3",sans-serif;
+  cursor:pointer;transition:all .15s;text-align:left;-webkit-user-select:none;user-select:none;line-height:1.2}
+.cat-btn.selected{background:var(--gold);color:var(--navy);border-color:var(--gold);font-weight:600}
+.db-info{background:var(--goldfaint);border:1px solid rgba(240,180,41,.25);border-radius:10px;
+  padding:12px 14px;margin-bottom:4px;font-size:.78rem;color:var(--light);line-height:1.7}
+.db-info b{color:var(--gold)}
+.cat-counts{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:6px}
+.cat-count{font-size:.72rem;color:var(--gray)}
+.stats-row{display:flex;gap:10px;justify-content:center;margin-top:18px}
+.stat-box{flex:1;background:rgba(255,255,255,.06);border-radius:10px;padding:10px 6px;text-align:center}
+.stat-box .sv{font-family:"Oswald",sans-serif;font-size:1.4rem;color:var(--gold);font-weight:700}
+.stat-box .sl{font-size:.62rem;text-transform:uppercase;color:var(--gray);letter-spacing:.05em;margin-top:2px}
+.btn-primary{width:100%;margin-top:20px;padding:17px;background:var(--gold);color:var(--navy);
+  font-family:"Oswald",sans-serif;font-size:1.1rem;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;border:none;border-radius:12px;cursor:pointer;
+  -webkit-user-select:none;user-select:none;transition:opacity .15s;min-height:54px}
+.btn-primary:active{opacity:.85}
+.install-hint{margin-top:16px;background:var(--goldfaint);border:1px solid rgba(240,180,41,.25);
+  border-radius:10px;padding:12px 14px;font-size:.78rem;color:var(--light);line-height:1.5;
+  text-align:center;display:none}
+.install-hint b{color:var(--gold)}
+.progress-wrap{background:rgba(255,255,255,.08);border-radius:99px;height:6px;margin-bottom:8px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--gold),#ffe066);border-radius:99px;transition:width .4s ease}
+.progress-meta{display:flex;justify-content:space-between;font-size:.76rem;color:var(--gray);margin-bottom:16px}
+.progress-meta b{color:var(--gold)}
+.q-card{background:var(--card);color:var(--navy);border-radius:16px;padding:20px 18px;
+  box-shadow:var(--shadow);position:relative;overflow:hidden}
+.q-card::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;
+  background:linear-gradient(90deg,var(--gold),#ffd966)}
+.q-meta{display:flex;align-items:center;gap:8px;margin-bottom:12px}
+.q-num{font-family:"Oswald",sans-serif;font-size:.72rem;font-weight:600;color:var(--gray);
+  text-transform:uppercase;letter-spacing:.1em}
+.q-cat-tag{font-size:.68rem;background:var(--light);color:var(--blue);border-radius:5px;
+  padding:2px 8px;font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+.q-text-en{font-size:clamp(.95rem,3.8vw,1.08rem);font-weight:600;color:var(--navy);line-height:1.45;margin-bottom:6px}
+.q-text-it{font-size:clamp(.8rem,3.2vw,.88rem);color:#4a5568;font-style:italic;line-height:1.45;
+  margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--light)}
+.opts-list{list-style:none;display:flex;flex-direction:column;gap:9px}
+.opt-btn{display:flex;align-items:flex-start;gap:10px;width:100%;text-align:left;padding:13px 14px;
+  border-radius:10px;border:2px solid #d8d0c4;background:#fdfaf5;cursor:pointer;
+  transition:border-color .15s,background .15s;font-family:"Source Sans 3",sans-serif;
+  min-height:52px;-webkit-user-select:none;user-select:none}
+.opt-btn:active:not(:disabled){border-color:var(--blue);background:#eef2fb}
+.opt-letter{display:flex;align-items:center;justify-content:center;width:24px;height:24px;min-width:24px;
+  border-radius:50%;background:var(--light);color:var(--blue);font-family:"Oswald",sans-serif;
+  font-size:.75rem;font-weight:700;transition:all .15s;margin-top:1px}
+.opt-content{flex:1}
+.opt-en{font-size:clamp(.85rem,3.4vw,.93rem);color:#1a202c;font-weight:600;line-height:1.35}
+.opt-it{font-size:clamp(.72rem,2.8vw,.78rem);color:#5a6478;font-style:italic;display:block;margin-top:2px;line-height:1.3}
+.opt-btn.correct{border-color:var(--green)!important;background:#e6f7ef!important}
+.opt-btn.correct .opt-letter{background:var(--green);color:#fff}
+.opt-btn.wrong{border-color:var(--red)!important;background:#fdecea!important}
+.opt-btn.wrong .opt-letter{background:var(--red);color:#fff}
+.opt-btn:disabled{cursor:default}
+.feedback-box{margin-top:14px;border-radius:10px;padding:13px 14px;
+  font-size:clamp(.78rem,3.1vw,.86rem);line-height:1.55;display:none}
+.feedback-box.show{display:block}
+.feedback-box.ok{background:#e6f7ef;border-left:4px solid var(--green);color:#155832}
+.feedback-box.ko{background:#fdecea;border-left:4px solid var(--red);color:#7b1313}
+.btn-next{width:100%;margin-top:14px;padding:16px;background:var(--blue);color:#fff;
+  font-family:"Oswald",sans-serif;font-size:1rem;font-weight:600;letter-spacing:.06em;
+  text-transform:uppercase;border:none;border-radius:10px;cursor:pointer;display:none;
+  min-height:52px;-webkit-user-select:none;user-select:none;transition:opacity .15s}
+.btn-next:active{opacity:.85}
+.btn-next.show{display:block}
+.results-card{background:var(--blue);border:1px solid rgba(240,180,41,.28);border-radius:16px;
+  padding:30px 20px;box-shadow:var(--shadow);text-align:center}
+.result-icon{font-size:3rem;margin-bottom:8px}
+.result-verdict{font-family:"Oswald",sans-serif;font-size:clamp(1.5rem,6vw,2rem);
+  font-weight:700;color:var(--gold);margin-bottom:6px}
+.result-sub{font-size:.88rem;color:var(--light);margin-bottom:24px;line-height:1.4}
+.score-circle{width:120px;height:120px;border-radius:50%;margin:0 auto 22px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  border:4px solid var(--gold);background:rgba(240,180,41,.1)}
+.score-pct{font-family:"Oswald",sans-serif;font-size:2.2rem;font-weight:700;color:var(--gold);line-height:1}
+.score-label{font-size:.68rem;text-transform:uppercase;color:var(--gray);letter-spacing:.08em}
+.results-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:24px}
+.rg-item{background:rgba(255,255,255,.06);border-radius:10px;padding:11px 6px}
+.rg-val{font-family:"Oswald",sans-serif;font-size:1.5rem;font-weight:700}
+.rg-val.green{color:#52d48a}.rg-val.red{color:#f87171}
+.rg-lbl{font-size:.62rem;text-transform:uppercase;color:var(--gray);letter-spacing:.04em;margin-top:2px}
+.btn-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.btn-ghost{flex:1;min-width:130px;background:transparent;border:1.5px solid var(--gold);color:var(--gold);
+  padding:13px 16px;border-radius:10px;font-family:"Oswald",sans-serif;font-size:.9rem;
+  font-weight:600;letter-spacing:.05em;text-transform:uppercase;cursor:pointer;
+  min-height:50px;-webkit-user-select:none;user-select:none;transition:all .15s}
+.btn-ghost:active{background:var(--gold);color:var(--navy)}
+.btn-solid{flex:1;min-width:130px;background:var(--gold);color:var(--navy);padding:13px 16px;
+  border:none;border-radius:10px;font-family:"Oswald",sans-serif;font-size:.9rem;font-weight:700;
+  letter-spacing:.05em;text-transform:uppercase;cursor:pointer;min-height:50px;
+  -webkit-user-select:none;user-select:none;transition:opacity .15s}
+.btn-solid:active{opacity:.85}
+.review-section{margin-top:26px;display:none;text-align:left}
+.review-section.show{display:block}
+.review-section h3{font-family:"Oswald",sans-serif;font-size:1rem;color:var(--gold);margin-bottom:12px}
+.review-item{background:var(--card);color:var(--navy);border-radius:10px;padding:14px 15px;
+  margin-bottom:10px;border-left:4px solid transparent}
+.review-item.ok{border-color:var(--green)}.review-item.ko{border-color:var(--red)}
+.review-q{font-weight:600;font-size:clamp(.82rem,3.3vw,.9rem);margin-bottom:3px;line-height:1.35}
+.review-q-it{font-size:clamp(.72rem,2.8vw,.78rem);color:#5a6478;font-style:italic;margin-bottom:8px;line-height:1.3}
+.review-ans{font-size:clamp(.76rem,3vw,.82rem)}
+.review-ans .ca{color:var(--green);font-weight:600}
+.review-ans .wa{color:var(--red);font-weight:600}
+/* STUDIO */
+.studio-header{margin-bottom:20px}
+.studio-header h2{font-family:"Oswald",sans-serif;font-size:1.5rem;color:var(--gold);margin-bottom:4px}
+.studio-header p{font-size:.85rem;color:var(--light);line-height:1.5}
+.chapter-list{display:flex;flex-direction:column;gap:10px;margin-bottom:24px}
+.chapter-btn{background:var(--blue);border:1.5px solid rgba(240,180,41,.25);border-radius:14px;
+  padding:16px 18px;display:flex;align-items:center;gap:14px;cursor:pointer;
+  transition:border-color .15s,background .15s;-webkit-user-select:none;user-select:none;
+  text-align:left;width:100%}
+.chapter-btn:active{background:rgba(240,180,41,.08)}
+.chapter-btn.done{border-color:var(--green)}
+.ch-icon{font-size:1.6rem;flex-shrink:0;width:42px;text-align:center}
+.ch-body{flex:1;min-width:0}
+.ch-title{font-family:"Oswald",sans-serif;font-size:1rem;color:var(--white);line-height:1.2;margin-bottom:2px}
+.ch-sub{font-size:.75rem;color:var(--gray);line-height:1.3}
+.ch-badge{font-family:"Oswald",sans-serif;font-size:.65rem;font-weight:700;
+  padding:3px 8px;border-radius:5px;background:var(--goldfaint);color:var(--gold);
+  border:1px solid rgba(240,180,41,.3);white-space:nowrap;flex-shrink:0}
+.ch-badge.done{background:rgba(26,122,74,.2);color:#52d48a;border-color:rgba(26,122,74,.4)}
+#chapter-view{display:none}
+#chapter-view.active{display:block}
+.ch-nav{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.btn-back{background:transparent;border:1.5px solid rgba(240,180,41,.35);color:var(--gold);
+  padding:8px 14px;border-radius:8px;font-family:"Oswald",sans-serif;font-size:.8rem;
+  font-weight:600;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;
+  -webkit-user-select:none;user-select:none}
+.ch-nav-title{font-family:"Oswald",sans-serif;font-size:.95rem;color:var(--white);flex:1;min-width:0;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.content-block{background:var(--card);color:var(--navy);border-radius:14px;
+  padding:20px 18px;margin-bottom:14px;box-shadow:var(--shadow)}
+.content-block h3{font-family:"Oswald",sans-serif;font-size:1.1rem;color:var(--blue);
+  margin-bottom:10px;padding-bottom:8px;border-bottom:2px solid var(--light)}
+.content-block h4{font-family:"Oswald",sans-serif;font-size:.95rem;color:var(--blue);margin:14px 0 6px}
+.content-block p{font-size:.88rem;line-height:1.65;color:#2d3748;margin-bottom:10px}
+.content-block p:last-child{margin-bottom:0}
+.content-block ul,.content-block ol{padding-left:18px;margin-bottom:10px}
+.content-block li{font-size:.86rem;line-height:1.6;color:#2d3748;margin-bottom:4px}
+.content-block strong{color:var(--navy);font-weight:700}
+.content-block em{color:#5a6478}
+.tip-box{border-radius:10px;padding:12px 14px;margin-bottom:12px;font-size:.84rem;line-height:1.55}
+.tip-box.key{background:#fff8e1;border-left:4px solid var(--gold);color:#5a4000}
+.tip-box.warn{background:#fdecea;border-left:4px solid var(--red);color:#7b1313}
+.tip-box.info{background:#e8f4fd;border-left:4px solid #2b7cb8;color:#1a3d6b}
+.tip-box.ok{background:#e6f7ef;border-left:4px solid var(--green);color:#155832}
+.tip-box b{font-weight:700}
+.speed-table{width:100%;border-collapse:collapse;font-size:.82rem;margin-bottom:10px}
+.speed-table th{background:var(--light);color:var(--blue);font-family:"Oswald",sans-serif;
+  font-size:.75rem;text-transform:uppercase;letter-spacing:.05em;padding:8px 10px;text-align:left}
+.speed-table td{padding:8px 10px;border-bottom:1px solid var(--light);color:#2d3748}
+.speed-table tr:last-child td{border-bottom:none}
+.speed-table .hi{color:var(--red);font-weight:700}
+.speed-table .lo{color:var(--green);font-weight:700}
+.flashcard-wrap{perspective:800px;margin-bottom:12px;cursor:pointer;-webkit-user-select:none;user-select:none}
+.flashcard{width:100%;min-height:100px;position:relative;transform-style:preserve-3d;
+  transition:transform .4s;border-radius:12px}
+.flashcard.flipped{transform:rotateY(180deg)}
+.fc-front,.fc-back{position:absolute;width:100%;min-height:100px;backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;border-radius:12px;padding:16px;display:flex;
+  flex-direction:column;justify-content:center;align-items:center;text-align:center}
+.fc-front{background:var(--blue);color:var(--white);border:1.5px solid rgba(240,180,41,.3)}
+.fc-back{background:var(--gold);color:var(--navy);transform:rotateY(180deg)}
+.fc-label{font-size:.6rem;text-transform:uppercase;letter-spacing:.1em;opacity:.7;margin-bottom:6px;font-weight:600}
+.fc-text{font-size:clamp(.88rem,3.5vw,1rem);font-weight:600;line-height:1.4}
+.fc-hint{font-size:.7rem;opacity:.6;margin-top:8px}
+.fc-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.fc-nav-btn{background:transparent;border:1.5px solid rgba(240,180,41,.3);color:var(--gold);
+  padding:8px 16px;border-radius:8px;font-family:"Oswald",sans-serif;font-size:.8rem;
+  font-weight:600;letter-spacing:.05em;cursor:pointer;-webkit-user-select:none;user-select:none}
+.fc-nav-btn:disabled{opacity:.3;cursor:default}
+.fc-counter{font-family:"Oswald",sans-serif;font-size:.85rem;color:var(--gray)}
+.btn-mark-done{width:100%;margin-top:20px;padding:14px;background:transparent;
+  border:1.5px solid var(--green);color:#52d48a;font-family:"Oswald",sans-serif;
+  font-size:.9rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  border-radius:10px;cursor:pointer;-webkit-user-select:none;user-select:none;transition:all .2s}
+.btn-mark-done.done{background:var(--green);color:#fff;border-color:var(--green)}
+.btn-mark-done:active{opacity:.85}
+.progress-overview{background:var(--goldfaint);border:1px solid rgba(240,180,41,.25);
+  border-radius:12px;padding:14px 16px;margin-bottom:20px}
+.po-label{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--gold);margin-bottom:8px;font-weight:600}
+.po-bar-wrap{background:rgba(255,255,255,.1);border-radius:99px;height:8px;overflow:hidden;margin-bottom:6px}
+.po-bar{height:100%;background:linear-gradient(90deg,var(--gold),#ffe066);border-radius:99px;transition:width .5s ease}
+.po-stats{display:flex;justify-content:space-between;font-size:.72rem;color:var(--light)}
+.quick-practice-btn{background:rgba(240,180,41,.12);border:1.5px solid rgba(240,180,41,.4);
+  border-radius:12px;padding:14px 16px;display:flex;align-items:center;gap:12px;
+  cursor:pointer;width:100%;text-align:left;margin-bottom:10px;
+  -webkit-user-select:none;user-select:none;transition:background .15s}
+.quick-practice-btn:active{background:rgba(240,180,41,.2)}
+.qp-icon{font-size:1.4rem}
+.qp-body{flex:1}
+.qp-title{font-family:"Oswald",sans-serif;font-size:.95rem;color:var(--gold)}
+.qp-sub{font-size:.75rem;color:var(--gray);margin-top:2px}
+.qp-arrow{color:var(--gold);font-size:1.1rem;opacity:.7}
+.handbook-banner{background:linear-gradient(135deg,rgba(26,58,107,.95),rgba(10,22,40,.98));
+  border:1.5px solid var(--gold);border-radius:14px;padding:16px 18px;
+  display:flex;align-items:center;gap:14px;margin-bottom:14px;text-decoration:none;
+  -webkit-user-select:none;user-select:none;transition:border-color .2s,background .2s}
+.handbook-banner:active{background:rgba(240,180,41,.1)}
+.hb-icon{font-size:2rem;flex-shrink:0}
+.hb-body{flex:1;min-width:0}
+.hb-title{font-family:"Oswald",sans-serif;font-size:.95rem;color:var(--gold);font-weight:700;letter-spacing:.03em}
+.hb-sub{font-size:.75rem;color:var(--light);margin-top:3px;line-height:1.35}
+.hb-badge{background:var(--gold);color:var(--navy);font-family:"Oswald",sans-serif;
+  font-size:.62rem;font-weight:700;padding:3px 8px;border-radius:4px;
+  text-transform:uppercase;letter-spacing:.06em;flex-shrink:0}
+@media(min-width:600px){
+  .cat-grid{grid-template-columns:1fr 1fr 1fr}
+  .q-card,.content-block{padding:26px}
+  .opt-btn{padding:14px 16px}
+}
 </style>
 </head>
 <body>
-
 <header>
-  <div class="header-flag">🌴</div>
-  <div class="header-titles">
-    <h1>Florida Class E – Knowledge Practice Test</h1>
-    <p>Esame di pratica per la patente di guida della Florida</p>
+  <div class="hdr-flag">&#127796;</div>
+  <div class="hdr-txt">
+    <h1>Florida Class E &ndash; Patente USA</h1>
+    <p>Studio &amp; pratica per il test FLHSMV</p>
   </div>
-  <div class="badge">FLHSMV 2026</div>
+  <div class="badge">2026</div>
 </header>
+<div class="mode-tabs">
+  <div class="mode-tab active" data-tab="studio-screen"><span class="tab-icon">&#128218;</span>Studio</div>
+  <div class="mode-tab" data-tab="setup-screen"><span class="tab-icon">&#127381;</span>Test</div>
+</div>
 
-<!-- ══ SETUP ══ -->
-<div id="setup-screen">
-  <div class="setup-card">
-    <h2>Configure Your Test</h2>
-    <p>Scegli il numero di domande e le categorie su cui vuoi allenarti.<br>
-       <em>Choose the number of questions and the topics to practice.</em></p>
+<!-- STUDIO -->
+<div id="studio-screen" class="screen active">
+  <div class="studio-header">
+    <h2>&#127891; Guida allo studio</h2>
+    <p>Studia ogni capitolo, poi mettiti alla prova. Superare l'esame Class E richiede <strong>80% (40/50)</strong>.</p>
+  </div>
+  <div class="progress-overview">
+    <div class="po-label">Progressione capitoli</div>
+    <div class="po-bar-wrap"><div class="po-bar" id="po-bar" style="width:0%"></div></div>
+    <div class="po-stats"><span id="po-done">0 completati</span><span id="po-tot">0 capitoli</span></div>
+  </div>
+  <div class="chapter-list" id="chapter-list"></div>
 
-    <div class="option-row">
-      <label>Numero di domande / Number of questions</label>
-      <div id="q-count-display">10</div>
-      <input type="range" id="q-count-slider" min="5" max="50" step="5" value="10">
-      <div class="range-labels"><span>5</span><span>10</span><span>15</span><span>20</span><span>25</span><span>30</span><span>35</span><span>40</span><span>45</span><span>50</span></div>
+  <!-- Official Handbook download -->
+  <a class="handbook-banner"
+     href="https://www.flhsmv.gov/pdf/handbooks/englishdriverhandbook.pdf"
+     target="_blank" rel="noopener noreferrer"
+     onclick="track('handbook_download')">
+    <span class="hb-icon">&#128218;</span>
+    <div class="hb-body">
+      <div class="hb-title">Florida Driver Handbook — Manuale ufficiale</div>
+      <div class="hb-sub">Scarica il PDF ufficiale FLHSMV &mdash; la fonte primaria dell'esame.<br>
+        <em>Download the official FLHSMV handbook (EN/ES/Kreyol)</em></div>
     </div>
+    <span class="hb-badge">PDF &#8599;</span>
+  </a>
 
-    <div class="option-row">
-      <label>Categoria / Category (seleziona una o più / select one or more)</label>
+  <div>
+    <div class="quick-practice-btn" id="qp-weak">
+      <span class="qp-icon">&#128248;</span>
+      <div class="qp-body"><div class="qp-title">Ripassa i punti deboli</div><div class="qp-sub">20 domande miste per rafforzare</div></div>
+      <span class="qp-arrow">&#8250;</span>
+    </div>
+    <div class="quick-practice-btn" id="qp-full">
+      <span class="qp-icon">&#127937;</span>
+      <div class="qp-body"><div class="qp-title">Simulazione esame completo</div><div class="qp-sub">50 domande &mdash; replica esame FLHSMV</div></div>
+      <span class="qp-arrow">&#8250;</span>
+    </div>
+  </div>
+</div>
+
+<!-- CHAPTER VIEW -->
+<div id="chapter-view" class="screen">
+  <div class="ch-nav">
+    <button class="btn-back" id="btn-back-chapter">&#8592; Indietro</button>
+    <div class="ch-nav-title" id="ch-view-title"></div>
+  </div>
+  <div id="ch-content"></div>
+  <button class="btn-mark-done" id="btn-mark-done">&#10003; Segna come completato</button>
+  <div style="height:8px"></div>
+  <button class="btn-primary" id="btn-practice-chapter" style="margin-top:0;display:none">&#127381; Pratica su questo capitolo</button>
+</div>
+
+<!-- SETUP -->
+<div id="setup-screen" class="screen">
+  <div class="card">
+    <h2>Configura il test</h2>
+    <p>Scegli quante domande e le categorie da ripassare.</p>
+    <div class="opt-row">
+      <label>Numero di domande</label>
+      <div id="q-count-display">20</div>
+      <input type="range" id="q-slider" min="10" max="650" step="10" value="20">
+      <div class="range-labels"><span>10</span><span>100</span><span>200</span><span>300</span><span>400</span><span>500</span><span>max</span></div>
+    </div>
+    <div class="opt-row">
+      <label>Categoria</label>
       <div class="cat-grid" id="cat-grid">
-        <button class="cat-btn selected" data-cat="all">🔀 All / Tutto</button>
-        <button class="cat-btn" data-cat="signs">🚦 Road Signs / Segnaletica</button>
-        <button class="cat-btn" data-cat="laws">📋 Traffic Laws / Norme di traffico</button>
-        <button class="cat-btn" data-cat="safety">🛡️ Safe Driving / Guida sicura</button>
-        <button class="cat-btn" data-cat="alcohol">🍺 DUI / Alcol &amp; Droghe</button>
-        <button class="cat-btn" data-cat="license">🪪 License Rules / Patente</button>
+        <button class="cat-btn selected" data-cat="all">&#128256; Tutte</button>
+        <button class="cat-btn" data-cat="signs">&#128678; Segnaletica</button>
+        <button class="cat-btn" data-cat="laws">&#128203; Norme</button>
+        <button class="cat-btn" data-cat="safety">&#128737; Sicurezza</button>
+        <button class="cat-btn" data-cat="alcohol">&#127866; DUI/Alcol</button>
+        <button class="cat-btn" data-cat="license">&#129346; Patente</button>
       </div>
     </div>
-
-    <button class="btn-start" onclick="startQuiz()">▶ Inizia il test / Start Test</button>
-
+    <div class="db-info"><b id="db-avail">&ndash;</b> domande disponibili<div class="cat-counts" id="db-cat-counts"></div></div>
+    <button class="btn-primary" id="btn-start">&#9654; Inizia il test</button>
     <div class="stats-row">
-      <div class="stat-box"><div class="sv">50</div><div class="sl">Domande ufficiali</div></div>
-      <div class="stat-box"><div class="sv">80%</div><div class="sl">Punteggio sufficiente</div></div>
-      <div class="stat-box"><div class="sv">40/50</div><div class="sl">Per superare il test</div></div>
+      <div class="stat-box"><div class="sv" id="stat-db">&ndash;</div><div class="sl">Nel database</div></div>
+      <div class="stat-box"><div class="sv">80%</div><div class="sl">Per passare</div></div>
+      <div class="stat-box"><div class="sv">40/50</div><div class="sl">Esame reale</div></div>
     </div>
+    <div class="install-hint" id="install-hint"><b>Aggiungi alla schermata Home!</b><br>Safari &rarr; Condividi &rarr; "Aggiungi a schermata Home"</div>
   </div>
 </div>
 
-<!-- ══ QUIZ ══ -->
-<div id="quiz-screen">
-  <div class="progress-bar-wrap"><div class="progress-bar-fill" id="prog-fill"></div></div>
-  <div class="progress-meta">
-    <span>Domanda <b id="q-current">1</b> di <b id="q-total">10</b></span>
-    <span>✅ <b id="score-running">0</b> corrette</span>
-  </div>
-
-  <div class="q-card" id="q-card">
-    <div class="q-meta">
-      <span class="q-num" id="q-num-label">Q1</span>
-      <span class="q-cat-tag" id="q-cat-label">–</span>
-    </div>
+<!-- QUIZ -->
+<div id="quiz-screen" class="screen">
+  <div class="progress-wrap"><div class="progress-fill" id="prog-fill"></div></div>
+  <div class="progress-meta"><span>Domanda <b id="q-cur">1</b> / <b id="q-tot">20</b></span><span>&#10003; <b id="score-run">0</b> corrette</span></div>
+  <div class="q-card">
+    <div class="q-meta"><span class="q-num" id="q-num-lbl">Q1</span><span class="q-cat-tag" id="q-cat-lbl">&ndash;</span></div>
     <div class="q-text-en" id="q-en"></div>
     <div class="q-text-it" id="q-it"></div>
-    <ul class="options-list" id="opts-list"></ul>
+    <ul class="opts-list" id="opts-list"></ul>
     <div class="feedback-box" id="feedback-box"></div>
-    <div class="q-nav">
-      <button class="btn-next" id="btn-next" onclick="nextQuestion()">Prossima →</button>
-    </div>
+    <button class="btn-next" id="btn-next">Prossima &rarr;</button>
   </div>
 </div>
 
-<!-- ══ RESULTS ══ -->
-<div id="results-screen">
+<!-- RESULTS -->
+<div id="results-screen" class="screen">
   <div class="results-card">
-    <div class="result-icon" id="res-icon">🎉</div>
+    <div class="result-icon" id="res-icon">&#127881;</div>
     <div class="result-verdict" id="res-verdict">SUPERATO!</div>
-    <div class="result-sub" id="res-sub">Ottimo risultato!</div>
-
-    <div class="score-circle">
-      <div class="score-pct" id="res-pct">90%</div>
-      <div class="score-label">Score</div>
-    </div>
-
+    <div class="result-sub" id="res-sub"></div>
+    <div class="score-circle"><div class="score-pct" id="res-pct">&ndash;</div><div class="score-label">Score</div></div>
     <div class="results-grid">
-      <div class="rg-item"><div class="rg-val" id="res-total">10</div><div class="rg-lbl">Totale / Total</div></div>
-      <div class="rg-item"><div class="rg-val green" id="res-correct">9</div><div class="rg-lbl">Corrette / Correct</div></div>
-      <div class="rg-item"><div class="rg-val red" id="res-wrong">1</div><div class="rg-lbl">Errate / Wrong</div></div>
+      <div class="rg-item"><div class="rg-val" id="res-tot">&ndash;</div><div class="rg-lbl">Totale</div></div>
+      <div class="rg-item"><div class="rg-val green" id="res-ok">&ndash;</div><div class="rg-lbl">Corrette</div></div>
+      <div class="rg-item"><div class="rg-val red" id="res-ko">&ndash;</div><div class="rg-lbl">Errate</div></div>
     </div>
-
-    <button class="review-toggle" onclick="toggleReview()">📋 Rivedi le risposte / Review Answers</button>
-    <button class="btn-restart" onclick="goToSetup()">↩ Nuovo test / New Test</button>
-
-    <div class="review-section" id="review-section"></div>
+    <div class="btn-row">
+      <button class="btn-ghost" id="btn-review">Rivedi risposte</button>
+      <button class="btn-solid" id="btn-restart">Nuovo test</button>
+    </div>
+    <div class="review-section" id="review-section"><h3>Revisione risposta per risposta</h3></div>
   </div>
 </div>
 
+<script src="fl_all.js"></script>
 <script>
-// ══════════════════════════════════════════════════════════════
-//  DOMANDE – Florida Class E Knowledge Exam
-//  Basate sul Florida Driver License Handbook (FLHSMV) 2026
-//  50 domande ufficiali con risposta e spiegazione bilingue
-// ══════════════════════════════════════════════════════════════
-const QUESTIONS = [
-  // ── ROAD SIGNS ──────────────────────────────────────────────
-  {
-    cat: "signs",
-    en: "A red octagonal sign means:",
-    it: "Un segnale ottagonale rosso significa:",
-    options: [
-      { en: "Slow down", it: "Rallentare" },
-      { en: "Stop completely", it: "Fermarsi completamente" },
-      { en: "Yield to traffic", it: "Dare la precedenza" },
-      { en: "No entry", it: "Divieto di accesso" }
-    ],
-    correct: 1,
-    explain_en: "The red octagon is universally the STOP sign. You must come to a complete stop before the stop line or crosswalk.",
-    explain_it: "Il segno ottagonale rosso è universalmente il segnale di STOP. È obbligatorio fermarsi completamente prima della linea di arresto o del passaggio pedonale."
-  },
-  {
-    cat: "signs",
-    en: "A yellow diamond-shaped sign indicates:",
-    it: "Un segnale a rombo giallo indica:",
-    options: [
-      { en: "A regulatory requirement", it: "Un obbligo normativo" },
-      { en: "A warning of a potential hazard ahead", it: "Un avvertimento di pericolo potenziale" },
-      { en: "A school zone", it: "Una zona scolastica" },
-      { en: "A construction zone speed limit", it: "Limite di velocità in area di lavori" }
-    ],
-    correct: 1,
-    explain_en: "Yellow diamond signs are warning signs. They alert drivers to road conditions or hazards ahead such as curves, intersections, or merging traffic.",
-    explain_it: "I segnali a rombo giallo sono segnali di avvertimento. Avvisano i conducenti di condizioni stradali o pericoli, come curve, incroci o traffico in confluenza."
-  },
-  {
-    cat: "signs",
-    en: "A white rectangular sign with black lettering typically indicates:",
-    it: "Un segnale rettangolare bianco con lettere nere indica tipicamente:",
-    options: [
-      { en: "A warning", it: "Un avvertimento" },
-      { en: "A regulatory rule you must obey", it: "Una regola normativa da rispettare" },
-      { en: "A guide or informational message", it: "Un messaggio informativo o di orientamento" },
-      { en: "A temporary traffic condition", it: "Una condizione di traffico temporanea" }
-    ],
-    correct: 1,
-    explain_en: "White rectangular signs with black text are regulatory signs (e.g. speed limits, no turn signs). Drivers must comply with them.",
-    explain_it: "I segnali rettangolari bianchi con testo nero sono segnali normativi (es. limiti di velocità, divieti di svolta). I conducenti devono rispettarli."
-  },
-  {
-    cat: "signs",
-    en: "A triangular red-bordered sign with a pointed top is a:",
-    it: "Un segnale triangolare con bordo rosso e punta verso l'alto è un segnale di:",
-    options: [
-      { en: "STOP sign", it: "STOP" },
-      { en: "YIELD sign", it: "PRECEDENZA (YIELD)" },
-      { en: "Warning sign", it: "Avvertimento" },
-      { en: "No-passing zone sign", it: "Zona di sorpasso vietato" }
-    ],
-    correct: 1,
-    explain_en: "The inverted red triangle (YIELD sign) means you must slow down and give the right-of-way to vehicles in the intersection or roadway you are entering.",
-    explain_it: "Il triangolo rovesciato rosso (YIELD) significa che devi rallentare e cedere la precedenza ai veicoli nell'incrocio o nella carreggiata che stai per immettere."
-  },
-  {
-    cat: "signs",
-    en: "An orange sign in a construction or work zone means:",
-    it: "Un segnale arancione in una zona di lavori stradali significa:",
-    options: [
-      { en: "Speed up to clear the zone quickly", it: "Accelerare per attraversare rapidamente la zona" },
-      { en: "Temporary traffic control is in effect", it: "È in vigore un controllo del traffico temporaneo" },
-      { en: "The road is permanently closed", it: "La strada è chiusa definitivamente" },
-      { en: "Workers are not present", it: "Gli operai non sono presenti" }
-    ],
-    correct: 1,
-    explain_en: "Orange signs indicate temporary traffic control measures in construction or work zones. Fines are doubled for violations in these zones.",
-    explain_it: "I segnali arancioni indicano misure temporanee di controllo del traffico in zone di costruzione o lavori. Le multe sono raddoppiate per violazioni in queste zone."
-  },
-  {
-    cat: "signs",
-    en: "A green sign on the highway provides:",
-    it: "Un segnale verde in autostrada fornisce:",
-    options: [
-      { en: "Speed limit information", it: "Informazioni sul limite di velocità" },
-      { en: "Direction and distance information", it: "Informazioni su direzione e distanza" },
-      { en: "Warning of hazards ahead", it: "Avvertimento di pericoli in avanti" },
-      { en: "Regulatory instructions", it: "Istruzioni normative" }
-    ],
-    correct: 1,
-    explain_en: "Green signs are guide signs. They provide directional and distance information to help drivers navigate to destinations.",
-    explain_it: "I segnali verdi sono segnali di orientamento. Forniscono informazioni su direzione e distanza per aiutare i conducenti a navigare verso le destinazioni."
-  },
-  {
-    cat: "signs",
-    en: "When you see a pennant-shaped (elongated triangle pointing right) yellow sign, it means:",
-    it: "Quando vedi un segnale a forma di pennacchio (triangolo allungato verso destra) giallo, significa:",
-    options: [
-      { en: "No U-turn ahead", it: "Divieto di inversione di marcia" },
-      { en: "No passing zone begins here", it: "Inizia qui una zona di sorpasso vietato" },
-      { en: "Merging traffic ahead", it: "Traffico in confluenza in avanti" },
-      { en: "School zone warning", it: "Avviso di zona scolastica" }
-    ],
-    correct: 1,
-    explain_en: "The pennant-shaped yellow sign marks the beginning of a no-passing zone. It is placed on the left side of the roadway.",
-    explain_it: "Il segnale a forma di pennacchio giallo segna l'inizio di una zona di sorpasso vietato. È posizionato sul lato sinistro della carreggiata."
-  },
+document.addEventListener("DOMContentLoaded", function() {
 
-  // ── TRAFFIC LAWS ─────────────────────────────────────────────
-  {
-    cat: "laws",
-    en: "What is the speed limit in a school zone when children are present in Florida?",
-    it: "Qual è il limite di velocità in una zona scolastica quando ci sono bambini presenti in Florida?",
-    options: [
-      { en: "15 mph", it: "15 miglia orarie" },
-      { en: "20 mph", it: "20 miglia orarie" },
-      { en: "25 mph", it: "25 miglia orarie" },
-      { en: "30 mph", it: "30 miglia orarie" }
-    ],
-    correct: 1,
-    explain_en: "In Florida, the speed limit in school zones when children are present is 20 mph. Violating school zone speed limits results in doubled fines.",
-    explain_it: "In Florida, il limite di velocità nelle zone scolastiche quando ci sono bambini è 20 mph (circa 32 km/h). Le violazioni nelle zone scolastiche comportano multe raddoppiate."
-  },
-  {
-    cat: "laws",
-    en: "What is the maximum speed limit on most interstate highways in Florida?",
-    it: "Qual è il limite di velocità massimo sulla maggior parte delle autostrade interstatali in Florida?",
-    options: [
-      { en: "55 mph", it: "55 miglia orarie" },
-      { en: "65 mph", it: "65 miglia orarie" },
-      { en: "70 mph", it: "70 miglia orarie" },
-      { en: "75 mph", it: "75 miglia orarie" }
-    ],
-    correct: 2,
-    explain_en: "The maximum speed limit on most Florida interstates is 70 mph. Some rural interstates may have posted limits of 70 mph; urban interstates are typically 65 mph.",
-    explain_it: "Il limite di velocità massimo sulla maggior parte delle autostrade interstatali della Florida è 70 mph (circa 113 km/h). Le autostrade urbane hanno generalmente un limite di 65 mph."
-  },
-  {
-    cat: "laws",
-    en: "When must you turn on your headlights in Florida?",
-    it: "Quando devi accendere i fari in Florida?",
-    options: [
-      { en: "Only at night", it: "Solo di notte" },
-      { en: "From sunset to sunrise and when visibility is less than 1,000 feet", it: "Dal tramonto all'alba e quando la visibilità è inferiore a 300 metri" },
-      { en: "Only in rain or fog", it: "Solo in caso di pioggia o nebbia" },
-      { en: "Anytime you are on a highway", it: "Ogni volta che sei in autostrada" }
-    ],
-    correct: 1,
-    explain_en: "Florida law requires headlights from sunset to sunrise and any time visibility is less than 1,000 feet. This includes rain, fog, smoke, or any other condition reducing visibility.",
-    explain_it: "La legge della Florida richiede i fari dal tramonto all'alba e ogni volta che la visibilità è inferiore a 300 metri. Ciò include pioggia, nebbia, fumo o qualsiasi altra condizione che riduce la visibilità."
-  },
-  {
-    cat: "laws",
-    en: "Under Florida's Move Over Law, when approaching a stopped emergency vehicle with flashing lights on a multi-lane road, you must:",
-    it: "In base alla legge Move Over della Florida, quando ti avvicini a un veicolo di emergenza fermo con luci lampeggianti su una strada a più corsie, devi:",
-    options: [
-      { en: "Maintain your speed and lane", it: "Mantenere velocità e corsia" },
-      { en: "Move over one lane away from the vehicle OR reduce speed by 20 mph below the posted limit", it: "Spostarti di una corsia oppure ridurre la velocità di 20 mph sotto il limite" },
-      { en: "Stop completely until the vehicle moves", it: "Fermarti completamente fino a quando il veicolo non si muove" },
-      { en: "Flash your headlights as a warning", it: "Lampeggiare i fari come segnale" }
-    ],
-    correct: 1,
-    explain_en: "Florida's Move Over Law requires drivers to move over one lane (if possible) OR slow down 20 mph below the posted limit when passing stationary emergency vehicles, tow trucks, and road maintenance vehicles with flashing lights.",
-    explain_it: "La legge Move Over della Florida richiede di spostarsi di una corsia (se possibile) O ridurre la velocità di 20 mph sotto il limite quando si superano veicoli di emergenza, carroattrezzi e veicoli di manutenzione stradale fermi con luci lampeggianti."
-  },
-  {
-    cat: "laws",
-    en: "In Florida, when approaching a school bus with flashing red lights stopped on an undivided road, you must:",
-    it: "In Florida, quando si avvicina uno scuolabus con luci rosse lampeggianti fermo su una strada non divisa, devi:",
-    options: [
-      { en: "Slow to 15 mph and proceed carefully", it: "Rallentare a 15 mph e procedere con cautela" },
-      { en: "Stop at least 30 feet away and wait until the lights stop flashing", it: "Fermarsi a non meno di 9 metri e attendere che le luci smettano di lampeggiare" },
-      { en: "Pass on the right side at reduced speed", it: "Superare sul lato destro a velocità ridotta" },
-      { en: "Honk to alert children and proceed", it: "Suonare il clacson per avvisare i bambini e procedere" }
-    ],
-    correct: 1,
-    explain_en: "All traffic on undivided roads must stop at least 30 feet from a stopped school bus with flashing red lights. You must wait until the lights stop and the stop arm is withdrawn.",
-    explain_it: "Tutto il traffico su strade non divise deve fermarsi ad almeno 9 metri da uno scuolabus fermo con luci rosse lampeggianti. Devi attendere che le luci si spengano e il braccio di stop venga ritirato."
-  },
-  {
-    cat: "laws",
-    en: "At a four-way stop with no traffic signals, the right-of-way goes to:",
-    it: "A un incrocio a quattro vie senza segnali, la precedenza spetta a:",
-    options: [
-      { en: "The vehicle coming from the left", it: "Il veicolo proveniente da sinistra" },
-      { en: "The vehicle that arrived first; if simultaneous, the vehicle on the right", it: "Il veicolo arrivato prima; se simultaneo, al veicolo a destra" },
-      { en: "The vehicle traveling straight ahead", it: "Il veicolo che va dritto" },
-      { en: "The largest vehicle", it: "Il veicolo più grande" }
-    ],
-    correct: 1,
-    explain_en: "At a four-way stop, the first vehicle to arrive goes first. If two vehicles arrive at the same time, the vehicle on the left yields to the vehicle on the right.",
-    explain_it: "A un incrocio a quattro vie, il primo veicolo ad arrivare ha la precedenza. Se due veicoli arrivano simultaneamente, il veicolo a sinistra cede la precedenza al veicolo a destra."
-  },
-  {
-    cat: "laws",
-    en: "What is the proper following distance rule in Florida for normal driving conditions?",
-    it: "Qual è la regola corretta per la distanza di sicurezza in Florida in condizioni normali di guida?",
-    options: [
-      { en: "1-second rule", it: "Regola del secondo" },
-      { en: "3-second rule", it: "Regola dei 3 secondi" },
-      { en: "10-car-length rule", it: "Regola dei 10 lunghezze auto" },
-      { en: "50-foot minimum rule", it: "Regola del minimo 50 piedi" }
-    ],
-    correct: 1,
-    explain_en: "The Florida Driver Handbook recommends the 3-second rule as a minimum following distance. In poor conditions (rain, fog, night), increase to 4–6 seconds.",
-    explain_it: "Il manuale del conducente della Florida raccomanda la regola dei 3 secondi come distanza di sicurezza minima. In condizioni avverse (pioggia, nebbia, notte), aumentare a 4–6 secondi."
-  },
-  {
-    cat: "laws",
-    en: "When making a left turn at an intersection, you must yield to:",
-    it: "Quando si effettua una svolta a sinistra a un incrocio, devi cedere la precedenza a:",
-    options: [
-      { en: "Vehicles behind you only", it: "Solo ai veicoli dietro di te" },
-      { en: "Oncoming traffic and pedestrians in the crosswalk", it: "Il traffico in senso contrario e i pedoni sul passaggio pedonale" },
-      { en: "Vehicles turning right from the opposite direction", it: "I veicoli che svoltano a destra dalla direzione opposta" },
-      { en: "No one, you have the right-of-way", it: "Nessuno, hai la precedenza" }
-    ],
-    correct: 1,
-    explain_en: "When turning left, you must yield to all oncoming vehicles and pedestrians crossing the intersection. Left-turning vehicles have the lowest right-of-way priority.",
-    explain_it: "Svoltando a sinistra, devi cedere la precedenza a tutti i veicoli in arrivo e ai pedoni che attraversano l'incrocio. I veicoli che svoltano a sinistra hanno la priorità di precedenza più bassa."
-  },
-  {
-    cat: "laws",
-    en: "In Florida, you must use your turn signal at least how far before turning or changing lanes?",
-    it: "In Florida, devi usare l'indicatore di direzione almeno a quale distanza prima di svoltare o cambiare corsia?",
-    options: [
-      { en: "50 feet (15 m)", it: "50 piedi (15 m)" },
-      { en: "100 feet (30 m)", it: "100 piedi (30 m)" },
-      { en: "200 feet (60 m)", it: "200 piedi (60 m)" },
-      { en: "300 feet (90 m)", it: "300 piedi (90 m)" }
-    ],
-    correct: 1,
-    explain_en: "Florida law requires drivers to signal at least 100 feet before turning in a residential area, and at least 200 feet before turning on a highway.",
-    explain_it: "La legge della Florida richiede di segnalare almeno 100 piedi (30 m) prima di svoltare in zona residenziale e almeno 200 piedi (60 m) prima di svoltare in autostrada."
-  },
-  {
-    cat: "laws",
-    en: "When can you pass a vehicle on the right in Florida?",
-    it: "Quando puoi sorpassare un veicolo a destra in Florida?",
-    options: [
-      { en: "Anytime you want", it: "In qualsiasi momento tu voglia" },
-      { en: "When the vehicle ahead is making a left turn and there is a clear lane", it: "Quando il veicolo davanti sta svoltando a sinistra e c'è una corsia libera" },
-      { en: "Only on one-way streets", it: "Solo su strade a senso unico" },
-      { en: "Only when the posted speed is above 55 mph", it: "Solo quando il limite è superiore a 55 mph" }
-    ],
-    correct: 1,
-    explain_en: "You may pass on the right when the vehicle ahead is turning left AND there is a usable lane on the right, or on one-way roads with two or more lanes.",
-    explain_it: "Puoi sorpassare a destra quando il veicolo davanti sta svoltando a sinistra E c'è una corsia utilizzabile a destra, o su strade a senso unico con due o più corsie."
-  },
-  {
-    cat: "laws",
-    en: "A solid yellow center line on your side of the road means:",
-    it: "Una linea centrale gialla continua sul tuo lato della strada significa:",
-    options: [
-      { en: "You may pass if it is safe to do so", it: "Puoi sorpassare se è sicuro farlo" },
-      { en: "You must not pass (no-passing zone)", it: "Non puoi sorpassare (zona di sorpasso vietato)" },
-      { en: "You may pass only at reduced speed", it: "Puoi sorpassare solo a velocità ridotta" },
-      { en: "The road is one-way", it: "La strada è a senso unico" }
-    ],
-    correct: 1,
-    explain_en: "A solid yellow line on your side means no passing. A broken yellow line means passing is permitted when safe.",
-    explain_it: "Una linea gialla continua sul tuo lato significa divieto di sorpasso. Una linea gialla tratteggiata significa che il sorpasso è consentito quando è sicuro."
-  },
-  {
-    cat: "laws",
-    en: "Under Florida law, pedestrians in a crosswalk have the right-of-way:",
-    it: "Secondo la legge della Florida, i pedoni in un passaggio pedonale hanno la precedenza:",
-    options: [
-      { en: "Only when traffic signals tell vehicles to stop", it: "Solo quando i semafori ordinano ai veicoli di fermarsi" },
-      { en: "At all times, whether or not a traffic signal is present", it: "In qualsiasi momento, con o senza segnale semaforico" },
-      { en: "Only during daylight hours", it: "Solo durante le ore diurne" },
-      { en: "Only at marked crosswalks, not at intersections", it: "Solo ai passaggi pedonali segnalati, non agli incroci" }
-    ],
-    correct: 1,
-    explain_en: "Florida law requires drivers to yield to pedestrians in any crosswalk, whether marked or unmarked, and whether or not a traffic signal is present.",
-    explain_it: "La legge della Florida richiede ai conducenti di cedere la precedenza ai pedoni in qualsiasi passaggio pedonale, segnalato o meno, con o senza segnale semaforico."
-  },
-  {
-    cat: "laws",
-    en: "What should you do when you see a flashing red traffic signal?",
-    it: "Cosa dovresti fare quando vedi un segnale semaforico rosso lampeggiante?",
-    options: [
-      { en: "Slow down and proceed with caution", it: "Rallentare e procedere con cautela" },
-      { en: "Stop completely, then proceed when safe", it: "Fermarsi completamente, poi procedere quando è sicuro" },
-      { en: "Yield to cross traffic", it: "Cedere la precedenza al traffico trasversale" },
-      { en: "Treat it like a yield sign", it: "Trattarlo come un segnale di precedenza" }
-    ],
-    correct: 1,
-    explain_en: "A flashing red light is treated like a STOP sign. Come to a complete stop, yield to traffic and pedestrians, and then proceed when safe.",
-    explain_it: "Una luce rossa lampeggiante va trattata come un segnale di STOP. Fermarsi completamente, cedere la precedenza al traffico e ai pedoni, poi procedere quando è sicuro."
-  },
+// Guard: fl_all.js must be loaded first
+if(typeof QUESTIONS === "undefined"){
+  document.body.innerHTML = '<div style="padding:40px;text-align:center;font-family:sans-serif;color:#f0b429;background:#0a1628;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center"><h2 style="margin-bottom:16px;color:#f0b429">&#9888; File non trovato</h2><p style="color:#e8e0d0;max-width:400px;text-align:center;line-height:1.6">Il file <strong>fl_all.js</strong> non \xe8 presente nella stessa cartella di index.html.<br><br>Assicurati che entrambi i file siano nella cartella <strong>V2/</strong> del repository GitHub.</p></div>';
+  return;
+}
+const CAT_LABELS={signs:"Signs",laws:"Laws",safety:"Safety",alcohol:"DUI",license:"License"};
+const CAT_IT={signs:"Segnaletica",laws:"Norme",safety:"Sicurezza",alcohol:"DUI/Alcol",license:"Patente"};
 
-  // ── SAFE DRIVING ─────────────────────────────────────────────
-  {
-    cat: "safety",
-    en: "What is the safest thing to do when you become drowsy while driving?",
-    it: "Qual è la cosa più sicura da fare quando ti vengono i colpi di sonno mentre guidi?",
-    options: [
-      { en: "Open a window and turn up the radio", it: "Aprire un finestrino e alzare la radio" },
-      { en: "Drink coffee and keep driving", it: "Bere caffè e continuare a guidare" },
-      { en: "Pull off the road safely and rest", it: "Accostare in modo sicuro e riposarsi" },
-      { en: "Drive faster to reach your destination sooner", it: "Guidare più velocemente per arrivare prima a destinazione" }
-    ],
-    correct: 2,
-    explain_en: "The only safe solution for drowsy driving is to stop and rest. Other methods provide only a brief, unreliable delay before fatigue returns.",
-    explain_it: "L'unica soluzione sicura per la sonnolenza alla guida è fermarsi e riposarsi. Gli altri metodi offrono solo un breve e inaffidabile ritardo prima che la stanchezza ritorni."
-  },
-  {
-    cat: "safety",
-    en: "At highway speeds, your minimum following distance should be:",
-    it: "Ad alta velocità, la tua distanza di sicurezza minima dovrebbe essere:",
-    options: [
-      { en: "2 seconds", it: "2 secondi" },
-      { en: "3 seconds", it: "3 secondi" },
-      { en: "4–6 seconds", it: "4–6 secondi" },
-      { en: "1 second per 10 mph", it: "1 secondo per ogni 10 mph" }
-    ],
-    correct: 2,
-    explain_en: "At highway speeds, or in poor conditions (rain, fog, night), the recommended following distance increases to 4–6 seconds to allow adequate stopping time.",
-    explain_it: "Ad alta velocità, o in condizioni avverse (pioggia, nebbia, notte), la distanza di sicurezza raccomandata aumenta a 4–6 secondi per consentire un tempo di frenata adeguato."
-  },
-  {
-    cat: "safety",
-    en: "When driving in fog, you should use:",
-    it: "Quando guidi nella nebbia, devi usare:",
-    options: [
-      { en: "High-beam headlights", it: "Abbaglianti" },
-      { en: "Low-beam headlights or fog lights", it: "Anabbaglianti o fendinebbia" },
-      { en: "Hazard lights only", it: "Solo le luci di pericolo" },
-      { en: "No lights — they reduce visibility", it: "Nessuna luce — riducono la visibilità" }
-    ],
-    correct: 1,
-    explain_en: "Use low-beam headlights or fog lights in fog, smoke, or rain. High beams reflect off the water droplets and actually reduce visibility.",
-    explain_it: "Usa gli anabbaglianti o i fendinebbia in caso di nebbia, fumo o pioggia. Gli abbaglianti si riflettono sulle goccioline d'acqua e riducono effettivamente la visibilità."
-  },
-  {
-    cat: "safety",
-    en: "What is hydroplaning?",
-    it: "Cos'è l'aquaplaning (idroplanazione)?",
-    options: [
-      { en: "Driving too fast in a flooded area", it: "Guidare troppo velocemente in una zona allagata" },
-      { en: "When tires lose contact with the road because of water, causing loss of steering control", it: "Quando i pneumatici perdono il contatto con la strada a causa dell'acqua, causando perdita di controllo dello sterzo" },
-      { en: "When your brakes fail on a wet road", it: "Quando i freni cedono su una strada bagnata" },
-      { en: "Excessive windshield fogging in rain", it: "Eccessivo appannamento del parabrezza in caso di pioggia" }
-    ],
-    correct: 1,
-    explain_en: "Hydroplaning occurs when a layer of water builds up between your tires and the road, causing loss of steering and braking control. Reduce speed in wet conditions.",
-    explain_it: "L'aquaplaning si verifica quando si forma uno strato d'acqua tra i pneumatici e la strada, causando perdita del controllo dello sterzo e dei freni. Ridurre la velocità in condizioni bagnate."
-  },
-  {
-    cat: "safety",
-    en: "If your vehicle starts to skid, you should:",
-    it: "Se il tuo veicolo inizia a slittare, dovresti:",
-    options: [
-      { en: "Slam on the brakes immediately", it: "Frenare bruscamente immediatamente" },
-      { en: "Steer in the direction you want the front of the vehicle to go and ease off the gas", it: "Sterzare nella direzione in cui vuoi che vada la parte anteriore del veicolo e togliere il piede dal gas" },
-      { en: "Turn the wheel sharply in the opposite direction", it: "Girare bruscamente il volante nella direzione opposta" },
-      { en: "Accelerate to regain control", it: "Accelerare per riprendere il controllo" }
-    ],
-    correct: 1,
-    explain_en: "In a skid, steer in the direction you want the front to go (into the skid) and ease off the accelerator. Avoid braking sharply as this worsens the skid.",
-    explain_it: "In caso di slittamento, sterzare nella direzione in cui si vuole andare (verso lo slittamento) e togliere gradualmente il piede dall'acceleratore. Evitare la frenata brusca poiché peggiora lo slittamento."
-  },
-  {
-    cat: "safety",
-    en: "Which of the following is the most effective safety device in your vehicle?",
-    it: "Quale dei seguenti è il dispositivo di sicurezza più efficace nel tuo veicolo?",
-    options: [
-      { en: "Airbags", it: "Airbag" },
-      { en: "Anti-lock brakes (ABS)", it: "Freni antibloccaggio (ABS)" },
-      { en: "Seat belt", it: "Cintura di sicurezza" },
-      { en: "Electronic stability control", it: "Controllo elettronico della stabilità" }
-    ],
-    correct: 2,
-    explain_en: "The seat belt is the single most effective life-saving device in a vehicle. Florida law requires all front-seat occupants and all passengers under 18 to wear seat belts.",
-    explain_it: "La cintura di sicurezza è il singolo dispositivo più efficace per salvare vite in un veicolo. La legge della Florida richiede che tutti gli occupanti del sedile anteriore e tutti i passeggeri sotto i 18 anni indossino la cintura."
-  },
-  {
-    cat: "safety",
-    en: "What should you do when an emergency vehicle with flashing lights and siren approaches from behind?",
-    it: "Cosa dovresti fare quando un veicolo di emergenza con luci lampeggianti e sirena si avvicina da dietro?",
-    options: [
-      { en: "Speed up to stay ahead of it", it: "Accelerare per restare davanti a esso" },
-      { en: "Pull over to the right edge of the road and stop", it: "Accostare al bordo destro della strada e fermarsi" },
-      { en: "Move to the center lane and slow down", it: "Spostarsi nella corsia centrale e rallentare" },
-      { en: "Maintain your speed and watch in the mirror", it: "Mantenere la velocità e guardare nello specchio" }
-    ],
-    correct: 1,
-    explain_en: "When an emergency vehicle approaches with lights and siren, pull to the right edge of the road and stop. Remain stopped until the vehicle has passed.",
-    explain_it: "Quando si avvicina un veicolo di emergenza con luci e sirena, accostare al bordo destro della strada e fermarsi. Rimanere fermi fino al passaggio del veicolo."
-  },
-  {
-    cat: "safety",
-    en: "In Florida, it is illegal to text and drive. What does this mean?",
-    it: "In Florida, è illegale scrivere messaggi mentre si guida. Cosa significa questo?",
-    options: [
-      { en: "You may text at red lights only", it: "Puoi mandare messaggi solo ai semafori rossi" },
-      { en: "You may not manually type or read messages on a wireless device while driving", it: "Non puoi digitare o leggere manualmente messaggi su un dispositivo wireless durante la guida" },
-      { en: "You may use voice-to-text at any time", it: "Puoi usare la voce per i messaggi in qualsiasi momento" },
-      { en: "The law only applies to drivers under 18", it: "La legge si applica solo ai conducenti sotto i 18 anni" }
-    ],
-    correct: 1,
-    explain_en: "Florida's texting while driving law prohibits manually typing, reading, or sending messages on a wireless device while driving. It is a primary offense — officers can stop you solely for this violation.",
-    explain_it: "La legge della Florida sul messaggistica durante la guida vieta di digitare manualmente, leggere o inviare messaggi su un dispositivo wireless durante la guida. È un reato primario: gli agenti possono fermarti solo per questa violazione."
-  },
-  {
-    cat: "safety",
-    en: "Before backing up your vehicle, you should:",
-    it: "Prima di fare retromarcia, dovresti:",
-    options: [
-      { en: "Check only the rearview mirror", it: "Controllare solo lo specchietto retrovisore interno" },
-      { en: "Check mirrors and look over both shoulders for pedestrians and obstacles", it: "Controllare gli specchietti e guardare oltre entrambe le spalle per pedoni e ostacoli" },
-      { en: "Tap the horn once and proceed", it: "Suonare il clacson una volta e procedere" },
-      { en: "Turn on hazard lights before reversing", it: "Accendere le luci di pericolo prima di fare retromarcia" }
-    ],
-    correct: 1,
-    explain_en: "Always check all mirrors and physically turn to look behind you (over both shoulders) before backing. Mirrors have blind spots that can hide children or obstacles.",
-    explain_it: "Controlla sempre tutti gli specchietti e girare fisicamente a guardare dietro di te (oltre entrambe le spalle) prima di fare retromarcia. Gli specchietti hanno punti ciechi che possono nascondere bambini o ostacoli."
-  },
-  {
-    cat: "safety",
-    en: "What is the recommended hand position on the steering wheel?",
-    it: "Qual è la posizione raccomandata delle mani sul volante?",
-    options: [
-      { en: "10 and 2 o'clock", it: "10 e 2 in punto" },
-      { en: "9 and 3 o'clock", it: "9 e 3 in punto" },
-      { en: "8 and 4 o'clock", it: "8 e 4 in punto" },
-      { en: "One hand at 12 o'clock", it: "Una mano alle 12 in punto" }
-    ],
-    correct: 1,
-    explain_en: "The current recommendation is 9 and 3 o'clock (or 8 and 4). This position provides better control and keeps hands away from airbag deployment zones compared to the older 10-and-2 position.",
-    explain_it: "La raccomandazione attuale è 9 e 3 in punto (o 8 e 4). Questa posizione offre un controllo migliore e mantiene le mani lontane dalle zone di attivazione degli airbag rispetto alla vecchia posizione 10-e-2."
-  },
+// ── CHAPTER DATA (HTML uses backticks, apostrophes safe) ──────────────────────
+const CHAPTERS = [
 
-  // ── DUI / ALCOHOL ─────────────────────────────────────────────
-  {
-    cat: "alcohol",
-    en: "What is the legal Blood Alcohol Content (BAC) limit for drivers 21 and older in Florida?",
-    it: "Qual è il limite legale di tasso alcolemico (BAC) per i conducenti di 21 anni e oltre in Florida?",
-    options: [
-      { en: "0.05%", it: "0,05%" },
-      { en: "0.08%", it: "0,08%" },
-      { en: "0.10%", it: "0,10%" },
-      { en: "0.12%", it: "0,12%" }
-    ],
-    correct: 1,
-    explain_en: "In Florida (and all U.S. states), the legal BAC limit for drivers 21 and older is 0.08%. For drivers under 21, the limit is 0.02% under Florida's Zero Tolerance Law.",
-    explain_it: "In Florida (e in tutti gli stati USA), il limite legale di BAC per conducenti di 21 anni e oltre è 0,08%. Per i conducenti sotto i 21 anni, il limite è 0,02% ai sensi della legge Zero Tolerance della Florida."
-  },
-  {
-    cat: "alcohol",
-    en: "Under Florida's Implied Consent Law, refusing a breath or blood test when lawfully arrested for DUI will result in:",
-    it: "In base alla legge del consenso implicito della Florida, rifiutarsi di sottoporsi a un test del respiro o del sangue quando si è legalmente arrestati per guida in stato di ebbrezza comporta:",
-    options: [
-      { en: "No penalty if you are found not guilty of DUI", it: "Nessuna sanzione se si viene ritenuti non colpevoli di DUI" },
-      { en: "Automatic license suspension (1 year for first refusal)", it: "Sospensione automatica della patente (1 anno per il primo rifiuto)" },
-      { en: "A fine only, no license suspension", it: "Solo una multa, nessuna sospensione della patente" },
-      { en: "Community service requirement", it: "Obbligo di servizio alla comunità" }
-    ],
-    correct: 1,
-    explain_en: "Under Florida's Implied Consent Law, refusal to submit to a chemical test results in an automatic 1-year license suspension for the first offense and 18 months for a second refusal.",
-    explain_it: "Ai sensi della legge del consenso implicito della Florida, il rifiuto di sottoporsi a un test chimico comporta una sospensione automatica della patente di 1 anno per la prima infrazione e 18 mesi per un secondo rifiuto."
-  },
-  {
-    cat: "alcohol",
-    en: "Which of the following is TRUE about alcohol and driving?",
-    it: "Quale delle seguenti affermazioni è VERA sull'alcol e la guida?",
-    options: [
-      { en: "Coffee sobers you up quickly", it: "Il caffè ti fa passare l'ubriachezza rapidamente" },
-      { en: "Cold air sobers you up", it: "L'aria fredda ti fa passare l'ubriachezza" },
-      { en: "Only time eliminates alcohol from your body", it: "Solo il tempo elimina l'alcol dal corpo" },
-      { en: "Exercise speeds up alcohol metabolism", it: "L'esercizio fisico accelera il metabolismo dell'alcol" }
-    ],
-    correct: 2,
-    explain_en: "Only time allows your body to eliminate alcohol. The liver processes approximately one standard drink per hour. Coffee, cold showers, food, and exercise do not speed this up.",
-    explain_it: "Solo il tempo consente al corpo di eliminare l'alcol. Il fegato elabora circa un drink standard all'ora. Caffè, docce fredde, cibo ed esercizio fisico non accelerano questo processo."
-  },
-  {
-    cat: "alcohol",
-    en: "What is the BAC limit for drivers under 21 in Florida?",
-    it: "Qual è il limite di BAC per i conducenti sotto i 21 anni in Florida?",
-    options: [
-      { en: "0.00%", it: "0,00%" },
-      { en: "0.02%", it: "0,02%" },
-      { en: "0.05%", it: "0,05%" },
-      { en: "0.08%", it: "0,08%" }
-    ],
-    correct: 1,
-    explain_en: "Florida has a Zero Tolerance Law for drivers under 21. A BAC of 0.02% or higher (essentially any measurable alcohol) results in license suspension.",
-    explain_it: "La Florida ha una legge di tolleranza zero per i conducenti sotto i 21 anni. Un BAC di 0,02% o superiore (essenzialmente qualsiasi quantità misurabile di alcol) comporta la sospensione della patente."
-  },
-  {
-    cat: "alcohol",
-    en: "A first DUI conviction in Florida can result in:",
-    it: "Una prima condanna per DUI in Florida può comportare:",
-    options: [
-      { en: "Only a fine with no other consequences", it: "Solo una multa senza altre conseguenze" },
-      { en: "Fines, license revocation, possible jail time, and community service", it: "Multe, revoca della patente, eventuale carcere e servizio alla comunità" },
-      { en: "A warning and mandatory alcohol education class only", it: "Solo un avviso e una classe obbligatoria di educazione sull'alcol" },
-      { en: "Automatic 10-year license suspension", it: "Sospensione automatica della patente di 10 anni" }
-    ],
-    correct: 1,
-    explain_en: "A first DUI in Florida can result in fines ($500–$2,000), up to 6 months in jail, up to 1 year license revocation, 50 hours of community service, and probation.",
-    explain_it: "Una prima condanna per DUI in Florida può comportare multe ($500–$2.000), fino a 6 mesi di carcere, fino a 1 anno di revoca della patente, 50 ore di servizio alla comunità e libertà vigilata."
-  },
+{id:"intro", cat:null, icon:"&#127482;&#127480;", title:"The Class E Exam / L'esame Class E", sub:"Structure, score, what to expect / Struttura, punteggio, cosa aspettarsi",
+content:`<div class="content-block">
+<h3>The Florida Class E Exam</h3>
+<p>The exam is administered by <strong>FLHSMV</strong> (Florida Highway Safety and Motor Vehicles).<br>
+<em>L'esame viene somministrato dal <strong>FLHSMV</strong>.</em></p>
+<div class="tip-box key"><b>&#128273; Passing score / Punteggio minimo:</b><br>
+<strong>80% — 40 correct answers out of 50</strong><br><em>40 risposte corrette su 50</em></div>
+<h4>The 5 exam categories / Le 5 categorie</h4>
+<table class="speed-table">
+<tr><th>Category (EN)</th><th>Categoria (IT)</th></tr>
+<tr><td>&#128678; <strong>Signs</strong> — colors, shapes, meanings</td><td>Segnaletica — colori, forme, significati</td></tr>
+<tr><td>&#128203; <strong>Laws</strong> — right of way, speed, parking</td><td>Norme — precedenze, velocità, parcheggio</td></tr>
+<tr><td>&#128737; <strong>Safety</strong> — distances, maneuvers, weather</td><td>Sicurezza — distanze, manovre, meteo</td></tr>
+<tr><td>&#127866; <strong>DUI/Alcohol</strong> — BAC limits, penalties</td><td>DUI/Alcol — limiti BAC, sanzioni</td></tr>
+<tr><td>&#129346; <strong>License</strong> — GDL, points, suspension</td><td>Patente — GDL, punti, sospensione</td></tr>
+</table>
+<h4>How it works / Come si svolge</h4>
+<p>The test is held at an FLHSMV office. Book online at <strong>flhsmv.gov</strong>. Bring a valid ID, SSN, and two proofs of Florida residency. New residents must convert their foreign license within <strong>30 days</strong>.<br>
+<em>Il test si tiene in un ufficio FLHSMV. Porta documento d'identità, SSN e due prove di residenza. Nuovo residente: converti la patente entro <strong>30 giorni</strong>.</em></p>
+<div class="tip-box info"><b>&#128161; Tip / Consiglio:</b> Study all chapters, then do at least 3-4 full 50-question simulations before exam day.<br><em>Studia tutti i capitoli, poi fai almeno 3-4 simulazioni da 50 domande prima dell'esame.</em></div>
+</div>`,
+flashcards:[
+  {q:"How many questions on the Class E exam?\n(Quante domande ha l'esame Class E?)", a:"50 questions — need at least 40 correct (80%)\n(50 domande — servono almeno 40 corrette)"},
+  {q:"What is the minimum passing score?\n(Qual è il punteggio minimo per passare?)", a:"80% — 40 out of 50\n(80% — 40 su 50)"},
+  {q:"How many days to convert a foreign license after establishing FL residency?\n(Entro quanti giorni convertire la patente?)", a:"30 days / 30 giorni"},
+]},
 
-  // ── LICENSE RULES ─────────────────────────────────────────────
-  {
-    cat: "license",
-    en: "In Florida, you must report a change of address to the FLHSMV within:",
-    it: "In Florida, devi comunicare un cambio di indirizzo al FLHSMV entro:",
-    options: [
-      { en: "10 days", it: "10 giorni" },
-      { en: "30 days", it: "30 giorni" },
-      { en: "60 days", it: "60 giorni" },
-      { en: "90 days", it: "90 giorni" }
-    ],
-    correct: 1,
-    explain_en: "Florida requires you to notify the FLHSMV of a change of address within 30 days. Failure to do so may result in fines.",
-    explain_it: "La Florida richiede di notificare al FLHSMV un cambio di indirizzo entro 30 giorni. La mancata notifica può comportare sanzioni."
-  },
-  {
-    cat: "license",
-    en: "A Florida driver license must be renewed every:",
-    it: "Una patente di guida della Florida deve essere rinnovata ogni:",
-    options: [
-      { en: "2 years", it: "2 anni" },
-      { en: "4 years", it: "4 anni" },
-      { en: "6 years", it: "6 anni" },
-      { en: "8 years", it: "8 anni" }
-    ],
-    correct: 3,
-    explain_en: "Standard Florida driver licenses are valid for 8 years. Drivers who are 80 or older must renew every 6 years.",
-    explain_it: "Le patenti di guida standard della Florida sono valide per 8 anni. I conducenti di 80 anni e oltre devono rinnovarle ogni 6 anni."
-  },
-  {
-    cat: "license",
-    en: "Florida's point system suspends your license if you accumulate how many points in 12 months?",
-    it: "Il sistema a punti della Florida sospende la tua patente se accumuli quanti punti in 12 mesi?",
-    options: [
-      { en: "8 points", it: "8 punti" },
-      { en: "12 points", it: "12 punti" },
-      { en: "15 points", it: "15 punti" },
-      { en: "18 points", it: "18 punti" }
-    ],
-    correct: 1,
-    explain_en: "In Florida, 12 points within 12 months = 30-day suspension; 18 points within 18 months = 3-month suspension; 24 points within 36 months = 1-year suspension.",
-    explain_it: "In Florida: 12 punti in 12 mesi = sospensione di 30 giorni; 18 punti in 18 mesi = sospensione di 3 mesi; 24 punti in 36 mesi = sospensione di 1 anno."
-  },
-  {
-    cat: "license",
-    en: "If you receive a traffic citation and do not pay or contest it, what happens to your driving privilege?",
-    it: "Se ricevi una multa per infrazione e non la paghi né la contesti, cosa succede alla tua autorizzazione a guidare?",
-    options: [
-      { en: "Nothing until you accumulate 3 unpaid citations", it: "Nulla finché non accumuli 3 infrazioni non pagate" },
-      { en: "Your driver license may be suspended", it: "La tua patente potrebbe essere sospesa" },
-      { en: "You receive a written warning", it: "Ricevi un avviso scritto" },
-      { en: "The citation is automatically dismissed after 90 days", it: "La multa viene automaticamente archiviata dopo 90 giorni" }
-    ],
-    correct: 1,
-    explain_en: "Failure to pay or contest a traffic citation in Florida results in a license suspension. You must either pay the fine or request a hearing.",
-    explain_it: "La mancata risoluzione di una multa per infrazione in Florida comporta la sospensione della patente. Devi pagare la multa o richiedere un'udienza."
-  },
-  {
-    cat: "license",
-    en: "In Florida, who must wear a seat belt?",
-    it: "In Florida, chi deve indossare la cintura di sicurezza?",
-    options: [
-      { en: "Only the driver", it: "Solo il conducente" },
-      { en: "Driver and front-seat passengers only", it: "Solo il conducente e i passeggeri del sedile anteriore" },
-      { en: "All front-seat occupants and all passengers under 18 regardless of seating position", it: "Tutti gli occupanti del sedile anteriore e tutti i passeggeri sotto i 18 anni indipendentemente dalla posizione" },
-      { en: "Everyone in the vehicle regardless of age", it: "Tutti nel veicolo indipendentemente dall'età" }
-    ],
-    correct: 2,
-    explain_en: "Florida's seat belt law requires all front-seat occupants and all passengers under 18 (in any seat) to wear a seat belt. Adults 18+ in back seats are not covered by the primary law but are strongly encouraged.",
-    explain_it: "La legge della Florida sulle cinture di sicurezza richiede che tutti gli occupanti del sedile anteriore e tutti i passeggeri sotto i 18 anni (in qualsiasi sedile) indossino la cintura. Gli adulti di 18+ nei sedili posteriori non sono coperti dalla legge primaria ma sono fortemente incoraggiati."
-  },
-  {
-    cat: "license",
-    en: "Florida requires all drivers to carry minimum liability insurance. What are the required minimums?",
-    it: "La Florida richiede a tutti i conducenti una copertura assicurativa minima di responsabilità. Quali sono i minimi richiesti?",
-    options: [
-      { en: "$10,000 PIP and $10,000 PDL", it: "$10.000 PIP e $10.000 PDL" },
-      { en: "$25,000 bodily injury per person and $50,000 per accident", it: "$25.000 per lesioni per persona e $50.000 per incidente" },
-      { en: "$100,000 bodily injury coverage only", it: "Solo $100.000 di copertura per lesioni" },
-      { en: "$50,000 comprehensive coverage", it: "$50.000 di copertura completa" }
-    ],
-    correct: 0,
-    explain_en: "Florida requires a minimum of $10,000 Personal Injury Protection (PIP) and $10,000 Property Damage Liability (PDL). Florida is a no-fault insurance state.",
-    explain_it: "La Florida richiede un minimo di $10.000 di Personal Injury Protection (PIP) e $10.000 di Property Damage Liability (PDL). La Florida è uno stato assicurativo 'no-fault'."
-  },
-  {
-    cat: "license",
-    en: "A new Florida resident with a valid out-of-state license must obtain a Florida license within:",
-    it: "Un nuovo residente in Florida con una patente valida di un altro stato deve ottenere una patente Florida entro:",
-    options: [
-      { en: "10 days of becoming a resident", it: "10 giorni dall'acquisizione della residenza" },
-      { en: "30 days of becoming a resident", it: "30 giorni dall'acquisizione della residenza" },
-      { en: "60 days of becoming a resident", it: "60 giorni dall'acquisizione della residenza" },
-      { en: "90 days of becoming a resident", it: "90 giorni dall'acquisizione della residenza" }
-    ],
-    correct: 1,
-    explain_en: "New Florida residents must obtain a Florida driver license within 30 days of establishing residency in the state.",
-    explain_it: "I nuovi residenti in Florida devono ottenere una patente di guida Florida entro 30 giorni dall'acquisizione della residenza nello stato."
-  },
-  {
-    cat: "license",
-    en: "What does a 'habitual traffic offender' designation in Florida mean?",
-    it: "Cosa significa la designazione di 'trasgressore abituale del traffico' in Florida?",
-    options: [
-      { en: "You receive 3 extra points per violation", it: "Ricevi 3 punti extra per violazione" },
-      { en: "Your license is revoked for 5 years if you have 3 or more major convictions within 5 years", it: "La tua patente viene revocata per 5 anni se hai 3 o più condanne gravi entro 5 anni" },
-      { en: "You must retake the driving test every year", it: "Devi sostenere nuovamente l'esame di guida ogni anno" },
-      { en: "You are required to attend defensive driving school", it: "Sei obbligato a frequentare una scuola di guida difensiva" }
-    ],
-    correct: 1,
-    explain_en: "A habitual traffic offender in Florida faces a mandatory 5-year license revocation for accumulating 3 or more major convictions (DUI, leaving the scene, etc.) within 5 years.",
-    explain_it: "Un trasgressore abituale del traffico in Florida subisce una revoca obbligatoria della patente di 5 anni per aver accumulato 3 o più condanne gravi (DUI, fuga dalla scena, ecc.) entro 5 anni."
-  },
+{id:"signs_colors", cat:"signs", icon:"&#127314;", title:"Sign Colors & Shapes / Colori e forme", sub:"The color code of US road signs / Il codice cromatico della segnaletica USA",
+content:`<div class="content-block">
+<h3>Sign Colors / Colori dei segnali</h3>
+<table class="speed-table">
+<tr><th>Color / Colore</th><th>Meaning (EN)</th><th>Significato (IT)</th></tr>
+<tr><td>&#128308; <strong>Red</strong> / Rosso</td><td class="hi">Prohibition / Stop</td><td>Divieto / Fermati</td></tr>
+<tr><td>&#128993; <strong>Yellow</strong> / Giallo</td><td>Warning</td><td>Attenzione / Avvertimento</td></tr>
+<tr><td>&#9899; <strong>White</strong> / Bianco</td><td>Regulatory</td><td>Normativo (limite legale)</td></tr>
+<tr><td>&#128994; <strong>Green</strong> / Verde</td><td>Guide / Directions</td><td>Informazioni di percorso</td></tr>
+<tr><td>&#128309; <strong>Blue</strong> / Blu</td><td>Motorist services</td><td>Servizi per automobilisti</td></tr>
+<tr><td>&#129024; <strong>Brown</strong> / Marrone</td><td>Recreation / Parks</td><td>Parchi / Cultura / Turismo</td></tr>
+<tr><td>&#128992; <strong>Orange</strong> / Arancione</td><td>Work zone / Construction</td><td>Zona di lavori in corso</td></tr>
+<tr><td>&#128993; <strong>Fluorescent yellow-green</strong></td><td>Pedestrian / School / Bike</td><td>Pedoni / Scuola / Bici</td></tr>
+</table>
+<div class="tip-box warn"><b>&#9888; Orange signs / Segnali arancioni:</b><br>
+<strong>Fines doubled in work zones</strong> — even without workers present.<br>
+<em>Multe raddoppiate nelle zone di lavoro — anche senza lavoratori presenti.</em></div>
+<h4>Sign Shapes / Forme dei segnali</h4>
+<table class="speed-table">
+<tr><th>Shape / Forma</th><th>Always means / Significa sempre</th></tr>
+<tr><td><strong>Octagon</strong> (red) / Ottagono</td><td>STOP</td></tr>
+<tr><td><strong>Inverted triangle</strong> / Triangolo rovesciato</td><td>YIELD / Precedenza</td></tr>
+<tr><td><strong>Diamond</strong> / Rombo</td><td>Warning / Avvertimento</td></tr>
+<tr><td><strong>Pennant</strong> (left side) / Pennant</td><td>No Passing Zone / Divieto sorpasso</td></tr>
+<tr><td><strong>Round yellow</strong> + X + RR</td><td>Railroad crossing ahead / Passaggio a livello</td></tr>
+<tr><td><strong>Pentagon</strong> / Pentagono</td><td>School zone / Zona scolastica</td></tr>
+</table>
+<div class="tip-box key"><b>&#128161; Key trick / Trucco:</b><br>
+The <strong>shape alone</strong> tells you what to do — even if you can't read the text.<br>
+<em>La forma da sola dice cosa fare — anche senza leggere il testo.</em></div>
+</div>`,
+flashcards:[
+  {q:"What does an ORANGE sign indicate?\n(Cosa indica un segnale ARANCIONE?)", a:"Work zone / Construction — fines doubled in FL\n(Zona di lavori — multe raddoppiate in Florida)"},
+  {q:"What does a BLUE sign indicate?\n(Cosa indica un segnale BLU?)", a:"Motorist services: gas, food, hospital, lodging\n(Servizi: benzina, cibo, ospedali, alloggio)"},
+  {q:"What does a BROWN sign indicate?\n(Cosa indica un segnale MARRONE?)", a:"Recreation / Parks / Historic sites / Scenic routes\n(Parchi, siti storici, percorsi panoramici)"},
+  {q:"What shape is always a No Passing Zone?\n(Quale forma indica sempre il divieto di sorpasso?)", a:"Pennant — mounted on the LEFT side of the road\n(Pennant — sul lato SINISTRO della strada)"},
+  {q:"Round yellow sign with X and RR: what does it mean?\n(Segnale rotondo giallo con X e RR?)", a:"Railroad crossing ahead / Passaggio a livello in avanti"},
+]},
 
-  // ── MORE LAWS / SAFETY MIX ────────────────────────────────────
-  {
-    cat: "laws",
-    en: "What is the legal definition of reckless driving in Florida?",
-    it: "Qual è la definizione legale di guida spericolata in Florida?",
-    options: [
-      { en: "Driving more than 20 mph over the speed limit", it: "Guidare a più di 20 mph oltre il limite di velocità" },
-      { en: "Driving with willful or wanton disregard for the safety of persons or property", it: "Guidare con deliberata o sconsiderata noncuranza per la sicurezza di persone o proprietà" },
-      { en: "Running a red light", it: "Passare con il rosso" },
-      { en: "Driving without a license", it: "Guidare senza patente" }
-    ],
-    correct: 1,
-    explain_en: "Florida law defines reckless driving as driving with willful or wanton disregard for the safety of people or property. It is a criminal traffic offense.",
-    explain_it: "La legge della Florida definisce la guida spericolata come guidare con deliberata o sconsiderata noncuranza per la sicurezza di persone o proprietà. È un reato penale stradale."
-  },
-  {
-    cat: "laws",
-    en: "When approaching a roundabout in Florida, you must:",
-    it: "Quando ti avvicini a una rotatoria in Florida, devi:",
-    options: [
-      { en: "Accelerate to merge quickly", it: "Accelerare per immetterti rapidamente" },
-      { en: "Yield to traffic already in the roundabout and enter when safe", it: "Cedere la precedenza al traffico già nella rotatoria e immetterti quando è sicuro" },
-      { en: "Stop completely before entering", it: "Fermarti completamente prima di entrare" },
-      { en: "Sound your horn to alert drivers in the circle", it: "Suonare il clacson per avvisare i conducenti nel cerchio" }
-    ],
-    correct: 1,
-    explain_en: "At a roundabout, you must yield to vehicles already circulating inside the roundabout. Once it is safe, enter and travel counterclockwise to your exit.",
-    explain_it: "In una rotatoria, devi cedere la precedenza ai veicoli già in circolazione all'interno. Una volta che è sicuro, entra e viaggia in senso antiorario fino alla tua uscita."
-  },
-  {
-    cat: "safety",
-    en: "What should you do if your brakes fail while driving?",
-    it: "Cosa dovresti fare se i freni si guastano durante la guida?",
-    options: [
-      { en: "Turn off the ignition immediately", it: "Spegnere immediatamente il motore" },
-      { en: "Pump the brakes (if not ABS), downshift, and steer to a safe area", it: "Pompare i freni (se non ABS), scalare marcia, e sterzare verso un'area sicura" },
-      { en: "Open the door and drag your foot on the road", it: "Aprire la portiera e trascinare il piede sulla strada" },
-      { en: "Swerve into oncoming traffic to slow down", it: "Sterzare verso il traffico in senso contrario per rallentare" }
-    ],
-    correct: 1,
-    explain_en: "If brakes fail: pump rapidly (for non-ABS), downshift to slow the engine, use the emergency/parking brake gently, and guide the vehicle to a safe stop area.",
-    explain_it: "Se i freni si guastano: pompare rapidamente (per non-ABS), scalare la marcia per rallentare il motore, usare delicatamente il freno di emergenza/parcheggio e guidare il veicolo verso un'area di arresto sicura."
-  },
-  {
-    cat: "laws",
-    en: "In Florida, what is the speed limit in a business or residential area unless otherwise posted?",
-    it: "In Florida, qual è il limite di velocità in un'area commerciale o residenziale salvo diversa indicazione?",
-    options: [
-      { en: "25 mph", it: "25 mph" },
-      { en: "30 mph", it: "30 mph" },
-      { en: "35 mph", it: "35 mph" },
-      { en: "45 mph", it: "45 mph" }
-    ],
-    correct: 1,
-    explain_en: "In Florida, the default speed limit in a business or residential district is 30 mph unless otherwise posted by a sign.",
-    explain_it: "In Florida, il limite di velocità predefinito in un quartiere commerciale o residenziale è 30 mph (circa 48 km/h) salvo diversa indicazione da un cartello."
-  },
-  {
-    cat: "laws",
-    en: "What does a flashing yellow traffic signal mean?",
-    it: "Cosa significa un segnale semaforico giallo lampeggiante?",
-    options: [
-      { en: "Stop completely before proceeding", it: "Fermarsi completamente prima di procedere" },
-      { en: "Slow down and proceed with caution", it: "Rallentare e procedere con cautela" },
-      { en: "Prepare to stop — the light is about to turn red", it: "Prepararsi a fermarsi: il semaforo sta per diventare rosso" },
-      { en: "The signal is out of order — treat it as a stop sign", it: "Il segnale è fuori servizio: trattarlo come un segnale di stop" }
-    ],
-    correct: 1,
-    explain_en: "A flashing yellow light means slow down and proceed with caution. It does not require a full stop but does require increased alertness.",
-    explain_it: "Una luce gialla lampeggiante significa rallentare e procedere con cautela. Non richiede un arresto completo ma richiede una maggiore attenzione."
-  },
-  {
-    cat: "safety",
-    en: "Florida's 'hands-free' law (effective 2020) primarily restricts:",
-    it: "La legge 'hands-free' della Florida (in vigore dal 2020) principalmente limita:",
-    options: [
-      { en: "Using a GPS navigation device while driving", it: "L'uso di un dispositivo GPS durante la guida" },
-      { en: "Holding a wireless device while driving in school or work zones", it: "Tenere in mano un dispositivo wireless mentre si guida nelle zone scolastiche o di lavoro" },
-      { en: "Using Bluetooth headsets while driving", it: "L'uso di auricolari Bluetooth durante la guida" },
-      { en: "Using the radio or music apps while driving", it: "L'uso della radio o di app musicali durante la guida" }
-    ],
-    correct: 1,
-    explain_en: "Florida's hands-free law prohibits holding a wireless device while driving in designated school zones and active work zones. Violation is a primary offense.",
-    explain_it: "La legge hands-free della Florida vieta di tenere in mano un dispositivo wireless mentre si guida nelle zone scolastiche designate e nelle zone di lavoro attive. La violazione è un reato primario."
-  },
-  {
-    cat: "laws",
-    en: "When two vehicles arrive at an uncontrolled intersection at the same time, which vehicle has the right of way?",
-    it: "Quando due veicoli arrivano contemporaneamente a un incrocio non controllato, quale ha la precedenza?",
-    options: [
-      { en: "The vehicle on the left", it: "Il veicolo a sinistra" },
-      { en: "The vehicle on the right", it: "Il veicolo a destra" },
-      { en: "The larger vehicle", it: "Il veicolo più grande" },
-      { en: "The faster-moving vehicle", it: "Il veicolo che si muove più velocemente" }
-    ],
-    correct: 1,
-    explain_en: "When two vehicles reach an uncontrolled intersection simultaneously, the vehicle on the left must yield to the vehicle on the right.",
-    explain_it: "Quando due veicoli raggiungono simultaneamente un incrocio non controllato, il veicolo a sinistra deve cedere la precedenza al veicolo a destra."
-  },
-  {
-    cat: "safety",
-    en: "What is the first thing you should do at the scene of an accident involving injuries?",
-    it: "Qual è la prima cosa da fare sulla scena di un incidente con feriti?",
-    options: [
-      { en: "Exchange insurance information with the other driver", it: "Scambiare le informazioni assicurative con l'altro conducente" },
-      { en: "Call 911 and render reasonable assistance", it: "Chiamare il 911 e prestare ragionevole assistenza" },
-      { en: "Take photos of the scene before anything else", it: "Fare foto della scena prima di qualsiasi altra cosa" },
-      { en: "Move all vehicles off the road immediately", it: "Spostare immediatamente tutti i veicoli dalla strada" }
-    ],
-    correct: 1,
-    explain_en: "Florida law requires drivers involved in accidents with injuries to immediately call 911 and provide reasonable assistance to injured persons. Failure to do so ('hit and run') is a serious felony.",
-    explain_it: "La legge della Florida richiede ai conducenti coinvolti in incidenti con feriti di chiamare immediatamente il 911 e prestare ragionevole assistenza alle persone ferite. La mancata ottemperanza ('hit and run') è un grave reato."
-  },
-  {
-    cat: "laws",
-    en: "In Florida, you may park no closer than how many feet from a fire hydrant?",
-    it: "In Florida, non puoi parcheggiare a meno di quanti piedi da un idrante antincendio?",
-    options: [
-      { en: "10 feet (3 m)", it: "10 piedi (3 m)" },
-      { en: "15 feet (4,5 m)", it: "15 piedi (4,5 m)" },
-      { en: "20 feet (6 m)", it: "20 piedi (6 m)" },
-      { en: "30 feet (9 m)", it: "30 piedi (9 m)" }
-    ],
-    correct: 1,
-    explain_en: "Florida law prohibits parking within 15 feet of a fire hydrant. Violators may be fined and the vehicle towed.",
-    explain_it: "La legge della Florida vieta di parcheggiare entro 15 piedi (circa 4,5 m) da un idrante antincendio. I trasgressori possono essere multati e il veicolo rimosso."
-  },
-  {
-    cat: "laws",
-    en: "When entering a highway from an on-ramp, you should:",
-    it: "Quando si entra in autostrada da una rampa di accesso, dovresti:",
-    options: [
-      { en: "Stop at the end of the ramp and wait for a gap", it: "Fermarsi alla fine della rampa e aspettare un'apertura" },
-      { en: "Accelerate to match highway speed and merge smoothly into traffic", it: "Accelerare per raggiungere la velocità dell'autostrada e immetterti fluidamente nel traffico" },
-      { en: "Enter at a slow speed and force traffic to yield", it: "Entrare a bassa velocità e costringere il traffico a cedere la precedenza" },
-      { en: "Flash your headlights to signal your entry", it: "Lampeggiare i fari per segnalare il tuo ingresso" }
-    ],
-    correct: 1,
-    explain_en: "When entering a highway, use the acceleration lane to reach highway speed and merge smoothly into a gap in traffic. Highway drivers have the right-of-way but must make room if safe.",
-    explain_it: "Quando si entra in autostrada, usare la corsia di accelerazione per raggiungere la velocità dell'autostrada e immettersi fluidamente in uno spazio nel traffico. I conducenti in autostrada hanno la precedenza ma devono fare spazio se sicuro."
-  },
+{id:"signs_key", cat:"signs", icon:"&#128204;", title:"Key Signs / Segnali chiave", sub:"Most frequent signs on the exam / I segnali più frequenti all'esame",
+content:`<div class="content-block">
+<h3>Critical Signs / Segnali critici</h3>
+<table class="speed-table">
+<tr><th>Sign (EN)</th><th>Look</th><th>Significato (IT)</th></tr>
+<tr><td><strong>STOP</strong></td><td>Red octagon</td><td>Fermata completa alla linea</td></tr>
+<tr><td><strong>YIELD</strong></td><td>Red/white inverted triangle</td><td>Cedi il passo</td></tr>
+<tr><td><strong>DO NOT ENTER</strong></td><td>Red circle, white bar</td><td>Ingresso vietato</td></tr>
+<tr><td><strong>WRONG WAY</strong></td><td>Red rectangle</td><td>Stai andando contromano</td></tr>
+<tr><td><strong>SPEED LIMIT</strong></td><td>White rectangle</td><td>Limite massimo legale</td></tr>
+<tr><td><strong>NO PASSING ZONE</strong></td><td>Yellow pennant, left side</td><td>Divieto di sorpasso</td></tr>
+</table>
+<h4>Lane markings / Segnaletica orizzontale</h4>
+<table class="speed-table">
+<tr><th>Marking (EN)</th><th>Rule</th><th>Regola (IT)</th></tr>
+<tr><td><strong>Double solid yellow</strong></td><td>No passing either direction</td><td>Nessun sorpasso in nessuna direzione</td></tr>
+<tr><td><strong>Solid + dashed yellow</strong></td><td>Pass only from dashed side</td><td>Sorpasso solo dal lato tratteggiato</td></tr>
+<tr><td><strong>White diamond in lane</strong></td><td>HOV / Carpool lane</td><td>Corsia HOV (alta occupazione)</td></tr>
+</table>
+<h4>School bus / Scuolabus</h4>
+<p><strong>Flashing RED lights + stop arm extended</strong> = ALL traffic stops — both directions.<br>
+Exception: divided highway with physical median — only same-side traffic stops.<br>
+<em>Luci rosse lampeggianti + braccio esteso = TUTTO il traffico si ferma. Eccezione: autostrada con mediano fisico.</em></p>
+<div class="tip-box warn"><b>&#128678; School zone / Zona scolastica:</b><br>
+<strong>15 mph</strong> when lights flash or children present. <strong>6 points</strong> on record if violated.<br>
+<em>15 mph con luci lampeggianti. 6 punti sul casellario se violato.</em></div>
+<h4>Traffic signals / Semafori speciali</h4>
+<table class="speed-table">
+<tr><th>Signal (EN)</th><th>Action / Azione</th></tr>
+<tr><td><strong>Flashing YELLOW</strong></td><td>Proceed with caution / Procedi con cautela</td></tr>
+<tr><td><strong>Flashing RED</strong></td><td>Treat as STOP sign / Trattalo come uno STOP</td></tr>
+<tr><td><strong>GREEN arrow</strong></td><td>Protected turn — no conflicting traffic / Svolta protetta</td></tr>
+<tr><td><strong>Red X over lane</strong></td><td>Lane closed — move out / Corsia chiusa</td></tr>
+</table>
+</div>`,
+flashcards:[
+  {q:"Flashing RED traffic light: what do you do?\n(Semaforo rosso lampeggiante: cosa fai?)", a:"Treat as STOP: full stop, then proceed when clear\n(Trattarlo come uno STOP: fermata completa, poi vai se libero)"},
+  {q:"GREEN ARROW on traffic signal: what does it mean?\n(Freccia VERDE al semaforo: cosa significa?)", a:"Protected turn — no conflicting traffic allowed\n(Svolta protetta — nessun traffico in conflitto)"},
+  {q:"School bus with flashing red lights + stop arm: what must ALL traffic do?\n(Scuolabus con luci rosse + braccio: cosa fa TUTTO il traffico?)", a:"Stop — both directions (except divided highway with physical median)\n(Fermarsi — entrambe le direzioni, tranne autostrada con mediano fisico)"},
+  {q:"Red X above a lane: what does it mean?\n(X rossa sopra una corsia: cosa significa?)", a:"Lane is CLOSED — move to another lane immediately\n(Corsia CHIUSA — spostati immediatamente)"},
+  {q:"WRONG WAY sign: what must you do?\n(Segnale WRONG WAY: cosa devi fare?)", a:"Stop immediately — you are going the wrong direction\n(Fermati subito — stai andando contromano)"},
+]},
 
-  // ── FINAL QUESTIONS (mixed) ───────────────────────────────────
-  {
-    cat: "safety",
-    en: "Which is a characteristic of a safe driver?",
-    it: "Qual è una caratteristica di un guidatore sicuro?",
-    options: [
-      { en: "Always driving at the maximum posted speed limit", it: "Guidare sempre al massimo del limite di velocità" },
-      { en: "Scanning the road ahead and anticipating hazards", it: "Scansionare la strada davanti e anticipare i pericoli" },
-      { en: "Driving aggressively to keep pace with traffic", it: "Guidare in modo aggressivo per stare al passo con il traffico" },
-      { en: "Relying entirely on other drivers to avoid collisions", it: "Affidarsi interamente agli altri conducenti per evitare collisioni" }
-    ],
-    correct: 1,
-    explain_en: "Safe drivers scan far ahead (12–15 seconds), identify potential hazards early, and maintain space to maneuver. Defensive driving is about anticipation, not reaction.",
-    explain_it: "I guidatori sicuri scansionano lontano davanti (12–15 secondi), identificano precocemente i pericoli potenziali e mantengono spazio per manovrare. La guida difensiva riguarda l'anticipazione, non la reazione."
-  },
-  {
-    cat: "laws",
-    en: "You must stop your vehicle for a blind pedestrian who is:",
-    it: "Devi fermarti per un pedone non vedente che sta:",
-    options: [
-      { en: "Only at a crosswalk with a traffic signal", it: "Solo a un passaggio pedonale con semaforo" },
-      { en: "Using a white cane or guide dog at any crosswalk or intersection", it: "Usando un bastone bianco o cane guida a qualsiasi passaggio pedonale o incrocio" },
-      { en: "Facing you from across the street", it: "Di fronte a te dall'altro lato della strada" },
-      { en: "Only if the pedestrian has a disability card", it: "Solo se il pedone ha una tessera di disabilità" }
-    ],
-    correct: 1,
-    explain_en: "Florida law requires all drivers to stop and yield to visually impaired pedestrians using a white cane or guide dog at any crosswalk or intersection. Failure is a serious offense.",
-    explain_it: "La legge della Florida richiede a tutti i conducenti di fermarsi e cedere la precedenza ai pedoni con disabilità visiva che utilizzano un bastone bianco o cane guida a qualsiasi passaggio pedonale o incrocio."
-  },
-  {
-    cat: "signs",
-    en: "A blue highway sign provides information about:",
-    it: "Un segnale autostradale blu fornisce informazioni su:",
-    options: [
-      { en: "Speed limits", it: "Limiti di velocità" },
-      { en: "Motorist services (gas, food, lodging, hospitals)", it: "Servizi per automobilisti (carburante, cibo, alloggio, ospedali)" },
-      { en: "Hazards and road conditions", it: "Pericoli e condizioni stradali" },
-      { en: "State and national parks", it: "Parchi statali e nazionali" }
-    ],
-    correct: 1,
-    explain_en: "Blue signs indicate motorist services, including gas stations, rest areas, restaurants, lodging, and hospitals. These help travelers find services along the route.",
-    explain_it: "I segnali blu indicano servizi per automobilisti, tra cui stazioni di servizio, aree di sosta, ristoranti, alloggi e ospedali. Questi aiutano i viaggiatori a trovare servizi lungo il percorso."
-  },
-  {
-    cat: "safety",
-    en: "If you are involved in a crash causing more than $500 in property damage and no police respond, you must:",
-    it: "Se sei coinvolto in un incidente che causa danni materiali superiori a $500 e la polizia non interviene, devi:",
-    options: [
-      { en: "Report it to the insurance company only", it: "Segnalarlo solo alla compagnia assicurativa" },
-      { en: "File a written report (SR-13) with FLHSMV within 10 days", it: "Presentare una relazione scritta (SR-13) al FLHSMV entro 10 giorni" },
-      { en: "No report is required if everyone agrees on blame", it: "Non è richiesta alcuna segnalazione se tutti concordano sulla responsabilità" },
-      { en: "Report it within 30 days to the FLHSMV", it: "Segnalarlo al FLHSMV entro 30 giorni" }
-    ],
-    correct: 1,
-    explain_en: "If police do not respond to a crash with $500+ in property damage or injury, the driver must file a written crash report (SR-13) with FLHSMV within 10 days.",
-    explain_it: "Se la polizia non interviene a un incidente con $500+ di danni materiali o feriti, il conducente deve presentare una relazione scritta sull'incidente (SR-13) al FLHSMV entro 10 giorni."
-  }
+{id:"laws_speed", cat:"laws", icon:"&#128241;", title:"Speed Limits / Limiti di velocità", sub:"Default values and special zones / Valori predefiniti e zone speciali",
+content:`<div class="content-block">
+<h3>Default Speed Limits / Limiti predefiniti</h3>
+<table class="speed-table">
+<tr><th>Zone (EN)</th><th>Zona (IT)</th><th>Limit</th></tr>
+<tr><td><strong>Alley</strong></td><td>Vicolo</td><td class="lo">10 mph</td></tr>
+<tr><td><strong>School zone</strong> (lights flashing)</td><td>Zona scolastica (luci attive)</td><td class="lo">15 mph</td></tr>
+<tr><td><strong>Residential / business</strong> (no sign)</td><td>Residenziale / commerciale</td><td>30 mph</td></tr>
+<tr><td><strong>Rural two-lane road</strong></td><td>Strada rurale a 2 corsie</td><td>55 mph</td></tr>
+<tr><td><strong>Urban interstate</strong></td><td>Autostrada interstatale urbana</td><td>65 mph</td></tr>
+<tr><td><strong>Rural interstate</strong></td><td>Autostrada interstatale rurale</td><td class="hi">70 mph</td></tr>
+</table>
+<div class="tip-box warn"><b>&#9888; Work zones / Zone di lavoro:</b><br>
+Reduced speed + <strong>fines doubled</strong> — valid even without workers present.<br>
+<em>Velocità ridotta + multe raddoppiate — anche senza lavoratori presenti.</em></div>
+<h4>Move Over Law / Legge Move Over</h4>
+<p>When passing a stopped vehicle with flashing lights (police, ambulance, tow truck):<br>
+<em>Quando superi un veicolo fermo con luci lampeggianti (polizia, ambulanza, carro attrezzi):</em></p>
+<ul>
+<li>Move over one lane, <strong>OR</strong> / Spostati di una corsia, <strong>OPPURE</strong></li>
+<li>Slow down <strong>20 mph below the posted limit</strong> / Riduci di <strong>20 mph sotto il limite</strong></li>
+</ul>
+<div class="tip-box key"><b>&#128204; Fire trucks / Autopompe:</b><br>
+Minimum <strong>500 feet</strong> following distance — whether responding or not.<br>
+<em>Almeno 500 piedi di distanza — sia in servizio che no.</em></div>
+</div>`,
+flashcards:[
+  {q:"Default speed limit in a residential area with no sign?\n(Limite predefinito in zona residenziale senza segnale?)", a:"30 mph"},
+  {q:"Speed limit in a school zone with flashing lights?\n(Limite in zona scolastica con luci lampeggianti?)", a:"15 mph"},
+  {q:"Maximum speed on a rural interstate in Florida?\n(Velocità massima su autostrada interstatale rurale?)", a:"70 mph"},
+  {q:"Move Over Law: what must you do?\n(Move Over Law: cosa devi fare?)", a:"Move over one lane OR slow 20 mph below limit\n(Spostati di una corsia OPPURE riduci di 20 mph)"},
+  {q:"Speed limit in an alley?\n(Limite in un vicolo?)", a:"10 mph"},
+]},
+
+{id:"laws_priority", cat:"laws", icon:"&#128260;", title:"Right of Way / Precedenze", sub:"Who goes first in every situation / Chi va prima in ogni situazione",
+content:`<div class="content-block">
+<h3>Right of Way Rules / Regole di precedenza</h3>
+<h4>Uncontrolled intersection / Incrocio non controllato</h4>
+<p>If two vehicles arrive simultaneously — <strong>yield to the vehicle on your RIGHT</strong>.<br>
+<em>Se due veicoli arrivano contemporaneamente — cedi a chi viene da <strong>destra</strong>.</em></p>
+<h4>Left turn on solid green / Svolta sinistra con verde fisso</h4>
+<p>You may turn, but must <strong>yield to oncoming traffic and pedestrians</strong>. Only a <strong>green arrow</strong> gives you a protected (uncontested) turn.<br>
+<em>Puoi svoltare ma devi cedere al traffico in arrivo e ai pedoni. Solo la freccia verde dà precedenza assoluta.</em></p>
+<h4>Pedestrians / Pedoni</h4>
+<ul>
+<li>Yield to pedestrians at <strong>any crosswalk</strong> — marked or unmarked / Cedi in qualsiasi attraversamento, segnalato o meno</li>
+<li><strong>Absolute right of way</strong> for people using a white cane or guide dog / Precedenza assoluta per bastone bianco o cane guida</li>
+</ul>
+<h4>Emergency vehicles / Veicoli di emergenza</h4>
+<p>Sirens or flashing lights: <strong>pull to the right and stop</strong> until the vehicle passes — even on a green light.<br>
+<em>Sirene o luci: accosta a destra e fermati finché il veicolo non è passato — anche col verde.</em></p>
+<h4>Entering from a driveway / private road</h4>
+<p>Yield to <strong>all pedestrians AND all vehicles</strong> already on the public road.<br>
+<em>Cedere a tutti i pedoni e tutti i veicoli già sulla strada pubblica.</em></p>
+<h4>Transit buses / Autobus di linea</h4>
+<p>Yield to transit buses signaling to re-enter traffic from a bus stop.<br>
+<em>Cedi agli autobus che segnalano di rientrare nel traffico dalla fermata.</em></p>
+<div class="tip-box ok"><b>&#10003; Memory rule / Mnemonica:</b><br>
+Right = priority at simultaneous arrival. Siren = pull right always.<br>
+<em>Destra = precedenza all'arrivo simultaneo. Sirena = accosta sempre a destra.</em></div>
+</div>`,
+flashcards:[
+  {q:"Two vehicles arrive simultaneously at a 4-way stop: who goes first?\n(Arrivo contemporaneo a uno stop a 4 vie: chi passa primo?)", a:"Yield to the vehicle on your RIGHT\n(Cedi al veicolo che viene da destra)"},
+  {q:"Left turn on solid green: what must you do?\n(Svolta sinistra con verde fisso: cosa devi fare?)", a:"Yield to oncoming traffic AND pedestrians\n(Cedere al traffico in arrivo E ai pedoni)"},
+  {q:"Person with white cane crossing the road: what right do they have?\n(Persona con bastone bianco: che diritto ha?)", a:"Absolute right of way — anywhere, not just crosswalks\n(Precedenza assoluta — ovunque, non solo agli attraversamenti)"},
+  {q:"Emergency vehicle with siren approaching: what do you do?\n(Veicolo di emergenza con sirena: cosa fai?)", a:"Pull to the right and stop until it passes\n(Accosta a destra e fermati finché non è passato)"},
+  {q:"Entering a public road from a driveway: who has right of way?\n(Entrando da un vialetto: chi ha la precedenza?)", a:"Traffic already on the road — you must yield\n(Il traffico già sulla strada — devi cedere tu)"},
+]},
+
+{id:"laws_parking", cat:"laws", icon:"&#128352;", title:"Parking Rules / Norme sul parcheggio", sub:"Minimum distances and curb colors / Distanze minime e colori del marciapiede",
+content:`<div class="content-block">
+<h3>Minimum Parking Distances / Distanze minime</h3>
+<table class="speed-table">
+<tr><th>Obstacle (EN)</th><th>Ostacolo (IT)</th><th>Min. distance</th></tr>
+<tr><td><strong>Fire hydrant</strong></td><td>Idrante antincendio</td><td class="hi">15 feet</td></tr>
+<tr><td><strong>Stop sign</strong></td><td>Segnale STOP</td><td class="hi">30 feet</td></tr>
+<tr><td><strong>Crosswalk</strong> (at intersection)</td><td>Attraversamento pedonale</td><td class="hi">20 feet</td></tr>
+<tr><td><strong>Fire station driveway</strong></td><td>Ingresso caserma pompieri</td><td class="hi">15 feet</td></tr>
+<tr><td><strong>Railroad crossing</strong></td><td>Passaggio a livello</td><td class="hi">50 feet</td></tr>
+</table>
+<h4>Curb Colors / Colori del marciapiede</h4>
+<table class="speed-table">
+<tr><th>Color / Colore</th><th>Meaning (EN)</th><th>Significato (IT)</th></tr>
+<tr><td>&#128308; <strong>Red</strong></td><td>No stopping/parking — fire zone</td><td>Divieto assoluto — fire zone</td></tr>
+<tr><td>&#128993; <strong>Yellow</strong></td><td>Loading/unloading freight only</td><td>Solo carico/scarico merci</td></tr>
+<tr><td>&#9899; <strong>White</strong></td><td>Passenger loading/unloading only</td><td>Solo carico/scarico passeggeri</td></tr>
+<tr><td>&#128994; <strong>Green</strong></td><td>Time-limited parking (10-30 min)</td><td>Parcheggio a tempo limitato</td></tr>
+<tr><td>&#128309; <strong>Blue</strong></td><td>Disabled parking only — min. $250 fine</td><td>Solo disabili — multa min. $250</td></tr>
+</table>
+<h4>Parking on hills / Parcheggio in pendenza</h4>
+<table class="speed-table">
+<tr><th>Situation (EN)</th><th>Situazione (IT)</th><th>Wheels / Ruote</th></tr>
+<tr><td>Downhill WITH curb</td><td>In discesa CON marciapiede</td><td>TOWARD curb (right) / Verso il marciapiede</td></tr>
+<tr><td>Uphill WITH curb</td><td>In salita CON marciapiede</td><td>AWAY from curb (left) / Lontano dal marciapiede</td></tr>
+<tr><td>No curb (either direction)</td><td>Senza marciapiede</td><td>Toward road edge / Verso il bordo strada</td></tr>
+</table>
+<div class="tip-box key"><b>&#128161; Hill trick / Trucco colline:</b><br>
+Downhill = wheels toward curb. If car rolls, curb stops it.<br>
+<em>In discesa = ruote verso il marciapiede. Se l'auto si muove, il marciapiede la ferma.</em></div>
+</div>`,
+flashcards:[
+  {q:"Minimum distance from a fire hydrant?\n(Distanza minima da un idrante?)", a:"15 feet / 15 piedi"},
+  {q:"YELLOW curb: what does it mean?\n(Marciapiede GIALLO: cosa significa?)", a:"Loading/unloading freight only — no parking\n(Solo carico/scarico merci — nessun parcheggio)"},
+  {q:"BLUE curb: who can park there?\n(Marciapiede BLU: chi può parcheggiare?)", a:"Disabled persons with valid placard only — min. $250 fine\n(Solo disabili con permesso valido — multa min. $250)"},
+  {q:"Parked DOWNHILL with a curb: which way do you turn the wheels?\n(Parcheggio in DISCESA con marciapiede: come giri le ruote?)", a:"Toward the curb (right) — if car rolls, curb stops it\n(Verso il marciapiede — se si muove, il marciapiede la ferma)"},
+  {q:"Child under 6 alone in a car: how long is legal in FL?\n(Bambino under 6 solo in auto: quanto è legale?)", a:"Max 15 minutes — zero if engine is running\n(Max 15 minuti — zero se il motore è acceso)"},
+]},
+
+{id:"laws_other", cat:"laws", icon:"&#128220;", title:"Essential FL Laws / Norme essenziali", sub:"Phone, seatbelts, insurance, lights / Cellulare, cinture, assicurazione, luci",
+content:`<div class="content-block">
+<h3>Cell Phone / Cellulare</h3>
+<table class="speed-table">
+<tr><th>Situation (EN)</th><th>Rule</th><th>Regola (IT)</th></tr>
+<tr><td>Texting while driving</td><td class="hi">Primary offense (2019)</td><td>Reato principale — possono fermarti</td></tr>
+<tr><td>Handheld use in school/work zones</td><td class="hi">Prohibited</td><td>Vietato qualsiasi dispositivo portatile</td></tr>
+<tr><td>Hands-free calls</td><td class="lo">Always legal</td><td>Sempre legali</td></tr>
+<tr><td>First offense fine</td><td>$60 + court costs</td><td>$60 + spese giudiziarie</td></tr>
+</table>
+<h4>Seatbelts / Cinture di sicurezza</h4>
+<table class="speed-table">
+<tr><th>Who / Chi</th><th>Rule (EN)</th><th>Regola (IT)</th></tr>
+<tr><td>Front seat 18+</td><td class="hi">Primary enforcement</td><td>Applicazione primaria</td></tr>
+<tr><td>All passengers under 18</td><td class="hi">Always required</td><td>Sempre obbligatorie</td></tr>
+<tr><td>Children under 4</td><td class="hi">Approved child seat required</td><td>Seggiolino omologato obbligatorio</td></tr>
+</table>
+<h4>Insurance / Assicurazione (No-fault state)</h4>
+<table class="speed-table">
+<tr><th>Coverage (EN)</th><th>Copertura (IT)</th><th>Minimum</th></tr>
+<tr><td><strong>PIP</strong> — Personal Injury Protection</td><td>Protezione lesioni personali</td><td>$10,000</td></tr>
+<tr><td><strong>PDL</strong> — Property Damage Liability</td><td>Responsabilità danni materiali</td><td>$10,000</td></tr>
+</table>
+<div class="tip-box warn"><b>&#9888; After DUI / Dopo un DUI:</b><br>
+<strong>FR-44</strong> required (not SR-22): $100K/$300K BI + $50K PDL — much more expensive.<br>
+<em>Serve FR-44, molto più costoso dell'SR-22 standard.</em></div>
+<h4>Headlights / Fari</h4>
+<ul>
+<li>Required from <strong>sunset to sunrise</strong> AND whenever <strong>wipers are in use</strong> / Dal tramonto all'alba E quando i tergicristalli sono accesi</li>
+<li>Dim high beams within <strong>500 ft of oncoming</strong> / 300 ft when following / Abbassa entro 500 piedi dal traffico in arrivo / 300 piedi da chi precedi</li>
+<li>Signal turns at least <strong>100 ft before</strong> on city streets, <strong>200 ft</strong> on highways / Segnala almeno 100 piedi prima in città, 200 in autostrada</li>
+</ul>
+<div class="tip-box key"><b>&#128161; Lights rule / Regola fari:</b><br>
+<strong>Wipers ON = Lights ON.</strong> No exceptions.<br>
+<em>Tergicristalli accesi = Fari accesi. Nessuna eccezione.</em></div>
+</div>`,
+flashcards:[
+  {q:"Texting while driving in FL: what kind of offense?\n(SMS alla guida in Florida: che tipo di reato?)", a:"PRIMARY offense — police can stop you just for texting\n(Reato principale — possono fermarti solo per questo)"},
+  {q:"Minimum required insurance in Florida?\n(Assicurazione minima obbligatoria in Florida?)", a:"$10,000 PIP + $10,000 PDL (no-fault state)"},
+  {q:"When must headlights be on besides at night?\n(Quando accendere i fari oltre che di notte?)", a:"Whenever windshield wipers are in use\n(Ogni volta che i tergicristalli sono accesi)"},
+  {q:"Minimum signal distance before turning on a city street?\n(Distanza minima di segnalazione in città?)", a:"100 feet / 100 piedi (200 ft on highways / in autostrada)"},
+  {q:"Open alcohol container in a car: legal for passengers?\n(Contenitore aperto di alcol: legale per i passeggeri?)", a:"No — prohibited in the passenger area for everyone\n(No — vietato nell'abitacolo per tutti)"},
+]},
+
+{id:"safety_main", cat:"safety", icon:"&#128737;", title:"Driving Safety / Sicurezza alla guida", sub:"Distances, emergencies, conditions / Distanze, emergenze, condizioni",
+content:`<div class="content-block">
+<h3>Following Distance / Distanza di sicurezza</h3>
+<p>Use the <strong>3-second rule</strong> as a baseline — add 1 second per risk factor.<br>
+<em>Usa la regola dei 3 secondi — aggiungi 1 secondo per ogni fattore di rischio.</em></p>
+<table class="speed-table">
+<tr><th>Condition (EN)</th><th>Condizione (IT)</th><th>Seconds</th></tr>
+<tr><td>Ideal (dry, daylight)</td><td>Condizioni ideali</td><td>3 sec</td></tr>
+<tr><td>Rain / Night / Fatigue</td><td>Pioggia / Notte / Stanchezza</td><td>4-6 sec</td></tr>
+<tr><td>Behind a truck</td><td>Dietro un camion</td><td>4+ sec</td></tr>
+<tr><td>Behind a motorcycle</td><td>Dietro una moto</td><td>3-4 sec</td></tr>
+</table>
+<p><strong>Doubling speed QUADRUPLES stopping distance.</strong><br>
+<em>Raddoppiare la velocità QUADRUPLICA la distanza di frenata.</em></p>
+<h4>Emergency maneuvers / Manovre di emergenza</h4>
+<table class="speed-table">
+<tr><th>Emergency (EN)</th><th>Action / Azione</th></tr>
+<tr><td><strong>Hydroplaning</strong> / Aquaplaning</td><td>Ease off gas, no sharp braking, steer straight / Togli il gas, non frenare bruscamente, tieni dritto</td></tr>
+<tr><td><strong>Tire blowout</strong> / Foratura</td><td>Grip wheel firmly, ease off gas, slow naturally, then pull over / Stringi il volante, togli il gas, decelera, poi accosta</td></tr>
+<tr><td><strong>Stuck accelerator</strong> / Acceleratore bloccato</td><td>Shift to Neutral (N), brake hard, pull over, then turn off / Metti in folle, frena, accosta, poi spegni</td></tr>
+<tr><td><strong>Brake failure</strong> / Freni che cedono</td><td>Pump brakes, downshift, use parking brake gently / Pompa, scala le marce, freno a mano delicatamente</td></tr>
+</table>
+<div class="tip-box warn"><b>&#9888; Flooded road / Strada allagata:</b><br>
+<strong>Turn Around Don't Drown.</strong> 6 inches of moving water can knock you down; 2 feet can sweep away a car.<br>
+<em>6 pollici (15 cm) di acqua in movimento possono buttarti a terra; 2 piedi (60 cm) spazzano via un'auto.</em></div>
+<h4>Night driving / Guida notturna</h4>
+<p><strong>Overdriving headlights</strong> = going faster than you can stop within the illuminated distance.<br>
+<em>Superare i fari = andare più veloci di quanto riesci a fermarti nella distanza illuminata.</em></p>
+<p><strong>Drowsy driving</strong> is as dangerous as drunk driving. Only real cure: sleep.<br>
+<em>La guida assonnata è pericolosa quanto quella ubriaca. L'unica cura: il sonno.</em></p>
+</div>`,
+flashcards:[
+  {q:"Car starts to hydroplane: what do you do?\n(L'auto inizia ad aquaplanare: cosa fai?)", a:"Ease off gas, NO sharp braking, steer straight until tires grip\n(Togli il gas, non frenare bruscamente, tieni dritto)"},
+  {q:"Stuck accelerator: what is the FIRST thing to do?\n(Acceleratore bloccato: cosa fai PRIMA?)", a:"Shift to Neutral (N) — then brake, pull over, turn off\n(Metti in folle — poi frena, accosta, spegni)"},
+  {q:"How does doubling speed affect stopping distance?\n(Come influisce il raddoppio della velocità sulla distanza di frenata?)", a:"It QUADRUPLES stopping distance\n(La QUADRUPLICA)"},
+  {q:"Overdriving headlights at night means:\n(Guidare oltre i fari di notte significa:)", a:"Going faster than you can stop within the beam's range\n(Andare più veloci di quanto riesci a fermarti nella distanza illuminata)"},
+  {q:"Minimum following distance in ideal conditions?\n(Distanza minima in condizioni ideali?)", a:"3 seconds / 3 secondi"},
+]},
+
+{id:"safety_special", cat:"safety", icon:"&#128652;", title:"Special Vehicles / Veicoli speciali", sub:"Trucks, motorcycles, cyclists, trains / Camion, moto, ciclisti, treni",
+content:`<div class="content-block">
+<h3>Large Trucks / Camion pesanti</h3>
+<p>Trucks have <strong>4 large blind spots</strong>:<br>
+<em>I camion hanno 4 grandi punti ciechi:</em></p>
+<ul>
+<li><strong>20 feet in front</strong> / 20 piedi davanti</li>
+<li><strong>30 feet behind</strong> / 30 piedi dietro</li>
+<li><strong>2 lanes to the right</strong> / 2 corsie a destra</li>
+<li><strong>1 lane to the left</strong> / 1 corsia a sinistra</li>
+</ul>
+<p>If you can't see the truck driver's mirror, <strong>he can't see you</strong>.<br>
+<em>Se non vedi lo specchio del camionista, lui non vede te.</em></p>
+<p>Never pass a turning truck on the <strong>right side</strong> — it swings wide.<br>
+<em>Non superare mai un camion che svolta sul lato destro — svolta in largo.</em></p>
+<h4>Motorcyclists / Motociclisti</h4>
+<table class="speed-table">
+<tr><th>Rule (EN)</th><th>Regola (IT)</th></tr>
+<tr><td>Give the full lane width</td><td>Concedi l'intera larghezza della corsia</td></tr>
+<tr><td>Follow at 3-4 seconds — they stop faster</td><td>3-4 secondi di distanza — frenano più velocemente</td></tr>
+<tr><td><strong>Lane splitting: ILLEGAL in Florida</strong></td><td><strong>Lane splitting: ILLEGALE in Florida</strong></td></tr>
+<tr><td>Helmet required under 21</td><td>Casco obbligatorio under 21</td></tr>
+<tr><td>Over 21: no helmet if $10K+ medical insurance</td><td>Over 21: senza casco con $10K+ assicurazione medica</td></tr>
+</table>
+<h4>Cyclists / Ciclisti</h4>
+<ul>
+<li>Same rights and duties as motor vehicles / Stessi diritti e doveri dei veicoli a motore</li>
+<li><strong>3-foot law:</strong> leave at least 3 feet clearance when passing / Almeno 3 piedi di spazio quando sorpassi</li>
+<li>Helmet required under 16 / Casco obbligatorio under 16</li>
+</ul>
+<h4>Railroad crossings / Passaggi a livello</h4>
+<ul>
+<li>Stop at least <strong>15 feet from the nearest rail</strong> / Fermati ad almeno 15 piedi dal binario</li>
+<li><strong>School buses + hazmat vehicles:</strong> must always stop / Devono sempre fermarsi</li>
+<li>If stuck on tracks: <strong>get out immediately</strong>, move away from train direction / Esci subito, allontanati dalla direzione del treno</li>
+</ul>
+<div class="tip-box key"><b>&#128161; 3-foot law / Legge dei 3 piedi:</b><br>
+If the lane is too narrow to give 3 feet, change lanes to pass.<br>
+<em>Se la corsia è troppo stretta per dare 3 piedi, cambia corsia per sorpassare.</em></div>
+</div>`,
+flashcards:[
+  {q:"Lane splitting in Florida: legal or illegal?\n(Lane splitting in Florida: legale o illegale?)", a:"ILLEGAL / ILLEGALE"},
+  {q:"Minimum clearance when passing a bicycle?\n(Spazio minimo sorpassando una bicicletta?)", a:"3 feet / 3 piedi (Florida 3-foot law)"},
+  {q:"Minimum distance from the rail at a railroad crossing?\n(Distanza minima dal binario al passaggio a livello?)", a:"15 feet / 15 piedi"},
+  {q:"Motorcycle helmet in Florida: when required?\n(Casco moto in Florida: quando è obbligatorio?)", a:"Always under 21. Over 21: not required with $10K+ medical insurance\n(Sempre under 21. Over 21: non obbligatorio con $10K+ assicurazione)"},
+  {q:"School bus at a railroad crossing: what must it do?\n(Scuolabus al passaggio a livello: cosa deve fare?)", a:"Always stop — even if signals are clear\n(Fermarsi sempre — anche se i segnali sono liberi)"},
+]},
+
+{id:"alcohol_main", cat:"alcohol", icon:"&#127866;", title:"DUI / Alcohol & BAC", sub:"Limits, effects, metabolism / Limiti, effetti, metabolismo",
+content:`<div class="content-block">
+<h3>BAC Limits / Limiti BAC (Blood Alcohol Concentration)</h3>
+<table class="speed-table">
+<tr><th>Driver (EN)</th><th>Conducente (IT)</th><th>BAC limit</th></tr>
+<tr><td><strong>Adult</strong> (21+)</td><td>Adulto</td><td class="hi">0.08%</td></tr>
+<tr><td><strong>Under 21</strong> (Zero Tolerance)</td><td>Under 21</td><td class="hi">0.02%</td></tr>
+<tr><td><strong>CDL driver</strong> (commercial vehicle)</td><td>Conducente CDL in servizio</td><td class="hi">0.04%</td></tr>
+</table>
+<div class="tip-box warn"><b>&#9888; Important / Importante:</b><br>
+DUI can be charged even <strong>below 0.08%</strong> if normal faculties are impaired.<br>
+<em>Il DUI può scattare anche SOTTO 0,08% se le normali facoltà sono compromesse.</em></div>
+<h4>How alcohol is metabolized / Come si metabolizza l'alcol</h4>
+<ul>
+<li>The liver processes about <strong>1 standard drink per hour</strong> — cannot be sped up / Il fegato elabora circa 1 drink standard all'ora — non si può accelerare</li>
+<li>Coffee, water, exercise do <strong>NOT</strong> speed up metabolism / Caffè, acqua, esercizio NON accelerano</li>
+<li>BAC may keep rising for <strong>20-40 minutes</strong> after last drink / Il BAC può salire per 20-40 minuti dopo l'ultimo drink</li>
+<li>1 standard drink = 12 oz beer = 5 oz wine = 1.5 oz spirits (all contain 0.6 oz pure alcohol)</li>
+</ul>
+<h4>Factors affecting BAC / Fattori che influenzano il BAC</h4>
+<table class="speed-table">
+<tr><th>Factor (EN)</th><th>Fattore (IT)</th><th>Effect</th></tr>
+<tr><td>Body weight</td><td>Peso corporeo</td><td>More weight = lower BAC / Più peso = BAC più basso</td></tr>
+<tr><td>Gender</td><td>Genere</td><td>Women reach higher BAC at same weight / Le donne raggiungono BAC più alto</td></tr>
+<tr><td>Food</td><td>Cibo</td><td>Slows absorption, does NOT reduce final BAC / Rallenta l'assorbimento, non riduce il BAC finale</td></tr>
+<tr><td>Carbonation</td><td>Carbonatazione</td><td>Speeds absorption / Accelera l'assorbimento</td></tr>
+</table>
+<div class="tip-box ok"><b>&#10003; Only safe option / L'unica soluzione sicura:</b><br>
+Designated sober driver, rideshare, taxi, or stay overnight.<br>
+<em>Guidatore designato sobrio, Uber/Lyft, taxi, o dormire sul posto.</em></div>
+</div>`,
+flashcards:[
+  {q:"BAC limit for an adult driver in Florida?\n(Limite BAC per un adulto in Florida?)", a:"0.08%"},
+  {q:"BAC limit for under 21 — Zero Tolerance?\n(Limite BAC per under 21 — Zero Tolerance?)", a:"0.02% — automatic 6-month license suspension\n(0,02% — sospensione automatica 6 mesi)"},
+  {q:"BAC limit for a CDL driver operating a commercial vehicle?\n(Limite BAC per conducente CDL in servizio?)", a:"0.04%"},
+  {q:"How many standard drinks does the liver process per hour?\n(Quanti drink elabora il fegato all'ora?)", a:"About 1 standard drink per hour — cannot be sped up\n(Circa 1 drink standard all'ora — non si può accelerare)"},
+  {q:"Does eating before drinking reduce your final BAC?\n(Mangiare prima di bere riduce il BAC finale?)", a:"No — it only slows absorption; the same alcohol is absorbed eventually\n(No — rallenta solo l'assorbimento; lo stesso alcol viene assorbito)"},
+]},
+
+{id:"alcohol_penalties", cat:"alcohol", icon:"&#9878;", title:"DUI Penalties / Sanzioni DUI", sub:"Consequences, revocation, IID / Conseguenze, revoca, IID",
+content:`<div class="content-block">
+<h3>DUI Penalties — First Offense / Sanzioni — Prima infrazione</h3>
+<table class="speed-table">
+<tr><th>Element (EN)</th><th>Elemento (IT)</th><th>Penalty</th></tr>
+<tr><td><strong>Fine</strong></td><td>Multa</td><td>$500 – $1,000</td></tr>
+<tr><td><strong>Jail</strong></td><td>Carcere</td><td>Up to 6 months (no minimum)</td></tr>
+<tr><td><strong>License suspension</strong></td><td>Sospensione patente</td><td>180 days – 1 year</td></tr>
+<tr><td><strong>IID</strong> (if BAC ≥0.15% or minor passenger)</td><td>IID obbligatorio</td><td>Mandatory / Obbligatorio</td></tr>
+</table>
+<h4>Enhanced penalties / Aggravanti</h4>
+<table class="speed-table">
+<tr><th>Situation (EN)</th><th>Situazione (IT)</th><th>Charge</th></tr>
+<tr><td>DUI with serious bodily injury</td><td>DUI con lesioni gravi</td><td>3rd degree felony / Crimine 3° grado (5 yrs)</td></tr>
+<tr><td>DUI manslaughter</td><td>DUI omicidio colposo</td><td>2nd degree felony / Crimine 2° grado (15 yrs)</td></tr>
+<tr><td>3rd DUI within 10 years</td><td>3° DUI entro 10 anni</td><td>3rd degree felony + 10-yr revocation</td></tr>
+</table>
+<h4>Implied Consent / Consenso implicito</h4>
+<p>By driving in Florida you have already consented to chemical testing if lawfully arrested for DUI.<br>
+<em>Guidando in Florida hai già acconsentito al test chimico in caso di arresto per DUI.</em></p>
+<table class="speed-table">
+<tr><th>Refusal (EN)</th><th>Rifiuto (IT)</th><th>Penalty</th></tr>
+<tr><td>1st refusal</td><td>1° rifiuto</td><td>1-year license suspension</td></tr>
+<tr><td>2nd refusal</td><td>2° rifiuto</td><td>1st degree misdemeanor + 18-month suspension</td></tr>
+</table>
+<h4>After DUI arrest / Dopo l'arresto</h4>
+<p>License is taken. You have <strong>10 days</strong> to request a formal ALS hearing — otherwise suspension is automatic.<br>
+<em>La patente viene ritirata. Hai 10 giorni per richiedere l'udienza ALS — altrimenti la sospensione parte automaticamente.</em></p>
+<div class="tip-box key"><b>&#128161; IID = Ignition Interlock Device:</b><br>
+Blow into a breathalyzer before starting — car won't start if alcohol detected.<br>
+<em>Soffia nell'alcolimetro prima di avviare — l'auto non parte se rileva alcol.</em></div>
+</div>`,
+flashcards:[
+  {q:"First DUI offense: minimum license suspension in FL?\n(Prima infrazione DUI: sospensione minima della patente?)", a:"180 days (6 months) / 180 giorni (6 mesi)"},
+  {q:"Refusing a breath test in FL: immediate consequence?\n(Rifiuto del test del respiro in Florida?)", a:"Automatic 1-year license suspension (1st refusal)\n(Sospensione automatica 1 anno — 1° rifiuto)"},
+  {q:"After a DUI arrest: how many days to request an ALS hearing?\n(Dopo l'arresto DUI: entro quanti giorni richiedere l'udienza ALS?)", a:"10 days / 10 giorni"},
+  {q:"What is an IID?\n(Cos'è un IID?)", a:"Ignition Interlock Device — blow before starting; car won't start if alcohol detected\n(Soffii per avviare — l'auto non parte se rileva alcol)"},
+  {q:"DUI manslaughter in Florida: what type of crime?\n(DUI omicidio colposo in Florida: che tipo di reato?)", a:"2nd degree felony — up to 15 years in prison\n(Crimine di 2° grado — fino a 15 anni di prigione)"},
+]},
+
+{id:"license_gdl", cat:"license", icon:"&#129346;", title:"GDL System / Sistema GDL", sub:"Graduated licensing for ages 15-18 / Patente graduata per 15-18 anni",
+content:`<div class="content-block">
+<h3>Graduated Driver Licensing (GDL) — Florida</h3>
+<h4>Phase 1: Learner's License / Permesso — from age 15</h4>
+<table class="speed-table">
+<tr><th>Rule (EN)</th><th>Regola (IT)</th></tr>
+<tr><td>Supervising driver must be <strong>21+ licensed</strong>, front passenger seat</td><td>Supervisore 21+ autorizzato, sedile anteriore destro</td></tr>
+<tr><td>No driving <strong>midnight to 6am</strong></td><td>Vietato guidare tra mezzanotte e le 6:00</td></tr>
+<tr><td><strong>50 hours</strong> supervised driving (10 at night)</td><td>50 ore supervisionata (10 di notte)</td></tr>
+<tr><td>Hold for <strong>12 months</strong> with no violations</td><td>Tenerlo 12 mesi senza violazioni</td></tr>
+<tr><td>Wireless devices: <strong>completely prohibited</strong></td><td>Dispositivi wireless: completamente vietati</td></tr>
+</table>
+<h4>Phase 2: Restricted License / Patente limitata — from age 16</h4>
+<table class="speed-table">
+<tr><th>Rule (EN)</th><th>Regola (IT)</th></tr>
+<tr><td>No driving <strong>11pm to 6am</strong> (except work/school with docs)</td><td>Vietato 23:00-6:00 (eccetto lavoro/scuola documentato)</td></tr>
+<tr><td>First 12 months: max <strong>1 non-household passenger under 18</strong></td><td>Primi 12 mesi: max 1 passeggero non convivente under 18</td></tr>
+<tr><td>No wireless devices</td><td>Nessun dispositivo wireless</td></tr>
+</table>
+<h4>Phase 3: Full license / Patente completa — age 18</h4>
+<p>GDL restrictions lift <strong>automatically at age 18</strong> — no new test required.<br>
+<em>Le restrizioni GDL si tolgono automaticamente a 18 anni — nessun test aggiuntivo.</em></p>
+<div class="tip-box key"><b>&#128204; First license at 18+ / Prima patente a 18+:</b><br>
+Must complete <strong>TLSAE/DATA course</strong> (4 hours), knowledge test, vision test, and road test.<br>
+<em>Corso TLSAE/DATA (4 ore obbligatorio), test conoscenza, visione e road test.</em></div>
+</div>`,
+flashcards:[
+  {q:"Minimum age for a learner's license in Florida?\n(Età minima per il learner's license in Florida?)", a:"15 years old / 15 anni"},
+  {q:"Supervised driving hours required before Restricted License?\n(Ore di guida supervisionata richieste?)", a:"50 hours total (10 at night) / 50 ore totali (10 di notte)"},
+  {q:"Restricted License curfew hours?\n(Orario di coprifuoco Restricted License?)", a:"No driving 11pm–6am / Vietato guidare 23:00–6:00"},
+  {q:"First 12 months with Restricted License: max non-family passengers under 18?\n(Primi 12 mesi: max passeggeri non familiari under 18?)", a:"Maximum 1 / Massimo 1"},
+  {q:"When do GDL restrictions automatically lift?\n(Quando si tolgono automaticamente le restrizioni GDL?)", a:"At age 18 / Al compimento dei 18 anni"},
+]},
+
+{id:"license_points", cat:"license", icon:"&#128202;", title:"Points & Suspension / Punti e sospensioni", sub:"Thresholds, violations, how to recover / Soglie, infrazioni, come recuperare",
+content:`<div class="content-block">
+<h3>Florida Point System / Sistema punti Florida</h3>
+<table class="speed-table">
+<tr><th>Points</th><th>Period / Periodo</th><th>Suspension / Sospensione</th></tr>
+<tr><td>12 points</td><td>12 months</td><td class="hi">30 days / 30 giorni</td></tr>
+<tr><td>18 points</td><td>18 months</td><td class="hi">3 months / 3 mesi</td></tr>
+<tr><td>24 points</td><td>36 months</td><td class="hi">1 year / 1 anno</td></tr>
+</table>
+<h4>Points per violation / Punti per infrazione</h4>
+<table class="speed-table">
+<tr><th>Violation (EN)</th><th>Infrazione (IT)</th><th>Points</th></tr>
+<tr><td>Speeding (regular)</td><td>Eccesso di velocità normale</td><td>3</td></tr>
+<tr><td>Speeding in school zone</td><td>Eccesso in zona scolastica</td><td class="hi">6</td></tr>
+<tr><td>Passing stopped school bus</td><td>Sorpasso scuolabus fermo</td><td>4</td></tr>
+<tr><td>Reckless driving</td><td>Guida spericolata</td><td>4</td></tr>
+<tr><td>Running a red light</td><td>Passare col rosso</td><td>3</td></tr>
+<tr><td>Careless driving</td><td>Guida imprudente</td><td>3</td></tr>
+</table>
+<h4>How to reduce points / Come ridurre i punti</h4>
+<p><strong>BDI course</strong> (Basic Driver Improvement) = removes 3 points — available once every 12 months, before court date.<br>
+<em>Corso BDI = rimuove 3 punti — disponibile 1 volta ogni 12 mesi, prima della data del tribunale.</em></p>
+<h4>Habitual Traffic Offender (HTO)</h4>
+<p>3 major violations OR 15 total convictions in 5 years = mandatory <strong>5-year revocation</strong>.<br>
+<em>3 violazioni gravi O 15 condanne totali in 5 anni = revoca obbligatoria di 5 anni.</em></p>
+<h4>License renewal / Rinnovo patente</h4>
+<table class="speed-table">
+<tr><th>Rule (EN)</th><th>Regola (IT)</th></tr>
+<tr><td>Standard validity: <strong>8 years</strong></td><td>Validità standard: 8 anni</td></tr>
+<tr><td>Over 79: renew every <strong>6 years</strong> in person</td><td>Over 79: rinnovo ogni 6 anni di persona</td></tr>
+<tr><td>Address change: notify FLHSMV within <strong>30 days</strong></td><td>Cambio indirizzo: notifica entro 30 giorni</td></tr>
+</table>
+<div class="tip-box warn"><b>&#9888; Suspension vs Revocation / Sospensione vs Revoca:</b><br>
+<strong>Suspension</strong> = temporary withdrawal. <strong>Revocation</strong> = license cancelled — must reapply.<br>
+<em>Sospensione = ritiro temporaneo. Revoca = patente cancellata — bisogna rifarne domanda.</em></div>
+</div>`,
+flashcards:[
+  {q:"How many points in 12 months trigger a 30-day suspension?\n(Quanti punti in 12 mesi per sospensione di 30 giorni?)", a:"12 points / 12 punti"},
+  {q:"Speeding in a school zone: how many points?\n(Eccesso di velocità in zona scolastica: quanti punti?)", a:"6 points / 6 punti (double the normal / il doppio del normale)"},
+  {q:"What is the BDI course?\n(Cos'è il corso BDI?)", a:"Basic Driver Improvement — removes 3 points, once every 12 months\n(Rimuove 3 punti, disponibile 1 volta ogni 12 mesi)"},
+  {q:"Habitual Traffic Offender: threshold for 5-year revocation?\n(HTO: soglia per la revoca di 5 anni?)", a:"3 major violations OR 15 total convictions in 5 years\n(3 violazioni gravi O 15 condanne totali in 5 anni)"},
+  {q:"Standard validity of a Florida Class E license?\n(Validità standard della patente Florida Class E?)", a:"8 years / 8 anni"},
+]},
 ];
 
-// ══════════════════════════════════════════════════════════════
-//  STATE
-// ══════════════════════════════════════════════════════════════
-let quiz = [];
-let current = 0;
-let score = 0;
-let userAnswers = [];
+// ── STATE ─────────────────────────────────────────────────────────────────────
+let quiz=[],current=0,score=0,userAnswers=[];
+const doneChapters=new Set(JSON.parse(localStorage.getItem("doneChapters")||"[]"));
 
-// ── Category selection ──────────────────────────────────────
-const catGrid = document.getElementById('cat-grid');
-catGrid.addEventListener('click', e => {
-  const btn = e.target.closest('.cat-btn');
-  if (!btn) return;
-  const cat = btn.dataset.cat;
-  if (cat === 'all') {
-    document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('selected'));
-    btn.classList.add('selected');
-  } else {
-    const allBtn = catGrid.querySelector('[data-cat="all"]');
-    allBtn.classList.remove('selected');
-    btn.classList.toggle('selected');
-    if (!catGrid.querySelector('.cat-btn.selected')) allBtn.classList.add('selected');
+// ── HELPERS ───────────────────────────────────────────────────────────────────
+function shuffle(arr){const a=[...arr];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function countByCat(pool){const c={signs:0,laws:0,safety:0,alcohol:0,license:0};pool.forEach(q=>{if(c[q.cat]!==undefined)c[q.cat]++;});return c;}
+
+// ── ANALYTICS HELPER ─────────────────────────────────────────────────────────
+function track(eventName, params){
+  if(typeof gtag !== "undefined"){
+    gtag("event", eventName, params || {});
   }
+}
+
+// ── SCREEN NAV ────────────────────────────────────────────────────────────────
+function showScreen(id){
+  document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+}
+document.querySelectorAll(".mode-tab").forEach(tab=>{
+  tab.addEventListener("click",()=>{
+    document.querySelectorAll(".mode-tab").forEach(t=>t.classList.remove("active"));
+    tab.classList.add("active");
+    document.getElementById("chapter-view").classList.remove("active");
+    showScreen(tab.dataset.tab);
+  });
 });
 
-// ── Range slider ────────────────────────────────────────────
-const slider = document.getElementById('q-count-slider');
-const display = document.getElementById('q-count-display');
-slider.addEventListener('input', () => { display.textContent = slider.value; });
-
-// ── Start ───────────────────────────────────────────────────
-function startQuiz() {
-  const n = parseInt(slider.value);
-  const selectedCats = [...catGrid.querySelectorAll('.cat-btn.selected')].map(b => b.dataset.cat);
-  const useAll = selectedCats.includes('all');
-
-  let pool = useAll ? [...QUESTIONS] : QUESTIONS.filter(q => selectedCats.includes(q.cat));
-  if (pool.length === 0) pool = [...QUESTIONS];
-
-  // Shuffle
-  for (let i = pool.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [pool[i], pool[j]] = [pool[j], pool[i]];
-  }
-
-  quiz = pool.slice(0, Math.min(n, pool.length));
-  current = 0;
-  score = 0;
-  userAnswers = [];
-
-  document.getElementById('q-total').textContent = quiz.length;
-  document.getElementById('setup-screen').style.display = 'none';
-  document.getElementById('quiz-screen').style.display = 'block';
-  renderQuestion();
+// ── STUDIO: CHAPTER LIST ──────────────────────────────────────────────────────
+function renderChapterList(){
+  const list=document.getElementById("chapter-list");
+  list.innerHTML="";
+  const done=doneChapters.size,tot=CHAPTERS.length;
+  document.getElementById("po-bar").style.width=(tot?Math.round(done/tot*100):0)+"%";
+  document.getElementById("po-done").textContent=done+" completati";
+  document.getElementById("po-tot").textContent=tot+" capitoli";
+  CHAPTERS.forEach(ch=>{
+    const isDone=doneChapters.has(ch.id);
+    const btn=document.createElement("button");
+    btn.className="chapter-btn"+(isDone?" done":"");
+    btn.innerHTML=
+      "<span class=\"ch-icon\">"+ch.icon+"</span>"+
+      "<span class=\"ch-body\"><span class=\"ch-title\">"+ch.title+"</span><span class=\"ch-sub\">"+ch.sub+"</span></span>"+
+      "<span class=\"ch-badge"+(isDone?" done":"")+"\">"+(isDone?"&#10003; Fatto":"&#9654; Studia")+"</span>";
+    btn.addEventListener("click",()=>openChapter(ch));
+    list.appendChild(btn);
+  });
 }
 
-// ── Render ───────────────────────────────────────────────────
-const CAT_LABELS = {
-  signs: '🚦 Road Signs',
-  laws: '📋 Traffic Laws',
-  safety: '🛡️ Safe Driving',
-  alcohol: '🍺 DUI / Alcohol',
-  license: '🪪 License'
-};
+// ── STUDIO: CHAPTER VIEW ──────────────────────────────────────────────────────
+let currentChapter=null,fcIndex=0,fcFlipped=false;
+function openChapter(ch){
+  currentChapter=ch;fcIndex=0;fcFlipped=false;
+  track("chapter_open", {chapter_id: ch.id, chapter_title: ch.title});
+  document.getElementById("ch-view-title").textContent=ch.title;
+  const content=document.getElementById("ch-content");
+  content.innerHTML=ch.content;
+  if(ch.flashcards&&ch.flashcards.length)content.appendChild(buildFlashcardBlock(ch.flashcards));
+  const isDone=doneChapters.has(ch.id);
+  const mdBtn=document.getElementById("btn-mark-done");
+  mdBtn.className="btn-mark-done"+(isDone?" done":"");
+  mdBtn.innerHTML=isDone?"&#10003; Completato":"&#10003; Segna come completato";
+  const pBtn=document.getElementById("btn-practice-chapter");
+  pBtn.style.display=ch.cat?"block":"none";
+  document.querySelectorAll(".mode-tab").forEach(t=>t.classList.remove("active"));
+  showScreen("chapter-view");
+  document.getElementById("chapter-view").classList.add("active");
+  window.scrollTo(0,0);
+}
+function buildFlashcardBlock(cards){
+  const wrap=document.createElement("div");wrap.className="content-block";
+  wrap.innerHTML="<h3>&#128140; Flashcard di ripasso</h3>";
+  const fcWrap=document.createElement("div");fcWrap.className="flashcard-wrap";
+  const fc=document.createElement("div");fc.className="flashcard";
+  fc.innerHTML=
+    "<div class=\"fc-front\"><div class=\"fc-label\">Domanda</div><div class=\"fc-text\" id=\"fc-q\"></div><div class=\"fc-hint\">Tocca per vedere la risposta</div></div>"+
+    "<div class=\"fc-back\"><div class=\"fc-label\">Risposta</div><div class=\"fc-text\" id=\"fc-a\"></div></div>";
+  fcWrap.appendChild(fc);
+  const nav=document.createElement("div");nav.className="fc-nav";
+  nav.innerHTML=
+    "<button class=\"fc-nav-btn\" id=\"fc-prev\">&#8592; Prec.</button>"+
+    "<span class=\"fc-counter\" id=\"fc-counter\">1 / "+cards.length+"</span>"+
+    "<button class=\"fc-nav-btn\" id=\"fc-next\">Succ. &#8594;</button>";
+  wrap.appendChild(fcWrap);wrap.appendChild(nav);
+  function updateFC(){
+    document.getElementById("fc-q").textContent=cards[fcIndex].q;
+    document.getElementById("fc-a").textContent=cards[fcIndex].a;
+    document.getElementById("fc-counter").textContent=(fcIndex+1)+" / "+cards.length;
+    fc.classList.remove("flipped");fcFlipped=false;
+    document.getElementById("fc-prev").disabled=fcIndex===0;
+    document.getElementById("fc-next").disabled=fcIndex===cards.length-1;
+  }
+  fcWrap.addEventListener("click",()=>{fcFlipped=!fcFlipped;fc.classList.toggle("flipped",fcFlipped);});
+  setTimeout(()=>{
+    document.getElementById("fc-prev").addEventListener("click",()=>{if(fcIndex>0){fcIndex--;updateFC();}});
+    document.getElementById("fc-next").addEventListener("click",()=>{if(fcIndex<cards.length-1){fcIndex++;updateFC();}});
+    updateFC();
+  },0);
+  return wrap;
+}
+document.getElementById("btn-back-chapter").addEventListener("click",()=>{
+  document.getElementById("chapter-view").classList.remove("active");
+  showScreen("studio-screen");
+  document.querySelectorAll(".mode-tab").forEach((t,i)=>t.classList.toggle("active",i===0));
+  renderChapterList();window.scrollTo(0,0);
+});
+document.getElementById("btn-mark-done").addEventListener("click",()=>{
+  if(!currentChapter)return;
+  if(doneChapters.has(currentChapter.id))doneChapters.delete(currentChapter.id);
+  else doneChapters.add(currentChapter.id);
+  localStorage.setItem("doneChapters",JSON.stringify([...doneChapters]));
+  const isDone=doneChapters.has(currentChapter.id);
+  if(isDone) track("chapter_completed", {chapter_id: currentChapter.id});
+  const mdBtn=document.getElementById("btn-mark-done");
+  mdBtn.className="btn-mark-done"+(isDone?" done":"");
+  mdBtn.innerHTML=isDone?"&#10003; Completato":"&#10003; Segna come completato";
+});
+document.getElementById("btn-practice-chapter").addEventListener("click",()=>{
+  if(!currentChapter||!currentChapter.cat)return;
+  startQuiz(currentChapter.cat,20);
+});
+document.getElementById("qp-weak").addEventListener("click",()=>startQuiz(null,20));
+document.getElementById("qp-full").addEventListener("click",()=>startQuiz(null,50));
 
-function renderQuestion() {
-  const q = quiz[current];
-  const total = quiz.length;
-
-  document.getElementById('prog-fill').style.width = ((current / total) * 100) + '%';
-  document.getElementById('q-current').textContent = current + 1;
-  document.getElementById('score-running').textContent = score;
-  document.getElementById('q-num-label').textContent = 'Q' + (current + 1);
-  document.getElementById('q-cat-label').textContent = CAT_LABELS[q.cat] || q.cat;
-  document.getElementById('q-en').textContent = q.en;
-  document.getElementById('q-it').textContent = q.it;
-
-  const list = document.getElementById('opts-list');
-  list.innerHTML = '';
-  const letters = ['A', 'B', 'C', 'D'];
-  q.options.forEach((opt, i) => {
-    const li = document.createElement('li');
-    li.innerHTML = `
-      <button class="opt-btn" onclick="selectAnswer(${i})">
-        <span class="opt-letter">${letters[i]}</span>
-        <span class="opt-en">${opt.en}</span>
-        <span class="opt-it">${opt.it}</span>
-      </button>`;
+// ── QUIZ ENGINE ───────────────────────────────────────────────────────────────
+function startQuiz(cat,n){
+  track("quiz_start", {category: cat||"all", questions: Math.min(n, QUESTIONS.length)});
+  const pool=shuffle(cat?QUESTIONS.filter(q=>q.cat===cat):QUESTIONS);
+  quiz=pool.slice(0,Math.min(n,pool.length));
+  current=0;score=0;userAnswers=[];
+  quiz.forEach(q=>{q._shuffled=false;});
+  document.getElementById("q-tot").textContent=quiz.length;
+  document.querySelectorAll(".mode-tab").forEach((t,i)=>t.classList.toggle("active",i===1));
+  showScreen("quiz-screen");window.scrollTo(0,0);renderQ();
+}
+function getSetupPool(){
+  const sel=[...document.querySelectorAll(".cat-btn.selected")].map(b=>b.dataset.cat);
+  return sel.includes("all")?QUESTIONS:QUESTIONS.filter(q=>sel.includes(q.cat));
+}
+function updateSetupUI(){
+  const pool=getSetupPool();
+  const cats=countByCat(pool);
+  document.getElementById("db-avail").textContent=pool.length;
+  document.getElementById("stat-db").textContent=QUESTIONS.length;
+  document.getElementById("db-cat-counts").innerHTML=
+    Object.entries(cats).filter(([,v])=>v>0)
+    .map(([k,v])=>"<span class=\"cat-count\">"+CAT_IT[k]+": <b style=\"color:var(--gold)\">"+v+"</b></span>").join("");
+}
+if(/iphone|ipad|ipod/i.test(navigator.userAgent)&&!window.navigator.standalone)
+  document.getElementById("install-hint").style.display="block";
+const slider=document.getElementById("q-slider");
+slider.addEventListener("input",()=>{document.getElementById("q-count-display").textContent=slider.value;});
+const catGrid=document.getElementById("cat-grid");
+catGrid.addEventListener("click",e=>{
+  const btn=e.target.closest(".cat-btn");if(!btn)return;
+  const cat=btn.dataset.cat;
+  if(cat==="all"){document.querySelectorAll(".cat-btn").forEach(b=>b.classList.remove("selected"));btn.classList.add("selected");}
+  else{catGrid.querySelector("[data-cat=\"all\"]").classList.remove("selected");btn.classList.toggle("selected");
+    if(!catGrid.querySelector(".cat-btn.selected"))catGrid.querySelector("[data-cat=\"all\"]").classList.add("selected");}
+  updateSetupUI();
+});
+document.getElementById("btn-start").addEventListener("click",()=>{
+  const n=parseInt(slider.value);
+  const pool=shuffle(getSetupPool());
+  quiz=pool.slice(0,Math.min(n,pool.length));
+  current=0;score=0;userAnswers=[];
+  quiz.forEach(q=>{q._shuffled=false;});
+  document.getElementById("q-tot").textContent=quiz.length;
+  showScreen("quiz-screen");window.scrollTo(0,0);renderQ();
+});
+function renderQ(){
+  const q=quiz[current];
+  document.getElementById("prog-fill").style.width=((current/quiz.length)*100)+"%";
+  document.getElementById("q-cur").textContent=current+1;
+  document.getElementById("score-run").textContent=score;
+  document.getElementById("q-num-lbl").textContent="Q"+(current+1);
+  document.getElementById("q-cat-lbl").textContent=CAT_LABELS[q.cat]||q.cat;
+  document.getElementById("q-en").textContent=q.en;
+  document.getElementById("q-it").textContent=q.it;
+  if(!q._shuffled){
+    const indices=[0,1,2,3].slice(0,q.options.length);
+    for(let i=indices.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[indices[i],indices[j]]=[indices[j],indices[i]];}
+    q._shuffledOptions=indices.map(i=>q.options[i]);
+    q._shuffledCorrect=indices.indexOf(q.correct);
+    q._shuffled=true;
+  }
+  const opts=q._shuffledOptions;
+  const list=document.getElementById("opts-list");list.innerHTML="";
+  ["A","B","C","D"].forEach((ltr,i)=>{
+    if(i>=opts.length)return;
+    const li=document.createElement("li");
+    li.innerHTML="<button class=\"opt-btn\" data-idx=\""+i+"\"><span class=\"opt-letter\">"+ltr+"</span><span class=\"opt-content\"><span class=\"opt-en\">"+opts[i].en+"</span><span class=\"opt-it\">"+opts[i].it+"</span></span></button>";
     list.appendChild(li);
   });
-
-  document.getElementById('feedback-box').classList.remove('show', 'ok', 'ko');
-  document.getElementById('feedback-box').innerHTML = '';
-  const nb = document.getElementById('btn-next');
-  nb.classList.remove('show');
-  nb.textContent = (current === quiz.length - 1) ? 'Risultati / Results →' : 'Prossima / Next →';
+  list.querySelectorAll(".opt-btn").forEach(b=>b.addEventListener("click",()=>selectAnswer(parseInt(b.dataset.idx))));
+  const fb=document.getElementById("feedback-box");fb.className="feedback-box";fb.textContent="";
+  const nb=document.getElementById("btn-next");nb.className="btn-next";
+  nb.textContent=(current===quiz.length-1)?"Risultati \u2192":"Prossima \u2192";
 }
-
-function selectAnswer(idx) {
-  const q = quiz[current];
-  const btns = document.querySelectorAll('.opt-btn');
-  btns.forEach(b => b.disabled = true);
-
-  const correct = q.correct;
-  const isRight = idx === correct;
-
-  btns[correct].classList.add('correct');
-  if (!isRight) btns[idx].classList.add('wrong');
-  if (isRight) score++;
-
-  userAnswers.push({ qIdx: current, chosen: idx, correct: isRight });
-  document.getElementById('score-running').textContent = score;
-
-  const fb = document.getElementById('feedback-box');
-  fb.className = 'feedback-box show ' + (isRight ? 'ok' : 'ko');
-  fb.innerHTML = isRight
-    ? `<b>✅ Corretto! / Correct!</b><br>${q.explain_en}<br><em>${q.explain_it}</em>`
-    : `<b>❌ Risposta errata / Wrong answer.</b><br>${q.explain_en}<br><em>${q.explain_it}</em>`;
-
-  document.getElementById('btn-next').classList.add('show');
+function selectAnswer(idx){
+  const q=quiz[current];
+  document.querySelectorAll(".opt-btn").forEach(b=>b.disabled=true);
+  const btns=document.querySelectorAll(".opt-btn");
+  const correctIdx=q._shuffledCorrect;
+  const isRight=idx===correctIdx;
+  btns[correctIdx].classList.add("correct");
+  if(!isRight)btns[idx].classList.add("wrong");
+  if(isRight)score++;
+  userAnswers.push({qIdx:current,chosen:idx,correct:isRight});
+  document.getElementById("score-run").textContent=score;
+  const fb=document.getElementById("feedback-box");
+  fb.className="feedback-box show "+(isRight?"ok":"ko");
+  fb.innerHTML="<b>"+(isRight?"\u2705 Corretto!":"\u274C Sbagliato.")+"</b><br>"+q.explain_en+"<br><em>"+q.explain_it+"</em>";
+  document.getElementById("btn-next").classList.add("show");
+  setTimeout(()=>fb.scrollIntoView({behavior:"smooth",block:"nearest"}),100);
 }
-
-function nextQuestion() {
-  current++;
-  if (current >= quiz.length) { showResults(); return; }
-  renderQuestion();
-}
-
-// ── Results ──────────────────────────────────────────────────
-function showResults() {
-  document.getElementById('quiz-screen').style.display = 'none';
-  document.getElementById('results-screen').style.display = 'block';
-
-  const total = quiz.length;
-  const pct = Math.round((score / total) * 100);
-  const pass = pct >= 80;
-
-  document.getElementById('res-icon').textContent = pass ? '🎉' : '📚';
-  document.getElementById('res-verdict').textContent = pass ? 'SUPERATO! / PASSED!' : 'NON SUPERATO / NOT PASSED';
-  document.getElementById('res-sub').textContent = pass
-    ? `Punteggio: ${pct}% — Ottimo lavoro! / Great job!`
-    : `Punteggio: ${pct}% — Servono almeno 80% per superare il test. / You need at least 80% to pass.`;
-
-  document.getElementById('res-pct').textContent = pct + '%';
-  document.getElementById('res-total').textContent = total;
-  document.getElementById('res-correct').textContent = score;
-  document.getElementById('res-wrong').textContent = total - score;
-
-  // Progress bar to 100%
-  document.getElementById('prog-fill').style.width = '100%';
-
+document.getElementById("btn-next").addEventListener("click",()=>{
+  current++;if(current>=quiz.length){showResults();return;}
+  renderQ();window.scrollTo({top:0,behavior:"smooth"});
+});
+function showResults(){
+  showScreen("results-screen");window.scrollTo(0,0);
+  const total=quiz.length,pct=Math.round((score/total)*100),pass=pct>=80;
+  track("quiz_complete", {
+    total_questions: total,
+    correct: score,
+    score_pct: pct,
+    passed: pass
+  });
+  document.getElementById("res-icon").textContent=pass?"\uD83C\uDF89":"\uD83D\uDCDA";
+  document.getElementById("res-verdict").textContent=pass?"SUPERATO! / PASSED!":"NON SUPERATO / NOT PASSED";
+  document.getElementById("res-sub").textContent=pass?"Punteggio "+pct+"% \u2014 Ottimo!":"Punteggio "+pct+"% \u2014 Servono almeno 80%.";
+  document.getElementById("res-pct").textContent=pct+"%";
+  document.getElementById("res-tot").textContent=total;
+  document.getElementById("res-ok").textContent=score;
+  document.getElementById("res-ko").textContent=total-score;
   buildReview();
 }
-
-function buildReview() {
-  const sec = document.getElementById('review-section');
-  sec.innerHTML = '<h3 style="color:var(--gold);font-family:Oswald,sans-serif;font-size:1.1rem;margin-bottom:14px;text-align:left">📋 Revisione risposte / Answer Review</h3>';
-  userAnswers.forEach(a => {
-    const q = quiz[a.qIdx];
-    const div = document.createElement('div');
-    div.className = 'review-item ' + (a.isRight ? 'ok' : 'ko');
-    div.className = 'review-item ' + (a.correct ? 'ok' : 'ko');
-    const chosenOpt = q.options[a.chosen];
-    const correctOpt = q.options[q.correct];
-    div.innerHTML = `
-      <div class="review-q">${q.en}</div>
-      <div class="review-q-it">${q.it}</div>
-      <div class="review-ans">
-        ${a.correct
-          ? `<span class="ca">✅ Your answer / La tua risposta: ${chosenOpt.en}</span>`
-          : `<span class="wa">❌ Your answer / La tua risposta: ${chosenOpt.en}</span><br>
-             <span class="ca">✅ Correct / Corretta: ${correctOpt.en}</span>`
-        }
-      </div>`;
+function buildReview(){
+  const sec=document.getElementById("review-section");
+  while(sec.children.length>1)sec.removeChild(sec.lastChild);
+  userAnswers.forEach(a=>{
+    const q=quiz[a.qIdx];
+    const chosen=q._shuffledOptions[a.chosen],correct=q._shuffledOptions[q._shuffledCorrect];
+    const div=document.createElement("div");div.className="review-item "+(a.correct?"ok":"ko");
+    div.innerHTML="<div class=\"review-q\">"+q.en+"</div><div class=\"review-q-it\">"+q.it+"</div><div class=\"review-ans\">"+(a.correct?"<span class=\"ca\">\u2705 "+chosen.en+"</span>":"<span class=\"wa\">\u274C "+chosen.en+"</span><br><span class=\"ca\">\u2705 "+correct.en+"</span>")+"</div>";
     sec.appendChild(div);
   });
 }
+document.getElementById("btn-review").addEventListener("click",()=>{
+  const sec=document.getElementById("review-section");sec.classList.toggle("show");
+  if(sec.classList.contains("show"))setTimeout(()=>sec.scrollIntoView({behavior:"smooth"}),100);
+});
+document.getElementById("btn-restart").addEventListener("click",()=>{
+  document.getElementById("review-section").classList.remove("show");
+  document.querySelectorAll(".mode-tab").forEach((t,i)=>t.classList.toggle("active",i===1));
+  showScreen("setup-screen");window.scrollTo(0,0);
+});
+renderChapterList();
+updateSetupUI();
 
-function toggleReview() {
-  const sec = document.getElementById('review-section');
-  sec.classList.toggle('show');
-}
-
-function goToSetup() {
-  document.getElementById('results-screen').style.display = 'none';
-  document.getElementById('review-section').classList.remove('show');
-  document.getElementById('setup-screen').style.display = 'block';
-}
+}); // end DOMContentLoaded
 </script>
 </body>
 </html>
