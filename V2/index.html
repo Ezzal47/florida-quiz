@@ -25,7 +25,7 @@
 <!-- Firebase SDK -->
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import { getAuth, signInWithPopup, signInWithEmailAndPassword, createUserWithEmailAndPassword, GoogleAuthProvider, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import { getAuth, signInWithPopup, signInWithEmailAndPassword, createUserWithEmailAndPassword, GoogleAuthProvider, signOut, onAuthStateChanged, sendEmailVerification, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 import { getFirestore, doc, getDoc, setDoc, updateDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -52,6 +52,8 @@ window._fbSignInWithEmail = signInWithEmailAndPassword;
 window._fbCreateUser = createUserWithEmailAndPassword;
 window._fbSignOut = signOut;
 window._fbOnAuthStateChanged = onAuthStateChanged;
+window._fbSendEmailVerification = sendEmailVerification;
+window._fbSendPasswordReset = sendPasswordResetEmail;
 window._fbDoc = doc;
 window._fbGetDoc = getDoc;
 window._fbSetDoc = setDoc;
@@ -396,6 +398,9 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:28px;heigh
     <input class="login-input" type="email" id="login-email" placeholder="Email">
     <input class="login-input" type="password" id="login-password" placeholder="Password">
     <button class="btn-login-email" id="btn-email-login">Accedi</button>
+    <div class="login-toggle" id="forgot-wrap">
+      <a id="btn-forgot-password">Password dimenticata?</a>
+    </div>
     <div class="login-toggle">Non hai un account? <a id="toggle-register">Registrati</a></div>
   </div>
 </div>
@@ -562,14 +567,24 @@ waitForFirebase(() => {
   // Auth state listener
   window._fbOnAuthStateChanged(auth, async (user) => {
     if(user) {
+      // Email/password users must verify email first
+      if(!user.emailVerified && user.providerData[0].providerId === "password") {
+        document.getElementById("login-overlay").classList.remove("hidden");
+        showLoginError("Controlla la tua email e clicca il link di verifica prima di accedere.");
+        await window._fbSignOut(auth);
+        clearLoginInputs();
+        return;
+      }
       currentUser = user;
       document.getElementById("login-overlay").classList.add("hidden");
+      clearLoginInputs();
       showUserBadge(user);
       await loadUserProgress(user.uid);
     } else {
       currentUser = null;
       document.getElementById("login-overlay").classList.remove("hidden");
       document.getElementById("user-badge").style.display = "none";
+      clearLoginInputs();
     }
   });
 
@@ -589,7 +604,28 @@ waitForFirebase(() => {
     document.getElementById("btn-email-login").textContent = isRegisterMode ? "Registrati" : "Accedi";
     document.getElementById("toggle-register").textContent = isRegisterMode ? "Hai già un account? Accedi" : "Registrati";
     document.getElementById("toggle-register").previousSibling.textContent = isRegisterMode ? "Hai già un account? " : "Non hai un account? ";
+    document.getElementById("forgot-wrap").style.display = isRegisterMode ? "none" : "block";
     hideLoginError();
+  });
+
+  // Forgot password
+  document.getElementById("btn-forgot-password").addEventListener("click", async () => {
+    const email = document.getElementById("login-email").value.trim();
+    if(!email) {
+      showLoginError("Inserisci la tua email nel campo sopra, poi clicca 'Password dimenticata?'");
+      return;
+    }
+    try {
+      await window._fbSendPasswordReset(window._fbAuth, email);
+      const el = document.getElementById("login-error");
+      el.textContent = "✅ Email inviata! Controlla la tua casella e segui le istruzioni per reimpostare la password.";
+      el.classList.add("show");
+      el.style.background = "rgba(26,122,74,.15)";
+      el.style.borderColor = "var(--green)";
+      el.style.color = "#52d48a";
+    } catch(e) {
+      showLoginError(friendlyError(e.code));
+    }
   });
 
   document.getElementById("btn-email-login").addEventListener("click", async () => {
@@ -598,7 +634,15 @@ waitForFirebase(() => {
     if(!email || !password) { showLoginError("Inserisci email e password."); return; }
     try {
       if(isRegisterMode) {
-        await window._fbCreateUser(auth, email, password);
+        const cred = await window._fbCreateUser(auth, email, password);
+        // Send verification email
+        await window._fbSendEmailVerification(cred.user);
+        await window._fbSignOut(auth);
+        clearLoginInputs();
+        showLoginError("✅ Registrazione completata! Controlla la tua email e clicca il link di verifica per accedere.");
+        document.getElementById("login-error").style.background = "rgba(26,122,74,.15)";
+        document.getElementById("login-error").style.borderColor = "var(--green)";
+        document.getElementById("login-error").style.color = "#52d48a";
       } else {
         await window._fbSignInWithEmail(auth, email, password);
       }
@@ -616,6 +660,17 @@ waitForFirebase(() => {
     document.getElementById("user-menu").classList.remove("open");
   });
 });
+
+function clearLoginInputs() {
+  document.getElementById("login-email").value = "";
+  document.getElementById("login-password").value = "";
+  hideLoginError();
+  // Reset error box style
+  const el = document.getElementById("login-error");
+  el.style.background = "";
+  el.style.borderColor = "";
+  el.style.color = "";
+}
 
 function showUserBadge(user) {
   const badge = document.getElementById("user-badge");
