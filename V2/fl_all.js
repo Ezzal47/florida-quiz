@@ -1,7 +1,7 @@
 // fl_all.js — Florida Class E Knowledge Test — Question Database
 // Format: { cat, en, it, options:[{en,it},...], correct, explain_en, explain_it }
 // Categorie: signs | laws | safety | alcohol | license
-// TOTAL: 1505 domande
+// TOTAL: 1505 domande V2_1
 // =====================================================================
 
 var QUESTIONS = [
