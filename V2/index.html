@@ -1074,9 +1074,8 @@ document.getElementById("qp-full").addEventListener("click",()=>startQuiz(null,5
 function startQuiz(cat,n){
   track("quiz_start", {category: cat||"all", questions: Math.min(n, QUESTIONS.length)});
   const pool=shuffle(cat?QUESTIONS.filter(q=>q.cat===cat):QUESTIONS);
-  quiz=pool.slice(0,Math.min(n,pool.length));
+  quiz=pool.slice(0,Math.min(n,pool.length)).map(q=>Object.assign({},q,{_shuffled:false}));
   current=0;score=0;userAnswers=[];
-  quiz.forEach(q=>{q._shuffled=false;});
   document.getElementById("q-tot").textContent=quiz.length;
   document.querySelectorAll(".mode-tab").forEach((t,i)=>t.classList.toggle("active",i===1));
   showScreen("quiz-screen");window.scrollTo(0,0);renderQ();
@@ -1110,9 +1109,8 @@ catGrid.addEventListener("click",e=>{
 document.getElementById("btn-start").addEventListener("click",()=>{
   const n=parseInt(slider.value);
   const pool=shuffle(getSetupPool());
-  quiz=pool.slice(0,Math.min(n,pool.length));
+  quiz=pool.slice(0,Math.min(n,pool.length)).map(q=>Object.assign({},q,{_shuffled:false}));
   current=0;score=0;userAnswers=[];
-  quiz.forEach(q=>{q._shuffled=false;});
   document.getElementById("q-tot").textContent=quiz.length;
   showScreen("quiz-screen");window.scrollTo(0,0);renderQ();
 });
