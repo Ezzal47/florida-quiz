@@ -612,7 +612,7 @@ waitForFirebase(() => {
   document.getElementById("btn-forgot-password").addEventListener("click", async () => {
     const email = document.getElementById("login-email").value.trim();
     if(!email) {
-      showLoginError("Inserisci la tua email nel campo sopra, poi clicca 'Password dimenticata?'");
+      showLoginError("Inserisci prima la tua email nel campo Email, poi clicca 'Password dimenticata?'");
       return;
     }
     try {
