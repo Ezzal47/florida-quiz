@@ -328,6 +328,35 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:28px;heigh
   .opt-btn{padding:14px 16px}
 }
 
+/* ── PROGRESS SCREEN ── */
+.prog-header{margin-bottom:20px}
+.prog-header h2{font-family:"Oswald",sans-serif;font-size:1.5rem;color:var(--gold);margin-bottom:4px}
+.prog-header p{font-size:.85rem;color:var(--light)}
+.prog-section{margin-bottom:22px}
+.prog-section-title{font-family:"Oswald",sans-serif;font-size:.8rem;text-transform:uppercase;
+  letter-spacing:.1em;color:var(--gold);margin-bottom:10px;font-weight:600}
+.prog-cards{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.prog-card{background:var(--blue);border:1px solid rgba(240,180,41,.2);border-radius:12px;
+  padding:14px 12px;text-align:center}
+.prog-card .pv{font-family:"Oswald",sans-serif;font-size:1.8rem;font-weight:700;color:var(--gold);line-height:1}
+.prog-card .pl{font-size:.68rem;text-transform:uppercase;color:var(--gray);letter-spacing:.05em;margin-top:4px}
+.prog-card.wide{grid-column:1/-1}
+.cat-progress-row{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.cat-progress-label{font-size:.78rem;color:var(--light);width:90px;flex-shrink:0}
+.cat-progress-bar-wrap{flex:1;background:rgba(255,255,255,.08);border-radius:99px;height:8px;overflow:hidden}
+.cat-progress-bar{height:100%;border-radius:99px;transition:width .6s ease}
+.cat-progress-pct{font-family:"Oswald",sans-serif;font-size:.75rem;color:var(--gold);width:36px;text-align:right;flex-shrink:0}
+.quiz-history-item{background:var(--blue);border:1px solid rgba(255,255,255,.08);border-radius:10px;
+  padding:12px 14px;margin-bottom:8px;display:flex;align-items:center;gap:12px}
+.qhi-badge{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-family:"Oswald",sans-serif;font-size:.85rem;font-weight:700;flex-shrink:0}
+.qhi-badge.pass{background:rgba(26,122,74,.2);color:#52d48a;border:2px solid rgba(26,122,74,.4)}
+.qhi-badge.fail{background:rgba(192,57,43,.2);color:#f87171;border:2px solid rgba(192,57,43,.3)}
+.qhi-body{flex:1;min-width:0}
+.qhi-score{font-family:"Oswald",sans-serif;font-size:1rem;color:var(--white);font-weight:600}
+.qhi-meta{font-size:.72rem;color:var(--gray);margin-top:2px}
+.no-data{text-align:center;padding:30px;color:var(--gray);font-size:.85rem}
+
 /* ── LOGIN OVERLAY ── */
 #login-overlay{position:fixed;inset:0;background:var(--navy);z-index:1000;
   display:flex;flex-direction:column;align-items:center;justify-content:center;
@@ -421,6 +450,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:28px;heigh
 <div class="mode-tabs">
   <div class="mode-tab active" data-tab="studio-screen"><span class="tab-icon">&#128218;</span>Studio</div>
   <div class="mode-tab" data-tab="setup-screen"><span class="tab-icon">&#127381;</span>Test</div>
+  <div class="mode-tab" data-tab="progress-screen"><span class="tab-icon">&#128202;</span>Progressi</div>
 </div>
 
 <!-- STUDIO -->
@@ -474,6 +504,57 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:28px;heigh
   <button class="btn-mark-done" id="btn-mark-done">&#10003; Segna come completato</button>
   <div style="height:8px"></div>
   <button class="btn-primary" id="btn-practice-chapter" style="margin-top:0;display:none">&#127381; Pratica su questo capitolo</button>
+</div>
+
+<!-- PROGRESS SCREEN -->
+<div id="progress-screen" class="screen">
+  <div class="prog-header">
+    <h2>&#128202; I miei progressi</h2>
+    <p id="prog-username">Caricamento...</p>
+  </div>
+
+  <!-- Overview cards -->
+  <div class="prog-section">
+    <div class="prog-section-title">Panoramica</div>
+    <div class="prog-cards">
+      <div class="prog-card">
+        <div class="pv" id="pg-chapters">-</div>
+        <div class="pl">Capitoli completati</div>
+      </div>
+      <div class="prog-card">
+        <div class="pv" id="pg-quizzes">-</div>
+        <div class="pl">Quiz totali</div>
+      </div>
+      <div class="prog-card">
+        <div class="pv" id="pg-avg">-</div>
+        <div class="pl">Score medio</div>
+      </div>
+      <div class="prog-card">
+        <div class="pv" id="pg-passed">-</div>
+        <div class="pl">Esami superati</div>
+      </div>
+      <div class="prog-card wide">
+        <div class="pv" id="pg-best">-</div>
+        <div class="pl">Miglior risultato</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Score by category -->
+  <div class="prog-section">
+    <div class="prog-section-title">Score per categoria</div>
+    <div id="pg-cat-bars">
+      <div class="no-data">Fai almeno un quiz per vedere le statistiche per categoria.</div>
+    </div>
+  </div>
+
+  <!-- Quiz history -->
+  <div class="prog-section">
+    <div class="prog-section-title">Storico quiz</div>
+    <div id="pg-history">
+      <div class="no-data">Nessun quiz completato ancora.</div>
+    </div>
+  </div>
 </div>
 
 <!-- SETUP -->
@@ -691,8 +772,16 @@ function showUserBadge(user) {
       ${user.displayName || "Utente"}
       <span class="user-menu-email">${user.email}</span>
     </div>
-    <button class="user-menu-item" id="btn-signout">&#128275; Esci</button>
+    <button class="user-menu-item" id="btn-goto-progress">&#128202; I miei progressi</button>
+    <button class="user-menu-item danger" id="btn-signout">&#128275; Esci</button>
   `;
+  document.getElementById("btn-goto-progress").addEventListener("click", () => {
+    document.getElementById("user-menu").classList.remove("open");
+    document.querySelectorAll(".mode-tab").forEach((t,i)=>t.classList.toggle("active",i===2));
+    document.getElementById("chapter-view").classList.remove("active");
+    showScreen("progress-screen");
+    renderProgressScreen();
+  });
   document.getElementById("btn-signout").addEventListener("click", async () => {
     await window._fbSignOut(window._fbAuth);
     document.getElementById("user-menu").classList.remove("open");
@@ -765,16 +854,121 @@ async function saveQuizResult(total, correct, pct, passed, cat) {
   try {
     const ref = window._fbDoc(window._fbDb, "users", currentUser.uid);
     const snap = await window._fbGetDoc(ref);
-    const prev = snap.exists() ? (snap.data().quizzesTaken || 0) : 0;
+    const data = snap.exists() ? snap.data() : {};
+    const prev = data.quizzesTaken || 0;
+    const prevAvg = data.avgScore || 0;
+    const newAvg = Math.round((prevAvg * prev + pct) / (prev + 1));
+    const prevBest = data.bestScore || 0;
+    const prevPassed = data.totalPassed || 0;
+
+    // Category stats
+    const catStats = data.catStats || {};
+    if(cat && cat !== "all") {
+      const cs = catStats[cat] || {total:0, sumPct:0};
+      cs.total++;
+      cs.sumPct += pct;
+      cs.avg = Math.round(cs.sumPct / cs.total);
+      catStats[cat] = cs;
+    }
+
+    // History (keep last 20)
+    const history = data.quizHistory || [];
+    history.unshift({
+      pct, passed, total, correct, cat: cat||"all",
+      ts: new Date().toISOString()
+    });
+    if(history.length > 20) history.pop();
+
     await window._fbUpdateDoc(ref, {
       quizzesTaken: prev + 1,
+      avgScore: newAvg,
+      bestScore: Math.max(prevBest, pct),
+      totalPassed: prevPassed + (passed ? 1 : 0),
+      catStats,
+      quizHistory: history,
       lastScore: pct,
       lastPassed: passed,
       lastCategory: cat || "all",
       lastQuizAt: window._fbServerTimestamp(),
       lastSeen: window._fbServerTimestamp()
     });
+
+    // Refresh progress screen if visible
+    if(document.getElementById("progress-screen").classList.contains("active")) {
+      renderProgressScreen();
+    }
   } catch(e) { console.warn("Firestore quiz save error:", e); }
+}
+
+// ── PROGRESS SCREEN ──────────────────────────────────────────────────────────
+async function renderProgressScreen() {
+  if(!currentUser || !window._fbDb) return;
+  const ref = window._fbDoc(window._fbDb, "users", currentUser.uid);
+  const snap = await window._fbGetDoc(ref);
+  const data = snap.exists() ? snap.data() : {};
+
+  // Header
+  document.getElementById("prog-username").textContent =
+    (currentUser.displayName || currentUser.email || "Utente");
+
+  // Overview
+  const chapters = doneChapters.size;
+  const totalChapters = 13;
+  document.getElementById("pg-chapters").textContent = chapters + "/" + totalChapters;
+  document.getElementById("pg-quizzes").textContent = data.quizzesTaken || 0;
+  document.getElementById("pg-avg").textContent = (data.avgScore || 0) + "%";
+  document.getElementById("pg-passed").textContent = (data.totalPassed || 0);
+  document.getElementById("pg-best").textContent = data.bestScore ? data.bestScore + "% 🏆" : "-";
+
+  // Category bars
+  const catBarsEl = document.getElementById("pg-cat-bars");
+  const catStats = data.catStats || {};
+  const catDefs = [
+    {key:"signs",   label:"&#128678; Signs",   color:"#f0b429"},
+    {key:"laws",    label:"&#128203; Laws",    color:"#4a9eff"},
+    {key:"safety",  label:"&#128737; Safety",  color:"#52d48a"},
+    {key:"alcohol", label:"&#127866; DUI",     color:"#f87171"},
+    {key:"license", label:"&#129346; License", color:"#c084fc"},
+  ];
+  const hasCatData = Object.keys(catStats).length > 0;
+  if(!hasCatData) {
+    catBarsEl.innerHTML = '<div class="no-data">Fai quiz per categoria per vedere le statistiche.</div>';
+  } else {
+    catBarsEl.innerHTML = catDefs.map(cat => {
+      const cs = catStats[cat.key];
+      const avg = cs ? cs.avg : null;
+      const pct = avg !== null ? avg : 0;
+      return `<div class="cat-progress-row">
+        <span class="cat-progress-label">${cat.label}</span>
+        <div class="cat-progress-bar-wrap">
+          <div class="cat-progress-bar" style="width:${pct}%;background:${cat.color}"></div>
+        </div>
+        <span class="cat-progress-pct">${avg !== null ? avg+"%" : "-"}</span>
+      </div>`;
+    }).join("");
+  }
+
+  // Quiz history
+  const histEl = document.getElementById("pg-history");
+  const history = data.quizHistory || [];
+  if(!history.length) {
+    histEl.innerHTML = '<div class="no-data">Nessun quiz completato ancora.</div>';
+  } else {
+    const CAT_IT_MAP = {signs:"Segnaletica",laws:"Norme",safety:"Sicurezza",alcohol:"DUI/Alcol",license:"Patente",all:"Tutte le categorie"};
+    histEl.innerHTML = history.map(h => {
+      const date = h.ts ? new Date(h.ts).toLocaleDateString("it-IT",{day:"2-digit",month:"short",hour:"2-digit",minute:"2-digit"}) : "";
+      const passClass = h.passed ? "pass" : "fail";
+      const passLabel = h.passed ? "PASS" : "FAIL";
+      const cat = CAT_IT_MAP[h.cat] || h.cat || "Miste";
+      return `<div class="quiz-history-item">
+        <div class="qhi-badge ${passClass}">${passLabel}</div>
+        <div class="qhi-body">
+          <div class="qhi-score">${h.pct}% &mdash; ${h.correct}/${h.total} corrette</div>
+          <div class="qhi-meta">${cat} &bull; ${date}</div>
+        </div>
+      </div>`;
+    }).join("");
+  }
 }
 
 const CAT_LABELS={signs:"Signs",laws:"Laws",safety:"Safety",alcohol:"DUI",license:"License"};
@@ -1314,7 +1508,9 @@ document.querySelectorAll(".mode-tab").forEach(tab=>{
     document.querySelectorAll(".mode-tab").forEach(t=>t.classList.remove("active"));
     tab.classList.add("active");
     document.getElementById("chapter-view").classList.remove("active");
-    showScreen(tab.dataset.tab);
+    const target = tab.dataset.tab;
+    showScreen(target);
+    if(target === "progress-screen") renderProgressScreen();
   });
 });
 
