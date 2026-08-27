@@ -21,6 +21,43 @@
   gtag('js', new Date());
   gtag('config', 'G-RSRYSMH5HH');
 </script>
+
+<!-- Firebase SDK -->
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getAuth, signInWithPopup, signInWithEmailAndPassword, createUserWithEmailAndPassword, GoogleAuthProvider, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import { getFirestore, doc, getDoc, setDoc, updateDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDVLQUAJn4UqbJKLt0PoVhBXKPITwCr32g",
+  authDomain: "florida-quiz.firebaseapp.com",
+  projectId: "florida-quiz",
+  storageBucket: "florida-quiz.firebasestorage.app",
+  messagingSenderId: "371952559041",
+  appId: "1:371952559041:web:4743fab6bcab200a868540",
+  measurementId: "G-VE07HEHXBT"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+const googleProvider = new GoogleAuthProvider();
+
+// ── EXPOSE to global scope for DOMContentLoaded code ─────────────────────────
+window._fbAuth = auth;
+window._fbDb = db;
+window._fbGoogleProvider = googleProvider;
+window._fbSignInWithPopup = signInWithPopup;
+window._fbSignInWithEmail = signInWithEmailAndPassword;
+window._fbCreateUser = createUserWithEmailAndPassword;
+window._fbSignOut = signOut;
+window._fbOnAuthStateChanged = onAuthStateChanged;
+window._fbDoc = doc;
+window._fbGetDoc = getDoc;
+window._fbSetDoc = setDoc;
+window._fbUpdateDoc = updateDoc;
+window._fbServerTimestamp = serverTimestamp;
+</script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 :root{
@@ -288,16 +325,93 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:28px;heigh
   .q-card,.content-block{padding:26px}
   .opt-btn{padding:14px 16px}
 }
+
+/* ── LOGIN OVERLAY ── */
+#login-overlay{position:fixed;inset:0;background:var(--navy);z-index:1000;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:24px;background-image:repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(255,255,255,.02) 39px,rgba(255,255,255,.02) 40px)}
+#login-overlay.hidden{display:none}
+.login-box{width:100%;max-width:380px;background:var(--blue);border:1.5px solid rgba(240,180,41,.3);
+  border-radius:20px;padding:32px 24px;box-shadow:var(--shadow)}
+.login-logo{text-align:center;font-size:2.5rem;margin-bottom:8px}
+.login-title{font-family:"Oswald",sans-serif;font-size:1.6rem;color:var(--gold);
+  text-align:center;margin-bottom:4px}
+.login-sub{font-size:.8rem;color:var(--gray);text-align:center;margin-bottom:24px}
+.login-divider{display:flex;align-items:center;gap:10px;margin:18px 0}
+.login-divider span{flex:1;height:1px;background:rgba(255,255,255,.1)}
+.login-divider p{font-size:.72rem;color:var(--gray);white-space:nowrap}
+.btn-google{width:100%;padding:14px;background:#fff;color:#3c4043;border:none;
+  border-radius:10px;font-size:.95rem;font-weight:600;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  font-family:"Source Sans 3",sans-serif;transition:box-shadow .2s;min-height:50px}
+.btn-google:active{box-shadow:0 0 0 3px rgba(66,133,244,.3)}
+.btn-google img{width:20px;height:20px}
+.login-input{width:100%;padding:13px 14px;background:rgba(255,255,255,.07);
+  border:1.5px solid rgba(255,255,255,.15);border-radius:10px;color:var(--white);
+  font-size:.9rem;font-family:"Source Sans 3",sans-serif;margin-bottom:10px;outline:none}
+.login-input:focus{border-color:var(--gold)}
+.login-input::placeholder{color:var(--gray)}
+.btn-login-email{width:100%;padding:14px;background:var(--gold);color:var(--navy);
+  border:none;border-radius:10px;font-family:"Oswald",sans-serif;font-size:1rem;
+  font-weight:700;letter-spacing:.05em;cursor:pointer;min-height:50px;transition:opacity .15s}
+.btn-login-email:active{opacity:.85}
+.login-toggle{text-align:center;margin-top:14px;font-size:.8rem;color:var(--gray)}
+.login-toggle a{color:var(--gold);cursor:pointer;text-decoration:underline}
+.login-error{background:rgba(192,57,43,.15);border:1px solid var(--red);border-radius:8px;
+  padding:10px 12px;font-size:.8rem;color:#f87171;margin-bottom:12px;display:none}
+.login-error.show{display:block}
+
+/* ── USER BADGE in header ── */
+.user-badge{display:flex;align-items:center;gap:8px;cursor:pointer;flex-shrink:0}
+.user-avatar{width:32px;height:32px;border-radius:50%;background:var(--gold);
+  color:var(--navy);font-family:"Oswald",sans-serif;font-size:.85rem;font-weight:700;
+  display:flex;align-items:center;justify-content:center;border:2px solid rgba(255,255,255,.2)}
+.user-menu{position:absolute;top:calc(52px + var(--st) + 8px);right:12px;
+  background:var(--blue);border:1.5px solid rgba(240,180,41,.3);border-radius:12px;
+  padding:8px;min-width:200px;z-index:300;box-shadow:var(--shadow);display:none}
+.user-menu.open{display:block}
+.user-menu-name{padding:10px 12px;font-size:.85rem;color:var(--white);font-weight:600;
+  border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:6px}
+.user-menu-email{font-size:.72rem;color:var(--gray);font-weight:400;display:block;margin-top:2px}
+.user-menu-item{width:100%;padding:10px 12px;background:transparent;border:none;
+  color:var(--light);font-size:.85rem;text-align:left;cursor:pointer;border-radius:8px;
+  font-family:"Source Sans 3",sans-serif;transition:background .15s}
+.user-menu-item:hover{background:rgba(255,255,255,.07)}
+.user-menu-item.danger{color:#f87171}
 </style>
 </head>
 <body>
+<!-- LOGIN OVERLAY -->
+<div id="login-overlay">
+  <div class="login-box">
+    <div class="login-logo">&#127796;</div>
+    <div class="login-title">Florida Class E</div>
+    <div class="login-sub">Accedi per salvare i tuoi progressi</div>
+    <button class="btn-google" id="btn-google-login">
+      <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google">
+      Accedi con Google
+    </button>
+    <div class="login-divider"><span></span><p>oppure con email</p><span></span></div>
+    <div class="login-error" id="login-error"></div>
+    <input class="login-input" type="email" id="login-email" placeholder="Email">
+    <input class="login-input" type="password" id="login-password" placeholder="Password">
+    <button class="btn-login-email" id="btn-email-login">Accedi</button>
+    <div class="login-toggle">Non hai un account? <a id="toggle-register">Registrati</a></div>
+  </div>
+</div>
+
+<!-- USER MENU -->
+<div class="user-menu" id="user-menu"></div>
+
 <header>
   <div class="hdr-flag">&#127796;</div>
   <div class="hdr-txt">
     <h1>Florida Class E &ndash; Patente USA</h1>
     <p>Studio &amp; pratica per il test FLHSMV</p>
   </div>
-  <div class="badge">2026</div>
+  <div class="user-badge" id="user-badge" style="display:none">
+    <div class="user-avatar" id="user-avatar">?</div>
+  </div>
 </header>
 <div class="mode-tabs">
   <div class="mode-tab active" data-tab="studio-screen"><span class="tab-icon">&#128218;</span>Studio</div>
@@ -433,6 +547,175 @@ if(typeof QUESTIONS === "undefined"){
   document.body.innerHTML = '<div style="padding:40px;text-align:center;font-family:sans-serif;color:#f0b429;background:#0a1628;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center"><h2 style="margin-bottom:16px;color:#f0b429">&#9888; File non trovato</h2><p style="color:#e8e0d0;max-width:400px;text-align:center;line-height:1.6">Il file <strong>fl_all.js</strong> non \xe8 presente nella stessa cartella di index.html.<br><br>Assicurati che entrambi i file siano nella cartella <strong>V2/</strong> del repository GitHub.</p></div>';
   return;
 }
+// ── FIREBASE AUTH & FIRESTORE ─────────────────────────────────────────────────
+let currentUser = null;
+
+function waitForFirebase(cb) {
+  if(window._fbAuth) { cb(); }
+  else { setTimeout(()=>waitForFirebase(cb), 100); }
+}
+
+waitForFirebase(() => {
+  const auth = window._fbAuth;
+  const db = window._fbDb;
+
+  // Auth state listener
+  window._fbOnAuthStateChanged(auth, async (user) => {
+    if(user) {
+      currentUser = user;
+      document.getElementById("login-overlay").classList.add("hidden");
+      showUserBadge(user);
+      await loadUserProgress(user.uid);
+    } else {
+      currentUser = null;
+      document.getElementById("login-overlay").classList.remove("hidden");
+      document.getElementById("user-badge").style.display = "none";
+    }
+  });
+
+  // Google login
+  document.getElementById("btn-google-login").addEventListener("click", async () => {
+    try {
+      await window._fbSignInWithPopup(auth, window._fbGoogleProvider);
+    } catch(e) {
+      showLoginError(friendlyError(e.code));
+    }
+  });
+
+  // Email login / register
+  let isRegisterMode = false;
+  document.getElementById("toggle-register").addEventListener("click", () => {
+    isRegisterMode = !isRegisterMode;
+    document.getElementById("btn-email-login").textContent = isRegisterMode ? "Registrati" : "Accedi";
+    document.getElementById("toggle-register").textContent = isRegisterMode ? "Hai già un account? Accedi" : "Registrati";
+    document.getElementById("toggle-register").previousSibling.textContent = isRegisterMode ? "Hai già un account? " : "Non hai un account? ";
+    hideLoginError();
+  });
+
+  document.getElementById("btn-email-login").addEventListener("click", async () => {
+    const email = document.getElementById("login-email").value.trim();
+    const password = document.getElementById("login-password").value;
+    if(!email || !password) { showLoginError("Inserisci email e password."); return; }
+    try {
+      if(isRegisterMode) {
+        await window._fbCreateUser(auth, email, password);
+      } else {
+        await window._fbSignInWithEmail(auth, email, password);
+      }
+    } catch(e) {
+      showLoginError(friendlyError(e.code));
+    }
+  });
+
+  // User menu
+  document.getElementById("user-badge").addEventListener("click", (e) => {
+    e.stopPropagation();
+    document.getElementById("user-menu").classList.toggle("open");
+  });
+  document.addEventListener("click", () => {
+    document.getElementById("user-menu").classList.remove("open");
+  });
+});
+
+function showUserBadge(user) {
+  const badge = document.getElementById("user-badge");
+  const avatar = document.getElementById("user-avatar");
+  const initial = (user.displayName || user.email || "U")[0].toUpperCase();
+  avatar.textContent = initial;
+  badge.style.display = "flex";
+
+  const menu = document.getElementById("user-menu");
+  menu.innerHTML = `
+    <div class="user-menu-name">
+      ${user.displayName || "Utente"}
+      <span class="user-menu-email">${user.email}</span>
+    </div>
+    <button class="user-menu-item" id="btn-signout">&#128275; Esci</button>
+  `;
+  document.getElementById("btn-signout").addEventListener("click", async () => {
+    await window._fbSignOut(window._fbAuth);
+    document.getElementById("user-menu").classList.remove("open");
+  });
+}
+
+function showLoginError(msg) {
+  const el = document.getElementById("login-error");
+  el.textContent = msg;
+  el.classList.add("show");
+}
+function hideLoginError() {
+  document.getElementById("login-error").classList.remove("show");
+}
+function friendlyError(code) {
+  const map = {
+    "auth/user-not-found": "Account non trovato. Registrati prima.",
+    "auth/wrong-password": "Password errata.",
+    "auth/email-already-in-use": "Email già in uso. Prova ad accedere.",
+    "auth/weak-password": "Password troppo corta (min. 6 caratteri).",
+    "auth/invalid-email": "Email non valida.",
+    "auth/popup-closed-by-user": "Accesso annullato.",
+    "auth/network-request-failed": "Errore di rete. Controlla la connessione.",
+    "auth/invalid-credential": "Credenziali non valide. Controlla email e password.",
+  };
+  return map[code] || "Errore: " + code;
+}
+
+// ── FIRESTORE: SAVE & LOAD PROGRESS ──────────────────────────────────────────
+async function loadUserProgress(uid) {
+  if(!window._fbDb) return;
+  try {
+    const ref = window._fbDoc(window._fbDb, "users", uid);
+    const snap = await window._fbGetDoc(ref);
+    if(snap.exists()) {
+      const data = snap.data();
+      // Restore done chapters
+      if(data.doneChapters) {
+        data.doneChapters.forEach(id => doneChapters.add(id));
+        localStorage.setItem("doneChapters", JSON.stringify([...doneChapters]));
+        renderChapterList();
+      }
+    } else {
+      // First time user — create document
+      await window._fbSetDoc(ref, {
+        email: window._fbAuth.currentUser.email,
+        displayName: window._fbAuth.currentUser.displayName || "",
+        createdAt: window._fbServerTimestamp(),
+        doneChapters: [],
+        quizzesTaken: 0,
+        lastSeen: window._fbServerTimestamp()
+      });
+    }
+  } catch(e) { console.warn("Firestore load error:", e); }
+}
+
+async function saveUserProgress() {
+  if(!currentUser || !window._fbDb) return;
+  try {
+    const ref = window._fbDoc(window._fbDb, "users", currentUser.uid);
+    await window._fbUpdateDoc(ref, {
+      doneChapters: [...doneChapters],
+      lastSeen: window._fbServerTimestamp()
+    });
+  } catch(e) { console.warn("Firestore save error:", e); }
+}
+
+async function saveQuizResult(total, correct, pct, passed, cat) {
+  if(!currentUser || !window._fbDb) return;
+  try {
+    const ref = window._fbDoc(window._fbDb, "users", currentUser.uid);
+    const snap = await window._fbGetDoc(ref);
+    const prev = snap.exists() ? (snap.data().quizzesTaken || 0) : 0;
+    await window._fbUpdateDoc(ref, {
+      quizzesTaken: prev + 1,
+      lastScore: pct,
+      lastPassed: passed,
+      lastCategory: cat || "all",
+      lastQuizAt: window._fbServerTimestamp(),
+      lastSeen: window._fbServerTimestamp()
+    });
+  } catch(e) { console.warn("Firestore quiz save error:", e); }
+}
+
 const CAT_LABELS={signs:"Signs",laws:"Laws",safety:"Safety",alcohol:"DUI",license:"License"};
 const CAT_IT={signs:"Segnaletica",laws:"Norme",safety:"Sicurezza",alcohol:"DUI/Alcol",license:"Patente"};
 
@@ -1059,6 +1342,7 @@ document.getElementById("btn-mark-done").addEventListener("click",()=>{
   localStorage.setItem("doneChapters",JSON.stringify([...doneChapters]));
   const isDone=doneChapters.has(currentChapter.id);
   if(isDone) track("chapter_completed", {chapter_id: currentChapter.id});
+  saveUserProgress();
   const mdBtn=document.getElementById("btn-mark-done");
   mdBtn.className="btn-mark-done"+(isDone?" done":"");
   mdBtn.innerHTML=isDone?"&#10003; Completato":"&#10003; Segna come completato";
@@ -1173,6 +1457,7 @@ function showResults(){
     score_pct: pct,
     passed: pass
   });
+  saveQuizResult(total, score, pct, pass, quiz[0]?quiz[0].cat:null);
   document.getElementById("res-icon").textContent=pass?"\uD83C\uDF89":"\uD83D\uDCDA";
   document.getElementById("res-verdict").textContent=pass?"SUPERATO! / PASSED!":"NON SUPERATO / NOT PASSED";
   document.getElementById("res-sub").textContent=pass?"Punteggio "+pct+"% \u2014 Ottimo!":"Punteggio "+pct+"% \u2014 Servono almeno 80%.";
