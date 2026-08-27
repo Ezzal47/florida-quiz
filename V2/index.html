@@ -395,8 +395,8 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:28px;heigh
     </button>
     <div class="login-divider"><span></span><p>oppure con email</p><span></span></div>
     <div class="login-error" id="login-error"></div>
-    <input class="login-input" type="email" id="login-email" placeholder="Email">
-    <input class="login-input" type="password" id="login-password" placeholder="Password">
+    <input class="login-input" type="email" id="login-email" placeholder="Email" autocomplete="new-password">
+    <input class="login-input" type="password" id="login-password" placeholder="Password" autocomplete="new-password">
     <button class="btn-login-email" id="btn-email-login">Accedi</button>
     <div class="login-toggle" id="forgot-wrap">
       <a id="btn-forgot-password">Password dimenticata?</a>
@@ -563,6 +563,12 @@ function waitForFirebase(cb) {
 waitForFirebase(() => {
   const auth = window._fbAuth;
   const db = window._fbDb;
+
+  // Force clear inputs on load (browser autofill bypass)
+  setTimeout(() => {
+    document.getElementById("login-email").value = "";
+    document.getElementById("login-password").value = "";
+  }, 100);
 
   // Auth state listener
   window._fbOnAuthStateChanged(auth, async (user) => {
