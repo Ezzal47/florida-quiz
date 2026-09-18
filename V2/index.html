@@ -357,7 +357,75 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:28px;heigh
 .qhi-meta{font-size:.72rem;color:var(--gray);margin-top:2px}
 .no-data{text-align:center;padding:30px;color:var(--gray);font-size:.85rem}
 
-/* ── LOGIN OVERLAY ── */
+/* ── ENGLISH MODULE ────────────────────────────────────────────────────────── */
+.eng-screen > p{font-size:.85rem;color:var(--light);line-height:1.5;margin-bottom:20px}
+.eng-tabs{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}
+.eng-tab{padding:8px 16px;border-radius:20px;font-family:"Oswald",sans-serif;font-size:.8rem;
+  font-weight:600;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;
+  border:1.5px solid rgba(240,180,41,.3);color:var(--gray);background:transparent;
+  transition:all .2s;-webkit-user-select:none;user-select:none}
+.eng-tab.active{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+.glossary-search{width:100%;padding:12px 14px;background:rgba(255,255,255,.07);
+  border:1.5px solid rgba(255,255,255,.15);border-radius:10px;color:var(--white);
+  font-size:.9rem;font-family:"Source Sans 3",sans-serif;margin-bottom:14px;outline:none}
+.glossary-search:focus{border-color:var(--gold)}
+.glossary-search::placeholder{color:var(--gray)}
+.glossary-item{background:var(--blue);border:1px solid rgba(240,180,41,.15);border-radius:12px;
+  padding:14px 16px;margin-bottom:10px}
+.gi-term{font-family:"Oswald",sans-serif;font-size:1.05rem;color:var(--gold);margin-bottom:2px}
+.gi-phonetic{font-size:.72rem;color:var(--gray);font-style:italic;margin-bottom:6px}
+.gi-it{font-size:.9rem;color:var(--white);font-weight:700;margin-bottom:4px}
+.gi-def{font-size:.81rem;color:var(--light);line-height:1.55}
+.gi-example{font-size:.76rem;color:var(--gray);font-style:italic;margin-top:8px;
+  padding-top:8px;border-top:1px solid rgba(255,255,255,.08);line-height:1.4}
+.gi-tags{margin-bottom:6px;display:flex;flex-wrap:wrap;gap:4px}
+.gi-tag{display:inline-block;font-size:.6rem;text-transform:uppercase;letter-spacing:.07em;
+  padding:2px 7px;border-radius:4px;font-weight:700}
+.gi-tag.law{background:rgba(74,158,255,.2);color:#4a9eff}
+.gi-tag.sign{background:rgba(240,180,41,.2);color:var(--gold)}
+.gi-tag.dui{background:rgba(248,113,113,.2);color:#f87171}
+.gi-tag.safety{background:rgba(82,212,138,.2);color:#52d48a}
+.gi-tag.license{background:rgba(192,132,252,.2);color:#c084fc}
+.gi-tag.grammar{background:rgba(255,255,255,.1);color:var(--light)}
+.grammar-card{background:var(--card);color:var(--navy);border-radius:14px;
+  padding:18px 16px;margin-bottom:14px;box-shadow:var(--shadow)}
+.grammar-card h3{font-family:"Oswald",sans-serif;font-size:1rem;color:var(--blue);
+  margin-bottom:10px;padding-bottom:8px;border-bottom:2px solid var(--light)}
+.grammar-card p{font-size:.85rem;line-height:1.6;color:#2d3748;margin-bottom:8px}
+.grammar-card p:last-child{margin-bottom:0}
+.grammar-card .ghigh{background:#fff8e1;border-left:3px solid var(--gold);
+  padding:8px 12px;border-radius:0 8px 8px 0;margin:8px 0;font-size:.82rem;color:#5a4000}
+.grammar-card .gwarn{background:#fdecea;border-left:3px solid var(--red);
+  padding:8px 12px;border-radius:0 8px 8px 0;margin:8px 0;font-size:.82rem;color:#7b1313}
+.grammar-card table{width:100%;border-collapse:collapse;font-size:.82rem;margin:10px 0}
+.grammar-card th{background:var(--light);color:var(--blue);font-family:"Oswald",sans-serif;
+  font-size:.72rem;text-transform:uppercase;padding:7px 10px;text-align:left}
+.grammar-card td{padding:7px 10px;border-bottom:1px solid var(--light);color:#2d3748}
+.grammar-card strong{color:var(--navy);font-weight:700}
+.guided-q-card{background:var(--card);color:var(--navy);border-radius:14px;
+  padding:18px 16px;margin-bottom:14px;box-shadow:var(--shadow)}
+.guided-q-en{font-size:clamp(.9rem,3.6vw,1rem);font-weight:600;color:var(--navy);
+  line-height:1.6;margin-bottom:12px}
+.guided-q-en .kw{background:#fff8e1;color:#b45309;border-radius:4px;
+  padding:1px 5px;font-weight:700;border-bottom:2px solid #f0b429}
+.guided-q-en .kwneg{background:#fdecea;color:#991b1b;border-radius:4px;
+  padding:1px 5px;font-weight:700;border-bottom:2px solid var(--red)}
+.guided-label{font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;
+  color:var(--gray);margin-bottom:5px;font-weight:600;display:block}
+.guided-it{background:#e8f4fd;border-left:3px solid #4a9eff;padding:10px 12px;
+  border-radius:0 8px 8px 0;font-size:.85rem;color:#1a3d6b;margin-bottom:12px;
+  line-height:1.5;font-style:italic}
+.guided-keywords{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.kw-pill{background:rgba(240,180,41,.12);border:1px solid rgba(240,180,41,.25);
+  border-radius:20px;padding:5px 11px;font-size:.75rem;color:var(--white);line-height:1.3}
+.kw-pill b{color:var(--gold)}
+.guided-nav{display:flex;gap:10px;margin-top:4px}
+.guided-nav-btn{flex:1;padding:12px;background:transparent;border:1.5px solid rgba(240,180,41,.3);
+  color:var(--gold);font-family:"Oswald",sans-serif;font-size:.85rem;font-weight:600;
+  border-radius:8px;cursor:pointer;-webkit-user-select:none;user-select:none;transition:all .15s}
+.guided-nav-btn.primary{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+.guided-nav-btn:active{opacity:.85}
+.guided-counter{text-align:center;font-size:.75rem;color:var(--gray);margin-bottom:10px}
 #login-overlay{position:fixed;inset:0;background:var(--navy);z-index:1000;
   display:flex;flex-direction:column;align-items:center;justify-content:center;
   padding:24px;background-image:repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(255,255,255,.02) 39px,rgba(255,255,255,.02) 40px)}
@@ -409,6 +477,83 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:28px;heigh
   font-family:"Source Sans 3",sans-serif;transition:background .15s}
 .user-menu-item:hover{background:rgba(255,255,255,.07)}
 .user-menu-item.danger{color:#f87171}
+
+/* ── ENGLISH MODULE ── */
+.eng-section{margin-bottom:24px}
+.eng-section-title{font-family:"Oswald",sans-serif;font-size:.8rem;text-transform:uppercase;
+  letter-spacing:.1em;color:var(--gold);margin-bottom:12px;font-weight:600}
+/* Glossary */
+.gloss-search{width:100%;padding:12px 14px;background:rgba(255,255,255,.07);
+  border:1.5px solid rgba(255,255,255,.15);border-radius:10px;color:var(--white);
+  font-size:.9rem;font-family:"Source Sans 3",sans-serif;margin-bottom:12px;outline:none}
+.gloss-search:focus{border-color:var(--gold)}
+.gloss-search::placeholder{color:var(--gray)}
+.gloss-filter{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.gloss-filter-btn{background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.12);
+  border-radius:20px;padding:5px 12px;color:var(--gray);font-size:.72rem;cursor:pointer;
+  font-family:"Source Sans 3",sans-serif;transition:all .15s;-webkit-user-select:none;user-select:none}
+.gloss-filter-btn.active{background:var(--gold);color:var(--navy);border-color:var(--gold);font-weight:700}
+.gloss-grid{display:flex;flex-direction:column;gap:8px}
+.gloss-card{background:var(--blue);border:1.5px solid rgba(240,180,41,.15);border-radius:12px;
+  padding:14px 16px;cursor:pointer;transition:border-color .15s}
+.gloss-card:active{border-color:var(--gold)}
+.gloss-card.open{border-color:var(--gold)}
+.gloss-term{font-family:"Oswald",sans-serif;font-size:1rem;color:var(--white);
+  display:flex;align-items:center;justify-content:space-between}
+.gloss-term .cat-tag{font-size:.6rem;background:rgba(240,180,41,.15);color:var(--gold);
+  border-radius:4px;padding:2px 7px;letter-spacing:.05em;text-transform:uppercase}
+.gloss-it{font-size:.88rem;color:var(--gold);margin-top:2px;font-weight:600}
+.gloss-detail{display:none;margin-top:10px;padding-top:10px;
+  border-top:1px solid rgba(255,255,255,.08)}
+.gloss-card.open .gloss-detail{display:block}
+.gloss-context{font-size:.82rem;color:var(--light);line-height:1.6;margin-bottom:8px}
+.gloss-example{background:rgba(255,255,255,.05);border-radius:8px;padding:10px 12px}
+.gloss-example .en{font-size:.82rem;color:var(--white);margin-bottom:4px;line-height:1.5}
+.gloss-example .it{font-size:.78rem;color:var(--gray);font-style:italic;line-height:1.5}
+.gloss-example em{color:var(--gold);font-style:normal;font-weight:700}
+/* Decode */
+.decode-card{background:var(--card);color:var(--navy);border-radius:14px;
+  padding:18px;margin-bottom:12px;box-shadow:var(--shadow)}
+.decode-card h4{font-family:"Oswald",sans-serif;font-size:.95rem;color:var(--blue);
+  margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.decode-card h4 .badge-num{background:var(--gold);color:var(--navy);border-radius:50%;
+  width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;
+  font-size:.7rem;font-weight:700;flex-shrink:0}
+.decode-rule{font-size:.85rem;line-height:1.6;color:#2d3748;margin-bottom:8px}
+.decode-rule strong{color:var(--navy)}
+.decode-example-box{background:#f0f4ff;border-left:3px solid #4a9eff;border-radius:0 8px 8px 0;
+  padding:10px 12px;margin-top:8px}
+.decode-example-box .q-orig{font-size:.82rem;font-weight:600;color:#1a202c;margin-bottom:4px;line-height:1.45}
+.decode-example-box .q-key{font-size:.78rem;color:#4a5568;margin-bottom:6px;line-height:1.4}
+.decode-example-box .q-it{font-size:.78rem;color:#2b7cb8;font-style:italic;line-height:1.4}
+.key-word{background:#fef3c7;color:#92400e;border-radius:3px;padding:1px 4px;font-weight:700}
+/* Training mode */
+.train-card{background:var(--card);color:var(--navy);border-radius:14px;
+  padding:18px 16px;box-shadow:var(--shadow)}
+.train-q-it{font-size:.95rem;font-weight:600;color:var(--navy);line-height:1.5;margin-bottom:8px}
+.train-q-en{font-size:.82rem;color:#4a5568;font-style:italic;line-height:1.45;
+  margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid #e8e0d0;display:none}
+.train-q-en.show{display:block}
+.train-opts{display:flex;flex-direction:column;gap:8px;margin-bottom:14px}
+.train-opt{padding:12px 14px;border-radius:10px;border:2px solid #d8d0c4;
+  background:#fdfaf5;cursor:pointer;font-size:.88rem;color:#1a202c;
+  text-align:left;font-family:"Source Sans 3",sans-serif;transition:all .15s}
+.train-opt .opt-en{font-weight:600;display:block}
+.train-opt .opt-it{font-size:.76rem;color:#5a6478;font-style:italic;margin-top:3px;display:block}
+.train-opt.correct{border-color:var(--green)!important;background:#e6f7ef!important}
+.train-opt.wrong{border-color:var(--red)!important;background:#fdecea!important}
+.train-opt:disabled{cursor:default}
+.btn-show-en{background:transparent;border:1.5px solid rgba(66,153,225,.4);color:#4a9eff;
+  padding:8px 14px;border-radius:8px;font-size:.78rem;cursor:pointer;margin-bottom:10px;
+  font-family:"Source Sans 3",sans-serif;transition:all .15s}
+.train-nav{display:flex;gap:8px;margin-top:10px}
+.train-nav button{flex:1;padding:13px;border-radius:10px;font-family:"Oswald",sans-serif;
+  font-size:.9rem;font-weight:600;letter-spacing:.05em;cursor:pointer;border:none;
+  text-transform:uppercase;transition:opacity .15s;min-height:48px}
+.train-nav .btn-next-train{background:var(--blue);color:#fff}
+.train-score-bar{display:flex;justify-content:space-between;font-size:.75rem;
+  color:var(--gray);margin-bottom:14px}
+.train-score-bar b{color:var(--gold)}
 </style>
 </head>
 <body>
@@ -449,6 +594,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:28px;heigh
 </header>
 <div class="mode-tabs">
   <div class="mode-tab active" data-tab="studio-screen"><span class="tab-icon">&#128218;</span>Studio</div>
+  <div class="mode-tab" data-tab="english-screen"><span class="tab-icon">&#127468;&#127463;</span>Inglese</div>
   <div class="mode-tab" data-tab="setup-screen"><span class="tab-icon">&#127381;</span>Test</div>
   <div class="mode-tab" data-tab="progress-screen"><span class="tab-icon">&#128202;</span>Progressi</div>
 </div>
@@ -504,6 +650,243 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:28px;heigh
   <button class="btn-mark-done" id="btn-mark-done">&#10003; Segna come completato</button>
   <div style="height:8px"></div>
   <button class="btn-primary" id="btn-practice-chapter" style="margin-top:0;display:none">&#127381; Pratica su questo capitolo</button>
+</div>
+
+<!-- ENGLISH MODULE SCREEN -->
+<div id="english-screen" class="screen eng-screen">
+  <div class="studio-header">
+    <h2>&#127482;&#127480; Inglese dell'esame</h2>
+    <p>Impara le parole chiave e come leggere le domande — così riconosci la risposta giusta anche senza capire tutto.</p>
+  </div>
+
+  <div class="eng-tabs">
+    <button class="eng-tab active" data-eng="glossary">&#128218; Glossario</button>
+    <button class="eng-tab" data-eng="grammar">&#128221; Grammatica</button>
+    <button class="eng-tab" data-eng="guided">&#128270; Lettura guidata</button>
+  </div>
+
+  <!-- GLOSSARY -->
+  <div id="eng-glossary">
+    <input class="glossary-search" id="glossary-search" type="text" placeholder="Cerca termine... es: yield, must, BAC">
+    <div id="glossary-list"></div>
+  </div>
+
+  <!-- GRAMMAR GUIDE -->
+  <div id="eng-grammar" style="display:none">
+    <div class="grammar-card">
+      <h3>&#128273; MUST vs MAY vs SHOULD</h3>
+      <p>Queste tre parole cambiano completamente il significato di una domanda:</p>
+      <table>
+        <tr><th>Parola</th><th>Significato</th><th>In italiano</th></tr>
+        <tr><td><strong>MUST</strong></td><td>Obbligo assoluto — è la legge</td><td>DEVE / DEVI</td></tr>
+        <tr><td><strong>MUST NOT</strong></td><td>Divieto assoluto</td><td>NON DEVE / VIETATO</td></tr>
+        <tr><td><strong>MAY</strong></td><td>Permesso — puoi farlo</td><td>PUÒ / PUOI</td></tr>
+        <tr><td><strong>SHOULD</strong></td><td>Consigliato — è buona pratica</td><td>DOVREBBE</td></tr>
+        <tr><td><strong>REQUIRED</strong></td><td>= MUST — obbligatorio</td><td>OBBLIGATORIO</td></tr>
+        <tr><td><strong>PROHIBITED</strong></td><td>= MUST NOT — vietato</td><td>PROIBITO</td></tr>
+      </table>
+      <div class="ghigh"><b>Esempio:</b> "You <u>must</u> stop at a red light" = Devi fermarti (obbligo). "You <u>may</u> turn right on red" = Puoi svoltare (permesso, non obbligo).</div>
+    </div>
+
+    <div class="grammar-card">
+      <h3>&#9888;&#65039; Domande con NOT ed EXCEPT — TRAPPOLE!</h3>
+      <p>Le domande più difficili chiedono cosa NON si deve fare. Leggi sempre la domanda due volte:</p>
+      <div class="gwarn"><b>"Which is NOT required?"</b> = Quale NON è richiesto? → cerca l'eccezione, non la regola!</div>
+      <div class="gwarn"><b>"You must stop for a school bus EXCEPT when..."</b> = Devi fermarti TRANNE quando... → cerca quando NON devi fermarti.</div>
+      <p><strong>Trucco:</strong> Se vedi NOT, EXCEPT, UNLESS nella domanda — fermati, rileggi lentamente, e cerca la risposta che è diversa dalle altre.</p>
+    </div>
+
+    <div class="grammar-card">
+      <h3>&#128161; UNLESS vs EXCEPT vs IF</h3>
+      <table>
+        <tr><th>Parola</th><th>In italiano</th><th>Come funziona</th></tr>
+        <tr><td><strong>UNLESS</strong></td><td>A meno che</td><td>Regola valida TRANNE in quel caso</td></tr>
+        <tr><td><strong>EXCEPT</strong></td><td>Tranne / Ad eccezione</td><td>Uguale a UNLESS</td></tr>
+        <tr><td><strong>IF</strong></td><td>Se</td><td>Condizione — cosa succede SE...</td></tr>
+        <tr><td><strong>WHEN</strong></td><td>Quando</td><td>In quale situazione</td></tr>
+        <tr><td><strong>PRIOR TO</strong></td><td>Prima di</td><td>Sequenza — fai X prima di Y</td></tr>
+      </table>
+      <div class="ghigh"><b>Esempio:</b> "All traffic must stop for a school bus <u>except</u> on a divided highway" = Tutto il traffico deve fermarsi TRANNE sulle autostrade divise.</div>
+    </div>
+
+    <div class="grammar-card">
+      <h3>&#127919; Strategia per rispondere — 4 passi</h3>
+      <ol style="padding-left:18px;font-size:.85rem;color:#2d3748;line-height:2">
+        <li><strong>Leggi la domanda cercando: NOT, EXCEPT, UNLESS</strong> — se li trovi, evidenziali mentalmente</li>
+        <li><strong>Identifica la parola chiave del soggetto</strong> (school bus? BAC? yield? intersection?)</li>
+        <li><strong>Traduci la domanda in italiano nella tua testa</strong> usando il glossario che hai studiato</li>
+        <li><strong>Elimina le risposte ovviamente sbagliate</strong> — di solito 2 si eliminano subito</li>
+      </ol>
+      <div class="ghigh"><b>Ricorda:</b> Non devi capire ogni parola — devi capire la domanda. Le parole tecniche sono sempre le stesse 50-60 parole.</div>
+    </div>
+
+    <div class="grammar-card">
+      <h3>&#128241; Numeri e misure importanti</h3>
+      <table>
+        <tr><th>Numero</th><th>Cosa significa</th></tr>
+        <tr><td><strong>0.08%</strong></td><td>BAC limit adulti (DUI)</td></tr>
+        <tr><td><strong>0.02%</strong></td><td>BAC limit under 21</td></tr>
+        <tr><td><strong>0.04%</strong></td><td>BAC limit CDL drivers</td></tr>
+        <tr><td><strong>10 days</strong></td><td>Tempo per richiedere udienza ALS dopo DUI</td></tr>
+        <tr><td><strong>15 feet</strong></td><td>Distanza da idrante / binario ferroviario</td></tr>
+        <tr><td><strong>30 feet</strong></td><td>Distanza da segnale STOP</td></tr>
+        <tr><td><strong>500 feet</strong></td><td>Distanza da autopompa / abbaglianti in arrivo</td></tr>
+        <tr><td><strong>3 seconds</strong></td><td>Distanza di sicurezza ideale</td></tr>
+        <tr><td><strong>80% / 40/50</strong></td><td>Punteggio per superare l'esame</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- GUIDED READING -->
+  <div id="eng-guided" style="display:none">
+    <div class="guided-counter" id="guided-counter">Domanda 1 di 10</div>
+    <div class="guided-q-card" id="guided-card">
+      <span class="guided-label">&#127760; Domanda originale (EN)</span>
+      <div class="guided-q-en" id="guided-en"></div>
+      <span class="guided-label">&#128205; Parole chiave</span>
+      <div class="guided-keywords" id="guided-kw"></div>
+      <span class="guided-label">&#127470;&#127481; Traduzione semplificata</span>
+      <div class="guided-it" id="guided-it"></div>
+    </div>
+    <div class="guided-nav">
+      <button class="guided-nav-btn" id="guided-prev">&#8592; Prec.</button>
+      <button class="guided-nav-btn primary" id="guided-next">Succ. &#8594;</button>
+    </div>
+  </div>
+</div>
+
+<!-- ENGLISH MODULE SCREEN -->
+<div id="english-screen" class="screen">
+  <div class="studio-header">
+    <h2>&#127468;&#127463; Inglese dell'esame</h2>
+    <p>Impara le parole chiave e le strutture grammaticali usate nelle domande del test FLHSMV.</p>
+  </div>
+
+  <!-- Sub-tabs -->
+  <div style="display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap">
+    <button class="eng-tab-btn active" data-eng="glossary" style="flex:1;min-width:80px;padding:10px 8px;background:var(--gold);color:var(--navy);border:none;border-radius:10px;font-family:'Oswald',sans-serif;font-size:.8rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;cursor:pointer">&#128220; Glossario</button>
+    <button class="eng-tab-btn" data-eng="decode" style="flex:1;min-width:80px;padding:10px 8px;background:rgba(255,255,255,.07);color:var(--gray);border:1.5px solid rgba(255,255,255,.12);border-radius:10px;font-family:'Oswald',sans-serif;font-size:.8rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;cursor:pointer">&#128269; Decodifica</button>
+    <button class="eng-tab-btn" data-eng="training" style="flex:1;min-width:80px;padding:10px 8px;background:rgba(255,255,255,.07);color:var(--gray);border:1.5px solid rgba(255,255,255,.12);border-radius:10px;font-family:'Oswald',sans-serif;font-size:.8rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;cursor:pointer">&#127381; Training</button>
+  </div>
+
+  <!-- GLOSSARY -->
+  <div id="eng-glossary">
+    <input class="gloss-search" id="gloss-search" placeholder="&#128269; Cerca termine... (es: yield, must, BAC)">
+    <div class="gloss-filter" id="gloss-filter">
+      <button class="gloss-filter-btn active" data-cat="all">Tutti</button>
+      <button class="gloss-filter-btn" data-cat="verbi">Verbi chiave</button>
+      <button class="gloss-filter-btn" data-cat="segnali">Segnali</button>
+      <button class="gloss-filter-btn" data-cat="legge">Legge</button>
+      <button class="gloss-filter-btn" data-cat="alcol">Alcol/DUI</button>
+      <button class="gloss-filter-btn" data-cat="patente">Patente</button>
+      <button class="gloss-filter-btn" data-cat="strada">Strada</button>
+    </div>
+    <div class="gloss-grid" id="gloss-grid"></div>
+  </div>
+
+  <!-- DECODE -->
+  <div id="eng-decode" style="display:none">
+    <div class="decode-card">
+      <h4><span class="badge-num">1</span> MUST vs MAY vs SHOULD</h4>
+      <div class="decode-rule">
+        <strong>MUST</strong> = <em>deve / è obbligatorio</em> — nessuna eccezione<br>
+        <strong>MAY</strong> = <em>può / è permesso</em> — facoltativo o condizionale<br>
+        <strong>SHOULD</strong> = <em>dovrebbe</em> — raccomandato ma non obbligatorio<br>
+        <strong>SHALL</strong> = equivale a MUST nel linguaggio legale
+      </div>
+      <div class="decode-example-box">
+        <div class="q-orig">You <span class="key-word">must</span> stop when a school bus has flashing red lights.</div>
+        <div class="q-it">&#8594; Devi fermarti obbligatoriamente — nessuna eccezione.</div>
+        <div class="q-orig" style="margin-top:8px">You <span class="key-word">may</span> pass on the right when...</div>
+        <div class="q-it">&#8594; Puoi sorpassare a destra solo in certi casi — non sempre.</div>
+      </div>
+    </div>
+    <div class="decode-card">
+      <h4><span class="badge-num">2</span> UNLESS / EXCEPT</h4>
+      <div class="decode-rule">
+        <strong>UNLESS</strong> = <em>a meno che / eccetto quando</em><br>
+        <strong>EXCEPT</strong> = <em>tranne / ad eccezione di</em><br>
+        Queste parole <strong>invertono il significato</strong> della frase — attenzione!
+      </div>
+      <div class="decode-example-box">
+        <div class="q-orig">You must stay in the right lane <span class="key-word">except</span> when passing.</div>
+        <div class="q-it">&#8594; Stai sempre a destra, TRANNE quando sorpassi.</div>
+        <div class="q-orig" style="margin-top:8px">Speed limit is 30 mph <span class="key-word">unless</span> otherwise posted.</div>
+        <div class="q-it">&#8594; Il limite è 30 mph, A MENO CHE non ci sia un cartello diverso.</div>
+      </div>
+    </div>
+    <div class="decode-card">
+      <h4><span class="badge-num">3</span> AT LEAST / NO MORE THAN / WITHIN</h4>
+      <div class="decode-rule">
+        <strong>AT LEAST X</strong> = <em>almeno X</em> — X è il minimo<br>
+        <strong>NO MORE THAN X</strong> = <em>non più di X</em> — X è il massimo<br>
+        <strong>WITHIN X feet/days</strong> = <em>entro X piedi/giorni</em>
+      </div>
+      <div class="decode-example-box">
+        <div class="q-orig">Signal <span class="key-word">at least</span> 100 feet before turning.</div>
+        <div class="q-it">&#8594; Segnala MINIMO 100 piedi prima — puoi segnalare prima, non dopo.</div>
+        <div class="q-orig" style="margin-top:8px">Park <span class="key-word">no more than</span> 12 inches from the curb.</div>
+        <div class="q-it">&#8594; Parcheggia MASSIMO a 12 pollici dal marciapiede.</div>
+      </div>
+    </div>
+    <div class="decode-card">
+      <h4><span class="badge-num">4</span> WHICH / WHAT IS NOT / INCORRECT</h4>
+      <div class="decode-rule">
+        Quando vedi <strong>"which is NOT"</strong>, <strong>"what is INCORRECT"</strong>, <strong>"which does NOT"</strong>:<br>
+        Stai cercando l'opzione <strong>SBAGLIATA o FALSA</strong>, non quella giusta!<br>
+        Leggi tutte le opzioni e trova quella che <em>non è vera</em>.
+      </div>
+      <div class="decode-example-box">
+        <div class="q-orig">Which of the following is <span class="key-word">NOT</span> a reason to use your horn?</div>
+        <div class="q-it">&#8594; Cerca l'uso del clacson che NON è corretto — le altre 3 sono usi legittimi.</div>
+      </div>
+    </div>
+    <div class="decode-card">
+      <h4><span class="badge-num">5</span> FIRST / IMMEDIATELY / BEFORE</h4>
+      <div class="decode-rule">
+        <strong>FIRST</strong> = <em>prima cosa da fare</em> — l'ordine conta<br>
+        <strong>IMMEDIATELY</strong> = <em>subito / immediatamente</em><br>
+        <strong>BEFORE</strong> = <em>prima di</em> — sequenza obbligatoria
+      </div>
+      <div class="decode-example-box">
+        <div class="q-orig">What is the <span class="key-word">first</span> thing you should do when your accelerator sticks?</div>
+        <div class="q-it">&#8594; Non la cosa giusta in generale — la PRIMA azione da fare.</div>
+      </div>
+    </div>
+    <div class="decode-card">
+      <h4><span class="badge-num">6</span> Struttura tipica delle domande</h4>
+      <div class="decode-rule">
+        La maggior parte delle domande segue questo schema:<br>
+        <strong>[Situazione] + [Cosa devi fare?]</strong><br><br>
+        Leggi la domanda in questo ordine:<br>
+        1. Identifica la <strong>situazione</strong> (dove sei, cosa succede)<br>
+        2. Trova la <strong>parola chiave</strong> (must/may/first/not/unless)<br>
+        3. Leggi le opzioni e <strong>elimina</strong> quelle ovviamente sbagliate<br>
+        4. Tra quelle rimaste, scegli la più <strong>specifica e completa</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- TRAINING -->
+  <div id="eng-training" style="display:none">
+    <div class="studio-header" style="margin-bottom:12px">
+      <p>Le domande appaiono prima in <strong>italiano</strong>. Quando sei pronto, vedi la versione inglese originale. Allenati a riconoscere le parole chiave.</p>
+    </div>
+    <div class="train-score-bar">
+      <span>Domanda <b id="tr-cur">1</b> / <b id="tr-tot">20</b></span>
+      <span>&#10003; <b id="tr-score">0</b> corrette</span>
+    </div>
+    <div class="train-card" id="train-card">
+      <div class="train-q-it" id="tr-q-it"></div>
+      <button class="btn-show-en" id="btn-show-en">&#128064; Vedi domanda in inglese</button>
+      <div class="train-q-en" id="tr-q-en"></div>
+      <div class="train-opts" id="tr-opts"></div>
+      <div class="feedback-box" id="tr-feedback"></div>
+      <div class="train-nav" id="tr-nav" style="display:none">
+        <button class="btn-next-train" id="btn-next-train">Prossima &#8594;</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- PROGRESS SCREEN -->
@@ -777,7 +1160,7 @@ function showUserBadge(user) {
   `;
   document.getElementById("btn-goto-progress").addEventListener("click", () => {
     document.getElementById("user-menu").classList.remove("open");
-    document.querySelectorAll(".mode-tab").forEach((t,i)=>t.classList.toggle("active",i===2));
+    document.querySelectorAll(".mode-tab").forEach((t,i)=>t.classList.toggle("active",i===3));
     document.getElementById("chapter-view").classList.remove("active");
     showScreen("progress-screen");
     renderProgressScreen();
@@ -970,6 +1353,412 @@ async function renderProgressScreen() {
     }).join("");
   }
 }
+
+// ── ENGLISH MODULE DATA ───────────────────────────────────────────────────────
+const GLOSSARY = [
+  {term:"MUST",phonetic:"[mʌst]",it:"DEVE / È OBBLIGATORIO",def:"Obbligo assoluto — non hai scelta. È la parola più importante nelle domande dell'esame.",example:"You MUST stop at a red light = Devi fermarti al semaforo rosso.",tags:["grammar"]},
+  {term:"MUST NOT",phonetic:"[mʌst nɒt]",it:"NON DEVE / È VIETATO",def:"Divieto assoluto. Equivale a 'è illegale'.",example:"You MUST NOT pass a school bus = Non puoi superare uno scuolabus.",tags:["grammar"]},
+  {term:"MAY",phonetic:"[meɪ]",it:"PUÒ / È PERMESSO",def:"Permesso o possibilità — hai la facoltà di farlo ma non è obbligatorio.",example:"You MAY turn right on red = Puoi svoltare a destra col rosso (se sicuro).",tags:["grammar"]},
+  {term:"SHOULD",phonetic:"[ʃʊd]",it:"DOVREBBE / È CONSIGLIATO",def:"Raccomandazione — è la cosa giusta da fare, ma non sempre obbligo legale.",example:"You SHOULD check mirrors before changing lanes = Dovresti controllare gli specchi.",tags:["grammar"]},
+  {term:"REQUIRED",phonetic:"[rɪˈkwaɪərd]",it:"OBBLIGATORIO / RICHIESTO",def:"Sinonimo di MUST — qualcosa che la legge impone.",example:"Insurance is REQUIRED in Florida = L'assicurazione è obbligatoria in Florida.",tags:["grammar"]},
+  {term:"PERMITTED",phonetic:"[pəˈmɪtɪd]",it:"PERMESSO / CONSENTITO",def:"Sinonimo di MAY — qualcosa che è legalmente consentito.",example:"Passing on the right is only PERMITTED when... = Superare a destra è permesso solo quando...",tags:["grammar"]},
+  {term:"PROHIBITED",phonetic:"[prəˈhɪbɪtɪd]",it:"PROIBITO / VIETATO",def:"Sinonimo di MUST NOT — qualcosa che la legge vieta.",example:"Lane splitting is PROHIBITED in Florida = Il lane splitting è vietato.",tags:["grammar"]},
+  {term:"UNLESS",phonetic:"[ənˈlɛs]",it:"A MENO CHE / TRANNE SE",def:"Introduce un'eccezione alla regola. La regola vale sempre tranne nel caso specificato.",example:"Do not pass UNLESS it is safe = Non superare a meno che sia sicuro.",tags:["grammar"]},
+  {term:"EXCEPT",phonetic:"[ɪkˈsɛpt]",it:"TRANNE / AD ECCEZIONE DI",def:"Introduce un'eccezione. Simile a UNLESS ma più diretto.",example:"Stop for school bus EXCEPT on divided highways = Fermati tranne sulle autostrade divise.",tags:["grammar"]},
+  {term:"PRIOR TO",phonetic:"[ˈpraɪər tuː]",it:"PRIMA DI",def:"Prima di qualcosa. Indica sequenza temporale.",example:"Signal PRIOR TO turning = Segnala prima di svoltare.",tags:["grammar"]},
+  {term:"RIGHT OF WAY",phonetic:"[raɪt əv weɪ]",it:"DIRITTO DI PRECEDENZA",def:"Il diritto di passare per primo. Chi 'ha il right of way' passa prima.",example:"Pedestrians have the RIGHT OF WAY at crosswalks = I pedoni hanno la precedenza.",tags:["law"]},
+  {term:"YIELD",phonetic:"[jiːld]",it:"CEDERE LA PRECEDENZA",def:"Rallentare o fermarsi per far passare un altro veicolo o pedone.",example:"YIELD to oncoming traffic = Cedi il passo al traffico in arrivo.",tags:["law","sign"]},
+  {term:"CROSSWALK",phonetic:"[ˈkrɒswɔːk]",it:"ATTRAVERSAMENTO PEDONALE",def:"Le strisce bianche sulla strada dove i pedoni attraversano.",example:"Stop before the CROSSWALK = Fermati prima dell'attraversamento pedonale.",tags:["sign","law"]},
+  {term:"INTERSECTION",phonetic:"[ˌɪntəˈsɛkʃən]",it:"INCROCIO",def:"Punto dove due o più strade si incontrano.",example:"Come to a full stop at the INTERSECTION = Fermati completamente all'incrocio.",tags:["law"]},
+  {term:"MEDIAN",phonetic:"[ˈmiːdiən]",it:"SPARTITRAFFICO / MEDIANO",def:"La barriera fisica che divide le corsie di traffico opposto su un'autostrada.",example:"A divided highway has a physical MEDIAN = Un'autostrada divisa ha uno spartitraffico.",tags:["sign","law"]},
+  {term:"SHOULDER",phonetic:"[ˈʃoʊldər]",it:"BANCHINA / CORSIA DI EMERGENZA",def:"La parte della strada ai lati delle corsie di traffico, usata per emergenze.",example:"Pull over to the SHOULDER = Accosta alla banchina.",tags:["safety"]},
+  {term:"CURB",phonetic:"[kɜːrb]",it:"CORDOLO / BORDO DEL MARCIAPIEDE",def:"Il bordo rialzato tra la strada e il marciapiede. I colori indicano le regole di parcheggio.",example:"Park within 12 inches of the CURB = Parcheggia entro 12 pollici dal cordolo.",tags:["law"]},
+  {term:"MERGE",phonetic:"[mɜːrdʒ]",it:"IMMETTERSI / CONFLUIRE",def:"Entrare nel flusso del traffico da una rampa o corsia laterale.",example:"MERGE safely onto the highway = Immettiti in sicurezza sull'autostrada.",tags:["law","safety"]},
+  {term:"FLASHING",phonetic:"[ˈflæʃɪŋ]",it:"LAMPEGGIANTE",def:"Luce che si accende e spegne. Flashing red = STOP. Flashing yellow = cautela.",example:"FLASHING red light means stop completely = Luce rossa lampeggiante: fermati.",tags:["sign"]},
+  {term:"DIVIDED HIGHWAY",phonetic:"[dɪˈvaɪdɪd ˈhaɪweɪ]",it:"AUTOSTRADA DIVISA",def:"Strada con spartitraffico fisico che separa le corsie di senso opposto.",example:"On a DIVIDED HIGHWAY only same-direction traffic stops for school bus.",tags:["law","sign"]},
+  {term:"HOV LANE",phonetic:"[eɪtʃ oʊ viː leɪn]",it:"CORSIA CARPOOL / ALTA OCCUPAZIONE",def:"High Occupancy Vehicle — riservata a veicoli con almeno 2 persone. Rombo bianco.",example:"The HOV LANE requires two or more occupants.",tags:["sign","law"]},
+  {term:"BAC",phonetic:"[biː eɪ siː]",it:"TASSO ALCOLEMICO",def:"Blood Alcohol Concentration — percentuale di alcol nel sangue. Limite Florida adulti: 0.08%.",example:"A BAC of 0.08% or higher is illegal = Un BAC di 0.08% o superiore è illegale.",tags:["dui"]},
+  {term:"DUI",phonetic:"[diː juː aɪ]",it:"GUIDA IN STATO DI EBBREZZA",def:"Driving Under the Influence — guidare sotto l'effetto di alcol o droghe.",example:"A DUI conviction stays on your record = Una condanna DUI rimane nel casellario.",tags:["dui"]},
+  {term:"IMPLIED CONSENT",phonetic:"[ɪmˈplaɪd kənˈsɛnt]",it:"CONSENSO IMPLICITO",def:"Guidando in Florida hai già acconsentito al test del respiro se fermato per DUI.",example:"IMPLIED CONSENT means refusing the test costs you your license.",tags:["dui","law"]},
+  {term:"IID / INTERLOCK",phonetic:"[aɪ aɪ diː]",it:"ALCOLIMETRO SULL'AUTO",def:"Ignition Interlock Device — devi soffiare per avviare. Obbligatorio dopo certi DUI.",example:"An IID requires a breath sample before starting the car.",tags:["dui"]},
+  {term:"FR-44",phonetic:"[ɛf ɑːr fɔːrtiˈfɔːr]",it:"ASSICURAZIONE POST-DUI",def:"Assicurazione ad alta copertura obbligatoria dopo DUI in Florida. Più costosa dell'SR-22.",example:"After DUI you need FR-44 insurance for 3 years.",tags:["dui","license"]},
+  {term:"PIP",phonetic:"[pɪp]",it:"ASSICURAZIONE INFORTUNI PERSONALI",def:"Personal Injury Protection — obbligatoria in Florida ($10.000 min.). Copre le tue spese mediche.",example:"PIP covers your medical costs regardless of fault.",tags:["law","license"]},
+  {term:"PDL",phonetic:"[piː diː ɛl]",it:"RESPONSABILITÀ DANNI MATERIALI",def:"Property Damage Liability — obbligatoria in Florida ($10.000 min.) per danni alle proprietà altrui.",example:"PDL covers damage to other vehicles or property.",tags:["law","license"]},
+  {term:"SUSPENSION",phonetic:"[səˈspɛnʃən]",it:"SOSPENSIONE (temporanea)",def:"Ritiro temporaneo della patente. Dopo il periodo puoi riavere la patente.",example:"A 30-day SUSPENSION means no driving for 30 days.",tags:["license"]},
+  {term:"REVOCATION",phonetic:"[ˌrɛvəˈkeɪʃən]",it:"REVOCA (permanente)",def:"Cancellazione permanente della patente. Devi rifare domanda e riesame.",example:"A REVOCATION is more serious than a suspension.",tags:["license"]},
+  {term:"CONVICTION",phonetic:"[kənˈvɪkʃən]",it:"CONDANNA",def:"Verdetto di colpevolezza. Rimane nel casellario.",example:"A DUI CONVICTION adds points to your record.",tags:["license","law"]},
+  {term:"VIOLATION",phonetic:"[ˌvaɪəˈleɪʃən]",it:"INFRAZIONE / VIOLAZIONE",def:"Quando non rispetti una legge del traffico. Può aggiungere punti al casellario.",example:"A speeding VIOLATION adds 3 points.",tags:["license","law"]},
+  {term:"FELONY",phonetic:"[ˈfɛləni]",it:"REATO GRAVE",def:"Reato penale grave. Es: DUI con lesioni gravi.",example:"DUI manslaughter is a 2nd-degree FELONY = omicidio colposo da DUI è un reato grave.",tags:["license","dui"]},
+  {term:"MISDEMEANOR",phonetic:"[ˌmɪsdɪˈmiːnər]",it:"REATO MINORE",def:"Reato penale meno grave di un felony.",example:"A 2nd DUI refusal is a 1st-degree MISDEMEANOR.",tags:["license","dui"]},
+  {term:"GDL",phonetic:"[dʒiː diː ɛl]",it:"PATENTE GRADUATA",def:"Graduated Driver Licensing — sistema a fasi per i conducenti giovani (15-18 anni).",example:"The GDL system has 3 phases = Il sistema GDL ha 3 fasi.",tags:["license"]},
+  {term:"LEARNER'S LICENSE",phonetic:"[ˈlɜːrnərz ˈlaɪsəns]",it:"PERMESSO / FOGLIO ROSA",def:"Primo documento di guida (da 15 anni). Solo con supervisore 21+.",example:"A LEARNER'S LICENSE requires a supervising driver.",tags:["license"]},
+  {term:"FOLLOWING DISTANCE",phonetic:"[ˈfɒloʊɪŋ ˈdɪstəns]",it:"DISTANZA DI SICUREZZA",def:"Spazio tra la tua auto e quella davanti. Regola dei 3 secondi in condizioni ideali.",example:"Maintain a safe FOLLOWING DISTANCE = Mantieni una distanza di sicurezza.",tags:["safety"]},
+  {term:"HYDROPLANING",phonetic:"[ˈhaɪdrəpleɪnɪŋ]",it:"ACQUAPLANING",def:"Quando gli pneumatici perdono contatto con l'acqua. Inizia a ~35 mph su strada bagnata.",example:"HYDROPLANING can begin at 35 mph on wet roads.",tags:["safety"]},
+  {term:"RECKLESS DRIVING",phonetic:"[ˈrɛkləs ˈdraɪvɪŋ]",it:"GUIDA SPERICOLATA",def:"Guidare con totale disprezzo per la sicurezza. Reato penale in Florida (4 punti).",example:"RECKLESS DRIVING is a criminal offense in Florida.",tags:["safety","law"]},
+  {term:"MOVE OVER LAW",phonetic:"[muːv ˈoʊvər lɔː]",it:"LEGGE MOVE OVER",def:"Obbligo di spostarsi di corsia (o rallentare 20 mph) superando veicoli di emergenza fermi.",example:"Florida MOVE OVER LAW applies to tow trucks too.",tags:["law","safety"]},
+  {term:"HAZARD LIGHTS",phonetic:"[ˈhæzərd laɪts]",it:"LUCI DI EMERGENZA / QUATTRO FRECCE",def:"Luci lampeggianti su tutti e quattro gli angoli. Si usano in emergenza.",example:"Turn on HAZARD LIGHTS if you break down = Accendi le quattro frecce in caso di guasto.",tags:["safety","sign"]},
+  {term:"BLOWOUT",phonetic:"[ˈbloʊaʊt]",it:"FORATURA / SCOPPIO PNEUMATICO",def:"Scoppio improvviso di un pneumatico. Non frenare subito — togli il gas gradualmente.",example:"In a BLOWOUT ease off the gas first = In caso di scoppio, togli prima il gas.",tags:["safety"]},
+  {term:"ROAD RAGE",phonetic:"[roʊd reɪdʒ]",it:"AGGRESSIVITÀ ALLA GUIDA",def:"Comportamento aggressivo o violento alla guida. Reato penale in Florida.",example:"ROAD RAGE includes deliberate ramming = Il road rage include tamponamenti deliberati.",tags:["safety","law"]},
+];
+
+// Guided reading questions — real exam-style with annotations
+const GUIDED_QUESTIONS = [
+  {en:"You <kw>must</kw> yield the <kw>right of way</kw> to pedestrians at any <kw>crosswalk</kw>, whether marked or unmarked. What does this mean?",
+   kws:[{en:"MUST",it:"DEVI (obbligo)"},{ en:"YIELD",it:"CEDERE il passo"},{en:"RIGHT OF WAY",it:"PRECEDENZA"},{en:"CROSSWALK",it:"ATTRAVERSAMENTO pedonale"},{en:"UNMARKED",it:"NON SEGNALATO"}],
+   it:"Sei OBBLIGATO a dare la precedenza ai pedoni a QUALSIASI attraversamento — anche dove non ci sono le strisce bianche."},
+  {en:"A driver <kwneg>must not</kwneg> pass another vehicle <kwneg>unless</kwneg> the passing can be completed safely and without interfering with oncoming traffic.",
+   kws:[{en:"MUST NOT",it:"VIETATO"},{en:"UNLESS",it:"A MENO CHE"},{en:"COMPLETED SAFELY",it:"COMPLETATO IN SICUREZZA"},{en:"ONCOMING",it:"IN ARRIVO / OPPOSTO"}],
+   it:"È VIETATO superare un'altro veicolo A MENO CHE tu possa farlo in sicurezza senza interferire con il traffico che viene dal senso opposto."},
+  {en:"When <kw>implied consent</kw> applies and a driver <kwneg>refuses</kwneg> a lawful breath test for the <kw>first time</kw>, what is the automatic consequence?",
+   kws:[{en:"IMPLIED CONSENT",it:"CONSENSO IMPLICITO"},{en:"REFUSES",it:"RIFIUTA"},{en:"LAWFUL",it:"LEGITTIMO / LEGALE"},{en:"AUTOMATIC",it:"AUTOMATICA (senza giudice)"}],
+   it:"Con il CONSENSO IMPLICITO, se RIFIUTI il test del respiro per la prima volta, la patente viene sospesa AUTOMATICAMENTE per 1 anno."},
+  {en:"On a two-lane road, all traffic in both <kw>directions</kw> <kw>must</kw> stop when a school bus displays flashing red lights and an extended stop arm, <kwneg>except</kwneg> on a <kw>divided highway</kw> with a physical barrier.",
+   kws:[{en:"BOTH DIRECTIONS",it:"ENTRAMBE le direzioni"},{en:"MUST STOP",it:"DEVE FERMARSI (obbligo)"},{en:"EXCEPT",it:"TRANNE / AD ECCEZIONE"},{en:"DIVIDED HIGHWAY",it:"AUTOSTRADA DIVISA"},{en:"PHYSICAL BARRIER",it:"BARRIERA FISICA / SPARTITRAFFICO"}],
+   it:"Su una strada a due corsie TUTTI devono fermarsi per lo scuolabus — sia davanti che dietro — TRANNE su un'autostrada divisa da una barriera fisica."},
+  {en:"Florida's <kw>Move Over Law</kw> <kw>requires</kw> drivers to move over one lane or reduce speed by 20 mph below the <kw>posted speed limit</kw> when passing stopped emergency vehicles with activated lights.",
+   kws:[{en:"REQUIRES",it:"RICHIEDE (obbligo)"},{en:"MOVE OVER",it:"SPOSTARSI di corsia"},{en:"REDUCE SPEED",it:"RIDURRE la velocità"},{en:"POSTED SPEED LIMIT",it:"LIMITE SEGNALATO (sul cartello)"},{en:"ACTIVATED LIGHTS",it:"LUCI ACCESE"}],
+   it:"La legge Move Over ti OBBLIGA a spostarti di una corsia OPPURE ridurre di 20 mph sotto il LIMITE SUL CARTELLO quando passi veicoli di emergenza fermi con luci accese."},
+  {en:"A driver's license <kwneg>suspension</kwneg> differs from a <kwneg>revocation</kwneg> in that a suspension is temporary, while a revocation <kw>requires</kw> the driver to reapply for a new license.",
+   kws:[{en:"SUSPENSION",it:"SOSPENSIONE (temporanea)"},{en:"REVOCATION",it:"REVOCA (permanente)"},{en:"TEMPORARY",it:"TEMPORANEA"},{en:"REAPPLY",it:"FARE NUOVA DOMANDA"}],
+   it:"La SOSPENSIONE è temporanea — finito il periodo riprendi la patente. La REVOCA è permanente — devi rifare domanda da capo."},
+  {en:"Under Florida's <kw>implied consent</kw> law, a driver who <kwneg>refuses</kwneg> a chemical test for the second time commits a first-degree <kwneg>misdemeanor</kwneg> and faces an 18-month license <kwneg>suspension</kwneg>.",
+   kws:[{en:"REFUSES",it:"RIFIUTA"},{en:"SECOND TIME",it:"SECONDA VOLTA"},{en:"FIRST-DEGREE",it:"DI PRIMO GRADO (più grave)"},{en:"MISDEMEANOR",it:"REATO MINORE"},{en:"18-MONTH",it:"18 MESI"}],
+   it:"Se RIFIUTI il test per la SECONDA volta, commetti un REATO MINORE di 1° grado e la patente viene sospesa per 18 MESI."},
+  {en:"You <kw>must</kw> signal at least 100 feet before turning on city streets and at least 200 feet before turning on highways, <kwneg>unless</kwneg> an emergency prevents you from doing so.",
+   kws:[{en:"SIGNAL",it:"SEGNALARE (freccia)"},{en:"AT LEAST",it:"ALMENO"},{en:"100 FEET",it:"100 PIEDI (~30 metri)"},{en:"HIGHWAYS",it:"AUTOSTRADE"},{en:"UNLESS",it:"A MENO CHE"}],
+   it:"Devi SEGNALARE ALMENO 100 piedi prima di svoltare in città, 200 piedi in autostrada — A MENO CHE un'emergenza non te lo impedisca."},
+  {en:"A <kw>BAC</kw> of 0.08% or higher creates a legal <kw>presumption</kw> of impairment in Florida, but a driver <kw>may</kw> still be charged with <kw>DUI</kw> at lower levels if normal faculties are visibly impaired.",
+   kws:[{en:"BAC",it:"TASSO ALCOLEMICO"},{en:"PRESUMPTION",it:"PRESUNZIONE (si assume automaticamente)"},{en:"MAY",it:"PUÒ (possibilità)"},{en:"NORMAL FACULTIES",it:"NORMALI FACOLTÀ (capacità mentali/fisiche)"}],
+   it:"Con BAC ≥0.08% sei AUTOMATICAMENTE in DUI. Ma PUOI essere accusato di DUI anche con BAC inferiore se le tue NORMALI CAPACITÀ sono visibilmente compromesse."},
+  {en:"On a <kw>divided highway</kw>, you are <kwneg>not required</kwneg> to stop for a school bus picking up or dropping off children if you are traveling in the <kw>opposite direction</kw> and there is a physical <kw>median</kw> separating traffic.",
+   kws:[{en:"DIVIDED HIGHWAY",it:"AUTOSTRADA DIVISA"},{en:"NOT REQUIRED",it:"NON OBBLIGATORIO"},{en:"OPPOSITE DIRECTION",it:"DIREZIONE OPPOSTA"},{en:"PHYSICAL MEDIAN",it:"SPARTITRAFFICO FISICO"}],
+   it:"Su un'AUTOSTRADA DIVISA NON SEI OBBLIGATO a fermarti per lo scuolabus se stai viaggiando nella DIREZIONE OPPOSTA con uno SPARTITRAFFICO FISICO in mezzo."},
+];
+
+// ── ENGLISH MODULE JS ─────────────────────────────────────────────────────────
+function initEnglishModule() {
+  // Glossary
+  renderGlossary("");
+  document.getElementById("glossary-search").addEventListener("input", function() {
+    renderGlossary(this.value.toLowerCase().trim());
+  });
+
+  // Sub-tabs
+  document.querySelectorAll(".eng-tab").forEach(tab => {
+    tab.addEventListener("click", () => {
+      document.querySelectorAll(".eng-tab").forEach(t => t.classList.remove("active"));
+      tab.classList.add("active");
+      document.getElementById("eng-glossary").style.display = "none";
+      document.getElementById("eng-grammar").style.display = "none";
+      document.getElementById("eng-guided").style.display = "none";
+      document.getElementById("eng-" + tab.dataset.eng).style.display = "block";
+      if(tab.dataset.eng === "guided") renderGuidedQ(0);
+    });
+  });
+
+  // Guided reading
+  let guidedIdx = 0;
+  renderGuidedQ(0);
+  document.getElementById("guided-next").addEventListener("click", () => {
+    guidedIdx = Math.min(guidedIdx + 1, GUIDED_QUESTIONS.length - 1);
+    renderGuidedQ(guidedIdx);
+  });
+  document.getElementById("guided-prev").addEventListener("click", () => {
+    guidedIdx = Math.max(guidedIdx - 1, 0);
+    renderGuidedQ(guidedIdx);
+  });
+}
+
+function renderGlossary(filter) {
+  const list = document.getElementById("glossary-list");
+  const filtered = filter
+    ? GLOSSARY.filter(g =>
+        g.term.toLowerCase().includes(filter) ||
+        g.it.toLowerCase().includes(filter) ||
+        g.def.toLowerCase().includes(filter) ||
+        (g.tags||[]).some(t=>t.includes(filter))
+      )
+    : GLOSSARY;
+
+  if(!filtered.length) {
+    list.innerHTML = '<div class="no-data">Nessun termine trovato.</div>';
+    return;
+  }
+  list.innerHTML = filtered.map(g => `
+    <div class="glossary-item">
+      <div class="gi-tags">${(g.tags||[]).map(t=>`<span class="gi-tag ${t}">${t}</span>`).join("")}</div>
+      <div class="gi-term">${g.term}</div>
+      <div class="gi-phonetic">${g.phonetic}</div>
+      <div class="gi-it">${g.it}</div>
+      <div class="gi-def">${g.def}</div>
+      <div class="gi-example">&#128161; ${g.example}</div>
+    </div>
+  `).join("");
+}
+
+function renderGuidedQ(idx) {
+  const q = GUIDED_QUESTIONS[idx];
+  if(!q) return;
+  document.getElementById("guided-counter").textContent = "Domanda " + (idx+1) + " di " + GUIDED_QUESTIONS.length;
+
+  // Render EN with highlights
+  let enHtml = q.en
+    .replace(/<kw>(.*?)<\/kw>/g, '<span class="kw">$1</span>')
+    .replace(/<kwneg>(.*?)<\/kwneg>/g, '<span class="kwneg">$1</span>');
+  document.getElementById("guided-en").innerHTML = enHtml;
+
+  // Keywords
+  document.getElementById("guided-kw").innerHTML = (q.kws||[]).map(k =>
+    `<div class="kw-pill"><b>${k.en}</b> = ${k.it}</div>`
+  ).join("");
+
+  // Italian
+  document.getElementById("guided-it").textContent = q.it;
+
+  // Nav buttons
+  document.getElementById("guided-prev").disabled = idx === 0;
+  document.getElementById("guided-next").textContent = idx === GUIDED_QUESTIONS.length-1 ? "&#10003; Fine" : "Succ. \u2192";
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+// ── ENGLISH MODULE ────────────────────────────────────────────────────────────
+
+const GLOSSARY2 = [
+  // VERBI CHIAVE
+  {term:"MUST",cat:"verbi",it:"deve / è obbligatorio",context:"Indica un obbligo legale assoluto. Non ci sono eccezioni. Nel linguaggio dell'esame, MUST e SHALL sono equivalenti.",example:{en:"You <em>must</em> stop when a school bus has flashing red lights.",it:"Devi fermarti obbligatoriamente quando lo scuolabus ha le luci rosse lampeggianti."}},
+  {term:"MAY",cat:"verbi",it:"può / è permesso",context:"Indica una possibilità o permesso — non un obbligo. Spesso seguito da una condizione ('may... when...').",example:{en:"You <em>may</em> pass on the right when the vehicle ahead is turning left.",it:"Puoi sorpassare a destra quando il veicolo davanti svolta a sinistra."}},
+  {term:"SHOULD",cat:"verbi",it:"dovrebbe / è raccomandato",context:"Raccomandazione, non obbligo. Indica la pratica migliore ma non una legge.",example:{en:"You <em>should</em> increase your following distance in rain.",it:"Dovresti aumentare la distanza di sicurezza sotto la pioggia."}},
+  {term:"SHALL",cat:"verbi",it:"deve (linguaggio legale)",context:"Equivale a MUST nel linguaggio giuridico. Usato nelle leggi e regolamenti ufficiali.",example:{en:"The driver <em>shall</em> yield to all pedestrians in a crosswalk.",it:"Il conducente deve cedere a tutti i pedoni nell'attraversamento."}},
+  {term:"YIELD",cat:"verbi",it:"cedere la precedenza",context:"Rallentare o fermarsi per dare la precedenza ad altri veicoli o pedoni. Non è uno stop completo obbligatorio.",example:{en:"You must <em>yield</em> to oncoming traffic when turning left.",it:"Devi cedere la precedenza al traffico in arrivo quando svolti a sinistra."}},
+  {term:"UNLESS",cat:"verbi",it:"a meno che / eccetto quando",context:"ATTENZIONE: inverte il significato! Indica l'unica eccezione alla regola.",example:{en:"You must use headlights <em>unless</em> it is daylight and visibility is clear.",it:"Devi usare i fari, a meno che non sia giorno e la visibilità sia buona."}},
+  {term:"EXCEPT",cat:"verbi",it:"tranne / ad eccezione di",context:"Come UNLESS, indica un'eccezione. Spesso introduce l'unico caso in cui la regola non si applica.",example:{en:"Stay in the right lane <em>except</em> when passing.",it:"Rimani nella corsia destra, tranne quando sorpassi."}},
+  // SEGNALI
+  {term:"YIELD sign",cat:"segnali",it:"segnale di precedenza",context:"Triangolo rovesciato rosso e bianco. Rallenta e cedi il passo — fermati solo se necessario.",example:{en:"A <em>yield sign</em> means slow down and give the right of way.",it:"Un segnale YIELD significa rallentare e cedere la precedenza."}},
+  {term:"RIGHT-OF-WAY",cat:"segnali",it:"diritto di passaggio / precedenza",context:"Il diritto legale di procedere prima degli altri. Si 'cede' (yield) o si 'ha' (have) il right-of-way.",example:{en:"Pedestrians always have the <em>right-of-way</em> in a crosswalk.",it:"I pedoni hanno sempre la precedenza nell'attraversamento pedonale."}},
+  {term:"FLASHING",cat:"segnali",it:"lampeggiante",context:"Flashing RED = trattalo come uno STOP. Flashing YELLOW = procedi con cautela.",example:{en:"A <em>flashing</em> red light must be treated as a stop sign.",it:"Un semaforo rosso lampeggiante va trattato come uno stop."}},
+  {term:"POSTED speed limit",cat:"segnali",it:"limite di velocità segnalato",context:"Il limite indicato dal cartello. 'Unless otherwise posted' = salvo diversa indicazione del cartello.",example:{en:"The <em>posted</em> speed limit on this road is 45 mph.",it:"Il limite di velocità segnalato su questa strada è 45 mph."}},
+  {term:"RIGHT-OF-WAY",cat:"segnali",it:"precedenza",context:"Chi ha il diritto di passare per primo. Si 'cede' o si 'ha' la precedenza.",example:{en:"You must yield the <em>right-of-way</em> to emergency vehicles.",it:"Devi cedere la precedenza ai veicoli di emergenza."}},
+  {term:"NO PASSING ZONE",cat:"segnali",it:"zona di divieto di sorpasso",context:"Indicata da una pennant (bandierina) gialla o da una linea gialla continua sul tuo lato.",example:{en:"You may not pass in a <em>no passing zone</em>.",it:"Non puoi sorpassare in una zona di divieto di sorpasso."}},
+  // LEGGE
+  {term:"IMPLIED CONSENT",cat:"legge",it:"consenso implicito",context:"Guidando in Florida hai già acconsentito a fare il test chimico (respiro/sangue/urina) se arrestato per DUI. Rifiutarlo causa sospensione automatica.",example:{en:"Under Florida's <em>implied consent</em> law, refusing a breath test suspends your license.",it:"Secondo la legge del consenso implicito, rifiutare il test del respiro sospende la patente."}},
+  {term:"REVOCATION",cat:"legge",it:"revoca (definitiva)",context:"La patente viene cancellata — devi rifare domanda da zero. Più grave della sospensione.",example:{en:"A third DUI can result in <em>revocation</em> of your license for 10 years.",it:"Un terzo DUI può comportare la revoca della patente per 10 anni."}},
+  {term:"SUSPENSION",cat:"legge",it:"sospensione (temporanea)",context:"La patente è temporaneamente ritirata. Diverso dalla revoca — la patente torna automaticamente.",example:{en:"Accumulating 12 points in 12 months results in a 30-day <em>suspension</em>.",it:"Accumulare 12 punti in 12 mesi comporta una sospensione di 30 giorni."}},
+  {term:"RIGHT OF WAY",cat:"legge",it:"diritto di precedenza",context:"Chi ha il diritto legale di procedere per primo in una data situazione.",example:{en:"At an uncontrolled intersection, yield the <em>right of way</em> to vehicles on your right.",it:"A un incrocio non controllato, cedi la precedenza ai veicoli alla tua destra."}},
+  {term:"RECKLESS DRIVING",cat:"legge",it:"guida spericolata (reato penale)",context:"Guidare con disprezzo volontario per la sicurezza altrui. È un reato penale, non solo un'infrazione.",example:{en:"<em>Reckless driving</em> carries up to 90 days in jail for a first offense.",it:"La guida spericolata prevede fino a 90 giorni di carcere per la prima infrazione."}},
+  {term:"CARELESS DRIVING",cat:"legge",it:"guida imprudente (infrazione)",context:"Meno grave della guida spericolata. Non c'è intenzione, ma manca la dovuta attenzione.",example:{en:"Failing to maintain your lane may result in a <em>careless driving</em> citation.",it:"Non mantenere la corsia può risultare in una citazione per guida imprudente."}},
+  {term:"POINTS",cat:"legge",it:"punti (sul casellario)",context:"Sistema di penalità Florida. Si accumulano sul casellario — troppi causano sospensione.",example:{en:"Speeding results in 3 <em>points</em> on your driving record.",it:"Eccesso di velocità aggiunge 3 punti al tuo casellario."}},
+  {term:"RIGHT-OF-WAY",cat:"legge",it:"precedenza",context:"Il diritto di procedere per primo. Può essere 'ceduto' (yielded) ma non può essere 'preso' con la forza.",example:{en:"Never assume you have the <em>right-of-way</em> — always make sure it is safe.",it:"Non dare mai per scontato di avere la precedenza — assicurati sempre che sia sicuro."}},
+  // ALCOL / DUI
+  {term:"DUI",cat:"alcol",it:"guida in stato di ebbrezza",context:"Driving Under the Influence. In Florida si applica con BAC ≥ 0.08% OPPURE se le normali facoltà sono compromesse.",example:{en:"A first <em>DUI</em> in Florida carries fines of $500-$1,000.",it:"Un primo DUI in Florida prevede multe da $500 a $1.000."}},
+  {term:"BAC",cat:"alcol",it:"tasso alcolemico nel sangue",context:"Blood Alcohol Concentration. Misura la percentuale di alcol nel sangue. Limite adulti: 0.08%.",example:{en:"A <em>BAC</em> of 0.08% or higher is considered legally impaired in Florida.",it:"Un BAC di 0.08% o superiore è considerato legalmente compromesso in Florida."}},
+  {term:"IID / Ignition Interlock",cat:"alcol",it:"alcolimetro sul volante",context:"Dispositivo installato sull'auto dopo un DUI. Devi soffiare prima di avviare — se rileva alcol, l'auto non parte.",example:{en:"After a DUI with BAC over 0.15%, an <em>IID</em> is required.",it:"Dopo un DUI con BAC superiore a 0.15%, è obbligatorio l'IID."}},
+  {term:"IMPAIRED",cat:"alcol",it:"compromesso / sotto l'effetto",context:"Quando alcol o droghe compromettono la capacità di guidare normalmente. Puoi essere 'impaired' anche sotto 0.08%.",example:{en:"You can be charged with DUI even if <em>impaired</em> below 0.08% BAC.",it:"Puoi essere accusato di DUI anche se sei compromesso sotto il 0.08% BAC."}},
+  {term:"OPEN CONTAINER",cat:"alcol",it:"contenitore aperto (di alcol)",context:"È illegale avere una bottiglia/lattina di alcol aperta nell'abitacolo — anche per i passeggeri.",example:{en:"Florida law prohibits <em>open containers</em> of alcohol in a vehicle.",it:"La legge Florida proibisce i contenitori aperti di alcol in un veicolo."}},
+  // PATENTE
+  {term:"GDL",cat:"patente",it:"patente graduata (per giovani)",context:"Graduated Driver Licensing. Sistema a fasi per guidatori 15-18 anni: Learner → Restricted → Full.",example:{en:"The <em>GDL</em> system requires 50 hours of supervised driving.",it:"Il sistema GDL richiede 50 ore di guida supervisionata."}},
+  {term:"PIP",cat:"patente",it:"protezione lesioni personali",context:"Personal Injury Protection. Assicurazione obbligatoria in Florida ($10.000 min). Copre le TUE spese mediche indipendentemente dalla colpa.",example:{en:"Florida requires at least $10,000 in <em>PIP</em> coverage.",it:"La Florida richiede almeno $10.000 di copertura PIP."}},
+  {term:"FR-44",cat:"patente",it:"assicurazione post-DUI",context:"Assicurazione speciale richiesta dopo un DUI — molto più costosa dell'SR-22. Copertura $100k/$300k BI + $50k PDL.",example:{en:"After a DUI conviction, you must file an <em>FR-44</em> for 3 years.",it:"Dopo una condanna DUI, devi presentare un FR-44 per 3 anni."}},
+  {term:"NO-FAULT state",cat:"patente",it:"stato senza colpa (assicurazione)",context:"In Florida, la tua assicurazione paga le TUE spese mediche indipendentemente da chi ha causato l'incidente.",example:{en:"Florida is a <em>no-fault</em> state — your PIP covers your own injuries.",it:"La Florida è uno stato no-fault — il tuo PIP copre le tue lesioni."}},
+  // STRADA
+  {term:"SHOULDER",cat:"strada",it:"banchina / corsia d'emergenza",context:"La parte laterale della strada fuori dalle corsie di traffico. Si usa per emergenze, non per guidare normalmente.",example:{en:"Pull onto the <em>shoulder</em> if your vehicle breaks down.",it:"Accosta sulla banchina se il tuo veicolo si guasta."}},
+  {term:"MEDIAN",cat:"strada",it:"spartitraffico / mediano",context:"La striscia centrale che divide le corsie di sensi opposti. Su strade 'divided' con mediano fisico, lo scuolabus rule cambia.",example:{en:"On a divided highway with a <em>median</em>, stop only for buses on your side.",it:"Su un'autostrada divisa con mediano, fermati solo per gli autobus sul tuo lato."}},
+  {term:"CROSSWALK",cat:"strada",it:"attraversamento pedonale",context:"Può essere segnalato (strisce bianche) o non segnalato (estensione del marciapiede all'incrocio). Devi cedere in entrambi i casi.",example:{en:"Pedestrians have the right-of-way in any <em>crosswalk</em>.",it:"I pedoni hanno la precedenza in qualsiasi attraversamento pedonale."}},
+  {term:"RIGHT LANE",cat:"strada",it:"corsia di destra",context:"In Florida (come in tutti gli USA) si guida a destra. La corsia di destra è quella normale; la sinistra è per sorpassare.",example:{en:"Keep right except to pass — stay in the <em>right lane</em> normally.",it:"Tieniti a destra tranne per sorpassare — normalmente rimani nella corsia di destra."}},
+  {term:"FOLLOWING DISTANCE",cat:"strada",it:"distanza di sicurezza",context:"Lo spazio tra te e il veicolo davanti. Regola dei 3 secondi in condizioni normali — aumenta con pioggia, notte, stanchezza.",example:{en:"Maintain a 3-second <em>following distance</em> under normal conditions.",it:"Mantieni una distanza di 3 secondi in condizioni normali."}},
+  {term:"HYDROPLANING",cat:"strada",it:"aquaplaning",context:"Le gomme perdono contatto con la strada su un film d'acqua. Non frenare bruscamente — togli il gas e tieni dritto.",example:{en:"<em>Hydroplaning</em> can occur at speeds as low as 35 mph on wet roads.",it:"L'aquaplaning può verificarsi a velocità basse come 35 mph su strade bagnate."}},
+];
+
+// ── GLOSSARY RENDER ───────────────────────────────────────────────────────────
+let glossFilter = "all";
+let glossSearch = "";
+
+function renderGlossary() {
+  const grid = document.getElementById("gloss-grid");
+  const terms = GLOSSARY2.filter(t => {
+    const matchCat = glossFilter === "all" || t.cat === glossFilter;
+    const matchSearch = !glossSearch ||
+      t.term.toLowerCase().includes(glossSearch) ||
+      t.it.toLowerCase().includes(glossSearch) ||
+      (t.context && t.context.toLowerCase().includes(glossSearch));
+    return matchCat && matchSearch;
+  });
+
+  if(!terms.length) {
+    grid.innerHTML = '<div style="text-align:center;padding:30px;color:var(--gray);font-size:.85rem">Nessun termine trovato.</div>';
+    return;
+  }
+
+  grid.innerHTML = terms.map((t,i) => `
+    <div class="gloss-card" data-idx="${i}" onclick="toggleGlossCard(this)">
+      <div class="gloss-term">
+        <span>${t.term}</span>
+        <span class="cat-tag">${t.cat}</span>
+      </div>
+      <div class="gloss-it">${t.it}</div>
+      <div class="gloss-detail">
+        <div class="gloss-context">${t.context}</div>
+        ${t.example ? `<div class="gloss-example">
+          <div class="en">&#127468;&#127463; ${t.example.en}</div>
+          <div class="it">&#127470;&#127481; ${t.example.it}</div>
+        </div>` : ""}
+      </div>
+    </div>
+  `).join("");
+}
+
+function toggleGlossCard(el) {
+  el.classList.toggle("open");
+}
+
+document.getElementById("gloss-search").addEventListener("input", e => {
+  glossSearch = e.target.value.toLowerCase().trim();
+  renderGlossary();
+});
+
+document.getElementById("gloss-filter").addEventListener("click", e => {
+  const btn = e.target.closest(".gloss-filter-btn");
+  if(!btn) return;
+  document.querySelectorAll(".gloss-filter-btn").forEach(b=>b.classList.remove("active"));
+  btn.classList.add("active");
+  glossFilter = btn.dataset.cat;
+  renderGlossary();
+});
+
+// ── ENG SUB-TABS ──────────────────────────────────────────────────────────────
+document.querySelectorAll(".eng-tab-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".eng-tab-btn").forEach(b => {
+      b.style.background = "rgba(255,255,255,.07)";
+      b.style.color = "var(--gray)";
+      b.style.border = "1.5px solid rgba(255,255,255,.12)";
+    });
+    btn.style.background = "var(--gold)";
+    btn.style.color = "var(--navy)";
+    btn.style.border = "none";
+    const target = btn.dataset.eng;
+    document.getElementById("eng-glossary").style.display = target==="glossary"?"block":"none";
+    document.getElementById("eng-decode").style.display = target==="decode"?"block":"none";
+    document.getElementById("eng-training").style.display = target==="training"?"block":"none";
+    if(target === "training" && !trQuiz.length) initTraining();
+  });
+});
+
+// ── TRAINING MODE ─────────────────────────────────────────────────────────────
+let trQuiz=[], trCur=0, trScore=0;
+
+function initTraining() {
+  trQuiz = shuffle([...QUESTIONS]).slice(0, 20).map(q=>Object.assign({},q,{_shuffled:false}));
+  trCur = 0; trScore = 0;
+  document.getElementById("tr-tot").textContent = trQuiz.length;
+  renderTrainQ();
+}
+
+function renderTrainQ() {
+  const q = trQuiz[trCur];
+  document.getElementById("tr-cur").textContent = trCur + 1;
+  document.getElementById("tr-score").textContent = trScore;
+
+  // Shuffle options
+  if(!q._shuffled) {
+    const idx=[0,1,2,3].slice(0,q.options.length);
+    for(let i=idx.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[idx[i],idx[j]]=[idx[j],idx[i]];}
+    q._shuffledOptions=idx.map(i=>q.options[i]);
+    q._shuffledCorrect=idx.indexOf(q.correct);
+    q._shuffled=true;
+  }
+
+  // Show Italian question first
+  document.getElementById("tr-q-it").textContent = q.it;
+  const enEl = document.getElementById("tr-q-en");
+  enEl.textContent = q.en;
+  enEl.classList.remove("show");
+  document.getElementById("btn-show-en").style.display = "block";
+
+  // Options — show both EN and IT
+  const optsEl = document.getElementById("tr-opts");
+  optsEl.innerHTML = q._shuffledOptions.map((o,i) =>
+    `<button class="train-opt" data-idx="${i}" onclick="selectTrainAnswer(${i})">
+      <span class="opt-en">${o.en}</span>
+      <span class="opt-it">${o.it}</span>
+    </button>`
+  ).join("");
+
+  document.getElementById("tr-feedback").className = "feedback-box";
+  document.getElementById("tr-feedback").textContent = "";
+  document.getElementById("tr-nav").style.display = "none";
+}
+
+function selectTrainAnswer(idx) {
+  const q = trQuiz[trCur];
+  document.querySelectorAll(".train-opt").forEach(b=>b.setAttribute("disabled","true"));
+  const btns = document.querySelectorAll(".train-opt");
+  const correct = q._shuffledCorrect;
+  const isRight = idx === correct;
+  btns[correct].classList.add("correct");
+  if(!isRight) btns[idx].classList.add("wrong");
+  if(isRight) trScore++;
+  document.getElementById("tr-score").textContent = trScore;
+
+  const fb = document.getElementById("tr-feedback");
+  fb.className = "feedback-box show " + (isRight?"ok":"ko");
+  fb.innerHTML = "<b>" + (isRight?"✅ Corretto!":"❌ Sbagliato.") + "</b><br>" + q.explain_en + "<br><em>" + q.explain_it + "</em>";
+
+  const nav = document.getElementById("tr-nav");
+  nav.style.display = "flex";
+  document.getElementById("btn-next-train").textContent =
+    trCur === trQuiz.length-1 ? "&#127881; Risultati" : "Prossima &#8594;";
+}
+
+document.getElementById("btn-show-en").addEventListener("click", () => {
+  document.getElementById("tr-q-en").classList.add("show");
+  document.getElementById("btn-show-en").style.display = "none";
+});
+
+document.getElementById("btn-next-train").addEventListener("click", () => {
+  trCur++;
+  if(trCur >= trQuiz.length) {
+    const pct = Math.round(trScore/trQuiz.length*100);
+    document.getElementById("train-card").innerHTML = `
+      <div style="text-align:center;padding:20px 0">
+        <div style="font-size:2.5rem;margin-bottom:12px">${pct>=80?"🎉":"📚"}</div>
+        <div style="font-family:'Oswald',sans-serif;font-size:1.5rem;color:var(--gold);margin-bottom:8px">
+          ${pct}% — ${trScore}/${trQuiz.length} corrette
+        </div>
+        <div style="font-size:.85rem;color:var(--light);margin-bottom:20px">
+          ${pct>=80?"Ottimo! Pronto per il test in inglese.":"Continua ad allenarti — riprova!"}
+        </div>
+        <button onclick="restartTraining()" style="background:var(--gold);color:var(--navy);border:none;border-radius:10px;padding:14px 28px;font-family:'Oswald',sans-serif;font-size:1rem;font-weight:700;cursor:pointer">&#8635; Ricomincia</button>
+      </div>`;
+    return;
+  }
+  renderTrainQ();
+  window.scrollTo({top:document.getElementById("train-card").offsetTop-80,behavior:"smooth"});
+});
+
+function restartTraining() {
+  document.getElementById("train-card").innerHTML = `
+    <div class="train-q-it" id="tr-q-it"></div>
+    <button class="btn-show-en" id="btn-show-en">&#128064; Vedi domanda in inglese</button>
+    <div class="train-q-en" id="tr-q-en"></div>
+    <div class="train-opts" id="tr-opts"></div>
+    <div class="feedback-box" id="tr-feedback"></div>
+    <div class="train-nav" id="tr-nav" style="display:none">
+      <button class="btn-next-train" id="btn-next-train">Prossima &#8594;</button>
+    </div>`;
+  document.getElementById("btn-show-en").addEventListener("click",()=>{
+    document.getElementById("tr-q-en").classList.add("show");
+    document.getElementById("btn-show-en").style.display="none";
+  });
+  document.getElementById("btn-next-train").addEventListener("click",()=>{
+    trCur++;
+    if(trCur>=trQuiz.length){const pct=Math.round(trScore/trQuiz.length*100);document.getElementById("train-card").innerHTML=`<div style="text-align:center;padding:20px 0"><div style="font-size:2.5rem;margin-bottom:12px">${pct>=80?"🎉":"📚"}</div><div style="font-family:'Oswald',sans-serif;font-size:1.5rem;color:var(--gold);margin-bottom:8px">${pct}% — ${trScore}/${trQuiz.length} corrette</div><button onclick="restartTraining()" style="background:var(--gold);color:var(--navy);border:none;border-radius:10px;padding:14px 28px;font-family:'Oswald',sans-serif;font-size:1rem;font-weight:700;cursor:pointer">&#8635; Ricomincia</button></div>`;return;}
+    renderTrainQ();
+  });
+  initTraining();
+}
+
+// Init glossary on load
+renderGlossary();
 
 const CAT_LABELS={signs:"Signs",laws:"Laws",safety:"Safety",alcohol:"DUI",license:"License"};
 const CAT_IT={signs:"Segnaletica",laws:"Norme",safety:"Sicurezza",alcohol:"DUI/Alcol",license:"Patente"};
@@ -1511,6 +2300,7 @@ document.querySelectorAll(".mode-tab").forEach(tab=>{
     const target = tab.dataset.tab;
     showScreen(target);
     if(target === "progress-screen") renderProgressScreen();
+    if(target === "english-screen") initEnglishModule();
   });
 });
 
